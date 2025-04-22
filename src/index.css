@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -104,7 +103,7 @@
 
 @layer components {
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
   
   .section-heading {
@@ -120,18 +119,89 @@
   }
   
   .portfolio-button-primary {
-    @apply portfolio-button bg-portfolio-accent text-white hover:bg-opacity-90;
+    @apply portfolio-button bg-portfolio-accent text-white hover:bg-opacity-90 shadow-md hover:shadow-lg;
   }
   
   .portfolio-button-outline {
-    @apply portfolio-button border-2 border-portfolio-accent text-portfolio-accent hover:bg-portfolio-accent hover:text-white;
+    @apply portfolio-button border-2 border-portfolio-accent text-portfolio-accent hover:bg-portfolio-accent hover:text-white shadow-sm hover:shadow-md;
   }
   
   .nav-link {
-    @apply text-portfolio-text-dark hover:text-portfolio-accent transition-colors duration-300;
+    @apply relative text-portfolio-text-dark hover:text-portfolio-accent transition-colors duration-300 after:absolute after:w-full after:h-0.5 after:bg-portfolio-accent after:bottom-[-4px] after:left-0 after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100;
   }
   
   .nav-link.active {
-    @apply text-portfolio-accent;
+    @apply text-portfolio-accent after:scale-x-100;
   }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.8s ease-out forwards;
+}
+
+.section-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
