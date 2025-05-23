@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useEffect, useCallback } from 'react';
 import { ExternalLink, Search } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
@@ -7,6 +8,7 @@ import { renderIcon } from '@/utils/iconMappings';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { toast } from '@/hooks/use-toast';
 
 type SortOption = 'newest' | 'alphabetical';
 
@@ -15,62 +17,77 @@ const Portfolio = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [sortOption, setSortOption] = useState<SortOption>('newest');
   const [filteredProjects, setFilteredProjects] = useState(allProjects);
+  const [isFiltering, setIsFiltering] = useState(false);
   
   const categories = getAllCategories();
 
   // Filter and sort projects whenever filters change
   useEffect(() => {
-    let result = [...allProjects];
+    setIsFiltering(true);
     
-    // Filter by category
-    if (selectedCategory !== 'all') {
-      result = result.filter(project => {
-        if (Array.isArray(project.category)) {
-          return project.category.some(cat => 
-            cat.toLowerCase().replace(/\s+/g, '-') === selectedCategory
-          );
-        }
-        return typeof project.category === 'string' && 
-          project.category.toLowerCase().replace(/\s+/g, '-') === selectedCategory;
-      });
-    }
+    // Add a small delay to show the animation
+    const filterTimer = setTimeout(() => {
+      let result = [...allProjects];
+      
+      // Filter by category
+      if (selectedCategory !== 'all') {
+        result = result.filter(project => {
+          if (Array.isArray(project.category)) {
+            return project.category.some(cat => 
+              cat.toLowerCase().replace(/\s+/g, '-') === selectedCategory
+            );
+          }
+          return typeof project.category === 'string' && 
+            project.category.toLowerCase().replace(/\s+/g, '-') === selectedCategory;
+        });
+      }
+      
+      // Filter by search query
+      if (searchQuery) {
+        const query = searchQuery.toLowerCase();
+        result = result.filter(project => 
+          project.title.toLowerCase().includes(query) ||
+          project.description.toLowerCase().includes(query) ||
+          (project.subtitle && project.subtitle.toLowerCase().includes(query)) ||
+          (Array.isArray(project.category) && project.category.some(cat => cat.toLowerCase().includes(query))) ||
+          (typeof project.category === 'string' && project.category.toLowerCase().includes(query)) ||
+          (project.tools && project.tools.some(tool => tool.toLowerCase().includes(query)))
+        );
+      }
+      
+      // Sort projects
+      if (sortOption === 'alphabetical') {
+        result.sort((a, b) => a.title.localeCompare(b.title));
+      } else if (sortOption === 'newest') {
+        // Assuming higher IDs are newer projects
+        result.sort((a, b) => b.id - a.id);
+      }
+      
+      setFilteredProjects(result);
+      setIsFiltering(false);
+    }, 300);
     
-    // Filter by search query
-    if (searchQuery) {
-      const query = searchQuery.toLowerCase();
-      result = result.filter(project => 
-        project.title.toLowerCase().includes(query) ||
-        project.description.toLowerCase().includes(query) ||
-        (project.subtitle && project.subtitle.toLowerCase().includes(query)) ||
-        (Array.isArray(project.category) && project.category.some(cat => cat.toLowerCase().includes(query))) ||
-        (typeof project.category === 'string' && project.category.toLowerCase().includes(query)) ||
-        (project.tools && project.tools.some(tool => tool.toLowerCase().includes(query)))
-      );
-    }
-    
-    // Sort projects
-    if (sortOption === 'alphabetical') {
-      result.sort((a, b) => a.title.localeCompare(b.title));
-    } else if (sortOption === 'newest') {
-      // Assuming higher IDs are newer projects
-      result.sort((a, b) => b.id - a.id);
-    }
-    
-    setFilteredProjects(result);
+    return () => clearTimeout(filterTimer);
   }, [selectedCategory, searchQuery, sortOption]);
 
   // Reset filters and scroll to portfolio section
-  const handleResetFilters = () => {
+  const handleResetFilters = useCallback(() => {
     setSelectedCategory('all');
     setSearchQuery('');
     setSortOption('newest');
+    
+    // Show a toast notification
+    toast({
+      title: "Filters reset",
+      description: "Showing all projects",
+    });
     
     // Scroll to portfolio section
     const portfolioSection = document.getElementById('portfolio');
     if (portfolioSection) {
       portfolioSection.scrollIntoView({ behavior: 'smooth' });
     }
-  };
+  }, []);
 
   return (
     <section id="portfolio" className="py-24 bg-portfolio-bg-light">
@@ -120,12 +137,12 @@ const Portfolio = () => {
             </div>
           </div>
           
-          <div className="flex flex-wrap justify-center gap-4 mb-6">
+          <div className="flex flex-wrap justify-center gap-2 mb-6">
             {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`px-5 py-2 rounded-full transition-all duration-300 ${
+                className={`px-4 py-2 rounded-full transition-all duration-300 text-sm ${
                   selectedCategory === category.id
                     ? 'bg-portfolio-accent text-white'
                     : 'bg-white text-portfolio-text-dark hover:bg-gray-100'
@@ -146,9 +163,11 @@ const Portfolio = () => {
           </div>
         </div>
         
-        {/* Projects Grid */}
+        {/* Projects Grid with improved responsive behavior */}
         {filteredProjects.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div 
+            className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 transition-opacity duration-300 ${isFiltering ? 'opacity-50' : 'opacity-100'}`}
+          >
             {filteredProjects.map((project, index) => (
               <Link 
                 to={`/project/${project.id}`} 
@@ -159,7 +178,7 @@ const Portfolio = () => {
                   className="bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl animate-fade-in opacity-0"
                   style={{ animationDelay: `${0.5 + index * 0.1}s`, animationFillMode: 'forwards' }}
                 >
-                  <div className="overflow-hidden h-64 relative">
+                  <div className="overflow-hidden h-60 sm:h-64 relative">
                     <img 
                       src={project.image} 
                       alt={project.title} 
@@ -175,7 +194,7 @@ const Portfolio = () => {
                       </Badge>
                     )}
                   </div>
-                  <CardHeader className="p-6 pb-0">
+                  <CardHeader className="p-4 sm:p-6 pb-0">
                     <div className="flex flex-wrap gap-2 mb-3">
                       {Array.isArray(project.category) ? (
                         project.category.map((cat, idx) => (
@@ -194,7 +213,7 @@ const Portfolio = () => {
                     <h3 className="text-xl font-bold text-portfolio-text-dark mb-1">{project.title}</h3>
                     {project.subtitle && <p className="text-portfolio-text-light text-sm mb-2">{project.subtitle}</p>}
                   </CardHeader>
-                  <CardContent className="p-6 pt-3">
+                  <CardContent className="p-4 sm:p-6 pt-3">
                     <p className="text-portfolio-text-light mb-4 line-clamp-3">{project.description}</p>
                     
                     {project.metrics && (
@@ -255,12 +274,12 @@ const Portfolio = () => {
         )}
         
         <div className="text-center mt-12 animate-fade-in opacity-0" style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}>
-          <button 
+          <Button 
             onClick={handleResetFilters}
             className="portfolio-button-primary transition-transform hover:scale-105 duration-300"
           >
             View All Projects
-          </button>
+          </Button>
         </div>
       </div>
     </section>
