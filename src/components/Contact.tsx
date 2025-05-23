@@ -69,6 +69,16 @@ const Contact = () => {
                 
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-blue-50 rounded-lg">
+                    <Phone size={24} className="text-portfolio-accent" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-portfolio-text-light">Phone</p>
+                    <p className="font-medium text-portfolio-text-dark">+1 (609) 816-XXXX</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-blue-50 rounded-lg">
                     <MapPin size={24} className="text-portfolio-accent" />
                   </div>
                   <div>
