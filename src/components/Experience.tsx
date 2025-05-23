@@ -1,33 +1,76 @@
 
 import React from 'react';
+import { Briefcase, MapPin, Calendar, TrendingUp, Users, Award } from 'lucide-react';
 
 const Experience = () => {
   const experiences = [
     {
-      title: 'Senior Product Designer',
-      company: 'TechCorp Inc.',
-      period: '2021 - Present',
-      description: 'Led the redesign of the company\'s flagship product, resulting in a 35% increase in user engagement. Managed a team of 3 designers and collaborated with product and engineering teams.',
-    },
-    {
-      title: 'UX Designer',
-      company: 'DesignStudio',
-      period: '2018 - 2021',
-      description: 'Designed user interfaces for various client projects across fintech, healthcare, and e-commerce sectors. Conducted user research and testing to inform design decisions.',
+      title: 'Senior Product & UI/UX Designer',
+      company: 'CYNC Software',
+      location: 'Tampa, FL',
+      period: 'Feb 2022 – Present',
+      description: 'As the lead designer at CYNC Software, I\'ve owned the end-to-end user experience for a suite of enterprise SaaS products in the commercial lending space. My work has focused on solving complex B2B workflows, improving usability across modules, and aligning design with product and business strategy.',
+      highlights: [
+        'Collaborated directly with the CEO, product managers, and developers to define product vision and prioritize features across modules such as Collateral, Exposure, Analytics, and Relationship Management.',
+        'Led user research and usability testing, applying journey mapping, surveys, and A/B testing to identify friction points and increase adoption.',
+        'Created interactive prototypes and wireframes using Adobe XD, translating research insights into scalable design solutions.',
+        'Built and maintained a modular design system, aligning UI components and brand standards across multiple product verticals.',
+        'Partnered with engineering to ensure seamless design-to-development handoff using Agile sprints and tools like Jira, Confluence, and Miro.',
+        'Ensured WCAG 2.2 accessibility compliance and responsive behavior across all devices.'
+      ],
+      impact: [
+        { metric: '20% increase in user engagement', icon: '🚀' },
+        { metric: '25% reduction in onboarding friction', icon: '⏱' },
+        { metric: '30% improvement in usability scores', icon: '🎯' },
+        { metric: '10% faster dev cycles', icon: '🔁' }
+      ],
+      tools: ['Figma', 'Adobe XD', 'Sketch', 'Google Analytics', 'Miro', 'Jira', 'Confluence', 'React', 'Angular', 'TypeScript', 'HTML5', 'CSS3', 'WCAG 2.2']
     },
     {
       title: 'UI/UX Designer',
-      company: 'CreativeAgency',
-      period: '2016 - 2018',
-      description: 'Created digital experiences for web and mobile applications. Worked closely with clients to understand requirements and deliver solutions that met their business goals.',
+      company: 'Bank of America',
+      location: 'New York, NY',
+      period: 'Nov 2018 – Feb 2022',
+      description: 'At Bank of America, I helped redefine digital banking workflows for millions of users through improved mobile and desktop experiences. I contributed to key product initiatives by applying research-backed design, accessibility, and cross-functional collaboration.',
+      highlights: [
+        'Designed and launched the Bill Payment feature for the bank\'s mobile app, resulting in a 25% increase in adoption.',
+        'Created user personas and journey maps, translating customer feedback into actionable design improvements.',
+        'Conducted usability testing, A/B experiments, and heatmap analysis to optimize interface structure and navigation.',
+        'Delivered high-fidelity prototypes aligned with BofA\'s design system and partnered with front-end teams using Angular, TypeScript, HTML5, and CSS3.',
+        'Led accessibility testing to ensure compliance with WCAG standards and make banking more inclusive for all users.'
+      ],
+      impact: [
+        { metric: '15% increase in task completion', icon: '📈' },
+        { metric: '10% reduction in drop-off rates', icon: '🔻' },
+        { metric: '20% lower redesign costs', icon: '💡' },
+        { metric: 'Full accessibility compliance', icon: '♿' }
+      ],
+      tools: ['Figma', 'Adobe XD', 'InVision', 'Sketch', 'Angular', 'TypeScript', 'Jira', 'Confluence', 'Google Analytics', 'Heatmaps', 'WCAG', 'User Research']
     },
+    {
+      title: 'Junior UI/UX Designer',
+      company: 'Innovative Design Studio',
+      location: 'Freelance',
+      period: 'Jan 2018 – Nov 2018',
+      description: 'I worked on multiple early-stage projects, contributing to research, UX flows, and UI visuals under the guidance of senior designers. This role gave me foundational hands-on experience in applying human-centered design principles to real client problems.',
+      highlights: [
+        'Created low-fidelity wireframes and prototypes for startup and nonprofit clients',
+        'Supported research through user interviews, surveys, and usability documentation',
+        'Collaborated in brainstorming sessions to shape product direction and features',
+        'Built UI assets and interactive prototypes using Sketch and Illustrator',
+        'Focused on mobile-first responsive design and visual hierarchy',
+        'Developed mini style guides and icon sets for client handoffs'
+      ],
+      impact: [],
+      tools: ['Sketch', 'Adobe Illustrator', 'Photoshop', 'User Surveys', 'Heuristic Evaluation', 'Wireframing', 'Agile Collaboration']
+    }
   ];
 
   return (
-    <section id="experience" className="py-24">
+    <section id="experience" className="py-24 bg-gray-50 dark:bg-gray-900">
       <div className="section-container">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="inline-block px-4 py-2 bg-blue-100 text-portfolio-accent rounded-full font-medium mb-4">
+          <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4">
             My Experience
           </span>
           <h2 className="section-heading">Work Experience</h2>
@@ -36,50 +79,98 @@ const Experience = () => {
           </p>
         </div>
         
-        <div className="max-w-3xl mx-auto">
-          <div className="relative">
-            <div className="absolute left-5 md:left-1/2 h-full w-0.5 bg-gray-200 transform -translate-x-1/2"></div>
-            
-            {experiences.map((exp, index) => (
-              <div 
-                key={index} 
-                className={`relative flex flex-col md:flex-row gap-8 md:gap-0 items-start mb-12 animate-fade-in`} 
-                style={{ animationDelay: `${0.2 * index}s` }}
-              >
-                <div className="md:w-1/2 md:text-right md:pr-12 order-2 md:order-1">
-                  {index % 2 === 0 ? (
-                    <>
-                      <h3 className="text-xl font-bold text-portfolio-text-dark">{exp.title}</h3>
-                      <p className="text-portfolio-accent font-medium">{exp.company}</p>
-                      <p className="text-portfolio-text-light mb-4">{exp.period}</p>
-                      <p className="text-gray-600">{exp.description}</p>
-                    </>
-                  ) : (
-                    <div className="hidden md:block" />
-                  )}
-                </div>
-                
-                <div className="z-10 order-1 md:order-2">
-                  <div className="w-10 h-10 bg-portfolio-accent rounded-full flex items-center justify-center text-white">
-                    {index + 1}
+        <div className="max-w-5xl mx-auto space-y-12">
+          {experiences.map((exp, index) => (
+            <div 
+              key={index}
+              className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in"
+              style={{ animationDelay: `${0.1 * index}s` }}
+            >
+              {/* Header */}
+              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Briefcase className="text-portfolio-accent" size={20} />
+                    <h3 className="text-2xl font-bold text-portfolio-text-dark dark:text-white">
+                      {exp.title}
+                    </h3>
+                  </div>
+                  <p className="text-xl text-portfolio-accent font-semibold mb-2">
+                    {exp.company}
+                  </p>
+                  <div className="flex flex-wrap items-center gap-4 text-portfolio-text-light dark:text-gray-300">
+                    <div className="flex items-center gap-1">
+                      <MapPin size={16} />
+                      <span>{exp.location}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Calendar size={16} />
+                      <span>{exp.period}</span>
+                    </div>
                   </div>
                 </div>
-                
-                <div className="md:w-1/2 md:pl-12 order-3">
-                  {index % 2 === 1 ? (
-                    <>
-                      <h3 className="text-xl font-bold text-portfolio-text-dark">{exp.title}</h3>
-                      <p className="text-portfolio-accent font-medium">{exp.company}</p>
-                      <p className="text-portfolio-text-light mb-4">{exp.period}</p>
-                      <p className="text-gray-600">{exp.description}</p>
-                    </>
-                  ) : (
-                    <div className="hidden md:block" />
-                  )}
+              </div>
+
+              {/* Description */}
+              <p className="text-portfolio-text-light dark:text-gray-300 mb-6 leading-relaxed">
+                {exp.description}
+              </p>
+
+              {/* Role Highlights */}
+              <div className="mb-6">
+                <h4 className="text-lg font-semibold text-portfolio-text-dark dark:text-white mb-4 flex items-center gap-2">
+                  <Users size={18} className="text-portfolio-accent" />
+                  Role Highlights
+                </h4>
+                <ul className="space-y-2">
+                  {exp.highlights.map((highlight, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-portfolio-text-light dark:text-gray-300">
+                      <span className="text-portfolio-accent text-sm mt-1.5">•</span>
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Impact Metrics */}
+              {exp.impact.length > 0 && (
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-portfolio-text-dark dark:text-white mb-4 flex items-center gap-2">
+                    <TrendingUp size={18} className="text-portfolio-accent" />
+                    Key Impact
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {exp.impact.map((item, idx) => (
+                      <div key={idx} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 text-center">
+                        <div className="text-2xl mb-2">{item.icon}</div>
+                        <p className="text-sm font-medium text-portfolio-text-dark dark:text-white">
+                          {item.metric}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Tools & Stack */}
+              <div>
+                <h4 className="text-lg font-semibold text-portfolio-text-dark dark:text-white mb-4 flex items-center gap-2">
+                  <Award size={18} className="text-portfolio-accent" />
+                  Tools & Stack
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {exp.tools.map((tool, idx) => (
+                    <span 
+                      key={idx}
+                      className="px-3 py-1 bg-portfolio-accent/10 text-portfolio-accent rounded-full text-sm font-medium"
+                    >
+                      {tool}
+                    </span>
+                  ))}
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
