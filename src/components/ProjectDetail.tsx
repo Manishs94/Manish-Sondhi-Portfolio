@@ -1,11 +1,9 @@
-
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, Users2, LineChart, Clock, Target, Users } from 'lucide-react';
+import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
-// Import project data from a separate file we'll create later
 import { getProjectById } from '@/utils/projectData';
+import { renderIcon } from '@/utils/iconMappings';
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -88,7 +86,7 @@ const ProjectDetail = () => {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                 {project.metrics.map((metric: any, idx: number) => (
                   <div key={idx} className="flex flex-col items-center p-4 bg-gray-50 rounded-lg">
-                    <div className="text-portfolio-accent mb-2">{metric.icon}</div>
+                    <div className="text-portfolio-accent mb-2">{renderIcon(metric.icon)}</div>
                     <div className="font-bold text-xl text-portfolio-text-dark">{metric.value}</div>
                     <div className="text-sm text-portfolio-text-light">{metric.label}</div>
                   </div>

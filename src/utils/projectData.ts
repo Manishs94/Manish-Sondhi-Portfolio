@@ -1,10 +1,8 @@
-
-import { ExternalLink, Users2, LineChart, Clock, Target, Users } from 'lucide-react';
-import React from 'react';
+import { IconType } from './iconMappings';
 
 // Define project types
 export interface ProjectMetric {
-  icon: React.ReactNode;
+  icon: IconType;
   value: string;
   label: string;
 }
@@ -51,10 +49,10 @@ export const allProjects: Project[] = [
     image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     category: ['UI Design', 'UX Research', 'Product Design'],
     metrics: [
-      { icon: <Users2 className="w-5 h-5" />, value: '68M+', label: 'Active Users' },
-      { icon: <LineChart className="w-5 h-5" />, value: '40%', label: 'Reduced Drop-offs' },
-      { icon: <Clock className="w-5 h-5" />, value: '25%', label: 'Process Improvement' },
-      { icon: <Target className="w-5 h-5" />, value: '35%', label: 'User Satisfaction' }
+      { icon: 'users2', value: '68M+', label: 'Active Users' },
+      { icon: 'lineChart', value: '40%', label: 'Reduced Drop-offs' },
+      { icon: 'clock', value: '25%', label: 'Process Improvement' },
+      { icon: 'target', value: '35%', label: 'User Satisfaction' }
     ],
     tools: ['Figma', 'Analytics', 'User Testing', 'Protopie'],
     link: 'https://boa-billpay-redesign-fewkgfd.gamma.site/',
@@ -87,10 +85,10 @@ export const allProjects: Project[] = [
     image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     category: ['UI Design', 'UX Research', 'Product Design'],
     metrics: [
-      { icon: <Users2 className="w-5 h-5" />, value: '45%', label: 'Faster Processing' },
-      { icon: <LineChart className="w-5 h-5" />, value: '60%', label: 'Reduced Manual Work' },
-      { icon: <Clock className="w-5 h-5" />, value: '35%', label: 'Time Savings' },
-      { icon: <Target className="w-5 h-5" />, value: '50%', label: 'Error Reduction' }
+      { icon: 'users2', value: '45%', label: 'Faster Processing' },
+      { icon: 'lineChart', value: '60%', label: 'Reduced Manual Work' },
+      { icon: 'clock', value: '35%', label: 'Time Savings' },
+      { icon: 'target', value: '50%', label: 'Error Reduction' }
     ],
     tools: ['Adobe XD', 'Jira', 'Miro', 'Protopie', 'UserTesting', 'Confluence'],
     link: 'https://cync-loan-origination-e8jwns9.gamma.site/',
@@ -125,10 +123,10 @@ export const allProjects: Project[] = [
     image: 'https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&q=80&w=1000',
     category: ['UI Design', 'UX Research', 'Product Design'],
     metrics: [
-      { icon: <Users2 className="w-5 h-5" />, value: '35%', label: 'User Satisfaction' },
-      { icon: <LineChart className="w-5 h-5" />, value: '45%', label: 'Task Completion' },
-      { icon: <Clock className="w-5 h-5" />, value: '30%', label: 'Time Savings' },
-      { icon: <Target className="w-5 h-5" />, value: '40%', label: 'Accuracy Improvement' }
+      { icon: 'users2', value: '35%', label: 'User Satisfaction' },
+      { icon: 'lineChart', value: '45%', label: 'Task Completion' },
+      { icon: 'clock', value: '30%', label: 'Time Savings' },
+      { icon: 'target', value: '40%', label: 'Accuracy Improvement' }
     ],
     tools: ['Adobe XD', 'Miro', 'WCAG 2.1', 'Protopie', 'Confluence'],
     link: 'https://uiux-case-study-enhancin-zkm1u63.gamma.site/',
@@ -159,10 +157,10 @@ export const allProjects: Project[] = [
     image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     category: ['UI Design', 'UX Research'],
     metrics: [
-      { icon: <Users2 className="w-5 h-5" />, value: '40%', label: 'User Engagement' },
-      { icon: <LineChart className="w-5 h-5" />, value: '50%', label: 'Process Efficiency' },
-      { icon: <Clock className="w-5 h-5" />, value: '35%', label: 'Time to Market' },
-      { icon: <Target className="w-5 h-5" />, value: '45%', label: 'Success Rate' }
+      { icon: 'users2', value: '40%', label: 'User Engagement' },
+      { icon: 'lineChart', value: '50%', label: 'Process Efficiency' },
+      { icon: 'clock', value: '35%', label: 'Time to Market' },
+      { icon: 'target', value: '45%', label: 'Success Rate' }
     ],
     tools: ['Figma', 'User Research', 'Prototyping', 'Design Systems'],
     link: 'https://uiux-case-study-agobpmr.gamma.site/',
@@ -194,8 +192,8 @@ export const allProjects: Project[] = [
     tools: ['Figma', 'Principle', 'Framer', 'After Effects'],
     link: '#',
     metrics: [
-      { icon: <Users className="w-5 h-5" />, value: '40%', label: 'Engagement Increase' },
-      { icon: <LineChart className="w-5 h-5" />, value: '25%', label: 'User Satisfaction' }
+      { icon: 'users', value: '40%', label: 'Engagement Increase' },
+      { icon: 'lineChart', value: '25%', label: 'User Satisfaction' }
     ],
     problem: 'Limited user engagement due to static animations and lack of interactive feedback',
     process: 'Researched animation principles, created prototypes, and conducted usability testing',
@@ -216,8 +214,8 @@ export const allProjects: Project[] = [
     tools: ['Figma', 'Maze', 'Miro', 'ProtoPie'],
     link: '#',
     metrics: [
-      { icon: <Users className="w-5 h-5" />, value: '45%', label: 'Task Completion' },
-      { icon: <LineChart className="w-5 h-5" />, value: '30%', label: 'Workflow Efficiency' }
+      { icon: 'users', value: '45%', label: 'Task Completion' },
+      { icon: 'lineChart', value: '30%', label: 'Workflow Efficiency' }
     ],
     problem: 'Complex task management leading to reduced productivity and user frustration',
     process: 'Analyzed user workflows, created wireframes, and iteratively tested prototypes',
@@ -240,8 +238,8 @@ export const allProjects: Project[] = [
     tools: ['React', 'Tailwind CSS', 'Responsive Design'],
     link: '#',
     metrics: [
-      { icon: <Users className="w-5 h-5" />, value: '35%', label: 'User Engagement' },
-      { icon: <LineChart className="w-5 h-5" />, value: '45%', label: 'Conversion Rate' }
+      { icon: 'users', value: '35%', label: 'User Engagement' },
+      { icon: 'lineChart', value: '45%', label: 'Conversion Rate' }
     ],
     problem: 'Outdated interface leading to poor user engagement',
     process: 'Conducted user research and created interactive prototypes',

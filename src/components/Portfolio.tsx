@@ -1,9 +1,10 @@
 
 import React, { useState } from 'react';
-import { ExternalLink, Users2, LineChart, Clock, Target, Users } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { allProjects, getAllCategories } from '@/utils/projectData';
+import { renderIcon } from '@/utils/iconMappings';
 
 const Portfolio = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -95,7 +96,7 @@ const Portfolio = () => {
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
                       {project.metrics.map((metric, idx) => (
                         <div key={idx} className="flex flex-col items-center p-2 bg-gray-50 rounded-lg">
-                          <div className="text-portfolio-accent mb-1">{metric.icon}</div>
+                          <div className="text-portfolio-accent mb-1">{renderIcon(metric.icon)}</div>
                           <div className="font-bold text-portfolio-text-dark">{metric.value}</div>
                           <div className="text-xs text-portfolio-text-light">{metric.label}</div>
                         </div>
