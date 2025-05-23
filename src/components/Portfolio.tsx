@@ -59,11 +59,17 @@ const Portfolio = () => {
     setFilteredProjects(result);
   }, [selectedCategory, searchQuery, sortOption]);
 
-  // Reset filters
+  // Reset filters and scroll to portfolio section
   const handleResetFilters = () => {
     setSelectedCategory('all');
     setSearchQuery('');
     setSortOption('newest');
+    
+    // Scroll to portfolio section
+    const portfolioSection = document.getElementById('portfolio');
+    if (portfolioSection) {
+      portfolioSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
