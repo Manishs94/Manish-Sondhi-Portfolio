@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Award, Briefcase, Layers, Monitor, Users } from 'lucide-react';
 const About = () => {
@@ -20,18 +19,10 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative">
             <div className="relative z-10 rounded-xl overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="About Me" className="w-full h-auto rounded-xl" />
+              <img alt="About Me" className="w-full h-auto rounded-xl" src="/lovable-uploads/6f0b8c00-1540-45e5-95d0-c41efc358c2a.jpg" />
             </div>
             <div className="absolute -top-6 -right-6 w-full h-full border-2 border-portfolio-accent rounded-xl z-0"></div>
-            <div className="absolute right-10 -bottom-10 bg-white p-4 rounded-lg shadow-lg">
-              <div className="flex items-center gap-2">
-                <Award size={24} className="text-portfolio-accent" />
-                <div>
-                  <p className="text-sm text-portfolio-text-light">Experience</p>
-                  <p className="text-xl font-bold text-portfolio-text-dark">8+ Years</p>
-                </div>
-              </div>
-            </div>
+            
           </div>
           
           <div>
