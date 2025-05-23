@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Award, Briefcase, Layers, Monitor, Users } from 'lucide-react';
 const About = () => {
@@ -39,9 +40,12 @@ const About = () => {
             </span>
             <h2 className="section-heading">I design products that delight users and help businesses grow</h2>
             <p className="text-lg text-portfolio-text-light mb-6">I'm a Product and UI/UX Designer with 7 years of experience designing user-centered digital solutions that not only delight users but also drive measurable business outcomes. My work spans across fintech, SaaS, and enterprise platforms, with a focus on solving real-world problems through thoughtful design, usability, and strategy.
+            </p>
 
+            <p className="text-lg text-portfolio-text-light mb-6">
+              At the core of my design philosophy is a deep understanding of user behavior, stakeholder goals, and technical constraints. I approach every project by aligning product vision with user needs—starting from research and ideation, through wireframes and high-fidelity UI, to developer-ready handoffs and post-launch iteration.
+            </p>
 
-          </p>
             <p className="text-lg text-portfolio-text-light mb-6">
               My approach centers on deeply understanding user needs and business objectives, then crafting solutions that balance both. I believe in collaborative design processes and data-informed decisions.
             </p>
@@ -54,10 +58,6 @@ const About = () => {
             </div>
             
             <div className="prose prose-blue max-w-none text-portfolio-text-light">
-              
-              <p className="mb-4">
-                At the core of my design philosophy is a deep understanding of user behavior, stakeholder goals, and technical constraints. I approach every project by aligning product vision with user needs—starting from research and ideation, through wireframes and high-fidelity UI, to developer-ready handoffs and post-launch iteration.
-              </p>
               <p className="mb-4">I specialize in:</p>
               <ul className="space-y-2 mb-4">
                 <li className="flex items-start">
