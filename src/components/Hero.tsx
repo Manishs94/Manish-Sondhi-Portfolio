@@ -1,7 +1,6 @@
 
 import React from 'react';
-import { ArrowRight, Download, Github, Linkedin, Twitter, Eye } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ArrowRight, Download, Github, Linkedin, Twitter } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -37,11 +36,8 @@ const Hero = () => {
               <a href="#portfolio" className="portfolio-button-primary flex items-center gap-2 transition-transform hover:scale-105 duration-300">
                 View My Work <ArrowRight size={18} />
               </a>
-              <Link to="/overview" className="portfolio-button-outline flex items-center gap-2 transition-transform hover:scale-105 duration-300">
-                Overview <Eye size={18} />
-              </Link>
-              <a href="#contact" className="portfolio-button-outline flex items-center gap-2 transition-transform hover:scale-105 duration-300">
-                Contact Me
+              <a href="#" className="portfolio-button-outline flex items-center gap-2 transition-transform hover:scale-105 duration-300">
+                Download CV <Download size={18} />
               </a>
             </div>
             
@@ -66,8 +62,8 @@ const Hero = () => {
             animationFillMode: 'forwards'
           }}>
             <div className="relative max-w-md mx-auto">
-              <div className="absolute -top-6 -left-6 w-20 h-20 bg-blue-100 rounded-full z-0"></div>
-              <div className="absolute -bottom-6 -right-6 w-28 h-28 bg-portfolio-accent opacity-10 rounded-full z-0"></div>
+              <div className="absolute -top-4 -left-4 w-20 h-20 bg-blue-100 rounded-full z-0"></div>
+              <div className="absolute -bottom-4 -right-4 w-28 h-28 bg-portfolio-accent opacity-10 rounded-full z-0"></div>
               <div className="relative z-10 overflow-hidden rounded-xl transform transition-transform duration-700 hover:scale-[1.02] hover:shadow-xl">
                 <img 
                   alt="Designer" 
