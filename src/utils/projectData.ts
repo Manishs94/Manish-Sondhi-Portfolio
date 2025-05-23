@@ -268,6 +268,31 @@ export const allProjects: Project[] = [
       'Optimized image loading',
       'Interactive hover states'
     ]
+  },
+  
+  // Add the new chatbot project
+  {
+    id: 12,
+    title: 'AI Chatbot Application',
+    description: 'An interactive AI chatbot with natural language processing and responsive interface',
+    image: 'https://images.unsplash.com/photo-1531746790731-6bf607ccff6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+    category: ['AI', 'UX Research', 'UI Design'],
+    tools: ['React', 'TypeScript', 'AI/ML', 'Vercel'],
+    link: 'https://my-awesome-chatbot-six-hazel.vercel.app/',
+    demoLink: 'https://my-awesome-chatbot-six-hazel.vercel.app/',
+    metrics: [
+      { icon: 'users', value: '55%', label: 'User Engagement' },
+      { icon: 'lineChart', value: '78%', label: 'Response Accuracy' }
+    ],
+    problem: 'Complex user interactions requiring immediate, intelligent responses and assistance',
+    process: 'Developed and trained an AI model, designed intuitive conversation flows, and implemented a responsive UI',
+    solution: 'Created a conversational AI interface with natural language understanding and dynamic responses',
+    features: [
+      'Natural language processing',
+      'Contextual conversations',
+      'Responsive design',
+      'Real-time interaction'
+    ]
   }
 ];
 
