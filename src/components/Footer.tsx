@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="mb-6 md:mb-0">
             <a href="#" className="text-2xl font-bold">Manish<span className="text-portfolio-accent">Sondhi's Portfolio</span></a>
             <p className="text-gray-400 mt-2 max-w-md">
-              Creating beautiful digital experiences that delight users and drive business growth.
+              Crafting intuitive, modern web experiences through thoughtful design and cutting-edge technology.
             </p>
           </div>
           
