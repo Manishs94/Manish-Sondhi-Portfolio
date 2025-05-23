@@ -5,6 +5,14 @@ interface AnalyticsProps {
   trackingId?: string;
 }
 
+// Type declaration for gtag
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void;
+    dataLayer: any[];
+  }
+}
+
 export const Analytics: React.FC<AnalyticsProps> = ({ trackingId }) => {
   useEffect(() => {
     if (trackingId && typeof window !== 'undefined') {
@@ -24,10 +32,12 @@ export const Analytics: React.FC<AnalyticsProps> = ({ trackingId }) => {
       document.head.appendChild(script2);
 
       // Track page views
-      gtag('config', trackingId, {
-        page_title: document.title,
-        page_location: window.location.href,
-      });
+      if (window.gtag) {
+        window.gtag('config', trackingId, {
+          page_title: document.title,
+          page_location: window.location.href,
+        });
+      }
     }
   }, [trackingId]);
 
@@ -55,10 +65,3 @@ export const trackContactFormSubmit = () => {
 export const trackDownloadCV = () => {
   trackEvent('download_cv');
 };
-
-// Type declaration for gtag
-declare global {
-  interface Window {
-    gtag: (...args: any[]) => void;
-  }
-}
