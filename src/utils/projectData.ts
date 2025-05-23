@@ -36,6 +36,7 @@ export interface Project {
   role?: string;
   keyFeatures?: string[];
   features?: string[];
+  status?: 'Completed' | 'In Progress' | 'Planning';
 }
 
 // Combine all projects
@@ -75,7 +76,8 @@ export const allProjects: Project[] = [
       'Enhanced payment history tracking',
       'Real-time notifications',
       'Flexible payment management'
-    ]
+    ],
+    status: 'Completed'
   },
   {
     id: 2,
@@ -113,7 +115,8 @@ export const allProjects: Project[] = [
       'Integrated compliance checks',
       'Smart workflow automation',
       'Digital signature integration'
-    ]
+    ],
+    status: 'In Progress'
   },
   {
     id: 3,
@@ -145,7 +148,8 @@ export const allProjects: Project[] = [
       'WCAG 2.1 compliance',
       'Unified design system',
       'Advanced analytics dashboard'
-    ]
+    ],
+    status: 'Completed'
   },
   
   // Add more main projects
@@ -179,7 +183,8 @@ export const allProjects: Project[] = [
       'Design System',
       'Process Documentation',
       'Quality Metrics'
-    ]
+    ],
+    status: 'Completed'
   },
   
   // Portfolio projects
@@ -292,7 +297,8 @@ export const allProjects: Project[] = [
       'Contextual conversations',
       'Responsive design',
       'Real-time interaction'
-    ]
+    ],
+    status: 'Completed'
   }
 ];
 
