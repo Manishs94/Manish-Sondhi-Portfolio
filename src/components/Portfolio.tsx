@@ -249,9 +249,12 @@ const Portfolio = () => {
         )}
         
         <div className="text-center mt-12 animate-fade-in opacity-0" style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}>
-          <a href="#" className="portfolio-button-primary transition-transform hover:scale-105 duration-300">
+          <button 
+            onClick={handleResetFilters}
+            className="portfolio-button-primary transition-transform hover:scale-105 duration-300"
+          >
             View All Projects
-          </a>
+          </button>
         </div>
       </div>
     </section>
