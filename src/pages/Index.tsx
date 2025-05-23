@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import Portfolio from '@/components/Portfolio';
 import About from '@/components/About';
 import Experience from '@/components/Experience';
+import Education from '@/components/Education';
 import TestimonialsCarousel from '@/components/TestimonialsCarousel';
 import SkillsVisualization from '@/components/SkillsVisualization';
 import Contact from '@/components/Contact';
@@ -54,6 +55,7 @@ const Index = () => {
         <About />
         <SkillsVisualization />
         <Experience />
+        <Education />
         <TestimonialsCarousel />
         
         {/* Newsletter Section */}
