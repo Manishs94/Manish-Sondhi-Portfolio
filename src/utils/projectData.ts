@@ -37,11 +37,11 @@ export interface Project {
   keyFeatures?: string[];
   features?: string[];
   status?: 'Completed' | 'In Progress' | 'Planning';
+  isCaseStudy?: boolean; // New field to identify case studies
 }
 
-// Combine all projects
-export const allProjects: Project[] = [
-  // Main projects
+// Case studies - in-depth projects
+const caseStudies: Project[] = [
   {
     id: 1,
     title: 'Bank of America Mobile Bill Payment',
@@ -77,7 +77,8 @@ export const allProjects: Project[] = [
       'Real-time notifications',
       'Flexible payment management'
     ],
-    status: 'Completed'
+    status: 'Completed',
+    isCaseStudy: true
   },
   {
     id: 2,
@@ -116,7 +117,8 @@ export const allProjects: Project[] = [
       'Smart workflow automation',
       'Digital signature integration'
     ],
-    status: 'In Progress'
+    status: 'In Progress',
+    isCaseStudy: true
   },
   {
     id: 3,
@@ -149,10 +151,9 @@ export const allProjects: Project[] = [
       'Unified design system',
       'Advanced analytics dashboard'
     ],
-    status: 'Completed'
+    status: 'Completed',
+    isCaseStudy: true
   },
-  
-  // Add more main projects
   {
     id: 4,
     title: 'UI/UX Design Process',
@@ -184,10 +185,13 @@ export const allProjects: Project[] = [
       'Process Documentation',
       'Quality Metrics'
     ],
-    status: 'Completed'
-  },
-  
-  // Portfolio projects
+    status: 'Completed',
+    isCaseStudy: true
+  }
+];
+
+// Regular portfolio projects
+const portfolioProjects: Project[] = [
   {
     id: 5,
     title: 'CSS Animations Gallery',
@@ -208,7 +212,8 @@ export const allProjects: Project[] = [
       'Custom CSS transitions',
       'Responsive design',
       'Performance optimized'
-    ]
+    ],
+    isCaseStudy: false
   },
   {
     id: 6,
@@ -230,10 +235,9 @@ export const allProjects: Project[] = [
       'Real-time updates',
       'Task management',
       'Board customization'
-    ]
+    ],
+    isCaseStudy: false
   },
-  
-  // Add more portfolio projects
   {
     id: 7,
     title: 'Hulu Redesign',
@@ -254,7 +258,8 @@ export const allProjects: Project[] = [
       'Advanced search filters',
       'Watchlist management',
       'Cross-device synchronization'
-    ]
+    ],
+    isCaseStudy: false
   },
   {
     id: 8,
@@ -272,10 +277,9 @@ export const allProjects: Project[] = [
       'Responsive split layout',
       'Optimized image loading',
       'Interactive hover states'
-    ]
+    ],
+    isCaseStudy: false
   },
-  
-  // Add the new chatbot project
   {
     id: 12,
     title: 'AI Chatbot Application',
@@ -298,9 +302,18 @@ export const allProjects: Project[] = [
       'Responsive design',
       'Real-time interaction'
     ],
-    status: 'Completed'
+    status: 'Completed',
+    isCaseStudy: false
   }
 ];
+
+// Combine all projects
+export const allProjects: Project[] = [...caseStudies, ...portfolioProjects];
+
+// Get case studies specifically
+export const getCaseStudies = (): Project[] => {
+  return allProjects.filter(project => project.isCaseStudy);
+};
 
 // Function to get project by ID
 export const getProjectById = (id: number): Project | undefined => {

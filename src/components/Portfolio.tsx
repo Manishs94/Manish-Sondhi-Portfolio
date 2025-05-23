@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { ExternalLink, Search } from 'lucide-react';
+import { ExternalLink, Search, BookOpen } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
-import { allProjects, getAllCategories } from '@/utils/projectData';
+import { allProjects, getAllCategories, getCaseStudies } from '@/utils/projectData';
 import { renderIcon } from '@/utils/iconMappings';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -18,8 +18,10 @@ const Portfolio = () => {
   const [sortOption, setSortOption] = useState<SortOption>('newest');
   const [filteredProjects, setFilteredProjects] = useState(allProjects);
   const [isFiltering, setIsFiltering] = useState(false);
+  const [activeTab, setActiveTab] = useState<'all' | 'case-studies'>('all');
   
   const categories = getAllCategories();
+  const caseStudies = getCaseStudies();
 
   // Filter and sort projects whenever filters change
   useEffect(() => {
@@ -27,7 +29,8 @@ const Portfolio = () => {
     
     // Add a small delay to show the animation
     const filterTimer = setTimeout(() => {
-      let result = [...allProjects];
+      // Start with either all projects or just case studies based on active tab
+      let result = activeTab === 'all' ? [...allProjects] : [...caseStudies];
       
       // Filter by category
       if (selectedCategory !== 'all') {
@@ -68,7 +71,7 @@ const Portfolio = () => {
     }, 300);
     
     return () => clearTimeout(filterTimer);
-  }, [selectedCategory, searchQuery, sortOption]);
+  }, [selectedCategory, searchQuery, sortOption, activeTab]);
 
   // Reset filters and scroll to portfolio section
   const handleResetFilters = useCallback(() => {
@@ -100,6 +103,33 @@ const Portfolio = () => {
           <p className="section-subheading mx-auto animate-fade-in opacity-0" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
             Take a look at some of my recent work that showcases my design thinking and problem-solving approach.
           </p>
+        </div>
+        
+        {/* Tab selection - Case Studies vs All Projects */}
+        <div className="flex justify-center mb-8 animate-fade-in opacity-0" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
+          <div className="inline-flex rounded-md shadow-sm">
+            <button
+              onClick={() => setActiveTab('all')}
+              className={`px-6 py-3 text-sm font-medium rounded-l-md border ${
+                activeTab === 'all'
+                  ? 'bg-portfolio-accent text-white border-portfolio-accent'
+                  : 'bg-white text-portfolio-text-dark border-gray-200 hover:bg-gray-50'
+              }`}
+            >
+              All Projects
+            </button>
+            <button
+              onClick={() => setActiveTab('case-studies')}
+              className={`px-6 py-3 text-sm font-medium rounded-r-md border flex items-center gap-2 ${
+                activeTab === 'case-studies'
+                  ? 'bg-portfolio-accent text-white border-portfolio-accent'
+                  : 'bg-white text-portfolio-text-dark border-gray-200 hover:bg-gray-50'
+              }`}
+            >
+              <BookOpen className="w-4 h-4" />
+              Case Studies
+            </button>
+          </div>
         </div>
         
         {/* Search and Filter Controls */}
@@ -158,7 +188,10 @@ const Portfolio = () => {
             {filteredProjects.length === 0 ? (
               <p>No projects found. Try adjusting your filters.</p>
             ) : (
-              <p>Showing {filteredProjects.length} {filteredProjects.length === 1 ? 'project' : 'projects'}</p>
+              <p>
+                Showing {filteredProjects.length} {filteredProjects.length === 1 ? 'project' : 'projects'}
+                {activeTab === 'case-studies' && ' (Case Studies)'}
+              </p>
             )}
           </div>
         </div>
@@ -175,7 +208,9 @@ const Portfolio = () => {
                 className="transition-transform duration-300 hover:-translate-y-1"
               >
                 <Card 
-                  className="bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl animate-fade-in opacity-0"
+                  className={`bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl animate-fade-in opacity-0 ${
+                    project.isCaseStudy ? 'border-2 border-portfolio-accent' : ''
+                  }`}
                   style={{ animationDelay: `${0.5 + index * 0.1}s`, animationFillMode: 'forwards' }}
                 >
                   <div className="overflow-hidden h-60 sm:h-64 relative">
@@ -184,6 +219,15 @@ const Portfolio = () => {
                       alt={project.title} 
                       className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                     />
+                    
+                    {/* Case study badge */}
+                    {project.isCaseStudy && (
+                      <div className="absolute top-3 left-3 px-3 py-1 bg-portfolio-accent text-white rounded-full text-sm flex items-center gap-1">
+                        <BookOpen className="w-3 h-3" />
+                        Case Study
+                      </div>
+                    )}
+                    
                     {/* Status badge if available */}
                     {project.status && (
                       <Badge className="absolute top-3 right-3" variant={
@@ -258,7 +302,7 @@ const Portfolio = () => {
                       className="flex items-center gap-2 text-portfolio-accent hover:underline font-medium group"
                       onClick={(e) => e.preventDefault()}
                     >
-                      View Case Study 
+                      {project.isCaseStudy ? 'View Case Study' : 'View Project'} 
                       <ExternalLink size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
                     </div>
                   </CardContent>
@@ -274,12 +318,25 @@ const Portfolio = () => {
         )}
         
         <div className="text-center mt-12 animate-fade-in opacity-0" style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}>
-          <Button 
-            onClick={handleResetFilters}
-            className="portfolio-button-primary transition-transform hover:scale-105 duration-300"
-          >
-            View All Projects
-          </Button>
+          {activeTab === 'case-studies' ? (
+            <Button 
+              onClick={() => setActiveTab('all')}
+              className="portfolio-button-primary transition-transform hover:scale-105 duration-300"
+            >
+              View All Projects
+            </Button>
+          ) : (
+            <Button 
+              onClick={() => {
+                setActiveTab('case-studies');
+                handleResetFilters();
+              }}
+              className="portfolio-button-primary transition-transform hover:scale-105 duration-300 flex items-center gap-2"
+            >
+              <BookOpen className="w-4 h-4" />
+              View Case Studies
+            </Button>
+          )}
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
+
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { ArrowLeft, ExternalLink, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { getProjectById } from '@/utils/projectData';
 import { renderIcon } from '@/utils/iconMappings';
@@ -66,13 +67,21 @@ const ProjectDetail = () => {
             Back to Portfolio
           </Link>
 
-          <div className="bg-white rounded-xl overflow-hidden shadow-lg">
-            <div className="h-72 md:h-96 overflow-hidden">
+          <div className={`bg-white rounded-xl overflow-hidden shadow-lg ${project.isCaseStudy ? 'border-2 border-portfolio-accent' : ''}`}>
+            <div className="h-72 md:h-96 overflow-hidden relative">
               <img 
                 src={project.image} 
                 alt={project.title} 
                 className="w-full h-full object-cover"
               />
+              
+              {/* Case study badge */}
+              {project.isCaseStudy && (
+                <div className="absolute top-4 left-4 px-4 py-2 bg-portfolio-accent text-white rounded-full text-sm font-medium flex items-center gap-2">
+                  <BookOpen className="w-4 h-4" />
+                  Case Study
+                </div>
+              )}
             </div>
             
             <div className="p-8">
@@ -194,7 +203,7 @@ const ProjectDetail = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  View Case Study <ExternalLink size={16} />
+                  {project.isCaseStudy ? 'View Case Study' : 'View Project'} <ExternalLink size={16} />
                 </a>
                 
                 {project.githubLink && (
