@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { renderIcon } from '@/utils/iconMappings';
 import { Link } from 'react-router-dom';
+import { IconType } from '@/utils/iconMappings';
 
 interface CaseStudyModalProps {
   project: {
@@ -83,7 +84,7 @@ const CaseStudyModal = ({ project, isOpen, onClose }: CaseStudyModalProps) => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {project.metrics.map((metric, idx) => (
                 <div key={idx} className="flex flex-col items-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                  <div className="text-portfolio-accent mb-2">{renderIcon(metric.icon)}</div>
+                  <div className="text-portfolio-accent mb-2">{renderIcon(metric.icon as IconType)}</div>
                   <div className="font-bold text-lg text-portfolio-text-dark dark:text-white">{metric.value}</div>
                   <div className="text-sm text-portfolio-text-light dark:text-gray-400 text-center">{metric.label}</div>
                 </div>

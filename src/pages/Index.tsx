@@ -42,8 +42,7 @@ const Index = () => {
                     key={project.id} 
                     project={project} 
                     featured 
-                    className={`animate-fade-in`}
-                    style={{ animationDelay: `${index * 0.2}s` }}
+                    className="animate-fade-in"
                   />
                 ))}
               </div>

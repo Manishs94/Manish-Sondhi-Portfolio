@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { renderIcon } from '@/utils/iconMappings';
 import { Badge } from '@/components/ui/badge';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { IconType } from '@/utils/iconMappings';
 
 interface ProjectSpotlightProps {
   project: {
@@ -26,13 +27,14 @@ interface ProjectSpotlightProps {
   };
   featured?: boolean;
   className?: string;
+  style?: React.CSSProperties;
 }
 
-const ProjectSpotlight = ({ project, featured = false, className = '' }: ProjectSpotlightProps) => {
+const ProjectSpotlight = ({ project, featured = false, className = '', style }: ProjectSpotlightProps) => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
-    <div ref={ref} className={`${className} ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+    <div ref={ref} className={`${className} ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={style}>
       <Link 
         to={`/project/${project.id}`}
         className="group block"
@@ -116,7 +118,7 @@ const ProjectSpotlight = ({ project, featured = false, className = '' }: Project
               <div className="flex gap-4 pt-2">
                 {project.metrics.slice(0, 2).map((metric, idx) => (
                   <div key={idx} className="flex items-center gap-2">
-                    <div className="text-portfolio-accent">{renderIcon(metric.icon)}</div>
+                    <div className="text-portfolio-accent">{renderIcon(metric.icon as IconType)}</div>
                     <div>
                       <div className="font-bold text-sm text-portfolio-text-dark dark:text-white">{metric.value}</div>
                       <div className="text-xs text-portfolio-text-light dark:text-gray-400">{metric.label}</div>
