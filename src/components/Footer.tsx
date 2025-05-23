@@ -15,7 +15,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
-            <a href="#" className="text-2xl font-bold">Alex<span className="text-portfolio-accent">Design</span></a>
+            <a href="#" className="text-2xl font-bold">Manish<span className="text-portfolio-accent">Sondhi's Portfolio</span></a>
             <p className="text-gray-400 mt-2 max-w-md">
               Creating beautiful digital experiences that delight users and drive business growth.
             </p>
@@ -46,7 +46,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-800 mt-10 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 mb-4 md:mb-0">
-            © {new Date().getFullYear()} AlexDesign. All rights reserved.
+            © {new Date().getFullYear()} Manish Sondhi. All rights reserved.
           </p>
           
           <button 
