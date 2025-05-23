@@ -42,17 +42,48 @@ const About = () => {
             <p className="text-lg text-portfolio-text-light mb-6">
               I'm a product and UX designer with over 8 years of experience creating digital products that users love and businesses value. I combine strategic thinking with design execution to deliver results.
             </p>
-            <p className="text-lg text-portfolio-text-light mb-10">
+            <p className="text-lg text-portfolio-text-light mb-6">
               My approach centers on deeply understanding user needs and business objectives, then crafting solutions that balance both. I believe in collaborative design processes and data-informed decisions.
             </p>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
               {skills.map((skill, index) => (
                 <div key={index} className="flex items-center gap-4 bg-white p-4 rounded-lg shadow-sm">
                   {skill.icon}
                   <h3 className="font-semibold text-portfolio-text-dark">{skill.name}</h3>
                 </div>
               ))}
+            </div>
+            
+            <div className="prose prose-blue max-w-none text-portfolio-text-light">
+              <p className="mb-4">
+                I'm a Product and UI/UX Designer with 7 years of experience designing user-centered digital solutions that not only delight users but also drive measurable business outcomes. My work spans across fintech, SaaS, and enterprise platforms, with a focus on solving real-world problems through thoughtful design, usability, and strategy.
+              </p>
+              <p className="mb-4">
+                At the core of my design philosophy is a deep understanding of user behavior, stakeholder goals, and technical constraints. I approach every project by aligning product vision with user needs—starting from research and ideation, through wireframes and high-fidelity UI, to developer-ready handoffs and post-launch iteration.
+              </p>
+              <p className="mb-4">I specialize in:</p>
+              <ul className="space-y-2 mb-4">
+                <li className="flex items-start">
+                  <span className="text-portfolio-accent mr-2">▹</span>
+                  <span>Turning complex workflows into intuitive interfaces—whether it's a loan origination system, an admin dashboard, or a schema-based form builder</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-portfolio-accent mr-2">▹</span>
+                  <span>Design systems that ensure consistency and scalability across web and mobile platforms</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-portfolio-accent mr-2">▹</span>
+                  <span>Collaborative design processes, working closely with product managers, developers, and cross-functional teams in Agile environments</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-portfolio-accent mr-2">▹</span>
+                  <span>Using tools like Figma, Adobe XD, and Protopie, along with platforms like Jira, Confluence, and Miro for smooth end-to-end delivery</span>
+                </li>
+              </ul>
+              <p>
+                I believe great design is part empathy, part logic, and part craft. My goal is always to create experiences that are seamless, accessible, and scalable—balancing visual clarity with functional depth.
+              </p>
             </div>
           </div>
         </div>
