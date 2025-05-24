@@ -310,6 +310,11 @@ const portfolioProjects: Project[] = [
 // Combine all projects
 export const allProjects: Project[] = [...caseStudies, ...portfolioProjects];
 
+// Function to get all projects - this was the missing export
+export const getAllProjects = (): Project[] => {
+  return allProjects;
+};
+
 // Get case studies specifically
 export const getCaseStudies = (): Project[] => {
   return allProjects.filter(project => project.isCaseStudy);
