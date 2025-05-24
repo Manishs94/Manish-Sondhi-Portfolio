@@ -13,7 +13,6 @@ import Footer from '@/components/Footer';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import ProjectSpotlight from '@/components/ProjectSpotlight';
 import ScrollProgress from '@/components/ScrollProgress';
-import ProcessDocumentation from '@/components/ProcessDocumentation';
 import { getCaseStudies } from '@/utils/projectData';
 
 const Index = () => {
@@ -56,7 +55,6 @@ const Index = () => {
         
         <Portfolio />
         <About />
-        <ProcessDocumentation />
         <SkillsVisualization />
         <Experience />
         <Education />

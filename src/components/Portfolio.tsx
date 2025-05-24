@@ -1,75 +1,53 @@
+
 import React, { useState, useEffect, useCallback } from 'react';
-import { ExternalLink, BookOpen } from 'lucide-react';
+import { ExternalLink, Search, BookOpen } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { allProjects, getAllCategories, getCaseStudies } from '@/utils/projectData';
 import { renderIcon } from '@/utils/iconMappings';
+import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { toast } from '@/hooks/use-toast';
-import EnhancedPortfolioFilters, { FilterState } from '@/components/EnhancedPortfolioFilters';
+
+type SortOption = 'newest' | 'alphabetical';
 
 const Portfolio = () => {
-  const [activeTab, setActiveTab] = useState<'all' | 'case-studies'>('all');
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sortOption, setSortOption] = useState<SortOption>('newest');
   const [filteredProjects, setFilteredProjects] = useState(allProjects);
   const [isFiltering, setIsFiltering] = useState(false);
-  
-  const [filters, setFilters] = useState<FilterState>({
-    category: 'all',
-    year: 'all',
-    clientType: 'all',
-    duration: 'all',
-    searchQuery: '',
-    sortOption: 'newest'
-  });
+  const [activeTab, setActiveTab] = useState<'all' | 'case-studies'>('all');
   
   const categories = getAllCategories();
   const caseStudies = getCaseStudies();
 
-  // Enhanced filtering logic
+  // Filter and sort projects whenever filters change
   useEffect(() => {
     setIsFiltering(true);
     
+    // Add a small delay to show the animation
     const filterTimer = setTimeout(() => {
+      // Start with either all projects or just case studies based on active tab
       let result = activeTab === 'all' ? [...allProjects] : [...caseStudies];
       
       // Filter by category
-      if (filters.category !== 'all') {
+      if (selectedCategory !== 'all') {
         result = result.filter(project => {
           if (Array.isArray(project.category)) {
             return project.category.some(cat => 
-              cat.toLowerCase().replace(/\s+/g, '-') === filters.category
+              cat.toLowerCase().replace(/\s+/g, '-') === selectedCategory
             );
           }
           return typeof project.category === 'string' && 
-            project.category.toLowerCase().replace(/\s+/g, '-') === filters.category;
+            project.category.toLowerCase().replace(/\s+/g, '-') === selectedCategory;
         });
       }
       
-      // Filter by year (assuming projects have a year property)
-      if (filters.year !== 'all') {
-        result = result.filter(project => 
-          project.year === filters.year || project.year === parseInt(filters.year)
-        );
-      }
-      
-      // Filter by client type
-      if (filters.clientType !== 'all') {
-        result = result.filter(project => 
-          project.clientType === filters.clientType
-        );
-      }
-      
-      // Filter by duration
-      if (filters.duration !== 'all') {
-        result = result.filter(project => 
-          project.duration === filters.duration
-        );
-      }
-      
       // Filter by search query
-      if (filters.searchQuery) {
-        const query = filters.searchQuery.toLowerCase();
+      if (searchQuery) {
+        const query = searchQuery.toLowerCase();
         result = result.filter(project => 
           project.title.toLowerCase().includes(query) ||
           project.description.toLowerCase().includes(query) ||
@@ -81,9 +59,10 @@ const Portfolio = () => {
       }
       
       // Sort projects
-      if (filters.sortOption === 'alphabetical') {
+      if (sortOption === 'alphabetical') {
         result.sort((a, b) => a.title.localeCompare(b.title));
-      } else if (filters.sortOption === 'newest') {
+      } else if (sortOption === 'newest') {
+        // Assuming higher IDs are newer projects
         result.sort((a, b) => b.id - a.id);
       }
       
@@ -92,34 +71,26 @@ const Portfolio = () => {
     }, 300);
     
     return () => clearTimeout(filterTimer);
-  }, [filters, activeTab]);
+  }, [selectedCategory, searchQuery, sortOption, activeTab]);
 
-  const handleFiltersChange = useCallback((newFilters: Partial<FilterState>) => {
-    setFilters(prev => ({ ...prev, ...newFilters }));
-  }, []);
-
+  // Reset filters and scroll to portfolio section
   const handleResetFilters = useCallback(() => {
-    setFilters({
-      category: 'all',
-      year: 'all',
-      clientType: 'all',
-      duration: 'all',
-      searchQuery: '',
-      sortOption: 'newest'
-    });
+    setSelectedCategory('all');
+    setSearchQuery('');
+    setSortOption('newest');
     
+    // Show a toast notification
     toast({
       title: "Filters reset",
       description: "Showing all projects",
     });
     
+    // Scroll to portfolio section
     const portfolioSection = document.getElementById('portfolio');
     if (portfolioSection) {
       portfolioSection.scrollIntoView({ behavior: 'smooth' });
     }
   }, []);
-
-  const totalProjects = activeTab === 'all' ? allProjects.length : caseStudies.length;
 
   return (
     <section id="portfolio" className="py-24 bg-portfolio-bg-light">
@@ -134,7 +105,7 @@ const Portfolio = () => {
           </p>
         </div>
         
-        {/* Tab selection */}
+        {/* Tab selection - Case Studies vs All Projects */}
         <div className="flex justify-center mb-8 animate-fade-in opacity-0" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
           <div className="inline-flex rounded-md shadow-sm">
             <button
@@ -161,19 +132,71 @@ const Portfolio = () => {
           </div>
         </div>
         
-        {/* Enhanced Filters */}
-        <div className="mb-8 animate-fade-in opacity-0" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>
-          <EnhancedPortfolioFilters
-            filters={filters}
-            onFiltersChange={handleFiltersChange}
-            onResetFilters={handleResetFilters}
-            categories={categories}
-            filteredCount={filteredProjects.length}
-            totalCount={totalProjects}
-          />
+        {/* Search and Filter Controls */}
+        <div className="mb-8 animate-fade-in opacity-0" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
+          <div className="flex flex-col md:flex-row gap-4 mb-6">
+            <div className="relative flex-grow">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+              <Input
+                type="text"
+                placeholder="Search projects..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 bg-white shadow-sm border-gray-200"
+              />
+            </div>
+            
+            <div className="flex gap-2">
+              <select 
+                className="bg-white border border-gray-200 rounded-md px-3 py-2 text-sm shadow-sm"
+                value={sortOption}
+                onChange={(e) => setSortOption(e.target.value as SortOption)}
+              >
+                <option value="newest">Newest first</option>
+                <option value="alphabetical">Alphabetical</option>
+              </select>
+              
+              <Button 
+                variant="outline" 
+                size="sm"
+                onClick={handleResetFilters}
+                className="whitespace-nowrap"
+              >
+                Reset filters
+              </Button>
+            </div>
+          </div>
+          
+          <div className="flex flex-wrap justify-center gap-2 mb-6">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setSelectedCategory(category.id)}
+                className={`px-4 py-2 rounded-full transition-all duration-300 text-sm ${
+                  selectedCategory === category.id
+                    ? 'bg-portfolio-accent text-white'
+                    : 'bg-white text-portfolio-text-dark hover:bg-gray-100'
+                }`}
+              >
+                {category.name}
+              </button>
+            ))}
+          </div>
+          
+          {/* Search results info */}
+          <div className="text-center text-portfolio-text-light text-sm">
+            {filteredProjects.length === 0 ? (
+              <p>No projects found. Try adjusting your filters.</p>
+            ) : (
+              <p>
+                Showing {filteredProjects.length} {filteredProjects.length === 1 ? 'project' : 'projects'}
+                {activeTab === 'case-studies' && ' (Case Studies)'}
+              </p>
+            )}
+          </div>
         </div>
         
-        {/* Projects Grid */}
+        {/* Projects Grid with improved responsive behavior */}
         {filteredProjects.length > 0 ? (
           <div 
             className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 transition-opacity duration-300 ${isFiltering ? 'opacity-50' : 'opacity-100'}`}
@@ -197,6 +220,7 @@ const Portfolio = () => {
                       className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                     />
                     
+                    {/* Case study badge */}
                     {project.isCaseStudy && (
                       <div className="absolute top-3 left-3 px-3 py-1 bg-portfolio-accent text-white rounded-full text-sm flex items-center gap-1">
                         <BookOpen className="w-3 h-3" />
@@ -204,6 +228,7 @@ const Portfolio = () => {
                       </div>
                     )}
                     
+                    {/* Status badge if available */}
                     {project.status && (
                       <Badge className="absolute top-3 right-3" variant={
                         project.status === 'Completed' ? 'default' :
