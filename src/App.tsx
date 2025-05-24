@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Analytics } from "@/components/Analytics";
-import { initPerformanceMonitoring } from "@/utils/performance";
+import { initPerformanceMonitoring, PerformanceMonitor } from "@/utils/performance";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import StyleGuide from "./pages/StyleGuide";
@@ -49,7 +49,7 @@ const App = () => {
     
     return () => {
       // Cleanup performance observers when app unmounts
-      const monitor = require('@/utils/performance').PerformanceMonitor.getInstance();
+      const monitor = PerformanceMonitor.getInstance();
       monitor.disconnect();
     };
   }, []);

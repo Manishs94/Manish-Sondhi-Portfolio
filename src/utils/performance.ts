@@ -1,6 +1,25 @@
 
 import { trackPerformance } from '@/components/Analytics';
 
+// Type declarations for browser APIs that may not be available in all environments
+declare global {
+  interface Performance {
+    memory?: {
+      usedJSHeapSize: number;
+      totalJSHeapSize: number;
+      jsHeapSizeLimit: number;
+    };
+  }
+  
+  interface Navigator {
+    connection?: {
+      effectiveType: string;
+      downlink: number;
+      rtt: number;
+    };
+  }
+}
+
 // Performance monitoring utilities
 export class PerformanceMonitor {
   private static instance: PerformanceMonitor;
