@@ -1,8 +1,16 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Briefcase, MapPin, Calendar, TrendingUp, Users, Award } from 'lucide-react';
+import ExperienceSkeleton from './ExperienceSkeleton';
 
 const Experience = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate loading for demonstration
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
   const experiences = [
     {
       title: 'Senior Product & UI/UX Designer',
@@ -67,111 +75,115 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-24 bg-gray-50 dark:bg-gray-900">
+    <section id="experience" className="py-24 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <div className="section-container">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4">
+          <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4 transition-all duration-300 hover:scale-105">
             My Experience
           </span>
-          <h2 className="section-heading">Work Experience</h2>
-          <p className="section-subheading mx-auto">
+          <h2 className="section-heading dark:text-white">Work Experience</h2>
+          <p className="section-subheading mx-auto dark:text-gray-300">
             I've worked with a variety of organizations from startups to established companies, bringing their visions to life through thoughtful design.
           </p>
         </div>
         
-        <div className="max-w-5xl mx-auto space-y-12">
-          {experiences.map((exp, index) => (
-            <div 
-              key={index}
-              className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in"
-              style={{ animationDelay: `${0.1 * index}s` }}
-            >
-              {/* Header */}
-              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Briefcase className="text-portfolio-accent" size={20} />
-                    <h3 className="text-2xl font-bold text-portfolio-text-dark dark:text-white">
-                      {exp.title}
-                    </h3>
-                  </div>
-                  <p className="text-xl text-portfolio-accent font-semibold mb-2">
-                    {exp.company}
-                  </p>
-                  <div className="flex flex-wrap items-center gap-4 text-portfolio-text-light dark:text-gray-300">
-                    <div className="flex items-center gap-1">
-                      <MapPin size={16} />
-                      <span>{exp.location}</span>
+        {isLoading ? (
+          <ExperienceSkeleton />
+        ) : (
+          <div className="max-w-5xl mx-auto space-y-12">
+            {experiences.map((exp, index) => (
+              <div 
+                key={index}
+                className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 animate-fade-in transform hover:-translate-y-1 hover:scale-[1.02] border border-transparent hover:border-portfolio-accent/20"
+                style={{ animationDelay: `${0.1 * index}s` }}
+              >
+                {/* Header */}
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Briefcase className="text-portfolio-accent transition-transform duration-300 group-hover:scale-110" size={20} />
+                      <h3 className="text-2xl font-bold text-portfolio-text-dark dark:text-white group-hover:text-portfolio-accent transition-colors duration-300">
+                        {exp.title}
+                      </h3>
                     </div>
-                    <div className="flex items-center gap-1">
-                      <Calendar size={16} />
-                      <span>{exp.period}</span>
+                    <p className="text-xl text-portfolio-accent font-semibold mb-2 transition-all duration-300 group-hover:scale-105 origin-left">
+                      {exp.company}
+                    </p>
+                    <div className="flex flex-wrap items-center gap-4 text-portfolio-text-light dark:text-gray-300">
+                      <div className="flex items-center gap-1 transition-transform duration-300 hover:scale-105">
+                        <MapPin size={16} className="transition-colors duration-300 group-hover:text-portfolio-accent" />
+                        <span>{exp.location}</span>
+                      </div>
+                      <div className="flex items-center gap-1 transition-transform duration-300 hover:scale-105">
+                        <Calendar size={16} className="transition-colors duration-300 group-hover:text-portfolio-accent" />
+                        <span>{exp.period}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Description */}
-              <p className="text-portfolio-text-light dark:text-gray-300 mb-6 leading-relaxed">
-                {exp.description}
-              </p>
+                {/* Description */}
+                <p className="text-portfolio-text-light dark:text-gray-300 mb-6 leading-relaxed transition-colors duration-300 group-hover:text-portfolio-text-dark dark:group-hover:text-gray-200">
+                  {exp.description}
+                </p>
 
-              {/* Role Highlights */}
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold text-portfolio-text-dark dark:text-white mb-4 flex items-center gap-2">
-                  <Users size={18} className="text-portfolio-accent" />
-                  Role Highlights
-                </h4>
-                <ul className="space-y-2">
-                  {exp.highlights.map((highlight, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-portfolio-text-light dark:text-gray-300">
-                      <span className="text-portfolio-accent text-sm mt-1.5">•</span>
-                      <span>{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Impact Metrics */}
-              {exp.impact.length > 0 && (
+                {/* Role Highlights */}
                 <div className="mb-6">
-                  <h4 className="text-lg font-semibold text-portfolio-text-dark dark:text-white mb-4 flex items-center gap-2">
-                    <TrendingUp size={18} className="text-portfolio-accent" />
-                    Key Impact
+                  <h4 className="text-lg font-semibold text-portfolio-text-dark dark:text-white mb-4 flex items-center gap-2 transition-colors duration-300 group-hover:text-portfolio-accent">
+                    <Users size={18} className="text-portfolio-accent transition-transform duration-300 group-hover:scale-110" />
+                    Role Highlights
                   </h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {exp.impact.map((item, idx) => (
-                      <div key={idx} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 text-center">
-                        <div className="text-2xl mb-2">{item.icon}</div>
-                        <p className="text-sm font-medium text-portfolio-text-dark dark:text-white">
-                          {item.metric}
-                        </p>
-                      </div>
+                  <ul className="space-y-2">
+                    {exp.highlights.map((highlight, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-portfolio-text-light dark:text-gray-300 transition-all duration-300 hover:translate-x-2 hover:text-portfolio-text-dark dark:hover:text-gray-200">
+                        <span className="text-portfolio-accent text-sm mt-1.5 transition-transform duration-300 hover:scale-150">•</span>
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Impact Metrics */}
+                {exp.impact.length > 0 && (
+                  <div className="mb-6">
+                    <h4 className="text-lg font-semibold text-portfolio-text-dark dark:text-white mb-4 flex items-center gap-2 transition-colors duration-300 group-hover:text-portfolio-accent">
+                      <TrendingUp size={18} className="text-portfolio-accent transition-transform duration-300 group-hover:scale-110" />
+                      Key Impact
+                    </h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                      {exp.impact.map((item, idx) => (
+                        <div key={idx} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 text-center transition-all duration-300 hover:scale-105 hover:shadow-md hover:bg-blue-50 dark:hover:bg-gray-600 cursor-pointer">
+                          <div className="text-2xl mb-2 transition-transform duration-300 hover:scale-125">{item.icon}</div>
+                          <p className="text-sm font-medium text-portfolio-text-dark dark:text-white transition-colors duration-300">
+                            {item.metric}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Tools & Stack */}
+                <div>
+                  <h4 className="text-lg font-semibold text-portfolio-text-dark dark:text-white mb-4 flex items-center gap-2 transition-colors duration-300 group-hover:text-portfolio-accent">
+                    <Award size={18} className="text-portfolio-accent transition-transform duration-300 group-hover:scale-110" />
+                    Tools & Stack
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {exp.tools.map((tool, idx) => (
+                      <span 
+                        key={idx}
+                        className="px-3 py-1 bg-portfolio-accent/10 text-portfolio-accent rounded-full text-sm font-medium transition-all duration-300 hover:bg-portfolio-accent hover:text-white hover:scale-105 cursor-pointer"
+                      >
+                        {tool}
+                      </span>
                     ))}
                   </div>
                 </div>
-              )}
-
-              {/* Tools & Stack */}
-              <div>
-                <h4 className="text-lg font-semibold text-portfolio-text-dark dark:text-white mb-4 flex items-center gap-2">
-                  <Award size={18} className="text-portfolio-accent" />
-                  Tools & Stack
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {exp.tools.map((tool, idx) => (
-                    <span 
-                      key={idx}
-                      className="px-3 py-1 bg-portfolio-accent/10 text-portfolio-accent rounded-full text-sm font-medium"
-                    >
-                      {tool}
-                    </span>
-                  ))}
-                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

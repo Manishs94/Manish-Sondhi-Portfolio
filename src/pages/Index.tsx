@@ -12,6 +12,7 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import ProjectSpotlight from '@/components/ProjectSpotlight';
+import ScrollProgress from '@/components/ScrollProgress';
 import { getCaseStudies } from '@/utils/projectData';
 
 const Index = () => {
@@ -19,6 +20,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen overflow-x-hidden">
+      <ScrollProgress />
       <Navbar />
       <main>
         <Hero />
@@ -28,7 +30,7 @@ const Index = () => {
           <section className="py-24 bg-gray-50 dark:bg-gray-900">
             <div className="section-container">
               <div className="text-center max-w-2xl mx-auto mb-16">
-                <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4">
+                <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4 transition-all duration-300 hover:scale-105">
                   Featured Work
                 </span>
                 <h2 className="section-heading">Project Spotlight</h2>

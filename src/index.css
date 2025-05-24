@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -94,15 +95,25 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   html {
     scroll-behavior: smooth;
   }
 
-  /* Dark mode text colors */
+  /* Enhanced Dark mode text colors */
   .dark {
     color-scheme: dark;
+  }
+
+  /* Improved dark mode for specific elements */
+  .dark .section-heading {
+    @apply text-white;
+  }
+
+  .dark .section-subheading {
+    @apply text-gray-300;
   }
 }
 
@@ -112,15 +123,15 @@
   }
   
   .section-heading {
-    @apply text-4xl md:text-5xl font-bold mb-8 text-portfolio-text-dark;
+    @apply text-4xl md:text-5xl font-bold mb-8 text-portfolio-text-dark transition-colors duration-300;
   }
   
   .section-subheading {
-    @apply text-xl text-portfolio-text-light mb-16 max-w-2xl;
+    @apply text-xl text-portfolio-text-light mb-16 max-w-2xl transition-colors duration-300;
   }
   
   .portfolio-button {
-    @apply px-6 py-3 rounded-md font-medium transition-all duration-300;
+    @apply px-6 py-3 rounded-md font-medium transition-all duration-300 transform hover:scale-105 active:scale-95;
   }
   
   .portfolio-button-primary {
@@ -132,15 +143,28 @@
   }
   
   .nav-link {
-    @apply relative text-portfolio-text-dark hover:text-portfolio-accent transition-colors duration-300 after:absolute after:w-full after:h-0.5 after:bg-portfolio-accent after:bottom-[-4px] after:left-0 after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100;
+    @apply relative text-portfolio-text-dark dark:text-gray-300 hover:text-portfolio-accent transition-all duration-300 after:absolute after:w-full after:h-0.5 after:bg-portfolio-accent after:bottom-[-4px] after:left-0 after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100 hover:scale-105;
   }
   
   .nav-link.active {
     @apply text-portfolio-accent after:scale-x-100;
   }
+
+  /* Enhanced micro-interactions */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-portfolio-accent/25;
+  }
+
+  .interactive-element {
+    @apply transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer;
+  }
 }
 
-/* Enhanced Animations */
+/* Enhanced Animations with improved performance */
 @keyframes blob {
   0% {
     transform: translate(0px, 0px) scale(1);
@@ -180,7 +204,7 @@
   will-change: transform, opacity;
 }
 
-/* Hover effects */
+/* Enhanced hover effects with better performance */
 .hover-lift {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -190,9 +214,13 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
+.dark .hover-lift:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
 /* Focus styles for accessibility */
 .focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-portfolio-accent focus:ring-offset-2;
+  @apply focus:outline-none focus:ring-2 focus:ring-portfolio-accent focus:ring-offset-2 dark:focus:ring-offset-gray-800;
 }
 
 /* Smooth scrolling for better UX */
@@ -213,6 +241,7 @@
   }
 }
 
+/* Enhanced keyframes with better easing */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -257,6 +286,15 @@
   }
 }
 
+@keyframes pulse-gentle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
 .animate-fade-in {
   animation: fadeIn 0.8s ease-out forwards;
 }
@@ -273,6 +311,10 @@
   animation: scaleIn 0.8s ease-out forwards;
 }
 
+.animate-pulse-gentle {
+  animation: pulse-gentle 2s ease-in-out infinite;
+}
+
 .section-reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -282,4 +324,24 @@
 .section-reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Enhanced skeleton animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.dark .animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
 }
