@@ -12,8 +12,20 @@ const Hero = () => {
 
   const handleDownloadCV = () => {
     trackDownloadCV();
-    // Add actual CV download logic here
-    console.log('Downloading CV...');
+    
+    // Convert Google Drive view link to direct download link
+    const driveFileId = '1mh8jWf6acspgD7GOF8PW2OixRcL59zD5';
+    const downloadUrl = `https://drive.google.com/uc?export=download&id=${driveFileId}`;
+    
+    // Create a temporary link element and trigger download
+    const link = document.createElement('a');
+    link.href = downloadUrl;
+    link.download = 'Manish_Sondhi_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    console.log('Downloading CV from Google Drive...');
   };
 
   return (
@@ -57,7 +69,7 @@ const Hero = () => {
                   onClick={handleDownloadCV}
                   className="portfolio-button-outline flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 >
-                  Download CV <Download size={18} />
+                  Download Resume <Download size={18} />
                 </button>
               </div>
               
