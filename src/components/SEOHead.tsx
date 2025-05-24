@@ -10,6 +10,10 @@ interface SEOHeadProps {
   url?: string;
   type?: string;
   author?: string;
+  publishDate?: string;
+  modifiedDate?: string;
+  category?: string;
+  tags?: string[];
 }
 
 export const SEOHead: React.FC<SEOHeadProps> = ({
@@ -19,8 +23,52 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   image = "https://lovable.dev/opengraph-image-p98pqg.png",
   url = window.location.href,
   type = "website",
-  author = "Manish Sondhi"
+  author = "Manish Sondhi",
+  publishDate,
+  modifiedDate,
+  category,
+  tags = []
 }) => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": type === "article" ? "Article" : "Person",
+    "name": author,
+    "headline": title,
+    "description": description,
+    "image": image,
+    "url": url,
+    ...(type === "article" && {
+      "author": {
+        "@type": "Person",
+        "name": author
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Manish Sondhi Portfolio",
+        "logo": {
+          "@type": "ImageObject",
+          "url": image
+        }
+      },
+      ...(publishDate && { "datePublished": publishDate }),
+      ...(modifiedDate && { "dateModified": modifiedDate }),
+      ...(category && { "articleSection": category }),
+      ...(tags.length > 0 && { "keywords": tags.join(", ") })
+    }),
+    ...(type === "website" && {
+      "jobTitle": "Product & UX Designer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      },
+      "sameAs": [
+        "https://linkedin.com/in/manishsondhi",
+        "https://github.com/manishsondhi",
+        "https://twitter.com/alex_design"
+      ]
+    })
+  };
+
   return (
     <Helmet>
       {/* Basic Meta Tags */}
@@ -29,8 +77,13 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="keywords" content={keywords} />
       <meta name="author" content={author} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content="index, follow, max-image-preview:large" />
+      <meta name="googlebot" content="index, follow" />
       <link rel="canonical" href={url} />
+
+      {/* Language and Locale */}
+      <meta httpEquiv="content-language" content="en-US" />
+      <meta property="og:locale" content="en_US" />
 
       {/* Open Graph Meta Tags */}
       <meta property="og:title" content={title} />
@@ -38,6 +91,9 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       <meta property="og:type" content={type} />
       <meta property="og:url" content={url} />
       <meta property="og:image" content={image} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={title} />
       <meta property="og:site_name" content="Manish Sondhi Portfolio" />
 
       {/* Twitter Card Meta Tags */}
@@ -46,28 +102,38 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
       <meta name="twitter:creator" content="@alex_design" />
+      <meta name="twitter:site" content="@alex_design" />
 
       {/* Additional SEO Meta Tags */}
       <meta name="theme-color" content="#4169E1" />
       <meta name="msapplication-TileColor" content="#4169E1" />
-      
+      <meta name="application-name" content="Manish Sondhi Portfolio" />
+
+      {/* Performance and Security */}
+      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="format-detection" content="telephone=no" />
+
+      {/* Preload critical resources */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
       {/* JSON-LD Structured Data */}
       <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": author,
-          "jobTitle": "Product & UX Designer",
-          "url": url,
-          "image": image,
-          "description": description,
-          "sameAs": [
-            "https://linkedin.com/in/manishsondhi",
-            "https://github.com/manishsondhi",
-            "https://twitter.com/alex_design"
-          ]
-        })}
+        {JSON.stringify(structuredData)}
       </script>
+
+      {/* Article-specific meta tags */}
+      {type === "article" && (
+        <>
+          {publishDate && <meta property="article:published_time" content={publishDate} />}
+          {modifiedDate && <meta property="article:modified_time" content={modifiedDate} />}
+          {category && <meta property="article:section" content={category} />}
+          {tags.map(tag => (
+            <meta key={tag} property="article:tag" content={tag} />
+          ))}
+        </>
+      )}
     </Helmet>
   );
 };
