@@ -1,103 +1,116 @@
 
 import React from 'react';
-import { ArrowRight, Download, Github, Linkedin, Twitter } from 'lucide-react';
-import { SEOHead } from './SEOHead';
-import { SocialShare } from './SocialShare';
-import { LazyImage } from './LazyImage';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { trackDownloadCV } from './Analytics';
+import { ArrowDown, Mail, Github, Linkedin } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import ResumeDownload from '@/components/ResumeDownload';
 
 const Hero = () => {
-  const { ref: heroRef, isVisible } = useScrollAnimation({ threshold: 0.3 });
-
-  const handleDownloadCV = () => {
-    trackDownloadCV();
-    // Add actual CV download logic here
-    console.log('Downloading CV...');
+  const scrollToPortfolio = () => {
+    const portfolioSection = document.getElementById('portfolio');
+    if (portfolioSection) {
+      portfolioSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <>
-      <SEOHead 
-        title="Manish Sondhi | Product & UX Designer Portfolio"
-        description="Creating delightful digital experiences through user-centered design. Product & UX Designer specializing in fintech and financial services."
-        keywords="UX Designer, Product Designer, Fintech UX, Financial Services Design, User Experience Portfolio"
-      />
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-20 dark:opacity-10">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+        <div className="absolute top-40 right-20 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-8 left-40 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+      </div>
       
-      <section id="home" className="pt-32 pb-24 md:pt-44 md:pb-32 relative overflow-hidden">
-        {/* Background Animation */}
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-100 dark:bg-blue-900/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-          <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-purple-100 dark:bg-purple-900/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-          <div className="absolute bottom-1/4 left-1/3 w-64 h-64 bg-pink-100 dark:bg-pink-900/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-        </div>
-
-        <div className="section-container" ref={heroRef}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1">
-              <div className={`mb-4 transition-all duration-1000 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4">
-                  Product & UX Designer
-                </span>
-              </div>
-              
-              <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-portfolio-text-dark dark:text-white mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                Creating <span className="text-portfolio-accent bg-gradient-to-r from-portfolio-accent to-blue-600 bg-clip-text text-transparent">delightful experiences</span> that users love
-              </h1>
-              
-              <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-8 max-w-lg transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                I design user-centered digital products that solve real problems through research, iteration, and thoughtful UI/UX principles.
-              </p>
-              
-              <div className={`flex flex-wrap gap-4 mb-8 transition-all duration-1000 delay-600 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                <a href="#portfolio" className="portfolio-button-primary flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                  View My Work <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-                </a>
-                <button 
-                  onClick={handleDownloadCV}
-                  className="portfolio-button-outline flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                >
-                  Download CV <Download size={18} />
-                </button>
-              </div>
-              
-              <div className={`flex flex-col sm:flex-row items-start sm:items-center gap-4 transition-all duration-1000 delay-800 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                <div className="flex items-center gap-6">
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-portfolio-text-dark dark:text-white hover:text-portfolio-accent transition-all duration-300 transform hover:scale-110">
-                    <Github size={24} />
-                  </a>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-portfolio-text-dark dark:text-white hover:text-portfolio-accent transition-all duration-300 transform hover:scale-110">
-                    <Linkedin size={24} />
-                  </a>
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-portfolio-text-dark dark:text-white hover:text-portfolio-accent transition-all duration-300 transform hover:scale-110">
-                    <Twitter size={24} />
-                  </a>
-                </div>
-                
-                <SocialShare 
-                  title="Check out Manish Sondhi's UX Portfolio"
-                  description="Amazing product and UX design work in fintech and financial services"
-                />
-              </div>
+      <div className="section-container text-center relative z-10 pt-20">
+        <div className="max-w-4xl mx-auto">
+          {/* Profile Image */}
+          <div className="w-32 h-32 rounded-full bg-gradient-to-r from-portfolio-accent to-blue-600 p-1 mx-auto mb-8 animate-fade-in opacity-0" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
+            <div className="w-full h-full rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-2xl font-bold text-portfolio-text-dark dark:text-white">
+              MS
             </div>
+          </div>
+          
+          {/* Main Heading */}
+          <h1 className="text-5xl md:text-7xl font-bold text-portfolio-text-dark dark:text-white mb-6 animate-fade-in opacity-0" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>
+            Design that
+            <span className="block text-portfolio-accent">Transforms</span>
+          </h1>
+          
+          {/* Subtitle */}
+          <p className="text-xl md:text-2xl text-portfolio-text-light dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in opacity-0" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>
+            Senior UX Designer crafting intuitive digital experiences that bridge user needs with business goals. 
+            Specializing in <span className="text-portfolio-accent font-semibold">user research</span>, 
+            <span className="text-portfolio-accent font-semibold"> design systems</span>, and 
+            <span className="text-portfolio-accent font-semibold"> product strategy</span>.
+          </p>
+          
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in opacity-0" style={{ animationDelay: '0.8s', animationFillMode: 'forwards' }}>
+            <Button 
+              onClick={scrollToPortfolio}
+              className="portfolio-button-primary text-lg px-8 py-3 transition-all duration-300 hover:scale-105"
+            >
+              View My Work
+              <ArrowDown className="ml-2 w-5 h-5" />
+            </Button>
             
-            <div className={`order-1 md:order-2 transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-              <div className="relative max-w-md mx-auto">
-                <div className="absolute -top-4 -left-4 w-20 h-20 bg-blue-100 dark:bg-blue-900/30 rounded-full z-0 animate-pulse"></div>
-                <div className="absolute -bottom-4 -right-4 w-28 h-28 bg-portfolio-accent opacity-10 dark:opacity-20 rounded-full z-0 animate-pulse animation-delay-1000"></div>
-                <div className="relative z-10 overflow-hidden rounded-xl transform transition-all duration-700 hover:scale-[1.02] hover:shadow-xl">
-                  <LazyImage 
-                    alt="Manish Sondhi - Product & UX Designer" 
-                    className="w-full h-auto rounded-xl object-cover transition-transform duration-700 hover:scale-105" 
-                    src="/lovable-uploads/3999e1de-e3d3-4f49-8d34-fccee8f17e09.jpg" 
-                  />
-                </div>
-              </div>
+            <ResumeDownload className="text-lg px-8 py-3" />
+          </div>
+          
+          {/* Social Links */}
+          <div className="flex justify-center gap-6 animate-fade-in opacity-0" style={{ animationDelay: '1s', animationFillMode: 'forwards' }}>
+            <a 
+              href="mailto:hello@manishsondhi.com" 
+              className="p-3 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 text-portfolio-text-dark dark:text-white"
+              aria-label="Email"
+            >
+              <Mail size={24} />
+            </a>
+            <a 
+              href="https://github.com/manishsondhi" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-3 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 text-portfolio-text-dark dark:text-white"
+              aria-label="GitHub"
+            >
+              <Github size={24} />
+            </a>
+            <a 
+              href="https://linkedin.com/in/manishsondhi" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-3 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 text-portfolio-text-dark dark:text-white"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={24} />
+            </a>
+          </div>
+          
+          {/* Stats */}
+          <div className="grid grid-cols-3 gap-8 mt-16 animate-fade-in opacity-0" style={{ animationDelay: '1.2s', animationFillMode: 'forwards' }}>
+            <div>
+              <div className="text-3xl font-bold text-portfolio-accent mb-2">5+</div>
+              <div className="text-portfolio-text-light dark:text-gray-300">Years Experience</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-portfolio-accent mb-2">50+</div>
+              <div className="text-portfolio-text-light dark:text-gray-300">Projects Completed</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-portfolio-accent mb-2">20+</div>
+              <div className="text-portfolio-text-light dark:text-gray-300">Happy Clients</div>
             </div>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+      
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-portfolio-text-light dark:border-gray-300 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-portfolio-text-light dark:bg-gray-300 rounded-full mt-2 animate-pulse"></div>
+        </div>
+      </div>
+    </section>
   );
 };
 
