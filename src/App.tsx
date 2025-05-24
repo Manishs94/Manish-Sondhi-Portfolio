@@ -9,6 +9,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { Analytics } from "@/components/Analytics";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import StyleGuide from "./pages/StyleGuide";
 import ProjectDetail from "./components/ProjectDetail";
 import AIChatAgent from "./components/AIChatAgent";
 
@@ -25,6 +26,7 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/style-guide" element={<StyleGuide />} />
               <Route path="/project/:id" element={<ProjectDetail />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

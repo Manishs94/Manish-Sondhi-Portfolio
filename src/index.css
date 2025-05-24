@@ -4,6 +4,7 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
 
 @layer base {
   :root {
@@ -96,10 +97,27 @@
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/></svg>') 12 12, auto;
   }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Enhanced typography with font loading optimization */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    font-optical-sizing: auto;
+  }
+
+  /* Custom cursor effects */
+  a, button, [role="button"] {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%234169E1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>') 12 12, pointer;
+  }
+
+  input, textarea, select {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>') 12 12, text;
   }
 
   /* Enhanced Dark mode text colors */
@@ -107,13 +125,115 @@
     color-scheme: dark;
   }
 
-  /* Improved dark mode for specific elements */
   .dark .section-heading {
     @apply text-white;
   }
 
   .dark .section-subheading {
     @apply text-gray-300;
+  }
+
+  /* Font loading optimization */
+  @font-face {
+    font-family: 'Inter';
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Playfair Display';
+    font-display: swap;
+  }
+}
+
+/* Print Styles */
+@media print {
+  @page {
+    margin: 1in;
+    size: letter;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+    color: #000 !important;
+    background: #fff !important;
+  }
+
+  /* Hide navigation and interactive elements */
+  nav, .navbar, .sidebar, button, .theme-toggle, .chat-agent, .scroll-progress {
+    display: none !important;
+  }
+
+  /* Optimize headings for print */
+  h1 {
+    font-size: 24pt;
+    margin-bottom: 12pt;
+    page-break-after: avoid;
+  }
+
+  h2 {
+    font-size: 20pt;
+    margin-bottom: 10pt;
+    page-break-after: avoid;
+  }
+
+  h3 {
+    font-size: 16pt;
+    margin-bottom: 8pt;
+    page-break-after: avoid;
+  }
+
+  /* Optimize content layout */
+  .section-container {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  /* Ensure images are print-friendly */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    page-break-inside: avoid;
+  }
+
+  /* Card and content styling for print */
+  .card, .project-card {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    margin-bottom: 20pt;
+    page-break-inside: avoid;
+  }
+
+  /* Links for print */
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    color: #666;
+  }
+
+  /* Page breaks */
+  .page-break {
+    page-break-before: always;
+  }
+
+  .no-break {
+    page-break-inside: avoid;
+  }
+
+  /* Hide decorative elements */
+  .animate-blob, .bg-gradient-to-r, .backdrop-blur {
+    display: none !important;
   }
 }
 
@@ -124,6 +244,7 @@
   
   .section-heading {
     @apply text-4xl md:text-5xl font-bold mb-8 text-portfolio-text-dark transition-colors duration-300;
+    font-family: 'Playfair Display', serif;
   }
   
   .section-subheading {
@@ -162,7 +283,31 @@
   .interactive-element {
     @apply transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer;
   }
+
+  /* Custom cursor effects for specific elements */
+  .cursor-creative {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%234169E1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg>') 12 12, pointer;
+  }
+
+  .cursor-view {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%234169E1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>') 12 12, pointer;
+  }
+
+  /* Typography improvements */
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
 }
+
+/* ... keep existing code (animations, keyframes, etc.) the same ... */
 
 /* Enhanced Animations with improved performance */
 @keyframes blob {
