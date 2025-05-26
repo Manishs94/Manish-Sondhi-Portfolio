@@ -17,12 +17,40 @@ interface BreadcrumbNavProps {
 
 const BreadcrumbNav = ({ projectTitle }: BreadcrumbNavProps) => {
   const location = useLocation();
-  const pathSegments = location.pathname.split('/').filter(segment => segment);
 
   // Don't show breadcrumbs on home page
   if (location.pathname === '/') {
     return null;
   }
+
+  // For project detail pages, show: Home > Project Title
+  if (location.pathname.startsWith('/project/') && projectTitle) {
+    return (
+      <div className="py-4">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to="/" className="flex items-center gap-1 hover:text-portfolio-accent transition-colors">
+                  <Home className="w-4 h-4" />
+                  Home
+                </Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage className="text-portfolio-accent font-medium">
+                {projectTitle}
+              </BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+    );
+  }
+
+  // For other pages, show the path segments
+  const pathSegments = location.pathname.split('/').filter(segment => segment);
 
   return (
     <div className="py-4">
@@ -47,7 +75,7 @@ const BreadcrumbNav = ({ projectTitle }: BreadcrumbNavProps) => {
                 <BreadcrumbItem>
                   {isLast ? (
                     <BreadcrumbPage className="text-portfolio-accent font-medium">
-                      {segment === 'project' && projectTitle ? projectTitle : segment.charAt(0).toUpperCase() + segment.slice(1)}
+                      {segment.charAt(0).toUpperCase() + segment.slice(1)}
                     </BreadcrumbPage>
                   ) : (
                     <BreadcrumbLink asChild>
