@@ -8,8 +8,19 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { toast } from '@/hooks/use-toast';
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from '@/components/ui/pagination';
 
 type SortOption = 'newest' | 'alphabetical';
+
+const PROJECTS_PER_PAGE = 6; // Show 6 projects per page
 
 const Portfolio = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -18,6 +29,7 @@ const Portfolio = () => {
   const [filteredProjects, setFilteredProjects] = useState(allProjects);
   const [isFiltering, setIsFiltering] = useState(false);
   const [activeTab, setActiveTab] = useState<'all' | 'case-studies'>('all');
+  const [currentPage, setCurrentPage] = useState(1);
   
   const categories = getAllCategories();
   const caseStudies = getCaseStudies();
@@ -25,6 +37,7 @@ const Portfolio = () => {
   // Filter and sort projects whenever filters change
   useEffect(() => {
     setIsFiltering(true);
+    setCurrentPage(1); // Reset to first page when filters change
     
     // Add a small delay to show the animation
     const filterTimer = setTimeout(() => {
@@ -72,11 +85,18 @@ const Portfolio = () => {
     return () => clearTimeout(filterTimer);
   }, [selectedCategory, searchQuery, sortOption, activeTab]);
 
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredProjects.length / PROJECTS_PER_PAGE);
+  const startIndex = (currentPage - 1) * PROJECTS_PER_PAGE;
+  const endIndex = startIndex + PROJECTS_PER_PAGE;
+  const currentProjects = filteredProjects.slice(startIndex, endIndex);
+
   // Reset filters and scroll to portfolio section
   const handleResetFilters = useCallback(() => {
     setSelectedCategory('all');
     setSearchQuery('');
     setSortOption('newest');
+    setCurrentPage(1);
     
     // Show a toast notification
     toast({
@@ -90,6 +110,15 @@ const Portfolio = () => {
       portfolioSection.scrollIntoView({ behavior: 'smooth' });
     }
   }, []);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    // Scroll to top of portfolio section when page changes
+    const portfolioSection = document.getElementById('portfolio');
+    if (portfolioSection) {
+      portfolioSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="portfolio" className="py-24 bg-portfolio-bg-light">
@@ -188,7 +217,7 @@ const Portfolio = () => {
               <p>No projects found. Try adjusting your filters.</p>
             ) : (
               <p>
-                Showing {filteredProjects.length} {filteredProjects.length === 1 ? 'project' : 'projects'}
+                Showing {startIndex + 1}-{Math.min(endIndex, filteredProjects.length)} of {filteredProjects.length} {filteredProjects.length === 1 ? 'project' : 'projects'}
                 {activeTab === 'case-studies' && ' (Case Studies)'}
               </p>
             )}
@@ -196,133 +225,190 @@ const Portfolio = () => {
         </div>
         
         {/* Projects Grid with improved responsive behavior */}
-        {filteredProjects.length > 0 ? (
-          <div 
-            className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 transition-opacity duration-300 ${isFiltering ? 'opacity-50' : 'opacity-100'}`}
-          >
-            {filteredProjects.map((project, index) => (
-              <Link 
-                to={`/project/${project.id}`} 
-                key={project.id}
-                className="transition-transform duration-300 hover:-translate-y-1"
-              >
-                <Card 
-                  className={`bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl animate-fade-in opacity-0 ${
-                    project.isCaseStudy ? 'border-2 border-portfolio-accent' : ''
-                  }`}
-                  style={{ animationDelay: `${0.5 + index * 0.1}s`, animationFillMode: 'forwards' }}
+        {currentProjects.length > 0 ? (
+          <>
+            <div 
+              className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 transition-opacity duration-300 ${isFiltering ? 'opacity-50' : 'opacity-100'} mb-12`}
+            >
+              {currentProjects.map((project, index) => (
+                <Link 
+                  to={`/project/${project.id}`} 
+                  key={project.id}
+                  className="transition-transform duration-300 hover:-translate-y-1"
                 >
-                  <div className="overflow-hidden h-60 sm:h-64 relative">
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                    />
-                    
-                    {/* Case study badge */}
-                    {project.isCaseStudy && (
-                      <div className="absolute top-3 left-3 px-3 py-1 bg-portfolio-accent text-white rounded-full text-sm flex items-center gap-1">
-                        <BookOpen className="w-3 h-3" />
-                        Case Study
-                      </div>
-                    )}
-                    
-                    {/* Parent project indicator */}
-                    {project.parentProjectId && (
-                      <div className="absolute top-3 right-3 px-2 py-1 bg-blue-100 text-portfolio-accent rounded-full text-xs">
-                        Module
-                      </div>
-                    )}
-                    
-                    {/* Sub-projects indicator */}
-                    {project.subProjects && project.subProjects.length > 0 && (
-                      <div className="absolute bottom-3 left-3 px-2 py-1 bg-white/90 text-portfolio-accent rounded-full text-xs font-medium">
-                        {project.subProjects.length} Modules
-                      </div>
-                    )}
-                    
-                    {/* Status badge if available */}
-                    {project.status && (
-                      <Badge className="absolute top-3 right-3" variant={
-                        project.status === 'Completed' ? 'default' :
-                        project.status === 'In Progress' ? 'secondary' : 'outline'
-                      }>
-                        {project.status}
-                      </Badge>
-                    )}
-                  </div>
-                  <CardHeader className="p-4 sm:p-6 pb-0">
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      {Array.isArray(project.category) ? (
-                        project.category.map((cat, idx) => (
-                          <span key={idx} className="px-3 py-1 bg-blue-50 text-portfolio-accent rounded-full text-sm">
-                            {cat}
-                          </span>
-                        ))
-                      ) : (
-                        project.category && (
-                          <span className="px-3 py-1 bg-blue-50 text-portfolio-accent rounded-full text-sm">
-                            {project.category}
-                          </span>
-                        )
+                  <Card 
+                    className={`bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl animate-fade-in opacity-0 ${
+                      project.isCaseStudy ? 'border-2 border-portfolio-accent' : ''
+                    }`}
+                    style={{ animationDelay: `${0.1 * index}s`, animationFillMode: 'forwards' }}
+                  >
+                    <div className="overflow-hidden h-60 sm:h-64 relative">
+                      <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                      />
+                      
+                      {/* Case study badge */}
+                      {project.isCaseStudy && (
+                        <div className="absolute top-3 left-3 px-3 py-1 bg-portfolio-accent text-white rounded-full text-sm flex items-center gap-1">
+                          <BookOpen className="w-3 h-3" />
+                          Case Study
+                        </div>
+                      )}
+                      
+                      {/* Parent project indicator */}
+                      {project.parentProjectId && (
+                        <div className="absolute top-3 right-3 px-2 py-1 bg-blue-100 text-portfolio-accent rounded-full text-xs">
+                          Module
+                        </div>
+                      )}
+                      
+                      {/* Sub-projects indicator */}
+                      {project.subProjects && project.subProjects.length > 0 && (
+                        <div className="absolute bottom-3 left-3 px-2 py-1 bg-white/90 text-portfolio-accent rounded-full text-xs font-medium">
+                          {project.subProjects.length} Modules
+                        </div>
+                      )}
+                      
+                      {/* Status badge if available */}
+                      {project.status && (
+                        <Badge className="absolute top-3 right-3" variant={
+                          project.status === 'Completed' ? 'default' :
+                          project.status === 'In Progress' ? 'secondary' : 'outline'
+                        }>
+                          {project.status}
+                        </Badge>
                       )}
                     </div>
-                    <h3 className="text-xl font-bold text-portfolio-text-dark mb-1">{project.title}</h3>
-                    {project.subtitle && <p className="text-portfolio-text-light text-sm mb-2">{project.subtitle}</p>}
-                  </CardHeader>
-                  <CardContent className="p-4 sm:p-6 pt-3">
-                    <p className="text-portfolio-text-light mb-4 line-clamp-3">{project.description}</p>
-                    
-                    {project.metrics && (
-                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
-                        {project.metrics.map((metric, idx) => (
-                          <div key={idx} className="flex flex-col items-center p-2 bg-gray-50 rounded-lg">
-                            <div className="text-portfolio-accent mb-1">{renderIcon(metric.icon)}</div>
-                            <div className="font-bold text-portfolio-text-dark">{metric.value}</div>
-                            <div className="text-xs text-portfolio-text-light">{metric.label}</div>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                    
-                    <div className="space-y-3 mb-6">
-                      <div>
-                        <span className="text-sm font-semibold text-portfolio-text-dark">Challenge:</span>
-                        <p className="text-sm text-portfolio-text-light line-clamp-2">
-                          {project.challenge || project.problem || (project.overview && project.overview.challenge) || ""}
-                        </p>
-                      </div>
-                      <div>
-                        <span className="text-sm font-semibold text-portfolio-text-dark">Process:</span>
-                        <p className="text-sm text-portfolio-text-light line-clamp-2">{project.process}</p>
-                      </div>
-                    </div>
-                    
-                    {project.tools && (
-                      <div className="mb-4">
-                        <span className="text-sm font-semibold text-portfolio-text-dark block mb-2">Tools & Technologies:</span>
-                        <div className="flex flex-wrap gap-2">
-                          {project.tools.map((tool, idx) => (
-                            <span key={idx} className="px-2 py-1 bg-gray-100 text-portfolio-text-dark rounded text-xs">
-                              {tool}
+                    <CardHeader className="p-4 sm:p-6 pb-0">
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {Array.isArray(project.category) ? (
+                          project.category.map((cat, idx) => (
+                            <span key={idx} className="px-3 py-1 bg-blue-50 text-portfolio-accent rounded-full text-sm">
+                              {cat}
                             </span>
+                          ))
+                        ) : (
+                          project.category && (
+                            <span className="px-3 py-1 bg-blue-50 text-portfolio-accent rounded-full text-sm">
+                              {project.category}
+                            </span>
+                          )
+                        )}
+                      </div>
+                      <h3 className="text-xl font-bold text-portfolio-text-dark mb-1">{project.title}</h3>
+                      {project.subtitle && <p className="text-portfolio-text-light text-sm mb-2">{project.subtitle}</p>}
+                    </CardHeader>
+                    <CardContent className="p-4 sm:p-6 pt-3">
+                      <p className="text-portfolio-text-light mb-4 line-clamp-3">{project.description}</p>
+                      
+                      {project.metrics && (
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
+                          {project.metrics.map((metric, idx) => (
+                            <div key={idx} className="flex flex-col items-center p-2 bg-gray-50 rounded-lg">
+                              <div className="text-portfolio-accent mb-1">{renderIcon(metric.icon)}</div>
+                              <div className="font-bold text-portfolio-text-dark">{metric.value}</div>
+                              <div className="text-xs text-portfolio-text-light">{metric.label}</div>
+                            </div>
                           ))}
                         </div>
+                      )}
+                      
+                      <div className="space-y-3 mb-6">
+                        <div>
+                          <span className="text-sm font-semibold text-portfolio-text-dark">Challenge:</span>
+                          <p className="text-sm text-portfolio-text-light line-clamp-2">
+                            {project.challenge || project.problem || (project.overview && project.overview.challenge) || ""}
+                          </p>
+                        </div>
+                        <div>
+                          <span className="text-sm font-semibold text-portfolio-text-dark">Process:</span>
+                          <p className="text-sm text-portfolio-text-light line-clamp-2">{project.process}</p>
+                        </div>
                       </div>
-                    )}
+                      
+                      {project.tools && (
+                        <div className="mb-4">
+                          <span className="text-sm font-semibold text-portfolio-text-dark block mb-2">Tools & Technologies:</span>
+                          <div className="flex flex-wrap gap-2">
+                            {project.tools.map((tool, idx) => (
+                              <span key={idx} className="px-2 py-1 bg-gray-100 text-portfolio-text-dark rounded text-xs">
+                                {tool}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                      
+                      <div 
+                        className="flex items-center gap-2 text-portfolio-accent hover:underline font-medium group"
+                        onClick={(e) => e.preventDefault()}
+                      >
+                        {project.isCaseStudy ? 'View Case Study' : 'View Project'} 
+                        <ExternalLink size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="flex justify-center">
+                <Pagination>
+                  <PaginationContent>
+                    <PaginationItem>
+                      <PaginationPrevious 
+                        onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
+                        className={currentPage === 1 ? 'pointer-events-none opacity-50' : 'cursor-pointer'}
+                      />
+                    </PaginationItem>
                     
-                    <div 
-                      className="flex items-center gap-2 text-portfolio-accent hover:underline font-medium group"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      {project.isCaseStudy ? 'View Case Study' : 'View Project'} 
-                      <ExternalLink size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </div>
+                    {/* Page numbers */}
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+                      // Show first page, last page, current page, and pages around current
+                      if (
+                        page === 1 ||
+                        page === totalPages ||
+                        (page >= currentPage - 1 && page <= currentPage + 1)
+                      ) {
+                        return (
+                          <PaginationItem key={page}>
+                            <PaginationLink
+                              onClick={() => handlePageChange(page)}
+                              isActive={currentPage === page}
+                              className="cursor-pointer"
+                            >
+                              {page}
+                            </PaginationLink>
+                          </PaginationItem>
+                        );
+                      } else if (
+                        page === currentPage - 2 ||
+                        page === currentPage + 2
+                      ) {
+                        return (
+                          <PaginationItem key={page}>
+                            <PaginationEllipsis />
+                          </PaginationItem>
+                        );
+                      }
+                      return null;
+                    })}
+                    
+                    <PaginationItem>
+                      <PaginationNext 
+                        onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
+                        className={currentPage === totalPages ? 'pointer-events-none opacity-50' : 'cursor-pointer'}
+                      />
+                    </PaginationItem>
+                  </PaginationContent>
+                </Pagination>
+              </div>
+            )}
+          </>
         ) : (
           <div className="text-center py-12 bg-white rounded-lg shadow-sm">
             <p className="text-lg text-portfolio-text-light">No matching projects found</p>
