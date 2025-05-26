@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { ExternalLink, Search, BookOpen } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
@@ -254,7 +253,7 @@ const Portfolio = () => {
                         )
                       )}
                     </div>
-                    <h3 className="text-xl font-bold text-portfolio-text-dark mb-1">{project.title}</h3>
+                    <h3 className="text-xl font-bold text-portfolio-text-dark mb-1">UI/UX Case Study: Innovative Design Studio</h3>
                     {project.subtitle && <p className="text-portfolio-text-light text-sm mb-2">{project.subtitle}</p>}
                   </CardHeader>
                   <CardContent className="p-4 sm:p-6 pt-3">
