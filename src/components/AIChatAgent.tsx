@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send, Bot, User, ExternalLink, Calendar, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -216,15 +215,15 @@ const AIChatAgent = () => {
   };
 
   const ActionButtons = ({ messageId }: { messageId: string }) => (
-    <div className="flex flex-wrap gap-2 mt-3 pt-3 border-t border-gray-200">
+    <div className="flex flex-wrap gap-2 mt-3 pt-3 border-t border-gray-200 px-1">
       <Link to="/#contact" onClick={() => setIsOpen(false)}>
-        <Button size="sm" variant="outline" className="text-xs">
+        <Button size="sm" variant="outline" className="text-xs px-3 py-1.5">
           <Mail className="w-3 h-3 mr-1" />
           Get in Touch
         </Button>
       </Link>
       <Link to="/#portfolio" onClick={() => setIsOpen(false)}>
-        <Button size="sm" variant="outline" className="text-xs">
+        <Button size="sm" variant="outline" className="text-xs px-3 py-1.5">
           <ExternalLink className="w-3 h-3 mr-1" />
           View Portfolio
         </Button>
@@ -251,7 +250,7 @@ const AIChatAgent = () => {
           isOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
         }`}
       >
-        <Card className="h-full flex flex-col">
+        <Card className="h-full flex flex-col overflow-hidden">
           <CardHeader className="flex flex-row items-center justify-between p-4 bg-portfolio-accent text-white rounded-t-lg">
             <div className="flex items-center gap-2">
               <Bot className="w-5 h-5" />
@@ -268,7 +267,7 @@ const AIChatAgent = () => {
             </Button>
           </CardHeader>
 
-          <CardContent className="flex-1 flex flex-col p-0">
+          <CardContent className="flex-1 flex flex-col p-0 overflow-hidden">
             {/* Quick Starter Buttons */}
             {showQuickButtons && messages.length === 1 && (
               <div className="p-4 bg-gray-50 border-b">
@@ -297,7 +296,7 @@ const AIChatAgent = () => {
                   className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   <div
-                    className={`max-w-[80%] p-3 rounded-lg ${
+                    className={`max-w-[85%] p-3 rounded-lg ${
                       message.sender === 'user'
                         ? 'bg-portfolio-accent text-white'
                         : 'bg-gray-100 text-portfolio-text-dark'
@@ -306,8 +305,8 @@ const AIChatAgent = () => {
                     <div className="flex items-start gap-2">
                       {message.sender === 'ai' && <Bot className="w-4 h-4 mt-0.5 flex-shrink-0" />}
                       {message.sender === 'user' && <User className="w-4 h-4 mt-0.5 flex-shrink-0" />}
-                      <div className="flex-1">
-                        <p className="text-sm leading-relaxed whitespace-pre-wrap">
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm leading-relaxed whitespace-pre-wrap break-words">
                           {renderMessageContent(message.content)}
                         </p>
                         {message.hasActions && message.sender === 'ai' && (
