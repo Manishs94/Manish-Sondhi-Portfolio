@@ -8,6 +8,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import RelatedProjects from '@/components/RelatedProjects';
+import ProjectHierarchy from '@/components/ProjectHierarchy';
 
 interface Metric {
   icon: string;
@@ -284,7 +285,14 @@ const ProjectDetail = () => {
 
           {project.metrics && <ProjectMetrics project={project} />}
 
-          <ProjectContentSection project={project} />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+            <div className="lg:col-span-2">
+              <ProjectContentSection project={project} />
+            </div>
+            <div className="lg:col-span-1">
+              <ProjectHierarchy currentProjectId={project.id} />
+            </div>
+          </div>
 
           <ProjectActions project={project} />
         </div>

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { ExternalLink, Search, BookOpen } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
@@ -225,6 +224,20 @@ const Portfolio = () => {
                       <div className="absolute top-3 left-3 px-3 py-1 bg-portfolio-accent text-white rounded-full text-sm flex items-center gap-1">
                         <BookOpen className="w-3 h-3" />
                         Case Study
+                      </div>
+                    )}
+                    
+                    {/* Parent project indicator */}
+                    {project.parentProjectId && (
+                      <div className="absolute top-3 right-3 px-2 py-1 bg-blue-100 text-portfolio-accent rounded-full text-xs">
+                        Module
+                      </div>
+                    )}
+                    
+                    {/* Sub-projects indicator */}
+                    {project.subProjects && project.subProjects.length > 0 && (
+                      <div className="absolute bottom-3 left-3 px-2 py-1 bg-white/90 text-portfolio-accent rounded-full text-xs font-medium">
+                        {project.subProjects.length} Modules
                       </div>
                     )}
                     

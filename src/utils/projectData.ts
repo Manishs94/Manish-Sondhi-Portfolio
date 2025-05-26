@@ -1,3 +1,4 @@
+
 import { IconType } from './iconMappings';
 
 // Define project types
@@ -37,7 +38,9 @@ export interface Project {
   keyFeatures?: string[];
   features?: string[];
   status?: 'Completed' | 'In Progress' | 'Planning';
-  isCaseStudy?: boolean; // New field to identify case studies
+  isCaseStudy?: boolean;
+  parentProjectId?: number; // New field for hierarchy
+  subProjects?: number[]; // New field for sub-projects
 }
 
 // Case studies - in-depth projects
@@ -83,8 +86,8 @@ const caseStudies: Project[] = [
   {
     id: 2,
     title: 'CYNC Loan Origination System',
-    subtitle: 'Streamlining Commercial Lending',
-    description: 'Redesigned the loan origination system for Cync, focusing on automating and simplifying the commercial lending process while ensuring regulatory compliance and improving user experience for both lenders and borrowers.',
+    subtitle: 'Comprehensive Commercial Lending Platform',
+    description: 'An overview of the complete loan origination system redesign for Cync, encompassing multiple specialized modules including collateral management, liquid assets, equity stock management, and insurance components.',
     image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     category: ['UI Design', 'UX Research', 'Product Design'],
     metrics: [
@@ -97,28 +100,29 @@ const caseStudies: Project[] = [
     link: 'https://cync-loan-origination-e8jwns9.gamma.site/',
     overview: {
       challenge: 'Complex loan origination process with multiple manual touchpoints, leading to delays, errors, and poor user experience for both lenders and borrowers.',
-      solution: 'Implemented a streamlined, automated workflow with intelligent document processing, real-time status tracking, and integrated compliance checks.',
-      impact: 'Significantly reduced loan processing time, improved accuracy, and enhanced user satisfaction for both internal teams and clients.'
+      solution: 'Implemented a comprehensive, automated workflow system with multiple specialized modules for different aspects of loan processing.',
+      impact: 'Significantly reduced loan processing time, improved accuracy, and enhanced user satisfaction across all loan origination touchpoints.'
     },
     challenge: 'Complex loan origination process with multiple manual touchpoints, leading to delays, errors, and poor user experience for both lenders and borrowers.',
-    process: 'Implemented a streamlined, automated workflow with intelligent document processing, real-time status tracking, and integrated compliance checks.',
+    process: 'Implemented a comprehensive, automated workflow system with multiple specialized modules for different aspects of loan processing.',
     team: [
       'Product Designer (Lead)',
-      'Business Analysts (2)',
-      'Development Team (6)',
-      'QA Engineers (2)'
+      'Business Analysts (3)',
+      'Development Team (8)',
+      'QA Engineers (3)'
     ],
     timeline: '2023 - Present',
     role: 'Lead UX/UI Designer',
     keyFeatures: [
-      'Automated document processing',
-      'Real-time application tracking',
+      'Modular system architecture',
+      'Automated workflow processing',
       'Integrated compliance checks',
-      'Smart workflow automation',
-      'Digital signature integration'
+      'Real-time application tracking',
+      'Multi-component loan management'
     ],
     status: 'In Progress',
-    isCaseStudy: true
+    isCaseStudy: true,
+    subProjects: [6, 7, 8, 9] // References to sub-case studies
   },
   {
     id: 3,
@@ -187,6 +191,147 @@ const caseStudies: Project[] = [
     ],
     status: 'Completed',
     isCaseStudy: true
+  },
+  // CYNC Sub-case studies
+  {
+    id: 6,
+    title: 'CYNC Collateral Management',
+    subtitle: 'Streamlined Asset Tracking and Valuation',
+    description: 'A specialized module within the CYNC Loan Origination System focused on collateral management, asset tracking, and automated valuation processes.',
+    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['UI Design', 'UX Research', 'Product Design'],
+    metrics: [
+      { icon: 'users2', value: '50%', label: 'Faster Valuation' },
+      { icon: 'lineChart', value: '40%', label: 'Error Reduction' },
+      { icon: 'clock', value: '35%', label: 'Processing Time' },
+      { icon: 'target', value: '60%', label: 'Accuracy Improvement' }
+    ],
+    tools: ['Adobe XD', 'Miro', 'Protopie', 'UserTesting'],
+    link: 'https://collateral-management-out7cmc.gamma.site/',
+    challenge: 'Manual collateral tracking and valuation processes leading to delays and inconsistencies in loan processing.',
+    process: 'Designed automated workflows for asset tracking, real-time valuation updates, and integrated compliance monitoring.',
+    overview: {
+      challenge: 'Manual collateral tracking and valuation processes leading to delays and inconsistencies in loan processing.',
+      solution: 'Automated workflows for asset tracking, real-time valuation updates, and integrated compliance monitoring.',
+      impact: 'Reduced processing time and improved accuracy in collateral management workflows.'
+    },
+    team: ['Product Designer', 'Business Analyst', 'Development Team (3)'],
+    timeline: '2023',
+    role: 'UI/UX Designer',
+    keyFeatures: [
+      'Automated asset tracking',
+      'Real-time valuation',
+      'Compliance monitoring',
+      'Document management'
+    ],
+    status: 'Completed',
+    isCaseStudy: true,
+    parentProjectId: 2
+  },
+  {
+    id: 7,
+    title: 'CYNC Liquid Assets Management',
+    subtitle: 'Cash Flow and Liquidity Analysis',
+    description: 'A comprehensive liquid assets management module that provides real-time cash flow analysis and liquidity assessment within the loan origination process.',
+    image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['UI Design', 'UX Research', 'Product Design'],
+    metrics: [
+      { icon: 'users2', value: '45%', label: 'Analysis Speed' },
+      { icon: 'lineChart', value: '55%', label: 'Accuracy Gain' },
+      { icon: 'clock', value: '40%', label: 'Time Reduction' },
+      { icon: 'target', value: '50%', label: 'Risk Assessment' }
+    ],
+    tools: ['Adobe XD', 'Analytics', 'Protopie', 'Confluence'],
+    link: 'https://liquid-assets-case-study-glfrazg.gamma.site/',
+    challenge: 'Complex liquid asset analysis requiring manual calculations and prone to human error in risk assessment.',
+    process: 'Created intuitive dashboards for real-time liquidity analysis with automated risk scoring and cash flow projections.',
+    overview: {
+      challenge: 'Complex liquid asset analysis requiring manual calculations and prone to human error in risk assessment.',
+      solution: 'Intuitive dashboards for real-time liquidity analysis with automated risk scoring and cash flow projections.',
+      impact: 'Enhanced accuracy in liquidity assessment and faster decision-making in loan approvals.'
+    },
+    team: ['Product Designer', 'Financial Analyst', 'Development Team (3)'],
+    timeline: '2023',
+    role: 'UI/UX Designer',
+    keyFeatures: [
+      'Real-time liquidity analysis',
+      'Automated risk scoring',
+      'Cash flow projections',
+      'Interactive dashboards'
+    ],
+    status: 'Completed',
+    isCaseStudy: true,
+    parentProjectId: 2
+  },
+  {
+    id: 8,
+    title: 'CYNC Equity Stock Management',
+    subtitle: 'Portfolio Tracking and Valuation',
+    description: 'An advanced equity and stock management system integrated into the loan origination platform for comprehensive portfolio analysis and risk assessment.',
+    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['UI Design', 'UX Research', 'Product Design'],
+    metrics: [
+      { icon: 'users2', value: '55%', label: 'Portfolio Analysis' },
+      { icon: 'lineChart', value: '45%', label: 'Valuation Speed' },
+      { icon: 'clock', value: '50%', label: 'Risk Processing' },
+      { icon: 'target', value: '40%', label: 'Decision Accuracy' }
+    ],
+    tools: ['Adobe XD', 'Market Data APIs', 'Protopie', 'UserTesting'],
+    link: 'https://equity-stock-management-ciqwlqu.gamma.site/',
+    challenge: 'Difficulty in real-time stock portfolio valuation and risk assessment for loan collateral purposes.',
+    process: 'Developed integrated portfolio management tools with live market data feeds and automated risk calculations.',
+    overview: {
+      challenge: 'Difficulty in real-time stock portfolio valuation and risk assessment for loan collateral purposes.',
+      solution: 'Integrated portfolio management tools with live market data feeds and automated risk calculations.',
+      impact: 'Improved accuracy and speed in equity-based loan decisions with real-time market integration.'
+    },
+    team: ['Product Designer', 'Financial Engineer', 'Development Team (4)'],
+    timeline: '2023',
+    role: 'UI/UX Designer',
+    keyFeatures: [
+      'Real-time portfolio tracking',
+      'Live market data integration',
+      'Automated risk calculations',
+      'Performance analytics'
+    ],
+    status: 'Completed',
+    isCaseStudy: true,
+    parentProjectId: 2
+  },
+  {
+    id: 9,
+    title: 'CYNC Insurance Component Enhancement',
+    subtitle: 'Integrated Insurance Verification System',
+    description: 'Enhanced insurance verification and management components within the CYNC platform, streamlining insurance requirements for loan processing.',
+    image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['UI Design', 'UX Research', 'Product Design'],
+    metrics: [
+      { icon: 'users2', value: '60%', label: 'Verification Speed' },
+      { icon: 'lineChart', value: '45%', label: 'Compliance Rate' },
+      { icon: 'clock', value: '35%', label: 'Processing Time' },
+      { icon: 'target', value: '50%', label: 'Error Reduction' }
+    ],
+    tools: ['Adobe XD', 'Insurance APIs', 'Protopie', 'Confluence'],
+    link: 'https://insurance-component-enha-fsma6lw.gamma.site/',
+    challenge: 'Manual insurance verification processes causing delays and compliance issues in loan approvals.',
+    process: 'Designed automated insurance verification workflows with real-time policy validation and compliance tracking.',
+    overview: {
+      challenge: 'Manual insurance verification processes causing delays and compliance issues in loan approvals.',
+      solution: 'Automated insurance verification workflows with real-time policy validation and compliance tracking.',
+      impact: 'Streamlined insurance processes with improved compliance and faster loan processing times.'
+    },
+    team: ['Product Designer', 'Compliance Specialist', 'Development Team (2)'],
+    timeline: '2023',
+    role: 'UI/UX Designer',
+    keyFeatures: [
+      'Automated policy verification',
+      'Real-time compliance tracking',
+      'Insurance document management',
+      'Risk assessment integration'
+    ],
+    status: 'Completed',
+    isCaseStudy: true,
+    parentProjectId: 2
   }
 ];
 
@@ -216,7 +361,7 @@ const portfolioProjects: Project[] = [
     isCaseStudy: false
   },
   {
-    id: 6,
+    id: 10,
     title: 'Kanban Board',
     description: 'A user-centered task management interface with focus on workflow optimization and visual hierarchy',
     image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
@@ -239,7 +384,7 @@ const portfolioProjects: Project[] = [
     isCaseStudy: false
   },
   {
-    id: 7,
+    id: 11,
     title: 'Hulu Redesign',
     description: 'A modern, responsive redesign of the Hulu streaming platform interface',
     image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
@@ -262,7 +407,7 @@ const portfolioProjects: Project[] = [
     isCaseStudy: false
   },
   {
-    id: 8,
+    id: 12,
     title: 'Split Landing Page',
     description: 'A modern split-screen landing page featuring bold visuals and clear calls-to-action.',
     image: 'https://images.unsplash.com/photo-1500673922987-e212871fec22?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
@@ -281,7 +426,7 @@ const portfolioProjects: Project[] = [
     isCaseStudy: false
   },
   {
-    id: 12,
+    id: 13,
     title: 'AI Chatbot Application',
     description: 'An interactive AI chatbot with natural language processing and responsive interface',
     image: 'https://images.unsplash.com/photo-1531746790731-6bf607ccff6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
@@ -310,7 +455,7 @@ const portfolioProjects: Project[] = [
 // Combine all projects
 export const allProjects: Project[] = [...caseStudies, ...portfolioProjects];
 
-// Function to get all projects - this was the missing export
+// Function to get all projects
 export const getAllProjects = (): Project[] => {
   return allProjects;
 };
@@ -323,6 +468,20 @@ export const getCaseStudies = (): Project[] => {
 // Function to get project by ID
 export const getProjectById = (id: number): Project | undefined => {
   return allProjects.find(project => project.id === id);
+};
+
+// Get sub-projects for a parent project
+export const getSubProjects = (parentId: number): Project[] => {
+  return allProjects.filter(project => project.parentProjectId === parentId);
+};
+
+// Get parent project for a sub-project
+export const getParentProject = (projectId: number): Project | undefined => {
+  const project = getProjectById(projectId);
+  if (project?.parentProjectId) {
+    return getProjectById(project.parentProjectId);
+  }
+  return undefined;
 };
 
 // Function to get all project IDs
