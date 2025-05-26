@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Send, Bot, User, ExternalLink, Calendar, Mail } from 'lucide-react';
+import { MessageCircle, X, Send, Bot, User, ExternalLink, Calendar, Mail, Expand, Minimize } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
@@ -16,6 +16,7 @@ interface Message {
 
 const AIChatAgent = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
@@ -246,7 +247,11 @@ const AIChatAgent = () => {
 
       {/* Chat Window */}
       <div
-        className={`fixed bottom-6 right-6 w-96 h-[500px] bg-white rounded-lg shadow-2xl z-50 transition-all duration-300 ${
+        className={`fixed ${
+          isExpanded 
+            ? 'inset-4' 
+            : 'bottom-6 right-6 w-96 h-[500px]'
+        } bg-white rounded-lg shadow-2xl z-50 transition-all duration-300 ${
           isOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
         }`}
       >
@@ -257,14 +262,24 @@ const AIChatAgent = () => {
               <span className="font-semibold">Portfolio Assistant</span>
               <Badge variant="secondary" className="text-xs">AI</Badge>
             </div>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setIsOpen(false)}
-              className="text-white hover:bg-white/20"
-            >
-              <X className="w-4 h-4" />
-            </Button>
+            <div className="flex items-center gap-2">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="text-white hover:bg-white/20"
+              >
+                {isExpanded ? <Minimize className="w-4 h-4" /> : <Expand className="w-4 h-4" />}
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setIsOpen(false)}
+                className="text-white hover:bg-white/20"
+              >
+                <X className="w-4 h-4" />
+              </Button>
+            </div>
           </CardHeader>
 
           <CardContent className="flex-1 flex flex-col p-0 overflow-hidden">
