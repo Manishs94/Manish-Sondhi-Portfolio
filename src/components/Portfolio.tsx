@@ -244,7 +244,7 @@ const Portfolio = () => {
                   >
                     <div className="overflow-hidden h-60 sm:h-64 relative">
                       <img 
-                        src="/lovable-uploads/25012106-d649-4a4f-b9d0-7eb1b4890a63.png"
+                        src={project.image} 
                         alt={project.title} 
                         className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                       />
