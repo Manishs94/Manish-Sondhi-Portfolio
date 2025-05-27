@@ -130,6 +130,15 @@ const Portfolio = () => {
     return project.image;
   };
 
+  // Function to get the display title for each project
+  const getProjectTitle = (project: any) => {
+    // Check if this is the UI/UX Design Process Case study and rename it
+    if (project.title === "UI/UX Design Process Case study" || project.title === "UI/UX Design Process") {
+      return "UI/UX Case Study: Innovative Design Studio";
+    }
+    return project.title;
+  };
+
   return (
     <section id="portfolio" className="py-24 bg-portfolio-bg-light">
       <div className="section-container">
@@ -255,7 +264,7 @@ const Portfolio = () => {
                     <div className="overflow-hidden h-60 sm:h-64 relative">
                       <img 
                         src={getProjectImage(project)} 
-                        alt={project.title} 
+                        alt={getProjectTitle(project)} 
                         className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                       />
                       
@@ -307,7 +316,7 @@ const Portfolio = () => {
                           )
                         )}
                       </div>
-                      <h3 className="text-xl font-bold text-portfolio-text-dark mb-1">{project.title}</h3>
+                      <h3 className="text-xl font-bold text-portfolio-text-dark mb-1">{getProjectTitle(project)}</h3>
                       {project.subtitle && <p className="text-portfolio-text-light text-sm mb-2">{project.subtitle}</p>}
                     </CardHeader>
                     <CardContent className="p-4 sm:p-6 pt-3">
