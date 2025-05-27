@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ArrowRight, Download, Github, Linkedin } from 'lucide-react';
 import { SEOHead } from './SEOHead';
@@ -74,7 +75,7 @@ const Hero = () => {
               
               <div className={`flex flex-col sm:flex-row items-start sm:items-center gap-4 transition-all duration-1000 delay-800 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
                 <div className="flex items-center gap-6">
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-portfolio-text-dark dark:text-white hover:text-portfolio-accent transition-all duration-300 transform hover:scale-110">
+                  <a href="https://github.com/Manishs94" target="_blank" rel="noopener noreferrer" className="text-portfolio-text-dark dark:text-white hover:text-portfolio-accent transition-all duration-300 transform hover:scale-110">
                     <Github size={24} />
                   </a>
                   <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-portfolio-text-dark dark:text-white hover:text-portfolio-accent transition-all duration-300 transform hover:scale-110">
