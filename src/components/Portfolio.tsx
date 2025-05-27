@@ -120,6 +120,16 @@ const Portfolio = () => {
     }
   };
 
+  // Function to get the appropriate image for each project
+  const getProjectImage = (project: any) => {
+    // Check if this is the AI Chatbot Application project (assuming it has a specific title or id)
+    if (project.title === "AI Chatbot Application" || project.title.toLowerCase().includes("ai chatbot")) {
+      return "/lovable-uploads/25012106-d649-4a4f-b9d0-7eb1b4890a63.png";
+    }
+    // Return the project's original image for all other projects
+    return project.image;
+  };
+
   return (
     <section id="portfolio" className="py-24 bg-portfolio-bg-light">
       <div className="section-container">
@@ -244,7 +254,7 @@ const Portfolio = () => {
                   >
                     <div className="overflow-hidden h-60 sm:h-64 relative">
                       <img 
-                        src={project.image} 
+                        src={getProjectImage(project)} 
                         alt={project.title} 
                         className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                       />
