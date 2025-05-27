@@ -30,6 +30,7 @@ export const SocialShare: React.FC<SocialShareProps> = ({
         description: "The portfolio link has been copied to your clipboard.",
       });
     } catch (err) {
+      console.error('Failed to copy to clipboard:', err);
       toast({
         title: "Failed to copy",
         description: "Please copy the link manually from your browser.",
@@ -39,17 +40,39 @@ export const SocialShare: React.FC<SocialShareProps> = ({
   };
 
   const shareNatively = async () => {
+    console.log('Native share button clicked');
+    
+    // Check if Web Share API is supported
     if (navigator.share) {
+      console.log('Web Share API is supported');
       try {
         await navigator.share({
           title,
           text: description,
           url,
         });
+        console.log('Share successful');
+        toast({
+          title: "Shared successfully!",
+          description: "Thank you for sharing the portfolio!",
+        });
       } catch (err) {
-        console.log('Share cancelled');
+        console.log('Share cancelled or failed:', err);
+        // Only show error if it's not a user cancellation
+        if (err.name !== 'AbortError') {
+          toast({
+            title: "Share failed",
+            description: "Unable to share. Link copied to clipboard instead.",
+          });
+          copyToClipboard();
+        }
       }
     } else {
+      console.log('Web Share API not supported, falling back to clipboard');
+      toast({
+        title: "Share not supported",
+        description: "Link copied to clipboard instead.",
+      });
       copyToClipboard();
     }
   };
@@ -63,6 +86,7 @@ export const SocialShare: React.FC<SocialShareProps> = ({
         size="sm"
         onClick={shareOnLinkedIn}
         className="hover:text-blue-600"
+        title="Share on LinkedIn"
       >
         <Linkedin className="w-4 h-4" />
       </Button>
@@ -72,6 +96,7 @@ export const SocialShare: React.FC<SocialShareProps> = ({
         size="sm"
         onClick={copyToClipboard}
         className="hover:text-gray-600"
+        title="Copy link to clipboard"
       >
         <Link className="w-4 h-4" />
       </Button>
@@ -81,6 +106,7 @@ export const SocialShare: React.FC<SocialShareProps> = ({
         size="sm"
         onClick={shareNatively}
         className="hover:text-portfolio-accent"
+        title="Share with other apps"
       >
         <Share2 className="w-4 h-4" />
       </Button>
