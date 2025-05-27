@@ -51,7 +51,7 @@ const ProjectHeader = ({ project }: ProjectDetailProps) => {
     <div className={`bg-white rounded-xl overflow-hidden shadow-lg ${project.isCaseStudy ? 'border-2 border-portfolio-accent' : ''}`}>
       <div className="h-72 md:h-96 overflow-hidden relative">
         <img
-          src={project.image}
+          src="/lovable-uploads/25012106-d649-4a4f-b9d0-7eb1b4890a63.png"
           alt={project.title}
           className="w-full h-full object-cover"
         />
