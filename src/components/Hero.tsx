@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { ArrowRight, Download, Github, Linkedin } from 'lucide-react';
 import { SEOHead } from './SEOHead';
@@ -78,7 +79,7 @@ const Hero = () => {
                   <a href="https://github.com/Manishs94" target="_blank" rel="noopener noreferrer" className="text-portfolio-text-dark dark:text-white hover:text-portfolio-accent transition-all duration-300 transform hover:scale-110">
                     <Github size={24} />
                   </a>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-portfolio-text-dark dark:text-white hover:text-portfolio-accent transition-all duration-300 transform hover:scale-110">
+                  <a href="https://www.linkedin.com/in/manish-sondhi-2b3bb2217/" target="_blank" rel="noopener noreferrer" className="text-portfolio-text-dark dark:text-white hover:text-portfolio-accent transition-all duration-300 transform hover:scale-110">
                     <Linkedin size={24} />
                   </a>
                 </div>
@@ -111,3 +112,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
