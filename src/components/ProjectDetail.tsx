@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ExternalLink, BookOpen } from 'lucide-react';
@@ -79,7 +80,7 @@ const ProjectHeader = ({ project }: ProjectDetailProps) => {
           )}
         </div>
 
-        <h1 className="text-3xl font-bold text-portfolio-text-dark mb-2">{project.title}</h1>
+        <h1 className="text-3xl font-bold text-portfolio-text-dark mb-2">UI/UX Case Study: Innovative Design Studio</h1>
         {project.subtitle && <p className="text-lg text-portfolio-text-light mb-4">{project.subtitle}</p>}
 
         <div className="bg-gray-50 p-6 rounded-lg mb-8">
