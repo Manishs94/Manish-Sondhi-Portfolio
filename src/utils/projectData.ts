@@ -1,4 +1,3 @@
-
 import { IconType } from './iconMappings';
 
 // Define project types
@@ -46,44 +45,6 @@ export interface Project {
 // Case studies - in-depth projects
 const caseStudies: Project[] = [
   {
-    id: 1,
-    title: 'Bank of America Mobile Bill Payment',
-    subtitle: 'Enhancing Digital Banking Experience',
-    description: 'Bank of America, serving over 68 million customers, introduced a new Bill Pay feature in 2022. This feature allows users to handle payments for utilities, cable, phone services, and more through electronic transactions, available as early as the next working day.',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    category: ['UI Design', 'UX Research', 'Product Design'],
-    metrics: [
-      { icon: 'users2', value: '68M+', label: 'Active Users' },
-      { icon: 'lineChart', value: '40%', label: 'Reduced Drop-offs' },
-      { icon: 'clock', value: '25%', label: 'Process Improvement' },
-      { icon: 'target', value: '35%', label: 'User Satisfaction' }
-    ],
-    tools: ['Figma', 'Analytics', 'User Testing', 'Protopie'],
-    link: 'https://boa-billpay-redesign-fewkgfd.gamma.site/',
-    challenge: 'Users expressed dissatisfaction with the Bill Pay feature, facing complexities in payment scheduling, limited flexibility, and confusion in tracking payment history.',
-    process: 'Implemented a streamlined UI with enhanced scheduling flexibility, real-time notifications, and improved payment history tracking.',
-    overview: {
-      challenge: 'Users expressed dissatisfaction with the Bill Pay feature, facing complexities in payment scheduling, limited flexibility, and confusion in tracking payment history.',
-      solution: 'Implemented a streamlined UI with enhanced scheduling flexibility, real-time notifications, and improved payment history tracking.',
-      impact: 'Achieved significant improvements in user satisfaction, adoption rates, and reduced support tickets related to bill payments.'
-    },
-    team: [
-      'Product Designer (Lead)',
-      'UX Research Team (4)',
-      'Lead Designer'
-    ],
-    timeline: '2022 - Present',
-    role: 'Lead Product Designer',
-    keyFeatures: [
-      'Streamlined payment scheduling',
-      'Enhanced payment history tracking',
-      'Real-time notifications',
-      'Flexible payment management'
-    ],
-    status: 'Completed',
-    isCaseStudy: true
-  },
-  {
     id: 2,
     title: 'CYNC Loan Origination System',
     subtitle: 'Comprehensive Commercial Lending Platform',
@@ -123,6 +84,44 @@ const caseStudies: Project[] = [
     status: 'In Progress',
     isCaseStudy: true,
     subProjects: [6, 7, 8, 9] // References to sub-case studies
+  },
+  {
+    id: 1,
+    title: 'Bank of America Mobile Bill Payment',
+    subtitle: 'Enhancing Digital Banking Experience',
+    description: 'Bank of America, serving over 68 million customers, introduced a new Bill Pay feature in 2022. This feature allows users to handle payments for utilities, cable, phone services, and more through electronic transactions, available as early as the next working day.',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['UI Design', 'UX Research', 'Product Design'],
+    metrics: [
+      { icon: 'users2', value: '68M+', label: 'Active Users' },
+      { icon: 'lineChart', value: '40%', label: 'Reduced Drop-offs' },
+      { icon: 'clock', value: '25%', label: 'Process Improvement' },
+      { icon: 'target', value: '35%', label: 'User Satisfaction' }
+    ],
+    tools: ['Figma', 'Analytics', 'User Testing', 'Protopie'],
+    link: 'https://boa-billpay-redesign-fewkgfd.gamma.site/',
+    challenge: 'Users expressed dissatisfaction with the Bill Pay feature, facing complexities in payment scheduling, limited flexibility, and confusion in tracking payment history.',
+    process: 'Implemented a streamlined UI with enhanced scheduling flexibility, real-time notifications, and improved payment history tracking.',
+    overview: {
+      challenge: 'Users expressed dissatisfaction with the Bill Pay feature, facing complexities in payment scheduling, limited flexibility, and confusion in tracking payment history.',
+      solution: 'Implemented a streamlined UI with enhanced scheduling flexibility, real-time notifications, and improved payment history tracking.',
+      impact: 'Achieved significant improvements in user satisfaction, adoption rates, and reduced support tickets related to bill payments.'
+    },
+    team: [
+      'Product Designer (Lead)',
+      'UX Research Team (4)',
+      'Lead Designer'
+    ],
+    timeline: '2022 - Present',
+    role: 'Lead Product Designer',
+    keyFeatures: [
+      'Streamlined payment scheduling',
+      'Enhanced payment history tracking',
+      'Real-time notifications',
+      'Flexible payment management'
+    ],
+    status: 'Completed',
+    isCaseStudy: true
   },
   {
     id: 3,
