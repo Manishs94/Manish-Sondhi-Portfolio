@@ -46,6 +46,17 @@ const AIChatAgent = () => {
     scrollToBottom();
   }, [messages]);
 
+  // Function to scroll to a specific section and close chat
+  const scrollToSection = (sectionId: string) => {
+    setIsOpen(false);
+    setTimeout(() => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100); // Small delay to ensure chat closes first
+  };
+
   const generateAIResponse = (userMessage: string): { content: string; hasActions?: boolean } => {
     const message = userMessage.toLowerCase();
     
@@ -217,18 +228,24 @@ const AIChatAgent = () => {
 
   const ActionButtons = ({ messageId }: { messageId: string }) => (
     <div className="flex flex-wrap gap-2 mt-3 pt-3 border-t border-gray-200 px-1">
-      <Link to="/#contact" onClick={() => setIsOpen(false)}>
-        <Button size="sm" variant="outline" className="text-xs px-3 py-1.5">
-          <Mail className="w-3 h-3 mr-1" />
-          Get in Touch
-        </Button>
-      </Link>
-      <Link to="/#portfolio" onClick={() => setIsOpen(false)}>
-        <Button size="sm" variant="outline" className="text-xs px-3 py-1.5">
-          <ExternalLink className="w-3 h-3 mr-1" />
-          View Portfolio
-        </Button>
-      </Link>
+      <Button 
+        size="sm" 
+        variant="outline" 
+        className="text-xs px-3 py-1.5"
+        onClick={() => scrollToSection('contact')}
+      >
+        <Mail className="w-3 h-3 mr-1" />
+        Get in Touch
+      </Button>
+      <Button 
+        size="sm" 
+        variant="outline" 
+        className="text-xs px-3 py-1.5"
+        onClick={() => scrollToSection('portfolio')}
+      >
+        <ExternalLink className="w-3 h-3 mr-1" />
+        View Portfolio
+      </Button>
     </div>
   );
 
