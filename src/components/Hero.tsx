@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { ArrowRight, Download, Github, Linkedin, Twitter } from 'lucide-react';
+import { ArrowRight, Download, Github, Linkedin } from 'lucide-react';
 import { SEOHead } from './SEOHead';
 import { SocialShare } from './SocialShare';
 import { LazyImage } from './LazyImage';
@@ -80,9 +79,6 @@ const Hero = () => {
                   </a>
                   <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-portfolio-text-dark dark:text-white hover:text-portfolio-accent transition-all duration-300 transform hover:scale-110">
                     <Linkedin size={24} />
-                  </a>
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-portfolio-text-dark dark:text-white hover:text-portfolio-accent transition-all duration-300 transform hover:scale-110">
-                    <Twitter size={24} />
                   </a>
                 </div>
                 
