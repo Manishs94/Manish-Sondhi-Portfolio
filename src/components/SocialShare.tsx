@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Share2, Linkedin, Twitter, Link } from 'lucide-react';
+import { Share2, Linkedin, Link } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from '@/hooks/use-toast';
 
@@ -20,11 +20,6 @@ export const SocialShare: React.FC<SocialShareProps> = ({
   const shareOnLinkedIn = () => {
     const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
     window.open(linkedInUrl, '_blank', 'width=600,height=400');
-  };
-
-  const shareOnTwitter = () => {
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}&hashtags=${hashtags.join(',')}`;
-    window.open(twitterUrl, '_blank', 'width=600,height=400');
   };
 
   const copyToClipboard = async () => {
@@ -70,15 +65,6 @@ export const SocialShare: React.FC<SocialShareProps> = ({
         className="hover:text-blue-600"
       >
         <Linkedin className="w-4 h-4" />
-      </Button>
-      
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={shareOnTwitter}
-        className="hover:text-blue-400"
-      >
-        <Twitter className="w-4 h-4" />
       </Button>
       
       <Button
