@@ -67,9 +67,10 @@ const App = () => {
                 <Routes>
                   <Route path="/" element={<Index />} />
                   <Route path="/style-guide" element={<StyleGuide />} />
-                  <Route path="/project" element={<Navigate to="/#portfolio" replace />} />
                   <Route path="/project/:id" element={<ProjectDetail />} />
-                  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                  {/* Redirect old project route to home portfolio section */}
+                  <Route path="/project" element={<Navigate to="/#portfolio" replace />} />
+                  {/* Catch-all route for 404 - this must be last */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>
