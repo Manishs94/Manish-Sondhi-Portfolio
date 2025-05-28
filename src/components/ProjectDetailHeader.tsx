@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { BookOpen } from 'lucide-react';
 
@@ -15,13 +14,19 @@ interface ProjectDetailHeaderProps {
 }
 
 const ProjectDetailHeader: React.FC<ProjectDetailHeaderProps> = ({ project }) => {
+  const fallbackImage = 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080';
+  
   return (
     <div className={`bg-white rounded-xl overflow-hidden shadow-lg ${project.isCaseStudy ? 'border-2 border-portfolio-accent' : ''}`}>
       <div className="h-72 md:h-96 overflow-hidden relative">
         <img
-          src={project.image}
+          src={project.image || fallbackImage}
           alt={project.title}
           className="w-full h-full object-cover"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            target.src = fallbackImage;
+          }}
         />
 
         {project.isCaseStudy && (
