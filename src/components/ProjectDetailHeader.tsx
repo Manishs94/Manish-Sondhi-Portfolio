@@ -19,7 +19,7 @@ const ProjectDetailHeader: React.FC<ProjectDetailHeaderProps> = ({ project }) =>
     <div className={`bg-white rounded-xl overflow-hidden shadow-lg ${project.isCaseStudy ? 'border-2 border-portfolio-accent' : ''}`}>
       <div className="h-72 md:h-96 overflow-hidden relative">
         <img
-          src="/lovable-uploads/25012106-d649-4a4f-b9d0-7eb1b4890a63.png"
+          src={project.image}
           alt={project.title}
           className="w-full h-full object-cover"
         />
@@ -47,7 +47,7 @@ const ProjectDetailHeader: React.FC<ProjectDetailHeaderProps> = ({ project }) =>
           )}
         </div>
 
-        <h1 className="text-3xl font-bold text-portfolio-text-dark mb-2">UI/UX Case Study: Innovative Design Studio</h1>
+        <h1 className="text-3xl font-bold text-portfolio-text-dark mb-2">{project.title}</h1>
         {project.subtitle && <p className="text-lg text-portfolio-text-light mb-4">{project.subtitle}</p>}
 
         <div className="bg-gray-50 p-6 rounded-lg mb-8">
