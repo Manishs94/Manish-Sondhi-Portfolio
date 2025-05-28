@@ -95,7 +95,7 @@ export const portfolioProjects: Project[] = [
     id: 13,
     title: 'AI Chatbot Application',
     description: 'An interactive AI chatbot with natural language processing and responsive interface',
-    image: 'https://images.unsplash.com/photo-1531746790731-6bf607ccff6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+    image: '/lovable-uploads/25012106-d649-4a4f-b9d0-7eb1b4890a63.png',
     category: ['AI', 'UX Research', 'UI Design'],
     tools: ['React', 'TypeScript', 'AI/ML', 'Vercel'],
     link: 'https://my-awesome-chatbot-six-hazel.vercel.app/',
