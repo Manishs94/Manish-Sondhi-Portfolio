@@ -1,4 +1,5 @@
 
+
 import { Project } from '../types/project';
 
 // Regular portfolio projects
@@ -10,7 +11,7 @@ export const portfolioProjects: Project[] = [
     image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     category: ['UI Design', 'Interaction Design'],
     tools: ['Figma', 'Principle', 'Framer', 'After Effects'],
-    link: '#',
+    link: 'https://animations-a7d93.web.app/',
     metrics: [
       { icon: 'users', value: '40%', label: 'Engagement Increase' },
       { icon: 'lineChart', value: '25%', label: 'User Satisfaction' }
@@ -98,3 +99,4 @@ export const portfolioProjects: Project[] = [
     isCaseStudy: false
   }
 ];
+
