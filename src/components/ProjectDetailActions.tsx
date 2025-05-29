@@ -15,7 +15,7 @@ const ProjectDetailActions: React.FC<ProjectDetailActionsProps> = ({ project }) 
   return (
     <div className="flex flex-wrap gap-4">
       <a
-        href={project.link}
+        href="https://case-study-enhancing-the-nrlwns9.gamma.site/"
         className="flex items-center gap-2 text-white bg-portfolio-accent px-6 py-3 rounded-md hover:bg-opacity-90 transition-all"
         target="_blank"
         rel="noopener noreferrer"
