@@ -97,6 +97,30 @@ export const portfolioProjects: Project[] = [
     ],
     status: 'Completed',
     isCaseStudy: false
+  },
+  {
+    id: 14,
+    title: 'Expanding Cards Gallery',
+    description: 'An interactive image gallery with smooth expanding animations and responsive design.',
+    image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['Interactive Design'],
+    tools: ['HTML', 'CSS', 'JavaScript', 'Animations'],
+    link: 'https://expanding-cards-unique.netlify.app/',
+    metrics: [
+      { icon: 'users', value: '60%', label: 'User Engagement' },
+      { icon: 'lineChart', value: '42%', label: 'Interaction Rate' }
+    ],
+    problem: 'Traditional gallery layouts limiting content exploration and user interaction',
+    process: 'Explored innovative interaction patterns and tested with target users',
+    solution: 'Designed an expanding card system that enhances content discovery',
+    features: [
+      'Smooth expansion animations',
+      'Touch-friendly interface',
+      'Dynamic content loading',
+      'Keyboard accessibility'
+    ],
+    status: 'Completed',
+    isCaseStudy: false
   }
 ];
 
