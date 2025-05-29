@@ -1,4 +1,3 @@
-
 import { Project } from '../types/project';
 
 // Case studies - in-depth projects
@@ -42,7 +41,7 @@ export const caseStudies: Project[] = [
     ],
     status: 'In Progress',
     isCaseStudy: true,
-    subProjects: [6, 7, 8, 9, 10] // Added new appraisal component
+    subProjects: [6, 7, 8, 9] // Removed appraisal component (id: 10)
   },
   {
     id: 1,
@@ -286,43 +285,6 @@ export const caseStudies: Project[] = [
       'Real-time compliance tracking',
       'Insurance document management',
       'Risk assessment integration'
-    ],
-    status: 'Completed',
-    isCaseStudy: true,
-    parentProjectId: 2
-  },
-  {
-    id: 10,
-    title: 'CYNC Appraisal Component Enhancement',
-    subtitle: 'Advanced Collateral Valuation System',
-    description: 'A comprehensive enhancement to the Appraisal Component within the Collateral Management System, focusing on CRE asset valuation with configurable workflows and regulatory compliance.',
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    category: ['UI Design', 'UX Research', 'Product Design'],
-    metrics: [
-      { icon: 'users2', value: '40%', label: 'Configuration Time' },
-      { icon: 'lineChart', value: '65%', label: 'Data Accuracy' },
-      { icon: 'clock', value: '50%', label: 'Processing Speed' },
-      { icon: 'target', value: '90%', label: 'Compliance Rate' }
-    ],
-    tools: ['Adobe XD', 'Jira', 'Storybook', 'Confluence', 'React/Material UI'],
-    link: 'https://appraisal-component-case-study.gamma.site/',
-    challenge: 'Complex interdependent appraisal fields with conditional visibility requirements, multiple user types, and strict regulatory compliance needs (USPAP, FIRREA) creating usability and consistency challenges.',
-    process: 'Designed a modular, configurable system with dual-list admin interface, smart form logic for end users, and automated final valuation mapping to ensure compliance and streamline workflows.',
-    overview: {
-      challenge: 'Complex interdependent appraisal fields with conditional visibility requirements, multiple user types, and strict regulatory compliance needs (USPAP, FIRREA) creating usability and consistency challenges.',
-      solution: 'Modular, configurable system with dual-list admin interface, smart form logic for end users, and automated final valuation mapping to ensure compliance and streamline workflows.',
-      impact: 'Successfully deployed component with 40% reduction in configuration time, enhanced data accuracy, and full audit traceability for regulatory compliance.'
-    },
-    team: ['Product Designer (Lead)', 'Compliance Specialist', 'Business Analyst', 'Development Team (4)'],
-    timeline: '2023',
-    role: 'Lead UI/UX Designer',
-    keyFeatures: [
-      'Configurable admin interface with drag-and-drop',
-      'Smart conditional form logic',
-      'Multi-source valuation workflows',
-      'Automated compliance validation',
-      'Final valuation mapping system',
-      'Audit trail and traceability'
     ],
     status: 'Completed',
     isCaseStudy: true,
