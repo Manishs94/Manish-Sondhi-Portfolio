@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface ProjectDetailContentProps {
@@ -86,7 +85,7 @@ const ProjectDetailContent: React.FC<ProjectDetailContentProps> = ({ project }) 
       {project.timeline && (
         <div className="mb-8">
           <h3 className="text-xl font-semibold text-portfolio-text-dark mb-3">Timeline</h3>
-          <p className="text-portfolio-text-light">{project.timeline}</p>
+          <p className="text-portfolio-text-light">2022</p>
         </div>
       )}
 
