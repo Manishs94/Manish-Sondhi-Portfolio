@@ -73,25 +73,6 @@ export const portfolioProjects: Project[] = [
     isCaseStudy: false
   },
   {
-    id: 12,
-    title: 'Split Landing Page',
-    description: 'A modern split-screen landing page featuring bold visuals and clear calls-to-action.',
-    image: 'https://images.unsplash.com/photo-1500673922987-e212871fec22?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    category: ['Web Design'],
-    tools: ['HTML', 'CSS', 'JavaScript'],
-    link: '#',
-    problem: 'Ineffective landing page conversion and unclear user journey',
-    process: 'Analyzed user behavior, conducted A/B testing, and refined visual hierarchy',
-    solution: 'Created a split-screen design that improved conversion rates and user engagement',
-    features: [
-      'Dynamic content transitions',
-      'Responsive split layout',
-      'Optimized image loading',
-      'Interactive hover states'
-    ],
-    isCaseStudy: false
-  },
-  {
     id: 13,
     title: 'AI Chatbot Application',
     description: 'An interactive AI chatbot with natural language processing and responsive interface',
