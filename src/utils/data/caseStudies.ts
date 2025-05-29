@@ -1,4 +1,3 @@
-
 import { Project } from '../types/project';
 
 // Case studies - in-depth projects
@@ -42,7 +41,7 @@ export const caseStudies: Project[] = [
     ],
     status: 'In Progress',
     isCaseStudy: true,
-    subProjects: [6, 7, 8, 9, 10] // Added new appraisal component (id: 10)
+    subProjects: [6, 7, 8, 9] // Removed appraisal component (id: 10)
   },
   {
     id: 1,
@@ -286,42 +285,6 @@ export const caseStudies: Project[] = [
       'Real-time compliance tracking',
       'Insurance document management',
       'Risk assessment integration'
-    ],
-    status: 'Completed',
-    isCaseStudy: true,
-    parentProjectId: 2
-  },
-  {
-    id: 10,
-    title: 'CYNC Appraisal Component Enhancement',
-    subtitle: 'Enhanced Collateral Appraisal Management System',
-    description: 'Strategic enhancement to the Appraisal Component within the Collateral Management System, focusing on asset value evaluation for CRE (Commercial Real Estate) assets with improved usability, compliance accuracy, and administrative control.',
-    image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    category: ['UI Design', 'UX Research', 'Product Design'],
-    metrics: [
-      { icon: 'users2', value: '40%', label: 'Configuration Time Reduced' },
-      { icon: 'lineChart', value: '55%', label: 'Data Accuracy' },
-      { icon: 'clock', value: '45%', label: 'Processing Speed' },
-      { icon: 'target', value: '60%', label: 'Compliance Rate' }
-    ],
-    tools: ['Adobe XD', 'Jira', 'Storybook', 'Confluence', 'React', 'Material UI'],
-    link: 'https://case-study-enhancing-the-nrlwns9.gamma.site/',
-    challenge: 'Complex information structure with dozens of interdependent fields, conditional visibility requirements, and need for consistency across different user types while maintaining auditability and compliance with industry standards (USPAP, FIRREA).',
-    process: 'Designed a modular, configurable system with dual-list tables for admin configuration, smart form logic for end-users, and automated final valuation mapping to ensure data integrity across downstream modules.',
-    overview: {
-      challenge: 'Complex information structure with dozens of interdependent fields, conditional visibility requirements, and need for consistency across different user types while maintaining auditability and compliance.',
-      solution: 'Modular, configurable design system with admin configuration tools, smart form logic, and automated valuation mapping.',
-      impact: 'Successfully deployed to production with reduced configuration time, improved data accuracy, and enhanced compliance across multiple microservices.'
-    },
-    team: ['Product Designer', 'Compliance Specialist', 'Development Team (4)', 'Business Analyst'],
-    timeline: '2023',
-    role: 'UI/UX Designer',
-    keyFeatures: [
-      'Admin configuration modal with drag-and-drop',
-      'Smart form logic with conditional visibility',
-      'Expandable table view for multiple valuations',
-      'Automated final valuation mapping',
-      'USPAP and FIRREA compliance integration'
     ],
     status: 'Completed',
     isCaseStudy: true,
