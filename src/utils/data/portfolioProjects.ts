@@ -171,5 +171,31 @@ export const portfolioProjects: Project[] = [
     ],
     status: 'Completed',
     isCaseStudy: false
+  },
+  {
+    id: 17,
+    title: 'Todo Application',
+    description: 'A feature-rich todo application with real-time updates and persistent storage',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['Productivity Design'],
+    tools: ['React', 'TypeScript', 'Netlify', 'CSS'],
+    link: 'https://todo-cda1b8.netlify.app/',
+    githubLink: 'https://github.com/Manishs94/todo-app',
+    demoLink: 'https://todo-cda1b8.netlify.app/',
+    metrics: [
+      { icon: 'users', value: '75%', label: 'Task Completion' },
+      { icon: 'lineChart', value: '58%', label: 'User Productivity' }
+    ],
+    problem: 'Task management complexity and poor user engagement',
+    process: 'Studied user productivity patterns and task management workflows',
+    solution: 'Designed a clean, focused interface with clear task hierarchy',
+    features: [
+      'Task management',
+      'Real-time updates',
+      'Persistent storage',
+      'Responsive design'
+    ],
+    status: 'Completed',
+    isCaseStudy: false
   }
 ];
