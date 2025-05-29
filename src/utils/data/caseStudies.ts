@@ -41,7 +41,7 @@ export const caseStudies: Project[] = [
     ],
     status: 'In Progress',
     isCaseStudy: true,
-    subProjects: [6, 7, 8, 9] // Removed appraisal component (id: 10)
+    subProjects: [6, 7, 8, 9, 19] // Added appraisal component (id: 19)
   },
   {
     id: 1,
@@ -285,6 +285,42 @@ export const caseStudies: Project[] = [
       'Real-time compliance tracking',
       'Insurance document management',
       'Risk assessment integration'
+    ],
+    status: 'Completed',
+    isCaseStudy: true,
+    parentProjectId: 2
+  },
+  {
+    id: 19,
+    title: 'CYNC Appraisal Component Enhancement',
+    subtitle: 'Configurable Asset Valuation System',
+    description: 'Strategic enhancement to the Appraisal Component within the Collateral Management System, focusing on CRE asset evaluation with modular, configurable design for increased usability and compliance accuracy.',
+    image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['UI Design', 'UX Research', 'Product Design'],
+    metrics: [
+      { icon: 'users2', value: '40%', label: 'Configuration Time Reduction' },
+      { icon: 'lineChart', value: '55%', label: 'Data Accuracy Improvement' },
+      { icon: 'clock', value: '35%', label: 'Processing Speed' },
+      { icon: 'target', value: '90%', label: 'Compliance Rate' }
+    ],
+    tools: ['Adobe XD', 'Jira', 'Storybook', 'Confluence', 'React', 'Material UI'],
+    link: 'https://case-study-enhancing-the-nrlwns9.gamma.site/',
+    challenge: 'Complex information structure with dozens of interdependent fields, conditional visibility requirements, and the need for consistency across different user types while maintaining auditability and regulatory compliance (USPAP, FIRREA).',
+    process: 'Designed a dual-interface system with admin configuration capabilities and streamlined end-user data input, implementing smart form logic and automated valuation mapping to ensure compliance and data integrity.',
+    overview: {
+      challenge: 'Complex appraisal workflows with manual processes, inconsistent data entry, and compliance challenges across CRE asset valuations.',
+      solution: 'Modular, configurable appraisal component with smart form logic, automated validation, and integrated compliance tracking.',
+      impact: 'Reduced configuration time by 40%, improved data accuracy, and achieved full regulatory compliance with streamlined user experience.'
+    },
+    team: ['Product Designer', 'Compliance Specialist', 'Development Team (4)', 'Business Analyst'],
+    timeline: '2023',
+    role: 'UI/UX Designer',
+    keyFeatures: [
+      'Admin configuration modal with drag-and-drop',
+      'Smart form logic with conditional visibility',
+      'Multi-source valuation integration',
+      'Automated compliance validation',
+      'Final valuation mapping system'
     ],
     status: 'Completed',
     isCaseStudy: true,
