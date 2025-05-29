@@ -149,7 +149,41 @@ export const caseStudies: Project[] = [
     status: 'Completed',
     isCaseStudy: true
   },
-  // CYNC Sub-case studies
+  {
+    id: 10,
+    title: 'Case Study: Enhancing User Experience',
+    subtitle: 'Comprehensive UX Enhancement Initiative',
+    description: 'A detailed case study showcasing the process of enhancing user experience through research, design, and implementation strategies.',
+    image: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['UI Design', 'UX Research', 'Product Design'],
+    metrics: [
+      { icon: 'users2', value: '55%', label: 'User Satisfaction' },
+      { icon: 'lineChart', value: '48%', label: 'Task Completion' },
+      { icon: 'clock', value: '42%', label: 'Time Efficiency' },
+      { icon: 'target', value: '65%', label: 'Goal Achievement' }
+    ],
+    tools: ['Figma', 'User Research', 'Analytics', 'Prototyping', 'A/B Testing'],
+    link: 'https://case-study-enhancing-the-nrlwns9.gamma.site/',
+    overview: {
+      challenge: 'Users were experiencing difficulties with the existing interface, leading to poor task completion rates and user satisfaction.',
+      solution: 'Implemented a comprehensive UX enhancement strategy focusing on user research, design improvements, and iterative testing.',
+      impact: 'Achieved significant improvements in user satisfaction, task completion rates, and overall user experience metrics.'
+    },
+    challenge: 'Users were experiencing difficulties with the existing interface, leading to poor task completion rates and user satisfaction.',
+    process: 'Implemented a comprehensive UX enhancement strategy focusing on user research, design improvements, and iterative testing.',
+    team: ['UX Lead', 'UI Designer', 'User Researcher', 'Product Manager'],
+    timeline: '2023',
+    role: 'Lead UX Designer',
+    keyFeatures: [
+      'User research and analysis',
+      'Interface redesign',
+      'Usability testing',
+      'Performance optimization',
+      'Accessibility improvements'
+    ],
+    status: 'Completed',
+    isCaseStudy: true
+  },
   {
     id: 6,
     title: 'CYNC Collateral Management',
