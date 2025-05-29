@@ -1,5 +1,4 @@
 
-
 import { Project } from '../types/project';
 
 // Regular portfolio projects
@@ -121,6 +120,31 @@ export const portfolioProjects: Project[] = [
     ],
     status: 'Completed',
     isCaseStudy: false
+  },
+  {
+    id: 15,
+    title: 'Budget Planner',
+    description: 'A dynamic budget planner application with search and filtering capabilities',
+    image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['Application Design'],
+    tools: ['React', 'JavaScript', 'CSS', 'Netlify'],
+    link: 'https://hardcore-roentgen-8b2667.netlify.app/',
+    githubLink: 'https://github.com/Manishs94/Budget-Tracker',
+    demoLink: 'https://hardcore-roentgen-8b2667.netlify.app/',
+    metrics: [
+      { icon: 'users', value: '50%', label: 'User Efficiency' },
+      { icon: 'lineChart', value: '38%', label: 'Task Completion' }
+    ],
+    problem: 'Complex financial management and lack of intuitive categorization',
+    process: 'Conducted user research on financial planning habits and tested various UI patterns',
+    solution: 'Created a streamlined interface with clear categorization and visual feedback',
+    features: [
+      'Budget planner',
+      'Search functionality',
+      'Responsive design',
+      'Category filtering'
+    ],
+    status: 'Completed',
+    isCaseStudy: false
   }
 ];
-
