@@ -197,5 +197,31 @@ export const portfolioProjects: Project[] = [
     ],
     status: 'Completed',
     isCaseStudy: false
+  },
+  {
+    id: 18,
+    title: 'Twitter Clone',
+    description: 'A full-featured Twitter clone with real-time updates and social interactions',
+    image: '/images/Twitter.jpg',
+    category: ['Social Media Design'],
+    tools: ['React', 'Firebase', 'Material-UI', 'JavaScript'],
+    link: 'https://twitter-clone-83a92.firebaseapp.com/',
+    githubLink: 'https://github.com/Manishs94/Twitter-Clone',
+    demoLink: 'https://twitter-clone-83a92.firebaseapp.com/',
+    metrics: [
+      { icon: 'users', value: '68%', label: 'User Engagement' },
+      { icon: 'lineChart', value: '52%', label: 'Social Interaction' }
+    ],
+    problem: 'Complex social interactions and information overload',
+    process: 'Analyzed social media interaction patterns and user engagement metrics',
+    solution: 'Created a streamlined interface focusing on core social features',
+    features: [
+      'Real-time feed updates',
+      'User authentication',
+      'Tweet functionality',
+      'Responsive design'
+    ],
+    status: 'Completed',
+    isCaseStudy: false
   }
 ];
