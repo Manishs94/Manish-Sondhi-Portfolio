@@ -1,4 +1,3 @@
-
 import { Project } from '../types/project';
 
 // Regular portfolio projects
@@ -143,6 +142,32 @@ export const portfolioProjects: Project[] = [
       'Search functionality',
       'Responsive design',
       'Category filtering'
+    ],
+    status: 'Completed',
+    isCaseStudy: false
+  },
+  {
+    id: 16,
+    title: 'Video Game Database',
+    description: 'A comprehensive video game database with search and filtering capabilities',
+    image: '/images/Ng-Video-Game.jpg',
+    category: ['Database Interface Design'],
+    tools: ['Angular', 'TypeScript', 'Firebase', 'RapidAPI'],
+    link: 'https://ng-video-game-db.web.app/',
+    githubLink: 'https://github.com/Manishs94/ng-video-game-db',
+    demoLink: 'https://ng-video-game-db.web.app/',
+    metrics: [
+      { icon: 'users', value: '65%', label: 'Search Accuracy' },
+      { icon: 'lineChart', value: '48%', label: 'User Retention' }
+    ],
+    problem: 'Information overload and poor content organization',
+    process: 'Analyzed user search patterns and information hierarchy needs',
+    solution: 'Implemented an intuitive search and filter system with clear visual hierarchy',
+    features: [
+      'Game search functionality',
+      'Detailed game information',
+      'Rating system',
+      'Responsive design'
     ],
     status: 'Completed',
     isCaseStudy: false
