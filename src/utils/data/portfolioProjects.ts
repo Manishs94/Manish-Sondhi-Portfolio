@@ -56,7 +56,7 @@ export const portfolioProjects: Project[] = [
     image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     category: ['UI Design', 'UX Research'],
     tools: ['React', 'Tailwind CSS', 'Responsive Design'],
-    link: '#',
+    link: 'https://hulu-project-1.netlify.app/',
     metrics: [
       { icon: 'users', value: '35%', label: 'User Engagement' },
       { icon: 'lineChart', value: '45%', label: 'Conversion Rate' }
