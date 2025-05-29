@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, Send } from 'lucide-react';
 import { ContactForm } from './ContactForm';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
@@ -50,16 +50,6 @@ const Contact = () => {
                 <div>
                   <p className="font-medium text-portfolio-text-dark dark:text-white">Phone</p>
                   <p className="text-portfolio-text-light dark:text-gray-300">+1 (555) 123-4567</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg transition-colors duration-300">
-                <div className="bg-portfolio-accent text-white p-3 rounded-full">
-                  <MapPin size={20} />
-                </div>
-                <div>
-                  <p className="font-medium text-portfolio-text-dark dark:text-white">Location</p>
-                  <p className="text-portfolio-text-light dark:text-gray-300">San Francisco, CA</p>
                 </div>
               </div>
             </div>
