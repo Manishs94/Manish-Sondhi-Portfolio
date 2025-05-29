@@ -33,7 +33,7 @@ export const portfolioProjects: Project[] = [
     image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     category: ['UI Design', 'UX Research'],
     tools: ['Figma', 'Maze', 'Miro', 'ProtoPie'],
-    link: '#',
+    link: 'https://kanban-fire-be71d.web.app/',
     metrics: [
       { icon: 'users', value: '45%', label: 'Task Completion' },
       { icon: 'lineChart', value: '30%', label: 'Workflow Efficiency' }
