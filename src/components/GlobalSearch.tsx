@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Search, X } from 'lucide-react';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
 import { getAllProjects } from '@/utils/projectData';
@@ -91,7 +91,7 @@ const GlobalSearch = () => {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="hidden md:flex items-center gap-2 px-3 py-2 text-sm text-muted-foreground bg-background border border-border rounded-md hover:bg-accent hover:text-accent-foreground transition-colors"
+        className="hidden md:flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground bg-background border border-border rounded-md hover:bg-accent hover:text-accent-foreground transition-colors"
       >
         <Search className="w-4 h-4" />
         <span>Search...</span>
@@ -107,6 +107,12 @@ const GlobalSearch = () => {
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="p-0 max-w-2xl">
+          <DialogTitle className="sr-only">
+            Global Search
+          </DialogTitle>
+          <DialogDescription className="sr-only">
+            Search through projects, sections, and content across the portfolio
+          </DialogDescription>
           <Command className="rounded-lg border shadow-md">
             <CommandInput
               placeholder="Search projects, sections, and content..."
