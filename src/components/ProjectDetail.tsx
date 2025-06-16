@@ -4,8 +4,8 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { getProjectById } from '@/utils/projectData';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+// import Navbar from '@/components/Navbar'; // Removed, Layout will provide
+// import Footer from '@/components/Footer'; // Removed, Layout will provide
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import RelatedProjects from '@/components/RelatedProjects';
 import ProjectHierarchy from '@/components/ProjectHierarchy';
@@ -31,40 +31,37 @@ const ProjectDetail = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen">
-        <Navbar />
-        <div className="flex items-center justify-center py-24">
-          <div className="animate-pulse text-portfolio-accent">Loading project details...</div>
-        </div>
-        <Footer />
+      // Navbar and Footer removed from loading state
+      <div className="flex items-center justify-center py-24 min-h-[calc(100vh-8rem)]"> {/* Assuming Navbar+Footer height approx 8rem */}
+        <div className="animate-pulse text-portfolio-accent">Loading project details...</div>
       </div>
     );
   }
 
   if (!project) {
     return (
-      <div className="min-h-screen">
-        <Navbar />
-        <div className="flex flex-col items-center justify-center py-24">
-          <h2 className="text-2xl font-bold mb-4">Project Not Found</h2>
-          <Link to="/#portfolio">
-            <Button className="flex items-center gap-2">
-              <ArrowLeft className="w-4 h-4" />
-              Back to Portfolio
-            </Button>
-          </Link>
-        </div>
-        <Footer />
+      // Navbar and Footer removed from not found state
+      <div className="flex flex-col items-center justify-center py-24 min-h-[calc(100vh-8rem)]">
+        <h2 className="text-2xl font-bold mb-4">Project Not Found</h2>
+        <Link to="/portfolio"> {/* Updated link to /portfolio */}
+          <Button className="flex items-center gap-2">
+            <ArrowLeft className="w-4 h-4" />
+            Back to Portfolio
+          </Button>
+        </Link>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen">
-      <Navbar />
-      <div className="pt-24 pb-16">
-        <div className="max-w-4xl mx-auto px-4">
-          <BreadcrumbNav projectTitle={project?.title} />
+    // Navbar and Footer removed from main return
+    // pt-24 was to offset previous Navbar. Layout provides pt-16.
+    // So, if additional top padding is desired for ProjectDetail specifically, it can be smaller.
+    // For now, let's use a smaller top padding like py-8 or specific pt-8 for the content itself.
+    // The outer div no longer needs min-h-screen as Layout handles overall screen height.
+    <div className="py-8 md:py-12"> {/* Adjusted padding; Layout handles Navbar offset */}
+      <div className="max-w-4xl mx-auto px-4">
+        <BreadcrumbNav projectTitle={project?.title} />
 
           <ProjectDetailHeader project={project} />
 
@@ -89,8 +86,7 @@ const ProjectDetail = () => {
           currentProjectCategory={project.category}
         />
       )}
-
-      <Footer />
+      {/* Footer removed */}
     </div>
   );
 };
