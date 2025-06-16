@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Added import
 import { ArrowUp } from 'lucide-react';
 
 const Footer = () => {
@@ -14,7 +15,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
-            <a href="#" className="text-2xl font-bold">Manish <span className="text-portfolio-accent">Sondhi's Portfolio</span></a>
+            <Link to="/" className="text-2xl font-bold">Manish <span className="text-portfolio-accent">Sondhi's Portfolio</span></Link>
             <p className="text-gray-400 mt-2 max-w-md">
               Crafting intuitive, modern web experiences through thoughtful design and cutting-edge technology.
             </p>
@@ -24,10 +25,10 @@ const Footer = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                <li><a href="#home" className="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                <li><a href="#about" className="text-gray-400 hover:text-white transition-colors">About</a></li>
-                <li><a href="#portfolio" className="text-gray-400 hover:text-white transition-colors">Portfolio</a></li>
-                <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">Home</Link></li>
+                <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">About</Link></li>
+                <li><Link to="/portfolio" className="text-gray-400 hover:text-white transition-colors">Portfolio</Link></li>
+                <li><Link to="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link></li>
               </ul>
             </div>
             
