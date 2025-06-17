@@ -54,14 +54,11 @@ const ProjectDetail = () => {
   }
 
   return (
-    // Navbar and Footer removed from main return
-    // pt-24 was to offset previous Navbar. Layout provides pt-16.
-    // So, if additional top padding is desired for ProjectDetail specifically, it can be smaller.
-    // For now, let's use a smaller top padding like py-8 or specific pt-8 for the content itself.
-    // The outer div no longer needs min-h-screen as Layout handles overall screen height.
-    <div className="py-8 md:py-12"> {/* Adjusted padding; Layout handles Navbar offset */}
-      <div className="max-w-4xl mx-auto px-4">
-        <BreadcrumbNav projectTitle={project?.title} />
+    <>
+      {/* Main project content */}
+      <div className="py-8 md:py-12">
+        <div className="max-w-4xl mx-auto px-4">
+          <BreadcrumbNav projectTitle={project?.title} />
 
           <ProjectDetailHeader project={project} />
 
@@ -80,14 +77,14 @@ const ProjectDetail = () => {
         </div>
       </div>
 
+      {/* Related projects section */}
       {project && (
         <RelatedProjects
           currentProjectId={project.id}
           currentProjectCategory={project.category}
         />
       )}
-      {/* Footer removed */}
-    </div>
+    </>
   );
 };
 
