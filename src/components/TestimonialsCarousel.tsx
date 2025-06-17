@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+
 const testimonials = [{
   id: 1,
   quote: "Working with this designer was a game-changer for our product. They understood our users better than we did and delivered designs that exceeded our expectations.",
@@ -43,6 +44,7 @@ const testimonials = [{
   company: "TechFlow",
   rating: 5
 }];
+
 const TestimonialsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const {
@@ -51,23 +53,27 @@ const TestimonialsCarousel = () => {
   } = useScrollAnimation({
     threshold: 0.2
   });
+
   const nextTestimonial = () => {
     setCurrentIndex(prev => (prev + 1) % testimonials.length);
   };
+
   const prevTestimonial = () => {
     setCurrentIndex(prev => (prev - 1 + testimonials.length) % testimonials.length);
   };
+
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
   };
+
   return <section id="testimonials" className="py-24">
       <div className="section-container" ref={ref}>
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4">
             Testimonials
           </span>
-          <h2 className="section-heading text-white">What Clients Say</h2>
-          <p className="section-subheading mx-auto text-white">
+          <h2 className="section-heading">What Clients Say</h2>
+          <p className="section-subheading mx-auto">
             I pride myself on delivering exceptional work that makes clients happy. Here's what some of them have to say.
           </p>
         </div>
@@ -125,4 +131,5 @@ const TestimonialsCarousel = () => {
       </div>
     </section>;
 };
+
 export default TestimonialsCarousel;
