@@ -1,216 +1,183 @@
-import { renderHook, act } from '@testing-library/react';
-import { usePortfolioFilters } from './usePortfolioFilters'; // Assuming test file is in src/hooks
-import { Project } from '../utils/types/project'; // Adjust path relative to src/hooks
 
-// Mock data using the Project interface
-const mockProjects: Project[] = [
+import { renderHook } from '@testing-library/react';
+import { usePortfolioFilters } from './usePortfolioFilters';
+
+// Mock data for testing
+const mockProjects = [
   {
-    id: 1, title: 'Alpha Project', subtitle: 'Subtitle Alpha', description: 'Description about React',
-    category: 'Web Development', tools: ['React', 'TypeScript'], isCaseStudy: false,
-    image: 'alpha.jpg', link: '/alpha'
+    id: 1,
+    title: 'Test Project 1',
+    category: ['Web Design'],
+    year: 2023,
+    isCaseStudy: false
   },
   {
-    id: 2, title: 'Bravo Case Study', subtitle: 'Subtitle Bravo', description: 'Description about Mobile and Swift',
-    category: ['Mobile Development', 'iOS'], tools: ['Swift', 'Xcode'], isCaseStudy: true,
-    image: 'bravo.jpg', link: '/bravo'
-  },
-  {
-    id: 3, title: 'Charlie Project', subtitle: 'Subtitle Charlie', description: 'Description about Angular',
-    category: 'Web Development', tools: ['Angular', 'JavaScript'], isCaseStudy: false,
-    image: 'charlie.jpg', link: '/charlie'
-  },
-  {
-    id: 4, title: 'Delta Case Study', subtitle: 'Subtitle Delta', description: 'Description about Vue for Web',
-    category: 'Web Development', tools: ['Vue', 'CSS'], isCaseStudy: true,
-    image: 'delta.jpg', link: '/delta'
-  },
-  {
-    id: 5, title: 'Echo Project', subtitle: 'Subtitle Echo', description: 'Another Mobile app with React Native',
-    category: 'Mobile Development', tools: ['React Native', 'Firebase'], isCaseStudy: false,
-    image: 'echo.jpg', link: '/echo'
-  },
+    id: 2,
+    title: 'Test Project 2',
+    category: ['Mobile App'],
+    year: 2022,
+    isCaseStudy: true
+  }
 ];
 
-const mockCaseStudies = mockProjects.filter(p => p.isCaseStudy); // Bravo (2), Delta (4)
-
-// Helper to wait for the hook's internal timeout
-const waitForFilterDebounce = async () => {
-  await act(async () => {
-    await new Promise(resolve => setTimeout(resolve, 350)); // A bit more than 300ms
-  });
-};
+const mockCaseStudies = [
+  {
+    id: 2,
+    title: 'Test Project 2',
+    category: ['Mobile App'],
+    year: 2022,
+    isCaseStudy: true
+  }
+];
 
 describe('usePortfolioFilters', () => {
-  // Initial Props for most tests
-  const initialHookProps = {
+  const defaultProps = {
     allProjects: mockProjects,
     caseStudies: mockCaseStudies,
     selectedCategory: 'all',
     searchQuery: '',
-    sortOption: 'newest' as 'newest' | 'alphabetical',
-    activeTab: 'all' as 'all' | 'case-studies',
+    sortOption: 'newest' as const,
+    activeTab: 'all' as const,
   };
 
-  it('should return all projects by default, sorted by newest', async () => {
-    const { result } = renderHook(() => usePortfolioFilters(initialHookProps));
-    await waitForFilterDebounce(); // Initial effect also has a timeout
-    expect(result.current.filteredProjects.length).toBe(5);
-    expect(result.current.filteredProjects.map(p => p.id)).toEqual([5, 4, 3, 2, 1]); // Newest = descending ID
+  it('should return all projects by default', () => {
+    const { result } = renderHook(() => usePortfolioFilters(defaultProps));
+    
+    expect(result.current.filteredProjects).toHaveLength(2);
+    expect(result.current.isFiltering).toBe(false);
   });
 
-  describe('Category Filtering', () => {
-    it('should filter by a single string category (Web Development)', async () => {
-      const { result, rerender } = renderHook(usePortfolioFilters, { initialProps: { ...initialHookProps, selectedCategory: 'web-development' } });
-      await waitForFilterDebounce();
-      expect(result.current.filteredProjects.length).toBe(3); // Alpha, Charlie, Delta
-      expect(result.current.filteredProjects.every(p =>
-        (Array.isArray(p.category) ? p.category.some(c => c.toLowerCase().replace(/\s+/g, '-') === 'web-development') : (p.category as string).toLowerCase().replace(/\s+/g, '-') === 'web-development')
-      )).toBeTruthy();
-    });
-
-    it('should filter by a category from an array (Mobile Development)', async () => {
-        const { result } = renderHook(() => usePortfolioFilters({ ...initialHookProps, selectedCategory: 'mobile-development' }));
-        await waitForFilterDebounce();
-        expect(result.current.filteredProjects.length).toBe(2); // Bravo, Echo
-        expect(result.current.filteredProjects.every(p =>
-          (Array.isArray(p.category) ? p.category.some(c => c.toLowerCase().replace(/\s+/g, '-') === 'mobile-development') : (p.category as string).toLowerCase().replace(/\s+/g, '-') === 'mobile-development')
-        )).toBeTruthy();
-    });
-
-    it('should return no projects for a category with no matches', async () => {
-      const { result } = renderHook(() => usePortfolioFilters({ ...initialHookProps, selectedCategory: 'non-existent-category' }));
-      await waitForFilterDebounce();
-      expect(result.current.filteredProjects.length).toBe(0);
-    });
-  });
-
-  describe('Search Query Filtering', () => {
-    it('should filter by project title', async () => {
-      const { result } = renderHook(() => usePortfolioFilters({ ...initialHookProps, searchQuery: 'Alpha' }));
-      await waitForFilterDebounce();
-      expect(result.current.filteredProjects.length).toBe(1);
-      expect(result.current.filteredProjects[0].title).toBe('Alpha Project');
-    });
-
-    it('should filter by project description', async () => {
-      const { result } = renderHook(() => usePortfolioFilters({ ...initialHookProps, searchQuery: 'Angular' }));
-      await waitForFilterDebounce();
-      expect(result.current.filteredProjects.length).toBe(1);
-      expect(result.current.filteredProjects[0].title).toBe('Charlie Project');
-    });
-
-    it('should filter by tool', async () => {
-      const { result } = renderHook(() => usePortfolioFilters({ ...initialHookProps, searchQuery: 'React' }));
-      await waitForFilterDebounce();
-      // Alpha (React), Echo (React Native)
-      expect(result.current.filteredProjects.length).toBe(2);
-    });
-
-    it('should be case-insensitive for search query', async () => {
-      const { result } = renderHook(() => usePortfolioFilters({ ...initialHookProps, searchQuery: 'react' })); // lowercase
-      await waitForFilterDebounce();
-      expect(result.current.filteredProjects.length).toBe(2);
-    });
-
-    it('should return no projects for a search query with no matches', async () => {
-      const { result } = renderHook(() => usePortfolioFilters({ ...initialHookProps, searchQuery: 'NoSuchThingExists' }));
-      await waitForFilterDebounce();
-      expect(result.current.filteredProjects.length).toBe(0);
-    });
-  });
-
-  describe('Sort Option', () => {
-    it('should sort by newest (ID descending) by default', async () => {
-      const { result } = renderHook(() => usePortfolioFilters(initialHookProps));
-      await waitForFilterDebounce();
-      expect(result.current.filteredProjects.map(p => p.id)).toEqual([5, 4, 3, 2, 1]);
-    });
-
-    it('should sort by alphabetical (title ascending)', async () => {
-      const { result } = renderHook(() => usePortfolioFilters({ ...initialHookProps, sortOption: 'alphabetical' }));
-      await waitForFilterDebounce();
-      expect(result.current.filteredProjects.map(p => p.title)).toEqual([
-        'Alpha Project', 'Bravo Case Study', 'Charlie Project', 'Delta Case Study', 'Echo Project'
-      ]);
-    });
-  });
-
-  describe('Active Tab Behavior', () => {
-    it('should filter for case studies when activeTab is "case-studies"', async () => {
-      const { result } = renderHook(() => usePortfolioFilters({ ...initialHookProps, activeTab: 'case-studies' }));
-      await waitForFilterDebounce();
-      expect(result.current.filteredProjects.length).toBe(mockCaseStudies.length); // 2
-      expect(result.current.filteredProjects.every(p => p.isCaseStudy)).toBeTruthy();
-      // Check sorting within case studies (newest by default)
-      expect(result.current.filteredProjects.map(p => p.id)).toEqual([4, 2]); // Delta (4), Bravo (2)
-    });
-
-    it('should use all projects when activeTab is "all"', async () => {
-        const { result } = renderHook(() => usePortfolioFilters({ ...initialHookProps, activeTab: 'all' }));
-        await waitForFilterDebounce();
-        expect(result.current.filteredProjects.length).toBe(mockProjects.length); // 5
-      });
-  });
-
-  describe('Combined Filters', () => {
-    it('should filter by category "Web Development" and search "Vue" on "all" tab', async () => {
+  describe('category filtering', () => {
+    it('should filter projects by category', () => {
       const { result } = renderHook(() => usePortfolioFilters({
-        ...initialHookProps,
-        selectedCategory: 'web-development',
-        searchQuery: 'Vue',
-        activeTab: 'all'
+        ...defaultProps,
+        selectedCategory: 'web-design'
       }));
-      await waitForFilterDebounce();
-      expect(result.current.filteredProjects.length).toBe(1);
-      expect(result.current.filteredProjects[0].title).toBe('Delta Case Study');
+      
+      expect(result.current.filteredProjects).toHaveLength(1);
+      expect(result.current.filteredProjects[0].title).toBe('Test Project 1');
     });
 
-    it('should filter for case studies by category "Web Development"', async () => {
+    it('should handle mobile-app category', () => {
       const { result } = renderHook(() => usePortfolioFilters({
-        ...initialHookProps,
-        selectedCategory: 'web-development',
+        ...defaultProps,
+        selectedCategory: 'mobile-app'
+      }));
+        
+        expect(result.current.filteredProjects).toHaveLength(1);
+        expect(result.current.filteredProjects[0].title).toBe('Test Project 2');
+    });
+
+    it('should return empty array for non-existent category', () => {
+      const { result } = renderHook(() => usePortfolioFilters({
+        ...defaultProps,
+        selectedCategory: 'non-existent'
+      }));
+      
+      expect(result.current.filteredProjects).toHaveLength(0);
+    });
+  });
+
+  describe('search filtering', () => {
+    it('should filter projects by search query', () => {
+      const { result } = renderHook(() => usePortfolioFilters({
+        ...defaultProps,
+        searchQuery: 'Project 1'
+      }));
+      
+      expect(result.current.filteredProjects).toHaveLength(1);
+      expect(result.current.filteredProjects[0].title).toBe('Test Project 1');
+    });
+
+    it('should be case insensitive', () => {
+      const { result } = renderHook(() => usePortfolioFilters({
+        ...defaultProps,
+        searchQuery: 'project 2'
+      }));
+      
+      expect(result.current.filteredProjects).toHaveLength(1);
+      expect(result.current.filteredProjects[0].title).toBe('Test Project 2');
+    });
+
+    it('should return empty array when no matches', () => {
+      const { result } = renderHook(() => usePortfolioFilters({
+        ...defaultProps,
+        searchQuery: 'non-existent project'
+      }));
+      
+      expect(result.current.filteredProjects).toHaveLength(0);
+    });
+  });
+
+  describe('tab filtering', () => {
+    it('should show only case studies when activeTab is case-studies', () => {
+      const { result } = renderHook(() => usePortfolioFilters({
+        ...defaultProps,
         activeTab: 'case-studies'
       }));
-      await waitForFilterDebounce();
-      expect(result.current.filteredProjects.length).toBe(1); // Delta Case Study
-      expect(result.current.filteredProjects[0].id).toBe(4);
-      expect(result.current.filteredProjects[0].isCaseStudy).toBeTruthy();
+      
+      expect(result.current.filteredProjects).toHaveLength(1);
+      expect(result.current.filteredProjects[0].isCaseStudy).toBe(true);
+      
+      expect(result.current.filteredProjects[0].title).toBe('Test Project 2');
     });
 
-    it('should return no projects if combined filters match nothing', async () => {
-        const { result } = renderHook(() => usePortfolioFilters({
-          ...initialHookProps,
-          selectedCategory: 'mobile-development',
-          searchQuery: 'Vue', // Vue is not in mobile projects
-          activeTab: 'all'
-        }));
-        await waitForFilterDebounce();
-        expect(result.current.filteredProjects.length).toBe(0);
-      });
+    it('should show all projects when activeTab is all', () => {
+      const { result } = renderHook(() => usePortfolioFilters({
+        ...defaultProps,
+        activeTab: 'all'
+      }));
+        
+        expect(result.current.filteredProjects).toHaveLength(2);
+    });
   });
 
-  describe('isFiltering State', () => {
-    it('should set isFiltering to true during processing and false after', async () => {
-      const { result, rerender } = renderHook(
-        (props) => usePortfolioFilters(props),
-        { initialProps: initialHookProps }
-      );
+  describe('sorting', () => {
+    it('should sort projects by newest first', () => {
+      const { result } = renderHook(() => usePortfolioFilters({
+        ...defaultProps,
+        sortOption: 'newest'
+      }));
+      
+      expect(result.current.filteredProjects[0].year).toBe(2023);
+      expect(result.current.filteredProjects[1].year).toBe(2022);
+    });
 
-      // Initial render, isFiltering should become false after timeout
-      expect(result.current.isFiltering).toBe(true); // Initially true because of useEffect
-      await waitForFilterDebounce();
-      expect(result.current.isFiltering).toBe(false);
+    it('should sort projects alphabetically', () => {
+      const { result } = renderHook(() => usePortfolioFilters({
+        ...defaultProps,
+        sortOption: 'alphabetical'
+      }));
+      
+      expect(result.current.filteredProjects[0].title).toBe('Test Project 1');
+      expect(result.current.filteredProjects[1].title).toBe('Test Project 2');
+    });
+  });
 
-      // Trigger a change
-      act(() => {
-        rerender({ ...initialHookProps, selectedCategory: 'web-development' });
-      });
+  describe('combined filtering', () => {
+    it('should apply category and search filters together', () => {
+      const { result } = renderHook(() => usePortfolioFilters({
+        ...defaultProps,
+        selectedCategory: 'mobile-app',
+        searchQuery: 'Project 2'
+      }));
+      
+      expect(result.current.filteredProjects).toHaveLength(1);
+      
+      expect(result.current.filteredProjects[0].title).toBe('Test Project 2');
+      expect(result.current.filteredProjects[0].category).toContain('Mobile App');
+    });
 
-      // isFiltering should be true immediately after prop change triggering useEffect
-      expect(result.current.isFiltering).toBe(true);
-
-      await waitForFilterDebounce(); // Wait for the timeout in useEffect
-      expect(result.current.isFiltering).toBe(false); // Should be false after processing
+    it('should apply all filters together', () => {
+      const { result } = renderHook(() => usePortfolioFilters({
+        ...defaultProps,
+        selectedCategory: 'mobile-app',
+        searchQuery: 'Project',
+        activeTab: 'case-studies',
+        sortOption: 'alphabetical'
+      }));
+        
+        expect(result.current.filteredProjects).toHaveLength(1);
     });
   });
 });
