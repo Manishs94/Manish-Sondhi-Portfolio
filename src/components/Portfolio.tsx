@@ -1,13 +1,11 @@
 
-import React, { useState, useCallback } from 'react'; // Removed useEffect
+import React, { useState, useEffect, useCallback } from 'react';
 import { BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { allProjects, getAllCategories, getCaseStudies } from '@/utils/projectData';
-import { usePortfolioFilters } from '@/hooks/usePortfolioFilters'; // Added import
 import { toast } from '@/hooks/use-toast';
 import PortfolioFilters from '@/components/PortfolioFilters';
 import ProjectCard from '@/components/ProjectCard';
-import ProjectCardSkeleton from '@/components/ProjectCardSkeleton'; // Import skeleton
 import PortfolioPagination from '@/components/PortfolioPagination';
 
 type SortOption = 'newest' | 'alphabetical';
@@ -18,32 +16,64 @@ const Portfolio = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [sortOption, setSortOption] = useState<SortOption>('newest');
-  // const [filteredProjects, setFilteredProjects] = useState(allProjects); // Removed
-  // const [isFiltering, setIsFiltering] = useState(false); // Removed
+  const [filteredProjects, setFilteredProjects] = useState(allProjects);
+  const [isFiltering, setIsFiltering] = useState(false);
   const [activeTab, setActiveTab] = useState<'all' | 'case-studies'>('all');
   const [currentPage, setCurrentPage] = useState(1);
   
   const categories = getAllCategories();
   const caseStudies = getCaseStudies();
 
-  // Use the custom hook for filtering and sorting
-  const { filteredProjects, isFiltering } = usePortfolioFilters({
-    allProjects,
-    caseStudies,
-    selectedCategory,
-    searchQuery,
-    sortOption,
-    activeTab,
-  });
-
-  // Reset to first page when filters change (selectedCategory, searchQuery, sortOption, activeTab)
-  // This useEffect was implicitly part of the larger useEffect. Now, it needs to be explicit
-  // if we want to reset current page whenever filteredProjects array reference changes.
-  // Or, more directly, when the source filters for the hook change.
-  React.useEffect(() => {
-    setCurrentPage(1);
+  // Filter and sort projects whenever filters change
+  useEffect(() => {
+    setIsFiltering(true);
+    setCurrentPage(1); // Reset to first page when filters change
+    
+    // Add a small delay to show the animation
+    const filterTimer = setTimeout(() => {
+      // Start with either all projects or just case studies based on active tab
+      let result = activeTab === 'all' ? [...allProjects] : [...caseStudies];
+      
+      // Filter by category
+      if (selectedCategory !== 'all') {
+        result = result.filter(project => {
+          if (Array.isArray(project.category)) {
+            return project.category.some(cat => 
+              cat.toLowerCase().replace(/\s+/g, '-') === selectedCategory
+            );
+          }
+          return typeof project.category === 'string' && 
+            project.category.toLowerCase().replace(/\s+/g, '-') === selectedCategory;
+        });
+      }
+      
+      // Filter by search query
+      if (searchQuery) {
+        const query = searchQuery.toLowerCase();
+        result = result.filter(project => 
+          project.title.toLowerCase().includes(query) ||
+          project.description.toLowerCase().includes(query) ||
+          (project.subtitle && project.subtitle.toLowerCase().includes(query)) ||
+          (Array.isArray(project.category) && project.category.some(cat => cat.toLowerCase().includes(query))) ||
+          (typeof project.category === 'string' && project.category.toLowerCase().includes(query)) ||
+          (project.tools && project.tools.some(tool => tool.toLowerCase().includes(query)))
+        );
+      }
+      
+      // Sort projects
+      if (sortOption === 'alphabetical') {
+        result.sort((a, b) => a.title.localeCompare(b.title));
+      } else if (sortOption === 'newest') {
+        // Assuming higher IDs are newer projects
+        result.sort((a, b) => b.id - a.id);
+      }
+      
+      setFilteredProjects(result);
+      setIsFiltering(false);
+    }, 300);
+    
+    return () => clearTimeout(filterTimer);
   }, [selectedCategory, searchQuery, sortOption, activeTab]);
-
 
   // Calculate pagination
   const totalPages = Math.ceil(filteredProjects.length / PROJECTS_PER_PAGE);
@@ -56,7 +86,7 @@ const Portfolio = () => {
     setSelectedCategory('all');
     setSearchQuery('');
     setSortOption('newest');
-    // setCurrentPage(1); // This is now handled by the useEffect above
+    setCurrentPage(1);
     
     // Show a toast notification
     toast({
@@ -109,33 +139,24 @@ const Portfolio = () => {
           projectsPerPage={PROJECTS_PER_PAGE}
         />
         
-        {/* Projects Grid Area */}
-        <div
-          className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12 transition-opacity duration-300 ${isFiltering ? 'opacity-50' : 'opacity-100'}`}
-        >
-          {isFiltering ? (
-            Array.from({ length: PROJECTS_PER_PAGE }).map((_, index) => (
-              <ProjectCardSkeleton key={`skeleton-${index}`} />
-            ))
-          ) : (
-            // Only map currentProjects if not filtering and there are projects to display
-            currentProjects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
-            ))
-          )}
-        </div>
+        {/* Projects Grid */}
+        {currentProjects.length > 0 ? (
+          <>
+            <div 
+              className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 transition-opacity duration-300 ${isFiltering ? 'opacity-50' : 'opacity-100'} mb-12`}
+            >
+              {currentProjects.map((project, index) => (
+                <ProjectCard key={project.id} project={project} index={index} />
+              ))}
+            </div>
 
-        {/* Pagination: Show if not filtering AND there are projects to paginate (i.e., more projects than fit on one page) */}
-        {!isFiltering && filteredProjects.length > PROJECTS_PER_PAGE && (
-          <PortfolioPagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
-          />
-        )}
-
-        {/* No Results Message: Show if not filtering AND no projects match the filters */}
-        {!isFiltering && filteredProjects.length === 0 && (
+            <PortfolioPagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
+          </>
+        ) : (
           <div className="text-center py-12 bg-white rounded-lg shadow-sm">
             <p className="text-lg text-portfolio-text-light">No matching projects found</p>
             <Button onClick={handleResetFilters} className="mt-4">Reset Filters</Button>
@@ -145,10 +166,7 @@ const Portfolio = () => {
         <div className="text-center mt-12 animate-fade-in opacity-0" style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}>
           {activeTab === 'case-studies' ? (
             <Button 
-              onClick={() => {
-                setActiveTab('all');
-                setCurrentPage(1); // Explicitly reset page
-              }}
+              onClick={() => setActiveTab('all')}
               className="portfolio-button-primary transition-transform hover:scale-105 duration-300"
             >
               View All Projects
@@ -157,9 +175,7 @@ const Portfolio = () => {
             <Button 
               onClick={() => {
                 setActiveTab('case-studies');
-                setSortOption('newest'); // Set sort to newest for case studies
-                setCurrentPage(1);      // Explicitly reset page
-                // Filters (selectedCategory, searchQuery) are intentionally not reset
+                handleResetFilters();
               }}
               className="portfolio-button-primary transition-transform hover:scale-105 duration-300 flex items-center gap-2"
             >

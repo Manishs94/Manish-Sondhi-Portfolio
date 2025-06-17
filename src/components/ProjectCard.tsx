@@ -46,12 +46,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
           />
           
-          {/* Case study badge (using ui/badge) */}
+          {/* Case study badge */}
           {project.isCaseStudy && (
-            <Badge variant="secondary" className="absolute top-2 right-2 text-xs">
-              <BookOpen className="w-3 h-3 mr-1" />
+            <div className="absolute top-3 left-3 px-3 py-1 bg-portfolio-accent text-white rounded-full text-sm flex items-center gap-1">
+              <BookOpen className="w-3 h-3" />
               Case Study
-            </Badge>
+            </div>
           )}
           
           {/* Parent project indicator */}
