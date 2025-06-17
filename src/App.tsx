@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,6 +10,9 @@ import { initPerformanceMonitoring, PerformanceMonitor } from "@/utils/performan
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import StyleGuide from "./pages/StyleGuide";
+import PortfolioPage from "./pages/PortfolioPage";
+import ExperiencePage from "./pages/ExperiencePage";
+import ContactPage from "./pages/ContactPage";
 import ProjectDetail from "./components/ProjectDetail";
 import AIChatAgent from "./components/AIChatAgent";
 import { useEffect } from "react";
@@ -66,6 +68,9 @@ const App = () => {
               <main id="main-content" className="min-h-screen">
                 <Routes>
                   <Route path="/" element={<Index />} />
+                  <Route path="/portfolio" element={<PortfolioPage />} />
+                  <Route path="/experience" element={<ExperiencePage />} />
+                  <Route path="/contact" element={<ContactPage />} />
                   <Route path="/style-guide" element={<StyleGuide />} />
                   <Route path="/project/:id" element={<ProjectDetail />} />
                   {/* Redirect old project route to home portfolio section */}
