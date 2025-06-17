@@ -23,7 +23,7 @@ const BreadcrumbNav = ({ projectTitle }: BreadcrumbNavProps) => {
     return null;
   }
 
-  // For project detail pages, show: Home > Project Title
+  // For project detail pages, show: Home > Portfolio > Project Title
   if (location.pathname.startsWith('/project/') && projectTitle) {
     return (
       <div className="py-4">
@@ -34,6 +34,14 @@ const BreadcrumbNav = ({ projectTitle }: BreadcrumbNavProps) => {
                 <Link to="/" className="flex items-center gap-1 hover:text-portfolio-accent transition-colors">
                   <Home className="w-4 h-4" />
                   Home
+                </Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to="/portfolio" className="hover:text-portfolio-accent transition-colors">
+                  Portfolio
                 </Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
