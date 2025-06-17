@@ -1,31 +1,38 @@
 
 import { renderHook } from '@testing-library/react';
 import { usePortfolioFilters } from './usePortfolioFilters';
+import { Project } from '../utils/types/project';
 
-// Mock data for testing
-const mockProjects = [
+// Mock data for testing - now properly matching the Project interface
+const mockProjects: Project[] = [
   {
     id: 1,
     title: 'Test Project 1',
+    description: 'Test description 1',
+    image: '/test-image-1.jpg',
     category: ['Web Design'],
-    year: 2023,
+    link: '/project/1',
     isCaseStudy: false
   },
   {
     id: 2,
     title: 'Test Project 2',
+    description: 'Test description 2',
+    image: '/test-image-2.jpg',
     category: ['Mobile App'],
-    year: 2022,
+    link: '/project/2',
     isCaseStudy: true
   }
 ];
 
-const mockCaseStudies = [
+const mockCaseStudies: Project[] = [
   {
     id: 2,
     title: 'Test Project 2',
+    description: 'Test description 2',
+    image: '/test-image-2.jpg',
     category: ['Mobile App'],
-    year: 2022,
+    link: '/project/2',
     isCaseStudy: true
   }
 ];
@@ -118,7 +125,6 @@ describe('usePortfolioFilters', () => {
       
       expect(result.current.filteredProjects).toHaveLength(1);
       expect(result.current.filteredProjects[0].isCaseStudy).toBe(true);
-      
       expect(result.current.filteredProjects[0].title).toBe('Test Project 2');
     });
 
@@ -139,8 +145,8 @@ describe('usePortfolioFilters', () => {
         sortOption: 'newest'
       }));
       
-      expect(result.current.filteredProjects[0].year).toBe(2023);
-      expect(result.current.filteredProjects[1].year).toBe(2022);
+      expect(result.current.filteredProjects[0].id).toBe(2);
+      expect(result.current.filteredProjects[1].id).toBe(1);
     });
 
     it('should sort projects alphabetically', () => {
@@ -163,7 +169,6 @@ describe('usePortfolioFilters', () => {
       }));
       
       expect(result.current.filteredProjects).toHaveLength(1);
-      
       expect(result.current.filteredProjects[0].title).toBe('Test Project 2');
       expect(result.current.filteredProjects[0].category).toContain('Mobile App');
     });
