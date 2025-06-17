@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,6 +8,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Analytics } from "@/components/Analytics";
 import { initPerformanceMonitoring, PerformanceMonitor } from "@/utils/performance";
+import { useToast, initToast } from "@/components/ui/use-toast";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import StyleGuide from "./pages/StyleGuide";
@@ -25,6 +27,16 @@ const queryClient = new QueryClient({
     },
   },
 });
+
+const ToastInitializer = () => {
+  const { toast } = useToast();
+  
+  useEffect(() => {
+    initToast(toast);
+  }, [toast]);
+  
+  return null;
+};
 
 const App = () => {
   useEffect(() => {
@@ -61,6 +73,7 @@ const App = () => {
       <ThemeProvider defaultTheme="light" storageKey="portfolio-theme">
         <QueryClientProvider client={queryClient}>
           <TooltipProvider>
+            <ToastInitializer />
             <Toaster />
             <Sonner />
             <Analytics trackingId="GA_MEASUREMENT_ID" />
