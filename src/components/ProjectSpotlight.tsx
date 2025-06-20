@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import { ExternalLink, BookOpen, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { renderIcon } from '@/utils/iconMappings';
 import { Badge } from '@/components/ui/badge';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
@@ -35,6 +34,10 @@ const ProjectSpotlight = ({ project, featured = false, className = '', style }: 
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const handleCardClick = () => {
+    setIsModalOpen(true);
+  };
+
   const handleViewClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -44,9 +47,9 @@ const ProjectSpotlight = ({ project, featured = false, className = '', style }: 
   return (
     <>
       <div ref={ref} className={`${className} ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={style}>
-        <Link 
-          to={`/project/${project.id}`}
-          className="group block"
+        <div 
+          className="group block cursor-pointer"
+          onClick={handleCardClick}
         >
           <div className={`
             relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-lg 
@@ -141,7 +144,7 @@ const ProjectSpotlight = ({ project, featured = false, className = '', style }: 
               )}
             </div>
           </div>
-        </Link>
+        </div>
       </div>
 
       <CaseStudyModal
