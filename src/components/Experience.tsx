@@ -13,7 +13,7 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: 'Senior Product & UI/UX Designer',
+      title: 'Lead Product & UI/UX Designer',
       company: 'CYNC Software',
       location: 'Tampa, FL',
       period: 'Feb 2022 – Present',
