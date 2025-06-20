@@ -33,17 +33,6 @@ const ProjectDetailActions: React.FC<ProjectDetailActionsProps> = ({ project }) 
           View on GitHub <ExternalLink size={16} />
         </a>
       )}
-
-      {project.demoLink && (
-        <a
-          href={project.demoLink}
-          className="flex items-center gap-2 border border-gray-300 text-portfolio-text-dark px-6 py-3 rounded-md hover:bg-gray-100 transition-all"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Live Demo <ExternalLink size={16} />
-        </a>
-      )}
     </div>
   );
 };
