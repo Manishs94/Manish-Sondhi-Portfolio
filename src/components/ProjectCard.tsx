@@ -1,8 +1,8 @@
+
 import React, { useState } from 'react';
 import { ExternalLink, BookOpen } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Link } from 'react-router-dom';
 import { renderIcon } from '@/utils/iconMappings';
 import CaseStudyModal from '@/components/CaseStudyModal';
 
@@ -30,6 +30,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
     return project.title;
   };
 
+  const handleCardClick = () => {
+    setIsModalOpen(true);
+  };
+
   const handleViewProject = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -38,9 +42,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
   return (
     <>
-      <Link 
-        to={`/project/${project.id}`}
-        className="transition-transform duration-300 hover:-translate-y-1"
+      <div 
+        className="transition-transform duration-300 hover:-translate-y-1 cursor-pointer"
+        onClick={handleCardClick}
       >
         <Card 
           className={`bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl animate-fade-in opacity-0 ${
@@ -156,7 +160,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             </div>
           </CardContent>
         </Card>
-      </Link>
+      </div>
 
       <CaseStudyModal
         project={project}
