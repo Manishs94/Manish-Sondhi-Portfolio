@@ -15,6 +15,7 @@ import StyleGuide from "./pages/StyleGuide";
 import PortfolioPage from "./pages/PortfolioPage";
 import ExperiencePage from "./pages/ExperiencePage";
 import ContactPage from "./pages/ContactPage";
+import ProjectDetail from "./components/ProjectDetail";
 import AIChatAgent from "./components/AIChatAgent";
 import { useEffect } from "react";
 
@@ -84,9 +85,9 @@ const App = () => {
                   <Route path="/experience" element={<ExperiencePage />} />
                   <Route path="/contact" element={<ContactPage />} />
                   <Route path="/style-guide" element={<StyleGuide />} />
-                  {/* Redirect all project routes to portfolio page */}
-                  <Route path="/project/:id" element={<Navigate to="/portfolio" replace />} />
-                  <Route path="/project" element={<Navigate to="/portfolio" replace />} />
+                  <Route path="/project/:id" element={<ProjectDetail />} />
+                  {/* Redirect old project route to home portfolio section */}
+                  <Route path="/project" element={<Navigate to="/#portfolio" replace />} />
                   {/* Catch-all route for 404 - this must be last */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>
