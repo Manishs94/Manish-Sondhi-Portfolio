@@ -37,7 +37,7 @@ const CaseStudyModal = ({ project, isOpen, onClose }: CaseStudyModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-[95vw] max-h-[95vh] w-full h-full p-0 overflow-hidden">
+      <DialogContent className="max-w-[98vw] max-h-[98vh] w-full h-full p-0 overflow-hidden">
         {/* Header with project info */}
         <div className="flex items-center justify-between p-4 border-b bg-white dark:bg-gray-800">
           <div className="flex items-center gap-3">
@@ -66,7 +66,7 @@ const CaseStudyModal = ({ project, isOpen, onClose }: CaseStudyModalProps) => {
         </div>
 
         {/* Iframe content */}
-        <div className="flex-1 w-full h-[calc(95vh-80px)]">
+        <div className="flex-1 w-full h-[calc(98vh-80px)]">
           <iframe
             src={project.link}
             title={project.title}
