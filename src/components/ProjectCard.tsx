@@ -113,18 +113,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           <CardContent className="p-4 sm:p-6 pt-3">
             <p className="text-portfolio-text-light mb-4 line-clamp-3">{project.description}</p>
             
-            {project.metrics && (
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
-                {project.metrics.map((metric, idx) => (
-                  <div key={idx} className="flex flex-col items-center p-2 bg-gray-50 rounded-lg">
-                    <div className="text-portfolio-accent mb-1">{renderIcon(metric.icon)}</div>
-                    <div className="font-bold text-portfolio-text-dark">{metric.value}</div>
-                    <div className="text-xs text-portfolio-text-light">{metric.label}</div>
-                  </div>
-                ))}
-              </div>
-            )}
-            
             <div className="space-y-3 mb-6">
               <div>
                 <span className="text-sm font-semibold text-portfolio-text-dark">Challenge:</span>
