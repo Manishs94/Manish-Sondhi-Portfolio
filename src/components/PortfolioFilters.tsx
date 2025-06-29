@@ -1,8 +1,14 @@
 
 import React from 'react';
-import { Search } from 'lucide-react';
+import { Search, ChevronDown } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 interface PortfolioFiltersProps {
   selectedCategory: string;
@@ -51,6 +57,10 @@ const PortfolioFilters: React.FC<PortfolioFiltersProps> = ({
     }
   };
 
+  const getSortDisplayText = () => {
+    return sortOption === 'newest' ? 'Newest first' : 'Alphabetical';
+  };
+
   return (
     <>
       {/* Search and Filter Controls */}
@@ -68,14 +78,28 @@ const PortfolioFilters: React.FC<PortfolioFiltersProps> = ({
           </div>
           
           <div className="flex gap-2">
-            <select 
-              className="bg-white border border-gray-200 rounded-md px-3 py-2 text-sm shadow-sm"
-              value={sortOption}
-              onChange={(e) => setSortOption(e.target.value as 'newest' | 'alphabetical')}
-            >
-              <option value="newest">Newest first</option>
-              <option value="alphabetical">Alphabetical</option>
-            </select>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="sm" className="whitespace-nowrap">
+                  {getSortDisplayText()}
+                  <ChevronDown className="ml-2 h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="bg-white border border-gray-200 shadow-lg">
+                <DropdownMenuItem 
+                  onClick={() => setSortOption('newest')}
+                  className="cursor-pointer hover:bg-gray-100"
+                >
+                  Newest first
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => setSortOption('alphabetical')}
+                  className="cursor-pointer hover:bg-gray-100"
+                >
+                  Alphabetical
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             
             <Button 
               variant="outline" 
