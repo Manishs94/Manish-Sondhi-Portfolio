@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Mail, Phone, Send } from 'lucide-react';
 import { ContactForm } from './ContactForm';
@@ -11,9 +10,6 @@ const Contact = () => {
     <section id="contact" className="py-24 bg-white dark:bg-gray-900 transition-colors duration-300" ref={contactRef}>
       <div className="section-container">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className={`inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4 transition-all duration-700 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-4'}`}>
-            Contact
-          </span>
           <h2 className={`section-heading dark:text-white transition-all duration-700 delay-200 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-4'}`}>
             Let's Create Something Amazing Together
           </h2>
