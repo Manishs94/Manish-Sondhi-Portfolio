@@ -185,9 +185,7 @@ const Portfolio = () => {
             
             {currentProjects.length > 0 ? (
               <>
-                <div 
-                  className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 transition-opacity duration-300 ${isFiltering ? 'opacity-50' : 'opacity-100'} mb-12`}
-                >
+                <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
                   {currentProjects.map((project, index) => (
                     <ProjectCard key={project.id} project={project} index={index} />
                   ))}
@@ -226,9 +224,7 @@ const Portfolio = () => {
             
             {currentProjects.length > 0 ? (
               <>
-                <div 
-                  className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 transition-opacity duration-300 ${isFiltering ? 'opacity-50' : 'opacity-100'} mb-12`}
-                >
+                <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
                   {currentProjects.map((project, index) => (
                     <ProjectCard key={project.id} project={project} index={index} />
                   ))}
@@ -267,9 +263,7 @@ const Portfolio = () => {
             
             {currentProjects.length > 0 ? (
               <>
-                <div 
-                  className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 transition-opacity duration-300 ${isFiltering ? 'opacity-50' : 'opacity-100'} mb-12`}
-                >
+                <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
                   {currentProjects.map((project, index) => (
                     <ProjectCard key={project.id} project={project} index={index} />
                   ))}
