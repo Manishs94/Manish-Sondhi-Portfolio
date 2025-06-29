@@ -79,7 +79,7 @@ const Experience = () => {
       <div className="section-container">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4 transition-all duration-300 hover:scale-105">
-            My Experience
+            Professional Experience
           </span>
           <h2 className="section-heading dark:text-white">Work Experience</h2>
           <p className="section-subheading mx-auto dark:text-gray-300">
