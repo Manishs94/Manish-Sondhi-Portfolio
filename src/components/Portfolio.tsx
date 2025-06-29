@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { BookOpen, Palette, Grid3X3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -138,9 +137,6 @@ const Portfolio = () => {
     <section id="portfolio" className="py-24 bg-portfolio-bg-light">
       <div className="section-container">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="inline-block px-4 py-2 bg-blue-100 text-portfolio-accent rounded-full font-medium mb-4 animate-fade-in opacity-0" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
-            Portfolio
-          </span>
           <h2 className="section-heading animate-fade-in opacity-0" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>Featured Projects</h2>
           <p className="section-subheading mx-auto animate-fade-in opacity-0" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
             Take a look at some of my recent work that showcases my design thinking and problem-solving approach.
