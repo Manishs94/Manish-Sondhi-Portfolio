@@ -50,6 +50,7 @@ const AIChatAgent = () => {
   const [activeTab, setActiveTab] = useState('chat');
   const [chatMode, setChatMode] = useState<'general' | 'analysis' | 'suggestions'>('general');
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
 
   const quickActions: QuickAction[] = [
     {
@@ -97,12 +98,29 @@ const AIChatAgent = () => {
   ];
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'end'
+      });
+    }
   };
 
+  // Enhanced scroll to bottom with better timing
   useEffect(() => {
-    scrollToBottom();
+    const timer = setTimeout(() => {
+      scrollToBottom();
+    }, 100);
+    
+    return () => clearTimeout(timer);
   }, [messages]);
+
+  // Auto-scroll when new messages are added
+  useEffect(() => {
+    if (messages.length > 1) {
+      scrollToBottom();
+    }
+  }, [messages.length]);
 
   const scrollToSection = (sectionId: string) => {
     setIsOpen(false);
@@ -361,7 +379,7 @@ const AIChatAgent = () => {
         </div>
       </Button>
 
-      {/* Enhanced Chat Window */}
+      {/* Enhanced Chat Window with Improved Scrolling */}
       <div
         className={`fixed ${
           isExpanded 
@@ -373,7 +391,7 @@ const AIChatAgent = () => {
       >
         <Card className="h-full flex flex-col overflow-hidden">
           {/* Enhanced Header */}
-          <CardHeader className="flex flex-row items-center justify-between p-4 bg-gradient-to-r from-portfolio-accent to-blue-600 text-white rounded-t-xl">
+          <CardHeader className="flex flex-row items-center justify-between p-4 bg-gradient-to-r from-portfolio-accent to-blue-600 text-white rounded-t-xl flex-shrink-0">
             <div className="flex items-center gap-3">
               <div className="relative">
                 <Bot className="w-6 h-6" />
@@ -419,16 +437,17 @@ const AIChatAgent = () => {
             </div>
           </CardHeader>
 
-          <CardContent className="flex-1 flex flex-col p-0 overflow-hidden">
-            <Tabs value={activeTab} onValueChange={setActiveTab} className="flex-1 flex flex-col">
-              <TabsList className="grid w-full grid-cols-2 m-2 mb-0">
+          {/* Enhanced Content with Proper Scrolling */}
+          <CardContent className="flex-1 flex flex-col p-0 overflow-hidden min-h-0">
+            <Tabs value={activeTab} onValueChange={setActiveTab} className="flex-1 flex flex-col min-h-0">
+              <TabsList className="grid w-full grid-cols-2 m-2 mb-0 flex-shrink-0">
                 <TabsTrigger value="chat" className="text-sm">Chat</TabsTrigger>
                 <TabsTrigger value="actions" className="text-sm">Quick Actions</TabsTrigger>
               </TabsList>
 
-              <TabsContent value="chat" className="flex-1 flex flex-col mt-0">
+              <TabsContent value="chat" className="flex-1 flex flex-col mt-0 min-h-0">
                 {/* Chat Mode Selector */}
-                <div className="p-3 border-b bg-gray-50 dark:bg-gray-800">
+                <div className="p-3 border-b bg-gray-50 dark:bg-gray-800 flex-shrink-0">
                   <div className="flex gap-2">
                     <Button
                       size="sm"
@@ -459,73 +478,80 @@ const AIChatAgent = () => {
                   </div>
                 </div>
 
-                {/* Messages */}
-                <ScrollArea className="flex-1 p-4">
-                  <div className="space-y-4">
-                    {messages.map((message) => (
-                      <div
-                        key={message.id}
-                        className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-                      >
+                {/* Messages with Enhanced Scrolling */}
+                <div className="flex-1 min-h-0 relative">
+                  <ScrollArea 
+                    className="h-full w-full"
+                    ref={scrollAreaRef}
+                  >
+                    <div className="p-4 space-y-4 min-h-full">
+                      {messages.map((message) => (
                         <div
-                          className={`max-w-[85%] p-4 rounded-xl ${
-                            message.sender === 'user'
-                              ? 'bg-gradient-to-r from-portfolio-accent to-blue-600 text-white'
-                              : 'bg-gray-100 dark:bg-gray-700 text-portfolio-text-dark dark:text-white'
-                          } ${message.type === 'insight' ? 'border-l-4 border-blue-500' : ''} ${
-                            message.type === 'suggestion' ? 'border-l-4 border-green-500' : ''
-                          } ${message.type === 'project' ? 'border-l-4 border-purple-500' : ''}`}
+                          key={message.id}
+                          className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                         >
-                          <div className="flex items-start gap-3">
-                            {message.sender === 'ai' && (
-                              <div className="flex-shrink-0">
-                                <Bot className="w-5 h-5 mt-0.5" />
-                              </div>
-                            )}
-                            {message.sender === 'user' && (
-                              <User className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                            )}
-                            <div className="flex-1 min-w-0">
-                              <div className="text-sm leading-relaxed whitespace-pre-wrap break-words">
-                                {renderMessageContent(message.content)}
-                              </div>
-                              {message.metadata?.confidence && (
-                                <div className="mt-2 text-xs opacity-70">
-                                  Confidence: {Math.round(message.metadata.confidence * 100)}%
+                          <div
+                            className={`max-w-[85%] p-4 rounded-xl ${
+                              message.sender === 'user'
+                                ? 'bg-gradient-to-r from-portfolio-accent to-blue-600 text-white'
+                                : 'bg-gray-100 dark:bg-gray-700 text-portfolio-text-dark dark:text-white'
+                            } ${message.type === 'insight' ? 'border-l-4 border-blue-500' : ''} ${
+                              message.type === 'suggestion' ? 'border-l-4 border-green-500' : ''
+                            } ${message.type === 'project' ? 'border-l-4 border-purple-500' : ''}`}
+                          >
+                            <div className="flex items-start gap-3">
+                              {message.sender === 'ai' && (
+                                <div className="flex-shrink-0">
+                                  <Bot className="w-5 h-5 mt-0.5" />
                                 </div>
                               )}
-                              {message.hasActions && message.sender === 'ai' && (
-                                <ActionButtons message={message} />
+                              {message.sender === 'user' && (
+                                <User className="w-5 h-5 mt-0.5 flex-shrink-0" />
                               )}
+                              <div className="flex-1 min-w-0">
+                                <div className="text-sm leading-relaxed whitespace-pre-wrap break-words">
+                                  {renderMessageContent(message.content)}
+                                </div>
+                                {message.metadata?.confidence && (
+                                  <div className="mt-2 text-xs opacity-70">
+                                    Confidence: {Math.round(message.metadata.confidence * 100)}%
+                                  </div>
+                                )}
+                                {message.hasActions && message.sender === 'ai' && (
+                                  <ActionButtons message={message} />
+                                )}
+                              </div>
                             </div>
-                          </div>
-                          <div className="text-xs opacity-70 mt-2 text-right">
-                            {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                    
-                    {isTyping && (
-                      <div className="flex justify-start">
-                        <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-xl max-w-[85%]">
-                          <div className="flex items-center gap-3">
-                            <Bot className="w-5 h-5" />
-                            <div className="flex space-x-1">
-                              <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                              <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                              <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                            <div className="text-xs opacity-70 mt-2 text-right">
+                              {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                             </div>
                           </div>
                         </div>
-                      </div>
-                    )}
-                    <div ref={messagesEndRef} />
-                  </div>
-                </ScrollArea>
+                      ))}
+                      
+                      {isTyping && (
+                        <div className="flex justify-start">
+                          <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-xl max-w-[85%]">
+                            <div className="flex items-center gap-3">
+                              <Bot className="w-5 h-5" />
+                              <div className="flex space-x-1">
+                                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                      
+                      {/* Scroll anchor */}
+                      <div ref={messagesEndRef} className="h-1" />
+                    </div>
+                  </ScrollArea>
+                </div>
 
                 {/* Enhanced Input */}
-                <div className="p-4 border-t bg-white dark:bg-gray-800">
+                <div className="p-4 border-t bg-white dark:bg-gray-800 flex-shrink-0">
                   <div className="flex gap-2">
                     <Input
                       value={inputValue}
@@ -547,9 +573,9 @@ const AIChatAgent = () => {
                 </div>
               </TabsContent>
 
-              <TabsContent value="actions" className="flex-1 p-4">
+              <TabsContent value="actions" className="flex-1 min-h-0">
                 <ScrollArea className="h-full">
-                  <div className="space-y-4">
+                  <div className="p-4 space-y-4">
                     <h3 className="font-semibold text-lg mb-4">Quick Actions</h3>
                     
                     {['portfolio', 'experience', 'insights', 'contact'].map(category => (
