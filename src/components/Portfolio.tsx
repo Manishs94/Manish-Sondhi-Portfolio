@@ -1,7 +1,8 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { BookOpen } from 'lucide-react';
+import { BookOpen, Palette, Grid3X3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { allProjects, getAllCategories, getCaseStudies } from '@/utils/projectData';
 import { toast } from '@/hooks/use-toast';
 import PortfolioFilters from '@/components/PortfolioFilters';
@@ -18,11 +19,21 @@ const Portfolio = () => {
   const [sortOption, setSortOption] = useState<SortOption>('newest');
   const [filteredProjects, setFilteredProjects] = useState(allProjects);
   const [isFiltering, setIsFiltering] = useState(false);
-  const [activeTab, setActiveTab] = useState<'all' | 'case-studies'>('all');
+  const [activeTab, setActiveTab] = useState<'case-studies' | 'design' | 'all'>('case-studies'); // Default to case studies
   const [currentPage, setCurrentPage] = useState(1);
   
   const categories = getAllCategories();
   const caseStudies = getCaseStudies();
+  const designProjects = allProjects.filter(project => 
+    !project.isCaseStudy && (
+      (Array.isArray(project.category) && project.category.some(cat => 
+        cat.toLowerCase().includes('design') || cat.toLowerCase().includes('ui/ux')
+      )) ||
+      (typeof project.category === 'string' && 
+        (project.category.toLowerCase().includes('design') || project.category.toLowerCase().includes('ui/ux'))
+      )
+    )
+  );
 
   // Filter and sort projects whenever filters change
   useEffect(() => {
@@ -31,8 +42,15 @@ const Portfolio = () => {
     
     // Add a small delay to show the animation
     const filterTimer = setTimeout(() => {
-      // Start with either all projects or just case studies based on active tab
-      let result = activeTab === 'all' ? [...allProjects] : [...caseStudies];
+      // Start with appropriate projects based on active tab
+      let result = [];
+      if (activeTab === 'case-studies') {
+        result = [...caseStudies];
+      } else if (activeTab === 'design') {
+        result = [...designProjects];
+      } else {
+        result = [...allProjects];
+      }
       
       // Filter by category
       if (selectedCategory !== 'all') {
@@ -73,7 +91,7 @@ const Portfolio = () => {
     }, 300);
     
     return () => clearTimeout(filterTimer);
-  }, [selectedCategory, searchQuery, sortOption, activeTab]);
+  }, [selectedCategory, searchQuery, sortOption, activeTab, caseStudies, designProjects]);
 
   // Calculate pagination
   const totalPages = Math.ceil(filteredProjects.length / PROJECTS_PER_PAGE);
@@ -110,6 +128,12 @@ const Portfolio = () => {
     }
   };
 
+  const handleTabChange = (value: string) => {
+    setActiveTab(value as 'case-studies' | 'design' | 'all');
+    setCurrentPage(1);
+    handleResetFilters();
+  };
+
   return (
     <section id="portfolio" className="py-24 bg-portfolio-bg-light">
       <div className="section-container">
@@ -123,67 +147,148 @@ const Portfolio = () => {
           </p>
         </div>
         
-        <PortfolioFilters
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-          sortOption={sortOption}
-          setSortOption={setSortOption}
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-          categories={categories}
-          onResetFilters={handleResetFilters}
-          filteredProjects={filteredProjects}
-          currentPage={currentPage}
-          projectsPerPage={PROJECTS_PER_PAGE}
-        />
-        
-        {/* Projects Grid */}
-        {currentProjects.length > 0 ? (
-          <>
-            <div 
-              className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 transition-opacity duration-300 ${isFiltering ? 'opacity-50' : 'opacity-100'} mb-12`}
-            >
-              {currentProjects.map((project, index) => (
-                <ProjectCard key={project.id} project={project} index={index} />
-              ))}
-            </div>
-
-            <PortfolioPagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={handlePageChange}
-            />
-          </>
-        ) : (
-          <div className="text-center py-12 bg-white rounded-lg shadow-sm">
-            <p className="text-lg text-portfolio-text-light">No matching projects found</p>
-            <Button onClick={handleResetFilters} className="mt-4">Reset Filters</Button>
+        {/* Tab Navigation */}
+        <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
+          <div className="flex justify-center mb-8 animate-fade-in opacity-0" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
+            <TabsList className="grid w-full max-w-md grid-cols-3 bg-white shadow-sm">
+              <TabsTrigger value="case-studies" className="flex items-center gap-2 data-[state=active]:bg-portfolio-accent data-[state=active]:text-white">
+                <BookOpen className="w-4 h-4" />
+                Case Study
+              </TabsTrigger>
+              <TabsTrigger value="design" className="flex items-center gap-2 data-[state=active]:bg-portfolio-accent data-[state=active]:text-white">
+                <Palette className="w-4 h-4" />
+                Design
+              </TabsTrigger>
+              <TabsTrigger value="all" className="flex items-center gap-2 data-[state=active]:bg-portfolio-accent data-[state=active]:text-white">
+                <Grid3X3 className="w-4 h-4" />
+                All Projects
+              </TabsTrigger>
+            </TabsList>
           </div>
-        )}
-        
-        <div className="text-center mt-12 animate-fade-in opacity-0" style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}>
-          {activeTab === 'case-studies' ? (
-            <Button 
-              onClick={() => setActiveTab('all')}
-              className="portfolio-button-primary transition-transform hover:scale-105 duration-300"
-            >
-              View All Projects
-            </Button>
-          ) : (
-            <Button 
-              onClick={() => {
-                setActiveTab('case-studies');
-                handleResetFilters();
-              }}
-              className="portfolio-button-primary transition-transform hover:scale-105 duration-300 flex items-center gap-2"
-            >
-              <BookOpen className="w-4 h-4" />
-              View Case Studies
-            </Button>
-          )}
-        </div>
+
+          <TabsContent value="case-studies" className="mt-0">
+            <PortfolioFilters
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+              sortOption={sortOption}
+              setSortOption={setSortOption}
+              activeTab={activeTab}
+              setActiveTab={setActiveTab}
+              categories={categories}
+              onResetFilters={handleResetFilters}
+              filteredProjects={filteredProjects}
+              currentPage={currentPage}
+              projectsPerPage={PROJECTS_PER_PAGE}
+            />
+            
+            {currentProjects.length > 0 ? (
+              <>
+                <div 
+                  className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 transition-opacity duration-300 ${isFiltering ? 'opacity-50' : 'opacity-100'} mb-12`}
+                >
+                  {currentProjects.map((project, index) => (
+                    <ProjectCard key={project.id} project={project} index={index} />
+                  ))}
+                </div>
+
+                <PortfolioPagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={handlePageChange}
+                />
+              </>
+            ) : (
+              <div className="text-center py-12 bg-white rounded-lg shadow-sm">
+                <p className="text-lg text-portfolio-text-light">No case studies found</p>
+                <Button onClick={handleResetFilters} className="mt-4">Reset Filters</Button>
+              </div>
+            )}
+          </TabsContent>
+
+          <TabsContent value="design" className="mt-0">
+            <PortfolioFilters
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+              sortOption={sortOption}
+              setSortOption={setSortOption}
+              activeTab={activeTab}
+              setActiveTab={setActiveTab}
+              categories={categories}
+              onResetFilters={handleResetFilters}
+              filteredProjects={filteredProjects}
+              currentPage={currentPage}
+              projectsPerPage={PROJECTS_PER_PAGE}
+            />
+            
+            {currentProjects.length > 0 ? (
+              <>
+                <div 
+                  className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 transition-opacity duration-300 ${isFiltering ? 'opacity-50' : 'opacity-100'} mb-12`}
+                >
+                  {currentProjects.map((project, index) => (
+                    <ProjectCard key={project.id} project={project} index={index} />
+                  ))}
+                </div>
+
+                <PortfolioPagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={handlePageChange}
+                />
+              </>
+            ) : (
+              <div className="text-center py-12 bg-white rounded-lg shadow-sm">
+                <p className="text-lg text-portfolio-text-light">No design projects found</p>
+                <Button onClick={handleResetFilters} className="mt-4">Reset Filters</Button>
+              </div>
+            )}
+          </TabsContent>
+
+          <TabsContent value="all" className="mt-0">
+            <PortfolioFilters
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+              sortOption={sortOption}
+              setSortOption={setSortOption}
+              activeTab={activeTab}
+              setActiveTab={setActiveTab}
+              categories={categories}
+              onResetFilters={handleResetFilters}
+              filteredProjects={filteredProjects}
+              currentPage={currentPage}
+              projectsPerPage={PROJECTS_PER_PAGE}
+            />
+            
+            {currentProjects.length > 0 ? (
+              <>
+                <div 
+                  className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 transition-opacity duration-300 ${isFiltering ? 'opacity-50' : 'opacity-100'} mb-12`}
+                >
+                  {currentProjects.map((project, index) => (
+                    <ProjectCard key={project.id} project={project} index={index} />
+                  ))}
+                </div>
+
+                <PortfolioPagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={handlePageChange}
+                />
+              </>
+            ) : (
+              <div className="text-center py-12 bg-white rounded-lg shadow-sm">
+                <p className="text-lg text-portfolio-text-light">No projects found</p>
+                <Button onClick={handleResetFilters} className="mt-4">Reset Filters</Button>
+              </div>
+            )}
+          </TabsContent>
+        </Tabs>
       </div>
     </section>
   );
