@@ -88,21 +88,24 @@ const PortfolioFilters: React.FC<PortfolioFiltersProps> = ({
           </div>
         </div>
         
-        <div className="flex flex-wrap justify-center gap-2 mb-6">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setSelectedCategory(category.id)}
-              className={`px-4 py-2 rounded-full transition-all duration-300 text-sm ${
-                selectedCategory === category.id
-                  ? 'bg-portfolio-accent text-white'
-                  : 'bg-white text-portfolio-text-dark hover:bg-gray-100'
-              }`}
-            >
-              {category.name}
-            </button>
-          ))}
-        </div>
+        {/* Only show category filters for "all" tab */}
+        {activeTab === 'all' && (
+          <div className="flex flex-wrap justify-center gap-2 mb-6">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setSelectedCategory(category.id)}
+                className={`px-4 py-2 rounded-full transition-all duration-300 text-sm ${
+                  selectedCategory === category.id
+                    ? 'bg-portfolio-accent text-white'
+                    : 'bg-white text-portfolio-text-dark hover:bg-gray-100'
+                }`}
+              >
+                {category.name}
+              </button>
+            ))}
+          </div>
+        )}
         
         {/* Search results info */}
         <div className="text-center text-portfolio-text-light text-sm">
