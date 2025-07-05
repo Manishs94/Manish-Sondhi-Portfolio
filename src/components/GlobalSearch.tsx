@@ -121,7 +121,7 @@ const GlobalSearch = () => {
                 setQuery(value);
                 searchContent(value);
               }}
-              className="px-4 py-3"
+              className="px-4 py-3 text-base placeholder:text-muted-foreground/70 focus:outline-none focus:ring-0 border-0 bg-transparent"
             />
             <CommandList>
               <CommandEmpty>No results found.</CommandEmpty>
