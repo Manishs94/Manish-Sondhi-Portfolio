@@ -189,13 +189,16 @@ export const ContactForm: React.FC = () => {
               name="projectType"
               value={formData.projectType}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-accent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-accent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
             >
+              <option value="" disabled>Select a project type...</option>
               <option value="consultation">UX Consultation</option>
               <option value="design">Product Design</option>
               <option value="redesign">Website Redesign</option>
               <option value="system">Design System</option>
               <option value="research">User Research</option>
+              <option value="audit">UX Audit</option>
+              <option value="workshop">Design Workshop</option>
               <option value="other">Other</option>
             </select>
           </div>
