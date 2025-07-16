@@ -70,10 +70,18 @@ const CaseStudyModal = ({ project, isOpen, onClose }: CaseStudyModalProps) => {
           <iframe
             src={project.link}
             title={project.title}
-            className="w-full h-full border-0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            className="w-full h-full border-0 bg-white"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
-            sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation"
+            sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation allow-presentation"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            onLoad={(e) => {
+              console.log('Iframe loaded successfully');
+            }}
+            onError={(e) => {
+              console.error('Iframe failed to load:', e);
+            }}
           />
         </div>
       </DialogContent>
