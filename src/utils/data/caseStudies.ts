@@ -367,5 +367,49 @@ export const caseStudies: Project[] = [
     status: 'Completed',
     isCaseStudy: true,
     parentProjectId: 2
+  },
+  {
+    id: 21,
+    title: 'Vendor Relationship Management Enhancement',
+    subtitle: 'Streamlined Vendor Operations & Compliance System',
+    description: 'A comprehensive vendor relationship management system designed to streamline vendor onboarding, compliance tracking, and relationship management processes for enterprise-level operations.',
+    image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['UI Design', 'UX Research', 'Product Design'],
+    metrics: [
+      { icon: 'users2', value: '60%', label: 'Faster Onboarding' },
+      { icon: 'lineChart', value: '45%', label: 'Compliance Improvement' },
+      { icon: 'clock', value: '50%', label: 'Process Efficiency' },
+      { icon: 'target', value: '75%', label: 'User Satisfaction' }
+    ],
+    tools: ['Adobe XD', 'Figma', 'Miro', 'Protopie', 'UserTesting', 'Confluence', 'Jira'],
+    link: 'https://vendor-management-enhanc-e121rwj.gamma.site/',
+    challenge: 'Complex vendor management processes with manual workflows, inconsistent compliance tracking, and fragmented communication channels leading to operational inefficiencies and compliance risks.',
+    process: 'Conducted comprehensive stakeholder interviews, analyzed existing vendor workflows, designed intuitive management interfaces, and implemented automated compliance tracking systems.',
+    overview: {
+      challenge: 'Complex vendor management processes with manual workflows, inconsistent compliance tracking, and fragmented communication channels leading to operational inefficiencies and compliance risks.',
+      solution: 'Developed an integrated vendor management platform with automated workflows, centralized compliance tracking, and streamlined communication tools.',
+      impact: 'Significantly improved vendor onboarding efficiency, enhanced compliance monitoring, and strengthened vendor relationships through better communication and process management.'
+    },
+    team: [
+      'Product Designer (Lead)',
+      'Business Analyst',
+      'Compliance Specialist',
+      'Development Team (6)',
+      'QA Engineer',
+      'Project Manager'
+    ],
+    timeline: '2023',
+    role: 'Lead UI/UX Designer',
+    keyFeatures: [
+      'Automated vendor onboarding workflows',
+      'Centralized compliance tracking dashboard',
+      'Real-time communication portal',
+      'Document management system',
+      'Performance analytics and reporting',
+      'Risk assessment automation'
+    ],
+    status: 'Completed',
+    isCaseStudy: true,
+    parentProjectId: 2
   }
 ];
