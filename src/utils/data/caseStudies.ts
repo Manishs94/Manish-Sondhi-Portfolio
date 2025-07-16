@@ -325,5 +325,47 @@ export const caseStudies: Project[] = [
     status: 'Completed',
     isCaseStudy: true,
     parentProjectId: 2
+  },
+  {
+    id: 20,
+    title: 'CRE Comparable Integration',
+    subtitle: 'Streamlined Commercial Real Estate Valuation System',
+    description: 'A comprehensive integration system for commercial real estate comparable analysis, designed to streamline property valuation workflows and enhance decision-making accuracy for real estate professionals.',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['UI Design', 'UX Research', 'Product Design'],
+    metrics: [
+      { icon: 'users2', value: '50%', label: 'Faster Valuations' },
+      { icon: 'lineChart', value: '65%', label: 'Accuracy Improvement' },
+      { icon: 'clock', value: '40%', label: 'Time Reduction' },
+      { icon: 'target', value: '85%', label: 'User Satisfaction' }
+    ],
+    tools: ['Adobe XD', 'Figma', 'Real Estate APIs', 'Data Visualization', 'Protopie', 'UserTesting'],
+    link: 'https://cre-comparable-integrati-w3y90dv.gamma.site/',
+    challenge: 'Commercial real estate professionals struggled with time-consuming manual comparable analysis processes, leading to inefficient valuations and potential accuracy issues in property assessments.',
+    process: 'Conducted extensive user research with real estate professionals, analyzed existing workflows, designed intuitive data visualization interfaces, and implemented automated comparable matching algorithms.',
+    overview: {
+      challenge: 'Commercial real estate professionals struggled with time-consuming manual comparable analysis processes, leading to inefficient valuations and potential accuracy issues in property assessments.',
+      solution: 'Developed an integrated system with automated comparable matching, intuitive data visualization, and streamlined valuation workflows.',
+      impact: 'Significantly reduced valuation time while improving accuracy and user satisfaction across commercial real estate operations.'
+    },
+    team: [
+      'Product Designer (Lead)',
+      'Real Estate Analyst',
+      'Development Team (5)',
+      'Data Engineer',
+      'QA Specialist'
+    ],
+    timeline: '2023',
+    role: 'Lead UI/UX Designer',
+    keyFeatures: [
+      'Automated comparable property matching',
+      'Interactive data visualization dashboards',
+      'Streamlined valuation workflows',
+      'Real-time market data integration',
+      'Comprehensive reporting system'
+    ],
+    status: 'Completed',
+    isCaseStudy: true,
+    parentProjectId: 2
   }
 ];
