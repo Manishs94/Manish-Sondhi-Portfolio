@@ -411,5 +411,49 @@ export const caseStudies: Project[] = [
     status: 'Completed',
     isCaseStudy: true,
     parentProjectId: 2
+  },
+  {
+    id: 22,
+    title: 'Exposure Administration & Record Management',
+    subtitle: 'Comprehensive Risk Exposure Tracking System',
+    description: 'An advanced exposure administration and record management system designed to streamline risk assessment, exposure tracking, and regulatory compliance for financial institutions and lending organizations.',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['UI Design', 'UX Research', 'Product Design'],
+    metrics: [
+      { icon: 'users2', value: '55%', label: 'Risk Assessment Speed' },
+      { icon: 'lineChart', value: '70%', label: 'Compliance Accuracy' },
+      { icon: 'clock', value: '45%', label: 'Processing Efficiency' },
+      { icon: 'target', value: '80%', label: 'Data Accuracy' }
+    ],
+    tools: ['Adobe XD', 'Figma', 'Risk Analytics', 'Protopie', 'UserTesting', 'Confluence', 'Jira'],
+    link: 'https://exposure-management-dh0l4va.gamma.site/',
+    challenge: 'Complex exposure tracking processes with manual risk calculations, fragmented record management, and inconsistent regulatory compliance reporting leading to operational risks and audit challenges.',
+    process: 'Conducted extensive risk management workflow analysis, designed intuitive exposure tracking interfaces, implemented automated compliance reporting, and created comprehensive record management systems.',
+    overview: {
+      challenge: 'Complex exposure tracking processes with manual risk calculations, fragmented record management, and inconsistent regulatory compliance reporting leading to operational risks and audit challenges.',
+      solution: 'Developed an integrated exposure management platform with automated risk calculations, centralized record keeping, and real-time compliance monitoring.',
+      impact: 'Significantly improved risk assessment accuracy, streamlined compliance reporting, and enhanced operational efficiency in exposure management workflows.'
+    },
+    team: [
+      'Product Designer (Lead)',
+      'Risk Management Specialist',
+      'Compliance Officer',
+      'Development Team (5)',
+      'Data Analyst',
+      'QA Engineer'
+    ],
+    timeline: '2023',
+    role: 'Lead UI/UX Designer',
+    keyFeatures: [
+      'Automated exposure calculation engine',
+      'Real-time risk monitoring dashboard',
+      'Centralized record management system',
+      'Regulatory compliance reporting',
+      'Advanced analytics and forecasting',
+      'Audit trail and documentation'
+    ],
+    status: 'Completed',
+    isCaseStudy: true,
+    parentProjectId: 2
   }
 ];
