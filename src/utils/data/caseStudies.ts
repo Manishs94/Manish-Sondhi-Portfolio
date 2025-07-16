@@ -455,5 +455,49 @@ export const caseStudies: Project[] = [
     status: 'Completed',
     isCaseStudy: true,
     parentProjectId: 2
+  },
+  {
+    id: 23,
+    title: 'Relationship Management Microservice',
+    subtitle: 'Comprehensive Client Relationship Platform',
+    description: 'An advanced relationship management microservice designed to streamline client interactions, relationship tracking, and communication workflows for financial institutions and lending organizations.',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['UI Design', 'UX Research', 'Product Design'],
+    metrics: [
+      { icon: 'users2', value: '65%', label: 'Client Engagement' },
+      { icon: 'lineChart', value: '50%', label: 'Relationship Quality' },
+      { icon: 'clock', value: '40%', label: 'Response Time' },
+      { icon: 'target', value: '75%', label: 'Client Satisfaction' }
+    ],
+    tools: ['Adobe XD', 'Figma', 'Microservices Architecture', 'Protopie', 'UserTesting', 'Confluence', 'Jira'],
+    link: 'https://relationship-microservic-pds8k8g.gamma.site/',
+    challenge: 'Fragmented client relationship management with disconnected communication channels, inconsistent client data, and lack of centralized relationship tracking leading to poor client experience and missed opportunities.',
+    process: 'Conducted comprehensive client journey mapping, analyzed relationship touchpoints, designed intuitive management interfaces, and implemented microservice architecture for scalable relationship management.',
+    overview: {
+      challenge: 'Fragmented client relationship management with disconnected communication channels, inconsistent client data, and lack of centralized relationship tracking leading to poor client experience and missed opportunities.',
+      solution: 'Developed an integrated relationship management microservice with centralized client data, automated communication workflows, and comprehensive relationship tracking capabilities.',
+      impact: 'Significantly improved client engagement, enhanced relationship quality, and streamlined communication processes across all client touchpoints.'
+    },
+    team: [
+      'Product Designer (Lead)',
+      'Relationship Manager',
+      'Business Analyst',
+      'Development Team (6)',
+      'Data Architect',
+      'QA Engineer'
+    ],
+    timeline: '2023',
+    role: 'Lead UI/UX Designer',
+    keyFeatures: [
+      'Centralized client relationship dashboard',
+      'Automated communication workflows',
+      'Comprehensive client history tracking',
+      'Real-time interaction monitoring',
+      'Relationship analytics and insights',
+      'Microservice architecture integration'
+    ],
+    status: 'Completed',
+    isCaseStudy: true,
+    parentProjectId: 2
   }
 ];
