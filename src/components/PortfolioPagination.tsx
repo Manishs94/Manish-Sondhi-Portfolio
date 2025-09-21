@@ -78,24 +78,10 @@ const PortfolioPagination: React.FC<PortfolioPaginationProps> = ({
           })}
           
           <PaginationItem>
-            <button 
-              onClick={() => {
-                console.log('Next button clicked');
-                console.log('Current page:', currentPage);
-                console.log('Total pages:', totalPages);
-                const nextPage = Math.min(totalPages, currentPage + 1);
-                console.log('Calculated next page:', nextPage);
-                onPageChange(nextPage);
-              }}
-              disabled={currentPage === totalPages}
-              className={`inline-flex items-center justify-center gap-1 pr-2.5 h-9 px-3 rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50`}
-              aria-label="Go to next page"
-            >
-              <span>Next</span>
-              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
+            <PaginationNext 
+              onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}
+              className={currentPage === totalPages ? 'pointer-events-none opacity-50' : ''}
+            />
           </PaginationItem>
         </PaginationContent>
       </Pagination>
