@@ -201,7 +201,16 @@ const AIChatAgent = () => {
     }
 
     // Default enhanced responses
-    const enhancedResponses = [
+    const enhancedResponses: Array<{
+      content: string;
+      hasActions: boolean;
+      type: 'text' | 'suggestion' | 'project' | 'insight';
+      metadata: {
+        projectId?: number;
+        category?: string;
+        confidence?: number;
+      };
+    }> = [
       {
         content: "🤔 **Interesting question!** I can provide detailed insights about:\n\n• **Project Analysis** - Deep dives into case studies and design decisions\n• **Design Process** - Methodologies, frameworks, and best practices\n• **Technical Skills** - Tools, technologies, and implementation approaches\n• **Career Journey** - Professional growth and experience insights\n• **Collaboration** - How we can work together on your projects\n\n**💡 Pro Tip:** Try asking about specific projects like \"Tell me about the CYNC loan system\" or \"How was accessibility implemented?\"\n\nWhat aspect interests you most?",
         hasActions: true,
