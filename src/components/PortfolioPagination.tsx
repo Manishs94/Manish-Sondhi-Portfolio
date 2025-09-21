@@ -51,13 +51,17 @@ const PortfolioPagination: React.FC<PortfolioPaginationProps> = ({
             ) {
               return (
                 <PaginationItem key={page}>
-                  <PaginationLink
+                  <button
                     onClick={() => onPageChange(page)}
-                    isActive={currentPage === page}
-                    className="cursor-pointer"
+                    className={`inline-flex items-center justify-center h-9 w-9 rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring ${
+                      currentPage === page
+                        ? 'bg-primary text-primary-foreground shadow'
+                        : 'hover:bg-accent hover:text-accent-foreground'
+                    }`}
+                    aria-current={currentPage === page ? 'page' : undefined}
                   >
                     {page}
-                  </PaginationLink>
+                  </button>
                 </PaginationItem>
               );
             } else if (
