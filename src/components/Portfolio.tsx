@@ -119,6 +119,9 @@ const Portfolio = () => {
   }, []);
 
   const handlePageChange = (page: number) => {
+    console.log('handlePageChange called with page:', page);
+    console.log('Current page before:', currentPage);
+    console.log('Total pages:', totalPages);
     setCurrentPage(page);
     // Scroll to top of portfolio section when page changes
     const portfolioSection = document.getElementById('portfolio');

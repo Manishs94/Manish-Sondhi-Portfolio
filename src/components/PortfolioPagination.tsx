@@ -79,7 +79,14 @@ const PortfolioPagination: React.FC<PortfolioPaginationProps> = ({
           
           <PaginationItem>
             <button 
-              onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}
+              onClick={() => {
+                console.log('Next button clicked');
+                console.log('Current page:', currentPage);
+                console.log('Total pages:', totalPages);
+                const nextPage = Math.min(totalPages, currentPage + 1);
+                console.log('Calculated next page:', nextPage);
+                onPageChange(nextPage);
+              }}
               disabled={currentPage === totalPages}
               className={`inline-flex items-center justify-center gap-1 pr-2.5 h-9 px-3 rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50`}
               aria-label="Go to next page"
