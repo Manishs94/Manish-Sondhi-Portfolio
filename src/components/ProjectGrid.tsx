@@ -11,15 +11,13 @@ const ProjectGrid: React.FC<ProjectGridProps> = ({ projects, isFiltering, onQuic
   return (
     <div 
       className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12 
-        transition-opacity duration-300 ${isFiltering ? 'opacity-50' : 'opacity-100'}`}
+        transition-opacity duration-200 ${isFiltering ? 'opacity-90' : 'opacity-100'}`}
     >
       {projects.map((project, index) => (
         <div
           key={project.id}
-          className={`transform transition-all duration-500 ${
-            isFiltering ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
-          }`}
-          style={{ transitionDelay: `${index * 0.1}s` }}
+          className="transform transition-all duration-300 opacity-100 scale-100"
+          style={{ transitionDelay: `${index * 0.05}s` }}
         >
           <ProjectCard
             project={project}
