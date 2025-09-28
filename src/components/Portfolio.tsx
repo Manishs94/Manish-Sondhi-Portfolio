@@ -106,7 +106,6 @@ const Portfolio = () => {
     startIndex,
     endIndex
   });
-
   // Reset filters and scroll to portfolio section
   const handleResetFilters = useCallback(() => {
     setSelectedCategory('all');
@@ -143,7 +142,6 @@ const Portfolio = () => {
   useEffect(() => {
     setCurrentPage(1);
   }, [selectedCategory, searchQuery, sortOption, activeTab]);
-
   return (
     <section id="portfolio" className="py-24 bg-portfolio-bg-light">
       <div className="section-container">
