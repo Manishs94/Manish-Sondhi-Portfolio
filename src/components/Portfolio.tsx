@@ -3,9 +3,10 @@ import { BookOpen, Palette, Grid3X3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { allProjects, getAllCategories, getCaseStudies } from '@/utils/projectData';
+import QuickViewModal from '@/components/QuickViewModal';
 import { toast } from '@/hooks/use-toast';
 import PortfolioFilters from '@/components/PortfolioFilters';
-import ProjectCard from '@/components/ProjectCard';
+import ProjectGrid from '@/components/ProjectGrid';
 import PortfolioPagination from '@/components/PortfolioPagination';
 
 type SortOption = 'newest' | 'alphabetical';
@@ -20,6 +21,8 @@ const Portfolio = () => {
   const [isFiltering, setIsFiltering] = useState(false);
   const [activeTab, setActiveTab] = useState<'case-studies' | 'design' | 'all'>('case-studies'); // Default to case studies
   const [currentPage, setCurrentPage] = useState(1);
+  const [previewProject, setPreviewProject] = useState<(typeof allProjects)[0] | null>(null);
+  const [showQuickView, setShowQuickView] = useState(false);
   
   const categories = getAllCategories();
   const caseStudies = getCaseStudies();
@@ -190,11 +193,14 @@ const Portfolio = () => {
             
             {currentProjects.length > 0 ? (
               <>
-                <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
-                  {currentProjects.map((project, index) => (
-                    <ProjectCard key={project.id} project={project} index={index} />
-                  ))}
-                </div>
+                <ProjectGrid
+                  projects={currentProjects}
+                  isFiltering={isFiltering}
+                  onQuickView={(project) => {
+                    setPreviewProject(project);
+                    setShowQuickView(true);
+                  }}
+                />
 
                 <PortfolioPagination
                   currentPage={currentPage}
@@ -229,11 +235,14 @@ const Portfolio = () => {
             
             {currentProjects.length > 0 ? (
               <>
-                <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
-                  {currentProjects.map((project, index) => (
-                    <ProjectCard key={project.id} project={project} index={index} />
-                  ))}
-                </div>
+                <ProjectGrid
+                  projects={currentProjects}
+                  isFiltering={isFiltering}
+                  onQuickView={(project) => {
+                    setPreviewProject(project);
+                    setShowQuickView(true);
+                  }}
+                />
 
                 <PortfolioPagination
                   currentPage={currentPage}
@@ -268,11 +277,14 @@ const Portfolio = () => {
             
             {currentProjects.length > 0 ? (
               <>
-                <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
-                  {currentProjects.map((project, index) => (
-                    <ProjectCard key={project.id} project={project} index={index} />
-                  ))}
-                </div>
+                <ProjectGrid
+                  projects={currentProjects}
+                  isFiltering={isFiltering}
+                  onQuickView={(project) => {
+                    setPreviewProject(project);
+                    setShowQuickView(true);
+                  }}
+                />
 
                 <PortfolioPagination
                   currentPage={currentPage}
@@ -288,6 +300,17 @@ const Portfolio = () => {
             )}
           </TabsContent>
         </Tabs>
+
+        {/* Quick View Modal */}
+        {showQuickView && previewProject && (
+          <QuickViewModal
+            project={previewProject}
+            onClose={() => {
+              setShowQuickView(false);
+              setPreviewProject(null);
+            }}
+          />
+        )}
       </div>
     </section>
   );

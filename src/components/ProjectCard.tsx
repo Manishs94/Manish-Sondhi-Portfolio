@@ -8,10 +8,11 @@ import CaseStudyModal from '@/components/CaseStudyModal';
 
 interface ProjectCardProps {
   project: any;
-  index: number;
+  index?: number;
+  onQuickView?: () => void;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, index = 0, onQuickView }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Function to get the appropriate image for each project
@@ -31,13 +32,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   };
 
   const handleCardClick = () => {
-    setIsModalOpen(true);
+    if (project.isCaseStudy) {
+      setIsModalOpen(true);
+    } else if (typeof onQuickView === 'function') {
+      onQuickView();
+    }
   };
 
   const handleViewProject = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setIsModalOpen(true);
+    if (project.isCaseStudy) {
+      setIsModalOpen(true);
+    } else if (typeof onQuickView === 'function') {
+      onQuickView();
+    }
   };
 
   return (

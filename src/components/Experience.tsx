@@ -4,12 +4,40 @@ import ExperienceSkeleton from './ExperienceSkeleton';
 
 const Experience = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [visibleExperiences, setVisibleExperiences] = useState<number[]>([]);
 
   // Simulate loading for demonstration
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1500);
-    return () => clearTimeout(timer);
+    const loadingTimer = setTimeout(() => setIsLoading(false), 1000);
+    return () => clearTimeout(loadingTimer);
   }, []);
+
+  // Progressively reveal experiences
+  useEffect(() => {
+    if (!isLoading) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const index = parseInt(entry.target.getAttribute('data-index') || '0');
+              setVisibleExperiences((prev) => [...new Set([...prev, index])]);
+            }
+          });
+        },
+        {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1,
+        }
+      );
+
+      document.querySelectorAll('[data-experience-card]').forEach((card) => {
+        observer.observe(card);
+      });
+
+      return () => observer.disconnect();
+    }
+  }, [isLoading]);
 
   const experiences = [
     {
@@ -91,8 +119,17 @@ const Experience = () => {
             {experiences.map((exp, index) => (
               <div 
                 key={index}
-                className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 animate-fade-in transform hover:-translate-y-1 hover:scale-[1.02] border border-transparent hover:border-portfolio-accent/20"
-                style={{ animationDelay: `${0.1 * index}s` }}
+                data-experience-card
+                data-index={index}
+                className={`group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform border border-transparent hover:border-portfolio-accent/20
+                  ${visibleExperiences.includes(index) 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-8'} 
+                  hover:-translate-y-1 hover:scale-[1.02]`}
+                style={{ 
+                  transitionDelay: `${0.2 * index}s`,
+                  transitionProperty: 'opacity, transform'
+                }}
               >
                 {/* Header */}
                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">

@@ -26,20 +26,23 @@ const BreadcrumbNav = ({ projectTitle }: BreadcrumbNavProps) => {
   // For project detail pages, show: Home > Project Title
   if (location.pathname.startsWith('/project/') && projectTitle) {
     return (
-      <div className="py-4">
-        <Breadcrumb>
+      <div className="py-4 overflow-x-auto scrollbar-hide">
+        <Breadcrumb className="min-w-max animate-fadeIn">
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
-                <Link to="/" className="flex items-center gap-1 hover:text-portfolio-accent transition-colors">
+                <Link 
+                  to="/" 
+                  className="flex items-center gap-1 hover:text-portfolio-accent transition-all duration-200 hover:scale-105"
+                >
                   <Home className="w-4 h-4" />
-                  Home
+                  <span className="hidden sm:inline">Home</span>
                 </Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage className="text-portfolio-accent font-medium">
+              <BreadcrumbPage className="text-portfolio-accent font-medium animate-slideIn">
                 {projectTitle}
               </BreadcrumbPage>
             </BreadcrumbItem>
@@ -53,14 +56,18 @@ const BreadcrumbNav = ({ projectTitle }: BreadcrumbNavProps) => {
   const pathSegments = location.pathname.split('/').filter(segment => segment);
 
   return (
-    <div className="py-4">
-      <Breadcrumb>
+    <div className="py-4 overflow-x-auto scrollbar-hide">
+      <Breadcrumb className="min-w-max animate-fadeIn">
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link to="/" className="flex items-center gap-1 hover:text-portfolio-accent transition-colors">
+              <Link 
+                to="/" 
+                className="flex items-center gap-1 hover:text-portfolio-accent transition-all duration-200 hover:scale-105"
+                aria-label="Home"
+              >
                 <Home className="w-4 h-4" />
-                Home
+                <span className="hidden sm:inline">Home</span>
               </Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
@@ -68,19 +75,27 @@ const BreadcrumbNav = ({ projectTitle }: BreadcrumbNavProps) => {
           {pathSegments.map((segment, index) => {
             const isLast = index === pathSegments.length - 1;
             const href = `/${pathSegments.slice(0, index + 1).join('/')}`;
+            const label = segment.charAt(0).toUpperCase() + segment.slice(1);
             
             return (
               <React.Fragment key={segment}>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   {isLast ? (
-                    <BreadcrumbPage className="text-portfolio-accent font-medium">
-                      {segment.charAt(0).toUpperCase() + segment.slice(1)}
+                    <BreadcrumbPage 
+                      className="text-portfolio-accent font-medium animate-slideIn"
+                      aria-current="page"
+                    >
+                      {label}
                     </BreadcrumbPage>
                   ) : (
                     <BreadcrumbLink asChild>
-                      <Link to={href} className="hover:text-portfolio-accent transition-colors">
-                        {segment.charAt(0).toUpperCase() + segment.slice(1)}
+                      <Link 
+                        to={href} 
+                        className="hover:text-portfolio-accent transition-all duration-200 hover:scale-105"
+                        aria-label={label}
+                      >
+                        {label}
                       </Link>
                     </BreadcrumbLink>
                   )}
