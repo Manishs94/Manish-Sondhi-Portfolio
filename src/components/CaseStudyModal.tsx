@@ -39,6 +39,18 @@ const CaseStudyModal = ({ project, isOpen, onClose }: CaseStudyModalProps) => {
 
   if (!project) return null;
 
+  // Check if it's a design project
+  const isDesignProject = () => {
+    if (Array.isArray(project.category)) {
+      return project.category.some(cat => 
+        cat.toLowerCase().includes('design') || 
+        cat.toLowerCase().includes('ui/ux')
+      );
+    }
+    return project.category?.toLowerCase().includes('design') || 
+           project.category?.toLowerCase().includes('ui/ux');
+  };
+
   const handleIframeLoad = () => {
     setIframeLoaded(true);
     setIsLoading(false);
@@ -114,7 +126,7 @@ const CaseStudyModal = ({ project, isOpen, onClose }: CaseStudyModalProps) => {
               <div className="text-center">
                 <RefreshCw className="w-8 h-8 animate-spin text-portfolio-accent mx-auto mb-4" />
                 <p className="text-lg font-medium text-portfolio-text-dark dark:text-white mb-2">
-                  Loading Case Study...
+                  {isDesignProject() ? 'Loading Design...' : 'Loading Case Study...'}
                 </p>
                 <p className="text-sm text-portfolio-text-light dark:text-gray-400">
                   Please wait while we load the preview
