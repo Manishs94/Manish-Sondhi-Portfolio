@@ -31,8 +31,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index = 0, onQuickVi
     return project.title;
   };
 
+  // Check if project is a design project
+  const isDesignProject = () => {
+    if (Array.isArray(project.category)) {
+      return project.category.some(cat => 
+        cat.toLowerCase().includes('design') || 
+        cat.toLowerCase().includes('ui/ux')
+      );
+    }
+    return project.category?.toLowerCase().includes('design') || 
+           project.category?.toLowerCase().includes('ui/ux');
+  };
+
+  const shouldOpenModal = project.isCaseStudy || isDesignProject();
+
   const handleCardClick = () => {
-    if (project.isCaseStudy) {
+    if (shouldOpenModal) {
       setIsModalOpen(true);
     } else if (typeof onQuickView === 'function') {
       onQuickView();
@@ -42,7 +56,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index = 0, onQuickVi
   const handleViewProject = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    if (project.isCaseStudy) {
+    if (shouldOpenModal) {
       setIsModalOpen(true);
     } else if (typeof onQuickView === 'function') {
       onQuickView();
