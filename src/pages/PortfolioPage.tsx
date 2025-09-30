@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Portfolio from '@/components/Portfolio';
 import Footer from '@/components/Footer';
 import ScrollProgress from '@/components/ScrollProgress';
+import PortfolioAIChat from '@/components/PortfolioAIChat';
 
 const PortfolioPage = () => {
   return (
@@ -14,6 +15,7 @@ const PortfolioPage = () => {
         <Portfolio />
       </main>
       <Footer />
+      <PortfolioAIChat />
     </div>
   );
 };

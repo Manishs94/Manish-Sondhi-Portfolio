@@ -8,6 +8,7 @@ import ExperienceOverview from '@/components/ExperienceOverview';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import ScrollProgress from '@/components/ScrollProgress';
+import PortfolioAIChat from '@/components/PortfolioAIChat';
 
 const Index = () => {
   return (
@@ -22,6 +23,7 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
+      <PortfolioAIChat />
     </div>
   );
 };
