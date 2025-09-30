@@ -126,7 +126,7 @@ const CaseStudyModal = ({ project, isOpen, onClose }: CaseStudyModalProps) => {
               <div className="text-center">
                 <RefreshCw className="w-8 h-8 animate-spin text-portfolio-accent mx-auto mb-4" />
                 <p className="text-lg font-medium text-portfolio-text-dark dark:text-white mb-2">
-                  {isDesignProject() ? 'Loading Design...' : 'Loading Case Study...'}
+                  {project.isCaseStudy ? 'Loading Case Study...' : isDesignProject() ? 'Loading Design...' : 'Loading Project...'}
                 </p>
                 <p className="text-sm text-portfolio-text-light dark:text-gray-400">
                   Please wait while we load the preview
