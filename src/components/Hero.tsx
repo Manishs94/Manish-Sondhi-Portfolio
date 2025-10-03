@@ -37,7 +37,7 @@ const Hero = () => {
         keywords="UX Designer, Product Designer, Fintech UX, Financial Services Design, User Experience Portfolio"
       />
       
-      <section id="home" className="pt-12 pb-12 md:pt-44 md:pb-32 relative overflow-hidden">
+      <section id="home" className="pt-10 pb-12 md:pt-44 md:pb-32 relative overflow-hidden">
         {/* Background Animation */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-100 dark:bg-blue-900/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
