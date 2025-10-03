@@ -61,12 +61,12 @@ const Navbar = () => {
   return (
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-sm' : 'bg-transparent'
+        isScrolled ? 'bg-white/98 dark:bg-gray-900/98 backdrop-blur-md shadow-sm' : 'bg-transparent'
       }`}
       role="navigation"
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-12 sm:h-14 lg:h-16">
+        <div className="flex justify-between items-center h-14 sm:h-14 lg:h-16">
           <div className="flex items-center">
             <Link to="/" className="text-xl font-bold text-portfolio-text-dark dark:text-white hover:text-portfolio-accent transition-colors">
               Manish Sondhi's Portfolio
