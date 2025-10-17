@@ -45,22 +45,24 @@ const Experience = () => {
       company: 'CYNC Software',
       location: 'Tampa, FL',
       period: 'Feb 2022 – Present',
-      description: 'As the lead designer at CYNC Software, I\'ve owned the end-to-end user experience for a suite of enterprise SaaS products in the commercial lending space. My work has focused on solving complex B2B workflows, improving usability across modules, and aligning design with product and business strategy.',
+      description: 'As Lead Product and UI/UX Designer at CYNC Software, I drive end-to-end product design for complex financial and collateral-based platforms while integrating AI-driven design systems and conversational interfaces. My role spans product ownership, UX research, and cross-functional leadership in an enterprise SaaS environment.',
       highlights: [
-        'Collaborated directly with the CEO, product managers, and developers to define product vision and prioritize features across modules such as Collateral, Exposure, Analytics, and Relationship Management.',
-        'Led user research and usability testing, applying journey mapping, surveys, and A/B testing to identify friction points and increase adoption.',
-        'Created interactive prototypes and wireframes using Adobe XD, translating research insights into scalable design solutions.',
-        'Built and maintained a modular design system, aligning UI components and brand standards across multiple product verticals.',
-        'Partnered with engineering to ensure seamless design-to-development handoff using Agile sprints and tools like Jira, Confluence, and Miro.',
-        'Ensured WCAG 2.2 accessibility compliance and responsive behavior across all devices.'
+        'Led product strategy and ownership as acting Product Owner, managing backlog and sprint planning while collaborating with CEO and stakeholders to define MVPs and roadmap priorities.',
+        'Designed and implemented comprehensive solutions for Loan/Credit Products, Relationship Management, and Advanced Analytics platforms using Figma and Adobe XD.',
+        'Developed scalable Collateral Management solutions for diverse asset types including Real Estate, Fleet & Vehicles, and Equipment.',
+        'Spearheaded AI UX initiatives including conversational systems, chatbots, and intelligent dashboards, improving task completion rates by 20%.',
+        'Integrated AI-powered tools (AWS Bedrock) to optimize UX research and prototype creation, reducing time-to-insight by 30%.',
+        'Created adaptive interface states and LLM-based content recommendations to enhance contextual guidance in financial workflows.',
+        'Applied atomic design principles and accessibility standards (WCAG 2.2) to maintain consistent, inclusive user experiences.',
+        'Facilitated cross-functional collaboration between AI/ML teams, engineering, and stakeholders to ensure ethical AI integration and technical feasibility.'
       ],
       impact: [
-        { metric: '20% increase in user engagement', icon: '🚀' },
-        { metric: '25% reduction in onboarding friction', icon: '⏱' },
-        { metric: '30% improvement in usability scores', icon: '🎯' },
-        { metric: '10% faster dev cycles', icon: '🔁' }
+        { metric: '30% improvement in product usability', icon: '🎯' },
+        { metric: '25% faster prototype creation', icon: '⚡' },
+        { metric: '20% increase in user engagement', icon: '📈' },
+        { metric: '30% faster insight generation', icon: '�' }
       ],
-      tools: ['Figma', 'Adobe XD', 'Sketch', 'Google Analytics', 'Miro', 'Jira', 'Confluence', 'React', 'Angular', 'TypeScript', 'HTML5', 'CSS3', 'WCAG 2.2']
+      tools: ['Figma (AI plugins)', 'Adobe XD', 'Jira', 'Confluence', 'Miro', 'Google Analytics', 'ChatGPT', 'AWS Bedrock', 'Uizard', 'Stitch', 'TypeScript', 'Angular', 'WCAG 2.2']
     },
     {
       title: 'UI/UX Designer',
