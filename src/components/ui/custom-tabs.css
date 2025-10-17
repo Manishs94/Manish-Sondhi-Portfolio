@@ -1,0 +1,17 @@
+[data-radix-tabs-content] {
+  margin-top: 0 !important;
+}
+
+.chat-tabs [role="tablist"] {
+  margin-bottom: 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.chat-tabs [role="tab"][data-state="active"] {
+  border-bottom: 2px solid #3b82f6;
+}
+
+.chat-content-wrapper {
+  margin-top: 0;
+  border-top: none;
+}

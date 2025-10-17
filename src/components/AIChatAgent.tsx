@@ -1,270 +1,73 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Send, Bot, User, ExternalLink, Calendar, Mail, Expand, Minimize, Settings, Download, Share2, Sparkles, Brain, Lightbulb, Search, BookOpen, Code, Palette, Target } from 'lucide-react';
+import * as React from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { MessageCircle, X, Send, Bot, User, ExternalLink, Mail, Expand, Minimize, Download, Sparkles, Brain, Lightbulb, BookOpen, Code, Palette, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Separator } from '@/components/ui/separator';
 
 interface Message {
   id: string;
   content: string;
-  sender: 'user' | 'ai';
+  sender: 'ai' | 'user';
   timestamp: Date;
   hasActions?: boolean;
-  type?: 'text' | 'suggestion' | 'project' | 'insight';
-  metadata?: {
-    projectId?: number;
-    category?: string;
-    confidence?: number;
-  };
+  type?: string;
 }
 
-interface QuickAction {
-  id: string;
-  label: string;
-  icon: React.ReactNode;
-  action: () => void;
-  category: 'portfolio' | 'experience' | 'contact' | 'insights';
-}
+export default function AIChatAgent() {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [isExpanded, setIsExpanded] = React.useState(false);
+  const [messages, setMessages] = React.useState<Message[]>([{
+    id: '1',
+    content: "👋 Hi! I'm your enhanced AI portfolio assistant. I can provide detailed insights about projects, analyze design patterns, suggest improvements, and help you navigate the portfolio. What would you like to explore?",
+    sender: 'ai',
+    timestamp: new Date(),
+    hasActions: true,
+  }]);
+  const [inputValue, setInputValue] = React.useState('');
+  const [isTyping, setIsTyping] = React.useState(false);
+  const messagesEndRef = React.useRef<HTMLDivElement>(null);
+  const scrollAreaRef = React.useRef<HTMLDivElement>(null);
 
-const AIChatAgent = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: '1',
-      content: "👋 Hi! I'm your enhanced AI portfolio assistant. I can provide detailed insights about projects, analyze design patterns, suggest improvements, and help you navigate the portfolio. What would you like to explore?",
-      sender: 'ai',
-      timestamp: new Date(),
-      hasActions: true,
-      type: 'text'
-    }
-  ]);
-  const [inputValue, setInputValue] = useState('');
-  const [isTyping, setIsTyping] = useState(false);
-  const [showQuickActions, setShowQuickActions] = useState(true);
-  const [activeTab, setActiveTab] = useState('chat');
-  const [chatMode, setChatMode] = useState<'general' | 'analysis' | 'suggestions'>('general');
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-  const scrollAreaRef = useRef<HTMLDivElement>(null);
-
-  const quickActions: QuickAction[] = [
-    {
-      id: 'portfolio-overview',
-      label: 'Portfolio Overview',
-      icon: <Palette className="w-4 h-4" />,
-      action: () => handleQuickQuestion("Give me a comprehensive overview of the portfolio"),
-      category: 'portfolio'
-    },
-    {
-      id: 'design-analysis',
-      label: 'Design Analysis',
-      icon: <Brain className="w-4 h-4" />,
-      action: () => handleQuickQuestion("Analyze the design patterns and methodologies used"),
-      category: 'insights'
-    },
-    {
-      id: 'project-recommendations',
-      label: 'Project Recommendations',
-      icon: <Target className="w-4 h-4" />,
-      action: () => handleQuickQuestion("Recommend projects based on my interests"),
-      category: 'portfolio'
-    },
-    {
-      id: 'experience-deep-dive',
-      label: 'Experience Deep Dive',
-      icon: <BookOpen className="w-4 h-4" />,
-      action: () => handleQuickQuestion("Tell me about the professional experience and growth"),
-      category: 'experience'
-    },
-    {
-      id: 'technical-skills',
-      label: 'Technical Skills',
-      icon: <Code className="w-4 h-4" />,
-      action: () => handleQuickQuestion("What technical skills and tools are demonstrated?"),
-      category: 'experience'
-    },
-    {
-      id: 'collaboration',
-      label: 'Let\'s Collaborate',
-      icon: <Mail className="w-4 h-4" />,
-      action: () => handleQuickQuestion("How can we work together on a project?"),
-      category: 'contact'
-    }
-  ];
-
-  const scrollToBottom = () => {
-    if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'end'
-      });
-    }
-  };
-
-  // Enhanced scroll to bottom with better timing
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      scrollToBottom();
-    }, 100);
-    
-    return () => clearTimeout(timer);
-  }, [messages]);
-
-  // Auto-scroll when new messages are added
-  useEffect(() => {
-    if (messages.length > 1) {
-      scrollToBottom();
-    }
-  }, [messages.length]);
-
-  const scrollToSection = (sectionId: string) => {
-    setIsOpen(false);
-    setTimeout(() => {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
-  };
-
-  const generateAIResponse = (userMessage: string): { content: string; hasActions?: boolean; type?: Message['type']; metadata?: Message['metadata'] } => {
-    const message = userMessage.toLowerCase();
-    
-    // Enhanced responses with more intelligence
-    if (message.includes('portfolio overview') || message.includes('comprehensive overview')) {
-      return {
-        content: "🎨 **Portfolio Overview & Analysis**\n\nThis portfolio showcases a comprehensive range of UX/UI design expertise:\n\n**🏆 Featured Case Studies:**\n• [Bank of America Bill Payment](/project/1) - 68M+ users, 40% drop-off reduction\n• [CYNC Loan Origination System](/project/2) - Complex B2B workflow optimization\n• [CYNC Advanced Analytics](/project/3) - Accessibility-focused design\n\n**🎯 Design Strengths:**\n• User-centered design methodology\n• Complex workflow simplification\n• Accessibility compliance (WCAG 2.1)\n• Cross-platform consistency\n• Data-driven design decisions\n\n**📊 Impact Metrics:**\n• 40-60% improvement in user efficiency\n• 35-45% increase in user satisfaction\n• Full accessibility compliance achieved\n\nWould you like me to dive deeper into any specific project or design approach?",
-        hasActions: true,
-        type: 'insight',
-        metadata: { confidence: 0.95, category: 'portfolio-analysis' }
-      };
-    }
-
-    if (message.includes('design analysis') || message.includes('design patterns') || message.includes('methodologies')) {
-      return {
-        content: "🧠 **Design Methodology & Pattern Analysis**\n\n**Core Design Philosophy:**\n• Human-centered design approach\n• Data-informed decision making\n• Iterative design process\n• Accessibility-first mindset\n\n**Key Design Patterns Identified:**\n\n🔄 **Process Framework:**\n1. Research & Discovery\n2. Problem Definition\n3. Ideation & Prototyping\n4. Testing & Validation\n5. Implementation & Iteration\n\n🎨 **UI/UX Patterns:**\n• Progressive disclosure for complex workflows\n• Consistent design system implementation\n• Micro-interactions for user feedback\n• Responsive design across all platforms\n\n📈 **Success Metrics:**\n• Task completion rates: 40-75% improvement\n• User satisfaction: 35-45% increase\n• Error reduction: 40-60%\n• Processing time: 35-50% faster\n\n[Explore the complete design process](/project/4)\n\nWant me to analyze a specific design pattern or methodology?",
-        hasActions: true,
-        type: 'insight',
-        metadata: { confidence: 0.92, category: 'design-analysis' }
-      };
-    }
-
-    if (message.includes('recommend') || message.includes('suggestions') || message.includes('interests')) {
-      return {
-        content: "🎯 **Personalized Project Recommendations**\n\nBased on current design trends and portfolio analysis, here are tailored recommendations:\n\n**🏦 For Fintech Enthusiasts:**\n• [Bank of America Bill Payment](/project/1) - Large-scale financial UX\n• [CYNC Loan Origination](/project/2) - B2B financial workflows\n\n**🔧 For Complex System Designers:**\n• [CYNC Advanced Analytics](/project/3) - Data visualization & accessibility\n• [CYNC Collateral Management](/project/6) - Asset tracking systems\n\n**🎨 For UI/UX Process Learners:**\n• [UI/UX Design Process Case Study](/project/4) - Complete methodology\n• [CYNC Insurance Component](/project/9) - Component design\n\n**🚀 For Interactive Design:**\n• [CSS Animations Gallery](/project/5) - Micro-interactions\n• [AI Chatbot Application](/project/13) - Conversational UI\n\n**💡 Recommendation Engine Insights:**\n• 95% of visitors find case studies most valuable\n• B2B workflow projects show highest engagement\n• Accessibility features are increasingly important\n\nWhich type of project interests you most?",
-        hasActions: true,
-        type: 'suggestion',
-        metadata: { confidence: 0.88, category: 'recommendations' }
-      };
-    }
-
-    if (message.includes('experience') || message.includes('professional') || message.includes('growth') || message.includes('career')) {
-      return {
-        content: "📈 **Professional Experience & Growth Analysis**\n\n**Career Progression:**\n\n🎯 **Current Role - Lead Product & UI/UX Designer at CYNC Software**\n• Leading end-to-end UX for enterprise SaaS products\n• 20% increase in user engagement achieved\n• 25% reduction in onboarding friction\n• Direct collaboration with CEO and product teams\n\n🏦 **Previous Role - UI/UX Designer at Bank of America**\n• Designed for 68M+ users\n• 15% increase in task completion rates\n• 10% reduction in drop-off rates\n• Full accessibility compliance implementation\n\n📊 **Key Growth Indicators:**\n• Project complexity: From simple interfaces to enterprise systems\n• User base: From thousands to millions of users\n• Impact scale: From feature improvements to system-wide redesigns\n• Leadership: From individual contributor to team lead\n\n🛠 **Skill Evolution:**\n• Technical: Figma, Adobe XD, Protopie, React, TypeScript\n• Research: User interviews, A/B testing, analytics\n• Business: Stakeholder management, strategic planning\n• Accessibility: WCAG 2.1 compliance, inclusive design\n\n[View complete experience details](/experience)\n\nWant to know more about any specific role or skill development?",
-        hasActions: true,
-        type: 'insight',
-        metadata: { confidence: 0.94, category: 'experience-analysis' }
-      };
-    }
-
-    if (message.includes('technical skills') || message.includes('tools') || message.includes('technologies')) {
-      return {
-        content: "🛠 **Technical Skills & Tools Mastery**\n\n**Design Tools Expertise:**\n\n🎨 **Primary Design Suite:**\n• **Figma** (Expert) - Design systems, prototyping, collaboration\n• **Adobe XD** (Advanced) - Interactive prototypes, design specs\n• **Sketch** (Proficient) - UI design, symbol libraries\n• **Protopie** (Advanced) - Complex interactions, micro-animations\n\n📊 **Research & Analytics:**\n• **Miro** - Collaborative workshops, journey mapping\n• **Google Analytics** - User behavior analysis\n• **Hotjar/Heatmaps** - User interaction insights\n• **Maze** - Usability testing, user research\n\n💻 **Development Skills:**\n• **React** (Intermediate) - Component-based development\n• **TypeScript** (Intermediate) - Type-safe development\n• **HTML5/CSS3** (Advanced) - Semantic markup, responsive design\n• **Tailwind CSS** - Utility-first styling\n\n🔧 **Workflow & Collaboration:**\n• **Jira** - Agile project management\n• **Confluence** - Documentation, knowledge sharing\n• **Git/GitHub** - Version control, code collaboration\n• **Storybook** - Component documentation\n\n📱 **Specialized Skills:**\n• **WCAG 2.1 Compliance** - Accessibility implementation\n• **Design Systems** - Scalable component libraries\n• **User Research** - Interviews, surveys, testing\n• **A/B Testing** - Data-driven design decisions\n\n**Proficiency Levels:**\n• Expert: Figma, User Research, Accessibility\n• Advanced: Adobe XD, Protopie, HTML/CSS\n• Intermediate: React, TypeScript, Analytics\n\nWhich technical area would you like to explore further?",
-        hasActions: true,
-        type: 'insight',
-        metadata: { confidence: 0.91, category: 'technical-skills' }
-      };
-    }
-
-    if (message.includes('collaborate') || message.includes('work together') || message.includes('hire') || message.includes('project')) {
-      return {
-        content: "🤝 **Collaboration Opportunities & Process**\n\n**Available for:**\n\n🎨 **Design Services:**\n• UI/UX Design & Research\n• Design System Development\n• Accessibility Audits & Implementation\n• User Experience Optimization\n• Product Strategy & Consultation\n\n📋 **Project Types:**\n• **Enterprise SaaS** - Complex B2B workflows\n• **Financial Services** - Secure, compliant interfaces\n• **E-commerce** - Conversion-focused design\n• **Mobile Apps** - Cross-platform experiences\n• **Design Systems** - Scalable component libraries\n\n⚡ **Collaboration Process:**\n\n**Phase 1: Discovery (1-2 weeks)**\n• Stakeholder interviews\n• User research & analysis\n• Competitive analysis\n• Project scope definition\n\n**Phase 2: Design (2-6 weeks)**\n• Wireframing & prototyping\n• Visual design & interactions\n• Usability testing\n• Design system creation\n\n**Phase 3: Implementation (2-4 weeks)**\n• Developer handoff\n• Design QA & review\n• User testing & iteration\n• Launch support\n\n💼 **What I Bring:**\n• 7+ years of design experience\n• Proven track record with 68M+ users\n• Accessibility expertise (WCAG 2.1)\n• Cross-functional team leadership\n• Data-driven design approach\n\n📞 **Next Steps:**\n1. [Schedule a consultation call](/contact)\n2. Share your project brief\n3. Receive a detailed proposal\n4. Begin collaboration\n\n**Response Time:** Within 24 hours\n**Availability:** Open for new projects\n\nReady to start your project? Let's discuss your specific needs!",
-        hasActions: true,
-        type: 'suggestion',
-        metadata: { confidence: 0.96, category: 'collaboration' }
-      };
-    }
-
-    // Enhanced project-specific responses
-    if (message.includes('bank of america') || message.includes('boa') || message.includes('bill pay')) {
-      return {
-        content: "🏦 **Bank of America Bill Payment - Deep Dive Analysis**\n\n**Project Scope & Impact:**\n• **User Base:** 68+ million active users\n• **Challenge:** Complex payment scheduling, poor tracking\n• **Solution:** Streamlined UI with enhanced flexibility\n• **Results:** 40% drop-off reduction, 35% satisfaction increase\n\n**🎯 Key Design Innovations:**\n\n**1. Simplified Payment Flow**\n• Reduced steps from 7 to 4\n• Progressive disclosure for advanced options\n• Smart defaults based on user history\n\n**2. Enhanced Scheduling**\n• Visual calendar interface\n• Recurring payment templates\n• Flexible date selection\n\n**3. Improved Tracking**\n• Real-time payment status\n• Comprehensive payment history\n• Smart notifications & alerts\n\n**4. Accessibility Features**\n• WCAG 2.1 AA compliance\n• Screen reader optimization\n• High contrast mode support\n\n**📊 Measurable Outcomes:**\n• **User Satisfaction:** 35% increase\n• **Task Completion:** 40% improvement\n• **Support Tickets:** 50% reduction\n• **Processing Time:** 25% faster\n\n**🛠 Technical Implementation:**\n• Responsive design across all devices\n• Real-time data synchronization\n• Secure payment processing\n• Performance optimization\n\n[View the complete case study](/project/1)\n\n**Design Lessons Learned:**\n• User research is critical for financial products\n• Accessibility drives adoption\n• Micro-interactions improve confidence\n• Data visualization enhances understanding\n\nWant to explore specific aspects of this project?",
-        hasActions: true,
-        type: 'project',
-        metadata: { projectId: 1, confidence: 0.97, category: 'case-study' }
-      };
-    }
-
-    // Default enhanced responses
-    const enhancedResponses: Array<{
-      content: string;
-      hasActions: boolean;
-      type: 'text' | 'suggestion' | 'project' | 'insight';
-      metadata: {
-        projectId?: number;
-        category?: string;
-        confidence?: number;
-      };
-    }> = [
-      {
-        content: "🤔 **Interesting question!** I can provide detailed insights about:\n\n• **Project Analysis** - Deep dives into case studies and design decisions\n• **Design Process** - Methodologies, frameworks, and best practices\n• **Technical Skills** - Tools, technologies, and implementation approaches\n• **Career Journey** - Professional growth and experience insights\n• **Collaboration** - How we can work together on your projects\n\n**💡 Pro Tip:** Try asking about specific projects like \"Tell me about the CYNC loan system\" or \"How was accessibility implemented?\"\n\nWhat aspect interests you most?",
-        hasActions: true,
-        type: 'suggestion',
-        metadata: { confidence: 0.85, category: 'general' }
-      },
-      {
-        content: "🎯 **Great question!** I'm here to provide comprehensive insights about this portfolio.\n\n**🔍 I can help you:**\n• Analyze design patterns and methodologies\n• Understand project impact and metrics\n• Explore technical implementation details\n• Discuss collaboration opportunities\n• Navigate to specific sections or projects\n\n**📈 Recent Portfolio Highlights:**\n• 68M+ users impacted across projects\n• 40-60% improvement in user efficiency\n• Full accessibility compliance achieved\n• Enterprise-scale system design experience\n\n[Explore all case studies](/#portfolio) or ask me about specific projects!\n\nWhat would you like to dive into?",
-        hasActions: true,
-        type: 'insight',
-        metadata: { confidence: 0.87, category: 'general' }
-      }
-    ];
-    
-    return enhancedResponses[Math.floor(Math.random() * enhancedResponses.length)];
-  };
-
-  const handleQuickQuestion = (question: string) => {
-    setShowQuickActions(false);
-    handleSendMessage(question);
-  };
-
-  const handleSendMessage = async (customMessage?: string) => {
+  const handleSendMessage = (customMessage?: string) => {
     const messageText = customMessage || inputValue;
     if (!messageText.trim()) return;
 
+    // Add user message
     const userMessage: Message = {
       id: Date.now().toString(),
       content: messageText,
       sender: 'user',
-      timestamp: new Date()
+      timestamp: new Date(),
+      hasActions: false
     };
 
     setMessages(prev => [...prev, userMessage]);
     setInputValue('');
     setIsTyping(true);
-    setShowQuickActions(false);
 
-    // Enhanced AI thinking time with more realistic delay
+    // Simulate AI response with typing delay
     setTimeout(() => {
       const response = generateAIResponse(messageText);
-      const aiResponse: Message = {
+      const aiMessage: Message = {
         id: (Date.now() + 1).toString(),
         content: response.content,
         sender: 'ai',
         timestamp: new Date(),
         hasActions: response.hasActions,
-        type: response.type,
-        metadata: response.metadata
+        type: response.type
       };
       
-      setMessages(prev => [...prev, aiResponse]);
+      setMessages(prev => [...prev, aiMessage]);
       setIsTyping(false);
-    }, 1200 + Math.random() * 800);
+    }, 1000 + Math.random() * 500);
+  };
+
+  const handleQuickQuestion = (question: string) => {
+    handleSendMessage(question);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -274,107 +77,77 @@ const AIChatAgent = () => {
     }
   };
 
-  const renderMessageContent = (content: string) => {
-    // Enhanced markdown rendering
-    const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
-    const boldRegex = /\*\*([^*]+)\*\*/g;
-    const parts = content.split(linkRegex);
-    
-    return parts.map((part, index) => {
-      if (index % 3 === 1) {
-        const url = parts[index + 1];
-        if (url.startsWith('/')) {
-          return (
-            <Link 
-              key={index} 
-              to={url} 
-              className="text-portfolio-accent hover:underline inline-flex items-center gap-1 font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              {part} <ExternalLink className="w-3 h-3" />
-            </Link>
-          );
-        } else {
-          return (
-            <a 
-              key={index} 
-              href={url} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-portfolio-accent hover:underline inline-flex items-center gap-1 font-medium"
-            >
-              {part} <ExternalLink className="w-3 h-3" />
-            </a>
-          );
-        }
-      } else if (index % 3 === 2) {
-        return null;
-      } else {
-        // Handle bold text and other formatting
-        return part.split(boldRegex).map((textPart, textIndex) => {
-          if (textIndex % 2 === 1) {
-            return <strong key={textIndex} className="font-semibold text-portfolio-text-dark">{textPart}</strong>;
-          }
-          return textPart;
-        });
+  // Scroll to bottom on new messages
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      if (messagesEndRef.current) {
+        messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
       }
-    });
-  };
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [messages]);
 
-  const ActionButtons = ({ message }: { message: Message }) => (
-    <div className="flex flex-wrap gap-2 mt-4 pt-3 border-t border-gray-200">
-      <Button 
-        size="sm" 
-        variant="outline" 
-        className="text-xs px-3 py-1.5 hover:bg-portfolio-accent hover:text-white transition-colors"
-        onClick={() => scrollToSection('contact')}
-      >
-        <Mail className="w-3 h-3 mr-1" />
-        Get in Touch
-      </Button>
-      <Button 
-        size="sm" 
-        variant="outline" 
-        className="text-xs px-3 py-1.5 hover:bg-portfolio-accent hover:text-white transition-colors"
-        onClick={() => scrollToSection('portfolio')}
-      >
-        <ExternalLink className="w-3 h-3 mr-1" />
-        View Portfolio
-      </Button>
-      {message.metadata?.projectId && (
-        <Button 
-          size="sm" 
-          variant="outline" 
-          className="text-xs px-3 py-1.5 hover:bg-portfolio-accent hover:text-white transition-colors"
-          onClick={() => {
-            setIsOpen(false);
-            window.open(`/project/${message.metadata?.projectId}`, '_blank');
-          }}
-        >
-          <BookOpen className="w-3 h-3 mr-1" />
-          View Project
-        </Button>
-      )}
-    </div>
-  );
-
-  const exportChat = () => {
-    const chatContent = messages.map(msg => 
-      `${msg.sender.toUpperCase()} (${msg.timestamp.toLocaleString()}): ${msg.content}`
-    ).join('\n\n');
+  const generateAIResponse = (userMessage: string) => {
+    const message = userMessage.toLowerCase();
     
-    const blob = new Blob([chatContent], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'portfolio-chat-export.txt';
-    a.click();
-    URL.revokeObjectURL(url);
+    if (message.includes('portfolio') || message.includes('overview')) {
+      return {
+        content: "🎨 **Professional Summary**\n\nI'm an Experienced Lead Product & UI/UX Designer with 8+ years of success delivering user-centered, scalable digital solutions across web and mobile platforms—primarily in the financial, enterprise SaaS, and B2B domains.\n\n**Core Expertise:**\n• Lead end-to-end product design\n• AI-driven design systems integration\n• Human-centered design strategy\n• Cross-functional collaboration\n\n**Key Achievements:**\n• Enhanced UX for 68M+ users at Bank of America\n• Led CYNC Software's financial platform redesign\n• Increased app user satisfaction by 20%\n• Reduced development cycles by 10%\n\n**Current Focus:**\n• AI-driven design systems\n• Generative UX workflows\n• Conversational interface design\n• Predictive UX patterns\n\nWould you like to explore my experience at specific companies or learn more about my technical skills?",
+        hasActions: true,
+        type: 'overview'
+      };
+    }
+
+    if (message.includes('experience') || message.includes('background')) {
+      return {
+        content: "💼 **Professional Experience**\n\n**CYNC Software (2022-Present) - Lead UI/UX Designer:**\n• Led end-to-end product design for complex financial platforms\n• Managed product backlog and Agile ceremonies\n• Integrated AI-driven analytics and behavioral data\n• Developed MVP definitions and user stories\n\n**Bank of America (2018-2022) - UI/UX Designer:**\n• Led Bill Payment Feature design, increasing adoption by 25%\n• Improved mobile app usability by 15%\n• Implemented WCAG compliance and accessibility standards\n• Reduced redesign costs by 20% through early-stage prototyping\n\n**Innovative Design Studio (2018) - Junior UI/UX Designer:**\n• Created wireframes and user flows for mobile/web apps\n• Conducted user research and usability testing\n• Developed responsive layouts and visual systems\n\n**Education & Certification:**\n• Bachelor of Science in Information Technology (SNHU)\n• Google UX Design Professional Certificate\n• GenAI for UX Designers Certification\n\nWould you like to learn more about my work at any of these companies?",
+        hasActions: true,
+        type: 'experience'
+      };
+    }
+
+    if (message.includes('skills') || message.includes('technologies')) {
+      return {
+        content: "🛠 **Key Skills & Technologies**\n\n**UI/UX Design:**\n• Wireframing & Prototyping\n• Information Architecture\n• Adaptive & Generative UX\n• AI-Driven Personalization\n\n**Research & Testing:**\n• AI-Assisted Insight Synthesis\n• Usability Testing & A/B Testing\n• Behavioral Data Analysis\n• Contextual User Modeling\n\n**Design Tools:**\n• Figma (AI Plugins, Design Systems)\n• Adobe XD, Sketch, Miro\n• Uizard, Galileo AI, Midjourney\n• ChatGPT (Prompt Testing)\n\n**Development Collaboration:**\n• HTML5, CSS3, JavaScript\n• Angular & TypeScript\n• AI/ML Integration\n• API Workflow Design\n\n**Specialized Skills:**\n• WCAG 2.2 Accessibility\n• Explainable AI UX\n• Conversational UI Design\n• Predictive UX Patterns\n\nWould you like specific examples of how I've applied these skills in projects?",
+        hasActions: true,
+        type: 'skills'
+      };
+    }
+
+    if (message.includes('bank') || message.includes('boa') || message.includes('america')) {
+      return {
+        content: "🏦 **Bank of America Experience (2018-2022)**\n\n**Bill Payment Feature Redesign:**\n• Increased user adoption by 25%\n• Reduced drop-off rates\n• Optimized mobile experience\n\n**Key Contributions:**\n• Led responsive UI design across platforms\n• Implemented WCAG accessibility standards\n• Conducted extensive user research\n• Improved task completion rates by 15%\n\n**Technical Implementation:**\n• Built with Angular 11, TypeScript\n• Created reusable CSS/HTML templates\n• Integrated analytics tracking\n• Ensured cross-platform consistency\n\n**Process & Tools:**\n• Figma and Adobe XD for prototyping\n• Agile development workflow\n• A/B testing and heatmap analysis\n• User journey mapping\n\n**Impact:**\n• 20% increase in app satisfaction\n• 15% improved mobile usability\n• 10% reduction in drop-off rates\n• 20% savings in redesign costs\n\nWould you like to know more about specific features or methodologies used?",
+        hasActions: true,
+        type: 'project'
+      };
+    }
+
+    if (message.includes('cync') || message.includes('loan')) {
+      return {
+        content: "💰 **CYNC Software Experience (2022-Present)**\n\n**Product Leadership:**\n• Lead UI/UX Designer for financial platforms\n• Product Owner responsibilities\n• Cross-functional team leadership\n\n**Key Projects:**\n\n**Loan & Credit Products:**\n• Security-Based Lending\n• Floor Plan Finance\n• Equipment Finance\n• Auto Finance\n• Commercial Real Estate\n• Wholesale Finance\n\n**Collateral Management:**\n• Real Estate & Property\n• Fleet & Vehicles\n• Equipment & Insurance\n• Advanced Analytics Dashboards\n\n**AI & Innovation:**\n• Integrated AI-driven design systems\n• Developed conversational interfaces\n• Created predictive UX patterns\n• Implemented LLM-based systems\n\n**Process Improvements:**\n• Reduced feature redundancy\n• Improved roadmap accuracy\n• 20% increase in user engagement\n• 30% faster insight generation\n\nWould you like to learn more about specific projects or AI implementations?",
+        hasActions: true,
+        type: 'project'
+      };
+    }
+
+    if (message.includes('design') || message.includes('process') || message.includes('methodology')) {
+      return {
+        content: "🎯 **Design Process & AI Integration**\n\n**User-Centered Approach:**\n• Comprehensive user research\n• Journey mapping & prototyping\n• Usability testing & iteration\n• Data-driven decision making\n\n**AI-Enhanced Design Process:**\n• AI-driven analytics integration\n• Predictive behavior modeling\n• Conversational UX patterns\n• Ethical AI implementation\n\n**Agile Methodology:**\n• Sprint planning & backlog grooming\n• Cross-functional collaboration\n• Iterative development cycles\n• Continuous improvement\n\n**Tools & Frameworks:**\n• Design: Figma, Adobe XD, Sketch\n• AI Tools: Uizard, Galileo AI, ChatGPT\n• Analytics: Google Analytics, Hotjar\n• Documentation: Jira, Confluence\n\n**Specialized Processes:**\n• AI-assisted documentation\n• Model-to-UX integration\n• Prompt engineering\n• Ethical AI design principles\n\nWould you like to learn more about my AI integration approaches or traditional design methods?",
+        hasActions: true,
+        type: 'process'
+      };
+    }
+
+    // Default response
+    return {
+      content: "I can help you explore:\n\n• Portfolio Projects\n• Professional Experience\n• Technical Skills\n• Design Process\n• Contact Information\n\nWhat would you like to learn more about?",
+      hasActions: true,
+      type: 'general'
+    };
   };
 
   return (
-    <>
-      {/* Enhanced Chat Toggle Button */}
+    <div className="relative">
       <Button
         onClick={() => setIsOpen(true)}
         className={`fixed bottom-6 right-6 w-16 h-16 rounded-full shadow-xl z-40 transition-all duration-300 bg-gradient-to-r from-portfolio-accent to-blue-600 hover:shadow-2xl hover:scale-110 ${
@@ -384,11 +157,9 @@ const AIChatAgent = () => {
       >
         <div className="relative">
           <MessageCircle className="w-7 h-7" />
-          <Sparkles className="w-3 h-3 absolute -top-1 -right-1 text-yellow-300" />
         </div>
       </Button>
 
-      {/* Enhanced Chat Window with Improved Scrolling */}
       <div
         className={`fixed ${
           isExpanded 
@@ -399,7 +170,6 @@ const AIChatAgent = () => {
         }`}
       >
         <Card className="h-full flex flex-col overflow-hidden">
-          {/* Enhanced Header */}
           <CardHeader className="flex flex-row items-center justify-between p-4 bg-gradient-to-r from-portfolio-accent to-blue-600 text-white rounded-t-xl flex-shrink-0">
             <div className="flex items-center gap-3">
               <div className="relative">
@@ -429,16 +199,18 @@ const AIChatAgent = () => {
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={exportChat}
-                className="text-white hover:bg-white/20 w-8 h-8 p-0"
-                title="Export Chat"
-              >
-                <Download className="w-4 h-4" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setIsOpen(false);
+                  setIsExpanded(false);
+                  setInputValue('');
+                  setMessages([{
+                    id: '1',
+                    content: "👋 Hi! I'm your enhanced AI portfolio assistant. I can provide detailed insights about projects, analyze design patterns, suggest improvements, and help you navigate the portfolio. What would you like to explore?",
+                    sender: 'ai',
+                    timestamp: new Date(),
+                    hasActions: true,
+                  }]);
+                }}
                 className="text-white hover:bg-white/20 w-8 h-8 p-0"
               >
                 <X className="w-4 h-4" />
@@ -446,183 +218,141 @@ const AIChatAgent = () => {
             </div>
           </CardHeader>
 
-          {/* Enhanced Content with Proper Scrolling */}
-          <CardContent className="flex-1 flex flex-col p-0 overflow-hidden min-h-0">
-            <Tabs value={activeTab} onValueChange={setActiveTab} className="flex-1 flex flex-col min-h-0">
-              <TabsList className="grid w-full grid-cols-2 m-2 mb-0 flex-shrink-0">
-                <TabsTrigger value="chat" className="text-sm">Chat</TabsTrigger>
-                <TabsTrigger value="actions" className="text-sm">Quick Actions</TabsTrigger>
-              </TabsList>
-
-              <TabsContent value="chat" className="flex-1 flex flex-col mt-0 min-h-0">
-                {/* Chat Mode Selector */}
-                <div className="p-3 border-b bg-gray-50 dark:bg-gray-800 flex-shrink-0">
-                  <div className="flex gap-2">
-                    <Button
-                      size="sm"
-                      variant={chatMode === 'general' ? 'default' : 'outline'}
-                      onClick={() => setChatMode('general')}
-                      className="text-xs"
-                    >
-                      General
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant={chatMode === 'analysis' ? 'default' : 'outline'}
-                      onClick={() => setChatMode('analysis')}
-                      className="text-xs"
-                    >
-                      <Brain className="w-3 h-3 mr-1" />
-                      Analysis
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant={chatMode === 'suggestions' ? 'default' : 'outline'}
-                      onClick={() => setChatMode('suggestions')}
-                      className="text-xs"
-                    >
-                      <Lightbulb className="w-3 h-3 mr-1" />
-                      Suggestions
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Messages with Enhanced Scrolling */}
-                <div className="flex-1 min-h-0 relative">
-                  <ScrollArea 
-                    className="h-full w-full"
-                    ref={scrollAreaRef}
+          <CardContent className="flex-1 flex flex-col p-0 overflow-hidden">
+            <ScrollArea className="flex-1">
+              <div className="p-4 space-y-4">
+                {messages.map((message) => (
+                  <div
+                    key={message.id}
+                    className={`flex gap-3 mb-4 ${message.sender === 'ai' ? 'items-start' : 'items-start flex-row-reverse'}`}
                   >
-                    <div className="p-4 space-y-4 min-h-full">
-                      {messages.map((message) => (
-                        <div
-                          key={message.id}
-                          className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-                        >
-                          <div
-                            className={`max-w-[85%] p-4 rounded-xl ${
-                              message.sender === 'user'
-                                ? 'bg-gradient-to-r from-portfolio-accent to-blue-600 text-white'
-                                : 'bg-gray-100 dark:bg-gray-700 text-portfolio-text-dark dark:text-white'
-                            } ${message.type === 'insight' ? 'border-l-4 border-blue-500' : ''} ${
-                              message.type === 'suggestion' ? 'border-l-4 border-green-500' : ''
-                            } ${message.type === 'project' ? 'border-l-4 border-purple-500' : ''}`}
-                          >
-                            <div className="flex items-start gap-3">
-                              {message.sender === 'ai' && (
-                                <div className="flex-shrink-0">
-                                  <Bot className="w-5 h-5 mt-0.5" />
-                                </div>
-                              )}
-                              {message.sender === 'user' && (
-                                <User className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                              )}
-                              <div className="flex-1 min-w-0">
-                                <div className="text-sm leading-relaxed whitespace-pre-wrap break-words">
-                                  {renderMessageContent(message.content)}
-                                </div>
-                                {message.metadata?.confidence && (
-                                  <div className="mt-2 text-xs opacity-70">
-                                    Confidence: {Math.round(message.metadata.confidence * 100)}%
-                                  </div>
-                                )}
-                                {message.hasActions && message.sender === 'ai' && (
-                                  <ActionButtons message={message} />
-                                )}
-                              </div>
-                            </div>
-                            <div className="text-xs opacity-70 mt-2 text-right">
-                              {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                      
-                      {isTyping && (
-                        <div className="flex justify-start">
-                          <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-xl max-w-[85%]">
-                            <div className="flex items-center gap-3">
-                              <Bot className="w-5 h-5" />
-                              <div className="flex space-x-1">
-                                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
-                              </div>
-                            </div>
-                          </div>
+                    <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
+                      message.sender === 'ai' ? 'bg-blue-100' : 'bg-green-100'
+                    }`}>
+                      {message.sender === 'ai' ? (
+                        <Bot className="w-5 h-5 text-blue-600" />
+                      ) : (
+                        <User className="w-5 h-5 text-green-600" />
+                      )}
+                    </div>
+                    <div
+                      className={`flex-1 max-w-[80%] p-4 rounded-lg ${
+                        message.sender === 'ai'
+                          ? 'bg-white border border-gray-200'
+                          : 'bg-blue-600 text-white'
+                      }`}
+                    >
+                      <div className="prose prose-sm dark:prose-invert max-w-none whitespace-pre-wrap">
+                        {message.content}
+                      </div>
+                      {message.hasActions && message.sender === 'ai' && (
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {message.type === 'overview' && (
+                            <>
+                              <Button size="sm" variant="secondary" onClick={() => handleQuickQuestion("Tell me more about your Bank of America project")}>
+                                Bank of America Project
+                              </Button>
+                              <Button size="sm" variant="secondary" onClick={() => handleQuickQuestion("Tell me about your CYNC project")}>
+                                CYNC Project
+                              </Button>
+                            </>
+                          )}
+                          {message.type === 'skills' && (
+                            <>
+                              <Button size="sm" variant="secondary" onClick={() => handleQuickQuestion("Show me your React projects")}>
+                                React Projects
+                              </Button>
+                              <Button size="sm" variant="secondary" onClick={() => handleQuickQuestion("Design System Examples")}>
+                                Design Systems
+                              </Button>
+                            </>
+                          )}
                         </div>
                       )}
-                      
-                      {/* Scroll anchor */}
-                      <div ref={messagesEndRef} className="h-1" />
                     </div>
-                  </ScrollArea>
-                </div>
-
-                {/* Enhanced Input */}
-                <div className="p-4 border-t bg-white dark:bg-gray-800 flex-shrink-0">
-                  <div className="flex gap-2">
-                    <Input
-                      value={inputValue}
-                      onChange={(e) => setInputValue(e.target.value)}
-                      onKeyPress={handleKeyPress}
-                      placeholder={`Ask about ${chatMode === 'analysis' ? 'design analysis' : chatMode === 'suggestions' ? 'recommendations' : 'anything'}...`}
-                      className="flex-1"
-                      disabled={isTyping}
-                    />
-                    <Button
-                      onClick={() => handleSendMessage()}
-                      disabled={!inputValue.trim() || isTyping}
-                      size="sm"
-                      className="bg-gradient-to-r from-portfolio-accent to-blue-600 hover:shadow-lg"
-                    >
-                      <Send className="w-4 h-4" />
-                    </Button>
                   </div>
-                </div>
-              </TabsContent>
-
-              <TabsContent value="actions" className="flex-1 min-h-0">
-                <ScrollArea className="h-full">
-                  <div className="p-4 space-y-4">
-                    <h3 className="font-semibold text-lg mb-4">Quick Actions</h3>
-                    
-                    {['portfolio', 'experience', 'insights', 'contact'].map(category => (
-                      <div key={category}>
-                        <h4 className="font-medium text-sm text-gray-600 dark:text-gray-400 mb-2 uppercase tracking-wide">
-                          {category}
-                        </h4>
-                        <div className="grid gap-2 mb-4">
-                          {quickActions
-                            .filter(action => action.category === category)
-                            .map(action => (
-                              <Button
-                                key={action.id}
-                                variant="outline"
-                                className="justify-start h-auto p-3 text-left"
-                                onClick={() => {
-                                  setActiveTab('chat');
-                                  action.action();
-                                }}
-                              >
-                                <div className="flex items-center gap-3">
-                                  {action.icon}
-                                  <span className="text-sm">{action.label}</span>
-                                </div>
-                              </Button>
-                            ))}
+                ))}
+                {messages.length === 1 && (
+                  <div className="max-w-2xl mx-auto space-y-4">
+                    <p className="text-sm text-gray-600 pl-2">💡 Try asking:</p>
+                    <div className="grid gap-2">
+                      <Button
+                        variant="outline"
+                        className="justify-start h-auto py-3 px-4 text-left hover:bg-blue-50/80 hover:border-blue-200 transition-colors"
+                        onClick={() => handleQuickQuestion("Give me a portfolio overview")}
+                      >
+                        <div className="flex items-center gap-3">
+                          <Palette className="w-4 h-4" />
+                          <span className="text-sm font-medium">Portfolio Overview</span>
                         </div>
-                      </div>
-                    ))}
+                      </Button>
+                      <Button
+                        variant="outline"
+                        className="justify-start h-auto py-3 px-4 text-left hover:bg-blue-50/80 hover:border-blue-200 transition-colors"
+                        onClick={() => handleQuickQuestion("Tell me about your experience and background")}
+                      >
+                        <div className="flex items-center gap-3">
+                          <BookOpen className="w-4 h-4" />
+                          <span className="text-sm font-medium">Experience Deep Dive</span>
+                        </div>
+                      </Button>
+                      <Button
+                        variant="outline"
+                        className="justify-start h-auto py-3 px-4 text-left hover:bg-blue-50/80 hover:border-blue-200 transition-colors"
+                        onClick={() => handleQuickQuestion("What technical skills and technologies do you use?")}
+                      >
+                        <div className="flex items-center gap-3">
+                          <Code className="w-4 h-4" />
+                          <span className="text-sm font-medium">Technical Skills</span>
+                        </div>
+                      </Button>
+                      <Button
+                        variant="outline"
+                        className="justify-start h-auto py-3 px-4 text-left hover:bg-blue-50/80 hover:border-blue-200 transition-colors"
+                        onClick={() => handleQuickQuestion("Tell me about your design process and methodologies")}
+                      >
+                        <div className="flex items-center gap-3">
+                          <Brain className="w-4 h-4" />
+                          <span className="text-sm font-medium">Design Process</span>
+                        </div>
+                      </Button>
+                    </div>
                   </div>
-                </ScrollArea>
-              </TabsContent>
-            </Tabs>
+                )}
+                <div ref={messagesEndRef} />
+              </div>
+            </ScrollArea>
+
+            <div className="p-4 border-t bg-white dark:bg-gray-800 flex-shrink-0">
+              <div className="flex gap-2">
+                <Input
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  onKeyDown={handleKeyPress}
+                  className="flex-1"
+                  placeholder="Type your message..."
+                  disabled={isTyping}
+                />
+                <Button 
+                  onClick={() => handleSendMessage()} 
+                  className="bg-portfolio-accent hover:bg-blue-700"
+                  disabled={isTyping || !inputValue.trim()}
+                >
+                  {isTyping ? (
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-white rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+                      <div className="w-2 h-2 bg-white rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+                      <div className="w-2 h-2 bg-white rounded-full animate-bounce"></div>
+                    </div>
+                  ) : (
+                    <Send className="w-4 h-4" />
+                  )}
+                </Button>
+              </div>
+            </div>
           </CardContent>
         </Card>
       </div>
-    </>
+    </div>
   );
-};
-
-export default AIChatAgent;
+}
