@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Send, Bot, User, ExternalLink, Mail, Expand, Minimize, Download, Sparkles, Brain, Lightbulb, BookOpen, Code, Palette, Target } from 'lucide-react';
+import { MessageCircle, X, Send, Bot, User, ExternalLink, Mail, Expand, Minimize, Minus, Download, Sparkles, Brain, Lightbulb, BookOpen, Code, Palette, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
@@ -20,6 +20,7 @@ interface Message {
 export default function AIChatAgent() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isExpanded, setIsExpanded] = React.useState(false);
+  const [isMinimized, setIsMinimized] = React.useState(false);
   const [messages, setMessages] = React.useState<Message[]>([{
     id: '1',
     content: "👋 Hi! I'm your enhanced AI portfolio assistant. I can provide detailed insights about projects, analyze design patterns, suggest improvements, and help you navigate the portfolio. What would you like to explore?",
@@ -148,19 +149,38 @@ export default function AIChatAgent() {
 
   return (
     <div className="relative">
-      <Button
-        onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 w-16 h-16 rounded-full shadow-xl z-40 transition-all duration-300 bg-gradient-to-r from-portfolio-accent to-blue-600 hover:shadow-2xl hover:scale-110 ${
-          isOpen ? 'scale-0' : 'scale-100'
-        }`}
-        size="sm"
-      >
-        <div className="relative">
-          <MessageCircle className="w-7 h-7" />
+      {isMinimized ? (
+        <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2">
+          <div className="bg-white dark:bg-gray-800 shadow-lg rounded-full p-3 border border-gray-200 dark:border-gray-700">
+            <div className="flex items-center gap-3">
+              <Bot className="w-6 h-6 text-portfolio-accent" />
+              <span className="font-medium text-sm">Portfolio Assistant</span>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setIsMinimized(false)}
+                className="hover:bg-gray-100 dark:hover:bg-gray-700 w-8 h-8 p-0"
+              >
+                <Expand className="w-4 h-4" />
+              </Button>
+            </div>
+          </div>
         </div>
-      </Button>
+      ) : (
+        <>
+          {!isOpen && (
+            <Button
+              onClick={() => setIsOpen(true)}
+              className="fixed bottom-6 right-6 w-16 h-16 rounded-full shadow-xl z-40 transition-all duration-300 bg-gradient-to-r from-portfolio-accent to-blue-600 hover:shadow-2xl hover:scale-110"
+              size="sm"
+            >
+              <div className="relative">
+                <MessageCircle className="w-7 h-7" />
+              </div>
+            </Button>
+          )}
 
-      <div
+          <div
         className={`fixed ${
           isExpanded 
             ? 'inset-4' 
@@ -199,9 +219,18 @@ export default function AIChatAgent() {
               <Button
                 variant="ghost"
                 size="sm"
+                onClick={() => setIsMinimized(true)}
+                className="text-white hover:bg-white/20 w-8 h-8 p-0"
+              >
+                <Minus className="w-4 h-4" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
                 onClick={() => {
                   setIsOpen(false);
                   setIsExpanded(false);
+                  setIsMinimized(false);
                   setInputValue('');
                   setMessages([{
                     id: '1',
@@ -352,7 +381,9 @@ export default function AIChatAgent() {
             </div>
           </CardContent>
         </Card>
-      </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }
