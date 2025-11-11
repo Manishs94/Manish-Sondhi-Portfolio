@@ -18,53 +18,104 @@ interface Message {
 }
 
 export default function AIChatAgent() {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [isExpanded, setIsExpanded] = React.useState(false);
-  const [isMinimized, setIsMinimized] = React.useState(false);
-  const [messages, setMessages] = React.useState<Message[]>([{
+  const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState<Message[]>([{
     id: '1',
     content: "👋 Hi! I'm your enhanced AI portfolio assistant. I can provide detailed insights about projects, analyze design patterns, suggest improvements, and help you navigate the portfolio. What would you like to explore?",
     sender: 'ai',
     timestamp: new Date(),
     hasActions: true,
   }]);
-  const [inputValue, setInputValue] = React.useState('');
-  const [isTyping, setIsTyping] = React.useState(false);
-  const messagesEndRef = React.useRef<HTMLDivElement>(null);
-  const scrollAreaRef = React.useRef<HTMLDivElement>(null);
+  const [inputValue, setInputValue] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const handleSendMessage = (customMessage?: string) => {
+  const handleSendMessage = async (customMessage?: string) => {
     const messageText = customMessage || inputValue;
     if (!messageText.trim()) return;
 
-    // Add user message
     const userMessage: Message = {
       id: Date.now().toString(),
       content: messageText,
       sender: 'user',
       timestamp: new Date(),
-      hasActions: false
+      hasActions: false,
     };
 
-    setMessages(prev => [...prev, userMessage]);
+    setMessages((prev) => [...prev, userMessage]);
     setInputValue('');
     setIsTyping(true);
 
-    // Simulate AI response with typing delay
-    setTimeout(() => {
-      const response = generateAIResponse(messageText);
-      const aiMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        content: response.content,
-        sender: 'ai',
-        timestamp: new Date(),
-        hasActions: response.hasActions,
-        type: response.type
-      };
-      
-      setMessages(prev => [...prev, aiMessage]);
-      setIsTyping(false);
-    }, 1000 + Math.random() * 500);
+    const doFetch = async () => {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: messageText,
+          history: messages.map((m) => ({ content: m.content, sender: m.sender })),
+        }),
+      });
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const json = await res.json();
+      if (json.error) throw new Error(json.error);
+      return json.response;
+    };
+
+    try {
+      const aiText = await doFetch();
+      setMessages((prev) => [
+        ...prev,
+        { id: Date.now().toString(), content: aiText, sender: 'ai', timestamp: new Date(), hasActions: true },
+      ]);
+    } catch (firstErr) {
+      console.warn('First fetch failed, retrying...', firstErr);
+      // Retry once
+      try {
+        const aiText = await doFetch();
+        setMessages((prev) => [
+          ...prev,
+          { id: Date.now().toString(), content: aiText, sender: 'ai', timestamp: new Date(), hasActions: true },
+        ]);
+      } catch (secondErr) {
+        console.warn('Retry failed, scheduling final attempt...', secondErr);
+        // Leave isTyping true and do a final attempt in background
+        setTimeout(async () => {
+          try {
+            const aiText = await doFetch();
+            setMessages((prev) => [
+              ...prev,
+              { id: Date.now().toString(), content: aiText, sender: 'ai', timestamp: new Date(), hasActions: true },
+            ]);
+          } catch (finalErr) {
+            console.error('Final retry failed:', finalErr);
+            // Final fallback: use local static responder to ensure user still gets an answer
+            try {
+              const local = generateAIResponse(messageText);
+              setMessages((prev) => [
+                ...prev,
+                { id: Date.now().toString(), content: local.content, sender: 'ai', timestamp: new Date(), hasActions: local.hasActions || false, type: local.type },
+              ]);
+            } catch (localErr) {
+              console.error('Local responder failed:', localErr);
+              setMessages((prev) => [
+                ...prev,
+                { id: Date.now().toString(), content: "I'm having trouble reaching the AI right now. Please try again.", sender: 'ai', timestamp: new Date(), hasActions: false },
+              ]);
+            }
+          } finally {
+            setIsTyping(false);
+          }
+        }, 2000);
+      } finally {
+        if (!isTyping) setIsTyping(false);
+      }
+    } finally {
+      // Ensure typing state is turned off unless waiting for final retry
+      if (isTyping) setIsTyping(false);
+    }
   };
 
   const handleQuickQuestion = (question: string) => {
@@ -301,6 +352,17 @@ export default function AIChatAgent() {
                     </div>
                   </div>
                 ))}
+                {isTyping && (
+                  <div className="flex gap-3 mb-4 items-start">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-gray-100 animate-pulse">
+                      <Brain className="w-5 h-5 text-gray-600" />
+                    </div>
+                    <div className="flex-1 max-w-[80%] p-3 rounded-lg bg-white border border-gray-200">
+                      <div className="text-sm text-gray-700">Thinking</div>
+                    </div>
+                  </div>
+                )}
+
                 {messages.length === 1 && (
                   <div className="max-w-2xl mx-auto space-y-4">
                     <p className="text-sm text-gray-600 pl-2">💡 Try asking:</p>
