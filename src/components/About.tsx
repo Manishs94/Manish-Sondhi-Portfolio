@@ -30,19 +30,11 @@ const About = () => {
               About Me
             </span>
             <h2 className="section-heading">I design enterprise fintech systems that scale</h2>
-            <p className="text-lg text-portfolio-text-light mb-6">I'm a <strong>Senior Product Designer</strong> with <strong>8+ years of experience</strong> designing and delivering complex <strong>enterprise and consumer financial products</strong> at scale. My work focuses on transforming ambiguous business requirements, regulatory constraints, and data-intensive workflows into <strong>clear, production-ready user experiences</strong>.
+            <p className="text-lg text-portfolio-text-light mb-6">I'm a <strong>Senior Product Designer</strong> with <strong>8+ years of experience</strong> designing and delivering complex <strong>enterprise and consumer financial products</strong> at scale. My work focuses on transforming ambiguous business requirements, regulatory constraints, and data-intensive workflows into <strong>clear, production-ready user experiences</strong> that reduce risk and improve decision-making.
             </p>
 
             <p className="text-lg text-portfolio-text-light mb-6">
-              I specialize in <strong>enterprise fintech platforms</strong>, including loan origination, collateral management, underwriting, analytics, and risk workflows. I've partnered closely with product, engineering, risk, and compliance teams to shape solutions from early problem definition through execution across <strong>web and mobile platforms</strong>.
-            </p>
-
-            <p className="text-lg text-portfolio-text-light mb-6">
-              My design approach is deeply rooted in <strong>usability, accessibility, and decision support</strong>. I focus on structuring information, workflows, and system states in a way that helps users make confident decisions in high-stakes environments. From dashboards and advanced tables to multi-step forms and configuration-driven interfaces, I design systems that are scalable, consistent, and easy to operate.
-            </p>
-
-            <p className="text-lg text-portfolio-text-light mb-6">
-              I also bring experience designing <strong>AI-assisted and guided UX patterns</strong>, including conversational flows, contextual assistance, and decision-support interfaces. I care deeply about explainability, trust, and transparency—especially when intelligent systems are involved.
+              I specialize in <strong>data-intensive enterprise platforms</strong>—dashboards, advanced tables, multi-step forms, and configuration interfaces that make complex workflows transparent and navigable. I'm equally comfortable designing <strong>AI-assisted UX patterns</strong> (guided workflows, decision-support interfaces, conversational flows) and accessibility-first systems (WCAG compliance, inclusive design practices).
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
@@ -53,32 +45,21 @@ const About = () => {
             </div>
             
             <div className="prose prose-blue max-w-none text-portfolio-text-light">
-              <p className="mb-4">I specialize in:</p>
+              <p className="mb-4">For detailed expertise and case studies, explore my selected work and experience:</p>
               <ul className="space-y-2 mb-4">
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span><strong>Data-dense enterprise applications</strong>—dashboards, advanced tables, multi-step forms, and configuration-driven interfaces that make complex workflows transparent and navigable</span>
+                  <span><strong>Enterprise fintech platforms</strong>—loan origination, underwriting, collateral management, portfolio analytics</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span><strong>AI-assisted UX design</strong>—conversational flows, guided workflows, decision-support interfaces, and explainable AI patterns that users can trust</span>
+                  <span><strong>AI-assisted and decision-support UX</strong>—guided workflows, conversational flows, explainable AI patterns</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span><strong>Accessibility-first design</strong>—WCAG compliance, inclusive patterns, and usability for users with diverse abilities in high-stakes financial workflows</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-portfolio-accent mr-2">▹</span>
-                  <span><strong>Design systems and component thinking</strong>—establishing reusable patterns, consistent UI language, and scaled design practices across products</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-portfolio-accent mr-2">▹</span>
-                  <span><strong>Cross-functional collaboration</strong>—working closely with product, engineering, risk, and compliance stakeholders in Agile environments</span>
+                  <span><strong>Accessibility & inclusive design</strong>—WCAG 2.1 compliance, usability for diverse abilities</span>
                 </li>
               </ul>
-              <p>
-                At my core, I believe great product design sits at the intersection of <strong>empathy, logic, and craft</strong>—balancing business goals, technical feasibility, and real user needs to create experiences that are intuitive, accessible, and durable over time.
-              </p>
             </div>
           </div>
         </div>

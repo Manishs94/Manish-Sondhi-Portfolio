@@ -117,11 +117,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index = 0, onQuickVi
           <CardHeader className="p-4 sm:p-6 pb-0">
             <div className="flex flex-wrap gap-2 mb-3">
               {Array.isArray(project.category) ? (
-                project.category.map((cat, idx) => (
-                  <span key={idx} className="px-3 py-1 bg-blue-50 text-portfolio-accent rounded-full text-xs font-medium">
-                    {cat}
-                  </span>
-                ))
+                <>
+                  {project.category.slice(0, 3).map((cat, idx) => (
+                    <span key={idx} className="px-3 py-1 bg-blue-50 text-portfolio-accent rounded-full text-xs font-medium">
+                      {cat}
+                    </span>
+                  ))}
+                  {project.category.length > 3 && (
+                    <span className="px-3 py-1 bg-blue-50 text-portfolio-accent rounded-full text-xs font-medium">
+                      +{project.category.length - 3} more
+                    </span>
+                  )}
+                </>
               ) : (
                 project.category && (
                   <span className="px-3 py-1 bg-blue-50 text-portfolio-accent rounded-full text-xs font-medium">

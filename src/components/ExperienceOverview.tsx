@@ -27,9 +27,9 @@ const ExperienceOverview = () => {
           <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4">
             Experience
           </span>
-          <h2 className="section-heading dark:text-white">Current Role</h2>
+          <h2 className="section-heading dark:text-white">Lead Product Designer — Enterprise Platforms</h2>
           <p className="section-subheading mx-auto dark:text-gray-300">
-            Leading enterprise fintech design solutions with a focus on complex workflows, usability, and AI-assisted UX.
+            CYNC Software
           </p>
         </div>
         

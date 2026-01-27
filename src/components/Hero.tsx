@@ -59,7 +59,7 @@ const Hero = () => {
               </h1>
               
               <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-8 max-w-lg transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                8+ years translating regulatory constraints, business complexity, and AI-assisted systems into intuitive, production-ready user experiences. Specialized in loan origination, underwriting, collateral management, and enterprise analytics.
+                8+ years designing systems that reduce risk, accelerate decisions, and scale with complexity. I translate regulatory constraints, business requirements, and data workflows into intuitive, accessible interfaces that users trust. Specialized in loan origination, underwriting, collateral management, and enterprise analytics.
               </p>
               
               <div className={`flex flex-wrap gap-4 mb-8 transition-all duration-1000 delay-600 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
