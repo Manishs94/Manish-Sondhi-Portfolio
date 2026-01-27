@@ -11,10 +11,10 @@ const Contact = () => {
       <div className="section-container">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className={`section-heading dark:text-white transition-all duration-700 delay-200 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-4'}`}>
-            Let's Work Together
+            Let's Improve Your Enterprise UX
           </h2>
           <p className={`section-subheading mx-auto dark:text-gray-300 mb-6 transition-all duration-700 delay-300 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-4'}`}>
-            I work with product teams and design leaders at fintech, B2B SaaS, and enterprise organizations on complex design challenges.
+            Free 30-minute consultation on fintech, B2B SaaS, and enterprise platform design. I work with product teams and design leaders on complex, data-driven challenges.
           </p>
           
           {/* Who this is for */}
