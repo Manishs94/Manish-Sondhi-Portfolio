@@ -15,11 +15,11 @@ const PortfolioOverview = () => {
       <div className="section-container">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="inline-block px-4 py-2 bg-blue-100 text-portfolio-accent rounded-full font-medium mb-4">
-            Portfolio
+            Selected Work
           </span>
-          <h2 className="section-heading">Featured Projects</h2>
+          <h2 className="section-heading">Selected Case Studies</h2>
           <p className="section-subheading mx-auto">
-            Take a look at some of my recent work that showcases my design thinking and problem-solving approach.
+            A curated set of enterprise and fintech products where I led end-to-end design for complex, data-intensive workflows. These case studies highlight how I translate regulatory constraints, business requirements, and technical complexity into intuitive, accessible, and production-ready user experiences across web and mobile platforms.
           </p>
         </div>
         

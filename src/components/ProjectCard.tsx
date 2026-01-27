@@ -118,47 +118,31 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index = 0, onQuickVi
             <div className="flex flex-wrap gap-2 mb-3">
               {Array.isArray(project.category) ? (
                 project.category.map((cat, idx) => (
-                  <span key={idx} className="px-3 py-1 bg-blue-50 text-portfolio-accent rounded-full text-sm">
+                  <span key={idx} className="px-3 py-1 bg-blue-50 text-portfolio-accent rounded-full text-xs font-medium">
                     {cat}
                   </span>
                 ))
               ) : (
                 project.category && (
-                  <span className="px-3 py-1 bg-blue-50 text-portfolio-accent rounded-full text-sm">
+                  <span className="px-3 py-1 bg-blue-50 text-portfolio-accent rounded-full text-xs font-medium">
                     {project.category}
                   </span>
                 )
               )}
             </div>
-            <h3 className="text-xl font-bold text-portfolio-text-dark mb-1">{getProjectTitle(project)}</h3>
-            {project.subtitle && <p className="text-portfolio-text-light text-sm mb-2">{project.subtitle}</p>}
+            <h3 className="text-lg font-bold text-portfolio-text-dark mb-2">{getProjectTitle(project)}</h3>
+            {project.subtitle && <p className="text-portfolio-text-light text-sm mb-4">{project.subtitle}</p>}
           </CardHeader>
-          <CardContent className="p-4 sm:p-6 pt-3">
-            <p className="text-portfolio-text-light mb-4 line-clamp-3">{project.description}</p>
-            
-            <div className="space-y-3 mb-6">
-              <div>
-                <span className="text-sm font-semibold text-portfolio-text-dark">Challenge:</span>
-                <p className="text-sm text-portfolio-text-light line-clamp-2">
-                  {project.challenge || project.problem || (project.overview && project.overview.challenge) || ""}
-                </p>
-              </div>
-              <div>
-                <span className="text-sm font-semibold text-portfolio-text-dark">Process:</span>
-                <p className="text-sm text-portfolio-text-light line-clamp-2">{project.process}</p>
-              </div>
-            </div>
-            
-            {project.tools && (
-              <div className="mb-4">
-                <span className="text-sm font-semibold text-portfolio-text-dark block mb-2">Tools & Technologies:</span>
-                <div className="flex flex-wrap gap-2">
-                  {project.tools.map((tool, idx) => (
-                    <span key={idx} className="px-2 py-1 bg-gray-100 text-portfolio-text-dark rounded text-xs">
-                      {tool}
-                    </span>
-                  ))}
-                </div>
+          <CardContent className="p-4 sm:p-6 pt-0">
+            {/* Impact metrics (1-2 bullets max) */}
+            {project.metrics && project.metrics.length > 0 && (
+              <div className="mb-4 space-y-1">
+                {project.metrics.slice(0, 2).map((metric, idx) => (
+                  <div key={idx} className="flex items-start gap-2 text-sm text-portfolio-text-light">
+                    <span className="text-portfolio-accent font-bold mt-0.5">•</span>
+                    <span>{metric.label}: {metric.value}</span>
+                  </div>
+                ))}
               </div>
             )}
             
@@ -166,7 +150,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index = 0, onQuickVi
               className="flex items-center gap-2 text-portfolio-accent hover:underline font-medium group cursor-pointer"
               onClick={handleViewProject}
             >
-              {project.isCaseStudy ? 'View Case Study' : 'View Project'} 
+              View Case Study
               <ExternalLink size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
             </div>
           </CardContent>

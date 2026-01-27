@@ -41,49 +41,46 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: 'Lead Product & UI/UX Designer',
+      title: 'Lead Product Designer – Enterprise Platforms',
       company: 'CYNC Software',
       location: 'Tampa, FL',
       period: 'Feb 2022 – Present',
-      description: 'As Lead Product and UI/UX Designer at CYNC Software, I drive end-to-end product design for complex financial and collateral-based platforms while integrating AI-driven design systems and conversational interfaces. My role spans product ownership, UX research, and cross-functional leadership in an enterprise SaaS environment.',
+      description: 'Design lead for enterprise fintech platforms supporting loan origination, underwriting, collateral management, analytics, and risk workflows across Angular and React applications. Owned end-to-end design for complex, data-driven enterprise systems, translating regulatory and risk requirements into clear, usable workflows.',
       highlights: [
-        'Led product strategy and ownership as acting Product Owner, managing backlog and sprint planning while collaborating with CEO and stakeholders to define MVPs and roadmap priorities.',
-        'Designed and implemented comprehensive solutions for Loan/Credit Products, Relationship Management, and Advanced Analytics platforms using Figma and Adobe XD.',
-        'Developed scalable Collateral Management solutions for diverse asset types including Real Estate, Fleet & Vehicles, and Equipment.',
-        'Spearheaded AI UX initiatives including conversational systems, chatbots, and intelligent dashboards, improving task completion rates by 20%.',
-        'Integrated AI-powered tools (AWS Bedrock) to optimize UX research and prototype creation, reducing time-to-insight by 30%.',
-        'Created adaptive interface states and LLM-based content recommendations to enhance contextual guidance in financial workflows.',
-        'Applied atomic design principles and accessibility standards (WCAG 2.2) to maintain consistent, inclusive user experiences.',
-        'Facilitated cross-functional collaboration between AI/ML teams, engineering, and stakeholders to ensure ethical AI integration and technical feasibility.'
+        'Owned end-to-end design for loan origination, underwriting, collateral management, and portfolio analytics—translating complex regulatory requirements and multi-system dependencies into clear, usable workflows.',
+        'Designed production-ready UI for data-dense enterprise applications: dashboards, advanced tables, multi-step forms, and configuration-driven interfaces. Established reusable patterns and accessibility standards across products.',
+        'Led design of AI-assisted and guided workflows, ensuring explainability, trust, and human-in-the-loop decision-making. Partnered closely with AI/ML teams to translate model outputs into intuitive, trustworthy user experiences.',
+        'Acted as screen- and workflow-level design authority, collaborating with product, engineering, AI/ML, risk, and compliance teams to balance business objectives, technical constraints, and user needs.',
+        'Ensured WCAG accessibility compliance across all platforms and conducted design reviews in staging and production to maintain quality standards.'
       ],
       impact: [
-        { metric: '30% improvement in product usability', icon: '🎯' },
-        { metric: '25% faster prototype creation', icon: '⚡' },
-        { metric: '20% increase in user engagement', icon: '📈' },
-        { metric: '30% faster insight generation', icon: '�' }
+        { metric: 'Improved operational efficiency across multi-module platforms', icon: '🎯' },
+        { metric: 'Increased adoption through clearer system states and workflows', icon: '📈' },
+        { metric: 'Established accessibility and UI standards across products', icon: '♿' },
+        { metric: 'Full WCAG 2.1 compliance', icon: '✓' }
       ],
-      tools: ['Figma (AI plugins)', 'Adobe XD', 'Jira', 'Confluence', 'Miro', 'Google Analytics', 'ChatGPT', 'AWS Bedrock', 'Uizard', 'Stitch', 'TypeScript', 'Angular', 'WCAG 2.2']
+      tools: ['Figma', 'Adobe XD', 'Jira', 'Confluence', 'Miro', 'Angular', 'React', 'TypeScript', 'WCAG 2.1']
     },
     {
       title: 'UI/UX Designer',
       company: 'Bank of America',
       location: 'New York, NY',
       period: 'Nov 2018 – Feb 2022',
-      description: 'At Bank of America, I helped redefine digital banking workflows for millions of users through improved mobile and desktop experiences. I contributed to key product initiatives by applying research-backed design, accessibility, and cross-functional collaboration.',
+      description: 'Contributed to digital banking experiences for millions of users through improved mobile and desktop interfaces. Applied research-backed design, accessibility, and cross-functional collaboration to deliver high-impact consumer fintech products.',
       highlights: [
-        'Designed and launched the Bill Payment feature for the bank\'s mobile app, resulting in a 25% increase in adoption.',
-        'Created user personas and journey maps, translating customer feedback into actionable design improvements.',
-        'Conducted usability testing, A/B experiments, and heatmap analysis to optimize interface structure and navigation.',
-        'Delivered high-fidelity prototypes aligned with BofA\'s design system and partnered with front-end teams using Angular, TypeScript, HTML5, and CSS3.',
-        'Led accessibility testing to ensure compliance with WCAG standards and make banking more inclusive for all users.'
+        'Designed and launched Bill Payment feature for mobile banking app, improving usability of critical payment workflows.',
+        'Translated customer research into actionable design improvements through user personas, journey maps, and usability testing.',
+        'Conducted user testing, analytics review, and A/B experiments to validate design decisions and optimize interface structure.',
+        'Delivered high-fidelity prototypes and design systems aligned with enterprise standards. Partnered with engineering teams using Angular, TypeScript, and CSS3.',
+        'Led accessibility testing and compliance reviews to ensure WCAG standards across all banking experiences.'
       ],
       impact: [
-        { metric: '15% increase in task completion', icon: '📈' },
-        { metric: '10% reduction in drop-off rates', icon: '🔻' },
-        { metric: '20% lower redesign costs', icon: '💡' },
-        { metric: 'Full accessibility compliance', icon: '♿' }
+        { metric: 'Improved clarity and completion of payment workflows', icon: '✓' },
+        { metric: 'Reduced friction in payment scheduling and tracking', icon: '🔻' },
+        { metric: 'Delivered accessible experiences at enterprise scale', icon: '♿' },
+        { metric: 'Full WCAG accessibility compliance', icon: '✓' }
       ],
-      tools: ['Figma', 'Adobe XD', 'InVision', 'Sketch', 'Angular', 'TypeScript', 'Jira', 'Confluence', 'Google Analytics', 'Heatmaps', 'WCAG', 'User Research']
+      tools: ['Figma', 'Adobe XD', 'InVision', 'Sketch', 'Angular', 'TypeScript', 'Jira', 'Confluence', 'Google Analytics', 'WCAG']
     },
     {
       title: 'Junior UI/UX Designer',
@@ -107,10 +104,10 @@ const Experience = () => {
   return (
     <section id="experience" className="py-24 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <div className="section-container">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-heading dark:text-white">Work Experience</h2>
-          <p className="section-subheading mx-auto dark:text-gray-300">
-            I've worked with a variety of organizations from startups to established companies, bringing their visions to life through thoughtful design.
+          <p className="section-subheading mx-auto dark:text-gray-300 mb-8">
+            Senior Product & UX Designer with 8+ years of experience designing enterprise fintech platforms and consumer banking products. Specialized in complex, data-driven workflows, AI-assisted decision support, accessibility-first design, and regulatory-compliant systems. Experienced design lead partnering with product, engineering, risk, and compliance teams across large-scale organizations.
           </p>
         </div>
         

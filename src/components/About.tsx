@@ -29,16 +29,20 @@ const About = () => {
             <span className="inline-block px-4 py-2 bg-blue-100 text-portfolio-accent rounded-full font-medium mb-4">
               About Me
             </span>
-            <h2 className="section-heading">I design products that delight users and help businesses grow</h2>
-            <p className="text-lg text-portfolio-text-light mb-6">I'm a Product and UI/UX Designer with 7 years of experience designing user-centered digital solutions that not only delight users but also drive measurable business outcomes. My work spans across fintech, SaaS, and enterprise platforms, with a focus on solving real-world problems through thoughtful design, usability, and strategy.
+            <h2 className="section-heading">I design enterprise fintech systems that scale</h2>
+            <p className="text-lg text-portfolio-text-light mb-6">I'm a <strong>Senior Product Designer</strong> with <strong>8+ years of experience</strong> designing and delivering complex <strong>enterprise and consumer financial products</strong> at scale. My work focuses on transforming ambiguous business requirements, regulatory constraints, and data-intensive workflows into <strong>clear, production-ready user experiences</strong>.
             </p>
 
             <p className="text-lg text-portfolio-text-light mb-6">
-              At the core of my design philosophy is a deep understanding of user behavior, stakeholder goals, and technical constraints. I approach every project by aligning product vision with user needs—starting from research and ideation, through wireframes and high-fidelity UI, to developer-ready handoffs and post-launch iteration.
+              I specialize in <strong>enterprise fintech platforms</strong>, including loan origination, collateral management, underwriting, analytics, and risk workflows. I've partnered closely with product, engineering, risk, and compliance teams to shape solutions from early problem definition through execution across <strong>web and mobile platforms</strong>.
             </p>
 
             <p className="text-lg text-portfolio-text-light mb-6">
-              My approach centers on deeply understanding user needs and business objectives, then crafting solutions that balance both. I believe in collaborative design processes and data-informed decisions.
+              My design approach is deeply rooted in <strong>usability, accessibility, and decision support</strong>. I focus on structuring information, workflows, and system states in a way that helps users make confident decisions in high-stakes environments. From dashboards and advanced tables to multi-step forms and configuration-driven interfaces, I design systems that are scalable, consistent, and easy to operate.
+            </p>
+
+            <p className="text-lg text-portfolio-text-light mb-6">
+              I also bring experience designing <strong>AI-assisted and guided UX patterns</strong>, including conversational flows, contextual assistance, and decision-support interfaces. I care deeply about explainability, trust, and transparency—especially when intelligent systems are involved.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
@@ -53,23 +57,27 @@ const About = () => {
               <ul className="space-y-2 mb-4">
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span>Turning complex workflows into intuitive interfaces—whether it's a loan origination system, an admin dashboard, or a schema-based form builder</span>
+                  <span><strong>Data-dense enterprise applications</strong>—dashboards, advanced tables, multi-step forms, and configuration-driven interfaces that make complex workflows transparent and navigable</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span>Design systems that ensure consistency and scalability across web and mobile platforms</span>
+                  <span><strong>AI-assisted UX design</strong>—conversational flows, guided workflows, decision-support interfaces, and explainable AI patterns that users can trust</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span>Collaborative design processes, working closely with product managers, developers, and cross-functional teams in Agile environments</span>
+                  <span><strong>Accessibility-first design</strong>—WCAG compliance, inclusive patterns, and usability for users with diverse abilities in high-stakes financial workflows</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span>Using tools like Figma, Adobe XD, and Protopie, along with platforms like Jira, Confluence, and Miro for smooth end-to-end delivery</span>
+                  <span><strong>Design systems and component thinking</strong>—establishing reusable patterns, consistent UI language, and scaled design practices across products</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-portfolio-accent mr-2">▹</span>
+                  <span><strong>Cross-functional collaboration</strong>—working closely with product, engineering, risk, and compliance stakeholders in Agile environments</span>
                 </li>
               </ul>
               <p>
-                I believe great design is part empathy, part logic, and part craft. My goal is always to create experiences that are seamless, accessible, and scalable—balancing visual clarity with functional depth.
+                At my core, I believe great product design sits at the intersection of <strong>empathy, logic, and craft</strong>—balancing business goals, technical feasibility, and real user needs to create experiences that are intuitive, accessible, and durable over time.
               </p>
             </div>
           </div>

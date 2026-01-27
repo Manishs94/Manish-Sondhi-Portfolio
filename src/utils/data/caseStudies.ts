@@ -4,16 +4,14 @@ import { Project } from '../types/project';
 export const caseStudies: Project[] = [
   {
     id: 2,
-    title: 'CYNC Loan Origination System',
-    subtitle: 'Comprehensive Commercial Lending Platform',
-    description: 'An overview of the complete loan origination system redesign for Cync, encompassing multiple specialized modules including collateral management, liquid assets, equity stock management, and insurance components.',
+    title: 'CYNC Enterprise Lending Platform',
+    subtitle: 'End-to-end design of a modular enterprise lending platform supporting loan origination, underwriting, collateral, and analytics workflows.',
+    description: 'Designed and delivered a cohesive enterprise platform reducing operational friction across complex lending workflows while improving clarity and consistency across multi-module systems.',
     image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    category: ['UI Design', 'UX Research', 'Product Design'],
+    category: ['Enterprise Fintech', 'Loan Origination', 'B2B SaaS'],
     metrics: [
-      { icon: 'users2', value: '45%', label: 'Faster Processing' },
-      { icon: 'lineChart', value: '60%', label: 'Reduced Manual Work' },
-      { icon: 'clock', value: '35%', label: 'Time Savings' },
-      { icon: 'target', value: '50%', label: 'Error Reduction' }
+      { icon: 'workflow', value: 'Automated', label: 'Loan Processing Workflows' },
+      { icon: 'zap', value: 'Multi-module', label: 'System Architecture' }
     ],
     tools: ['Adobe XD', 'Jira', 'Miro', 'Protopie', 'UserTesting', 'Confluence'],
     link: 'https://cync-loan-origination-e8jwns9.gamma.site/',
@@ -31,7 +29,7 @@ export const caseStudies: Project[] = [
       'QA Engineers (3)'
     ],
     timeline: '2023 - Present',
-    role: 'Lead UX/UI Designer',
+    role: 'Senior Product & UX Designer',
     keyFeatures: [
       'Modular system architecture',
       'Automated workflow processing',
@@ -41,20 +39,19 @@ export const caseStudies: Project[] = [
     ],
     status: 'In Progress',
     isCaseStudy: true,
+    isFlagged: true, // New flag to identify flagship
     subProjects: [6, 7, 8, 9, 19] // Added appraisal component (id: 19)
   },
   {
     id: 1,
-    title: 'Bank of America Mobile Bill Payment',
-    subtitle: 'Enhancing Digital Banking Experience',
-    description: 'Bank of America, serving over 68 million customers, introduced a new Bill Pay feature in 2022. This feature allows users to handle payments for utilities, cable, phone services, and more through electronic transactions, available as early as the next working day.',
+    title: 'Bank of America – Mobile Bill Payment',
+    subtitle: 'Redesigned the mobile bill payment experience for a large-scale consumer banking audience.',
+    description: 'Improved clarity and usability of payment scheduling and tracking while delivering an accessible, mobile-first experience at scale for 68M+ active users.',
     image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    category: ['UI Design', 'UX Research', 'Product Design'],
+    category: ['Consumer Banking', 'Mobile UX', 'Fintech'],
     metrics: [
       { icon: 'users2', value: '68M+', label: 'Active Users' },
-      { icon: 'lineChart', value: '40%', label: 'Reduced Drop-offs' },
-      { icon: 'clock', value: '25%', label: 'Process Improvement' },
-      { icon: 'target', value: '35%', label: 'User Satisfaction' }
+      { icon: 'check', value: 'Streamlined', label: 'Payment Workflows' }
     ],
     tools: ['Figma', 'Analytics', 'User Testing', 'Protopie'],
     link: 'https://boa-billpay-redesign-fewkgfd.gamma.site/',
@@ -71,7 +68,7 @@ export const caseStudies: Project[] = [
       'Lead Designer'
     ],
     timeline: '2022 - Present',
-    role: 'Lead Product Designer',
+    role: 'Product & UX Designer',
     keyFeatures: [
       'Streamlined payment scheduling',
       'Enhanced payment history tracking',
@@ -83,16 +80,14 @@ export const caseStudies: Project[] = [
   },
   {
     id: 3,
-    title: 'CYNC Advanced Analytics',
-    subtitle: 'Accessible Banking Solutions',
-    description: 'Creating a seamless banking experience across web and mobile platforms with accessibility in mind',
+    title: 'CYNC Advanced Analytics Platform',
+    subtitle: 'Designed an accessibility-first analytics platform enabling enterprise users to monitor performance and risk indicators.',
+    description: 'Improved usability of complex analytics dashboards and delivered WCAG-compliant data visualization for enterprise users.',
     image: 'https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&q=80&w=1000',
-    category: ['UI Design', 'UX Research', 'Product Design'],
+    category: ['Enterprise Analytics', 'Accessibility Design', 'B2B SaaS'],
     metrics: [
-      { icon: 'users2', value: '35%', label: 'User Satisfaction' },
-      { icon: 'lineChart', value: '45%', label: 'Task Completion' },
-      { icon: 'clock', value: '30%', label: 'Time Savings' },
-      { icon: 'target', value: '40%', label: 'Accuracy Improvement' }
+      { icon: 'accessibility', value: 'WCAG 2.1', label: 'Compliant Platform' },
+      { icon: 'lineChart', value: 'Real-time', label: 'Analytics Insights' }
     ],
     tools: ['Adobe XD', 'Miro', 'WCAG 2.1', 'Protopie', 'Confluence'],
     link: 'https://uiux-case-study-enhancin-zkm1u63.gamma.site/',
@@ -105,7 +100,7 @@ export const caseStudies: Project[] = [
     process: 'Unified design system with strong accessibility focus and improved analytics',
     team: ['Lead Designer', 'Accessibility Expert', 'Analytics Team (2)'],
     timeline: '2021 - 2022',
-    role: 'Lead Designer',
+    role: 'Senior Product & UX Designer',
     keyFeatures: [
       'Cross-platform consistency',
       'WCAG 2.1 compliance',
@@ -117,16 +112,14 @@ export const caseStudies: Project[] = [
   },
   {
     id: 4,
-    title: 'UI/UX Case Study: Innovative Design Studio',
-    subtitle: 'End-to-End Design Methodology',
-    description: 'A comprehensive look at the UI/UX design process from research to implementation',
+    title: 'Design System & Component Library',
+    subtitle: 'Built reusable UI patterns and components to support consistency across enterprise applications.',
+    description: 'Improved design consistency across multiple products and reduced design and development rework through a scalable component library.',
     image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     category: ['UI Design', 'UX Research'],
     metrics: [
-      { icon: 'users2', value: '40%', label: 'User Engagement' },
-      { icon: 'lineChart', value: '50%', label: 'Process Efficiency' },
-      { icon: 'clock', value: '35%', label: 'Time to Market' },
-      { icon: 'target', value: '45%', label: 'Success Rate' }
+      { icon: 'layers', value: 'Unified', label: 'Design System' },
+      { icon: 'check', value: 'Documented', label: 'Design Process' }
     ],
     tools: ['Figma', 'User Research', 'Prototyping', 'Design Systems'],
     link: 'https://uiux-case-study-agobpmr.gamma.site/',
@@ -152,34 +145,32 @@ export const caseStudies: Project[] = [
   // CYNC Sub-case studies
   {
     id: 6,
-    title: 'CYNC Collateral Management',
-    subtitle: 'Streamlined Asset Tracking and Valuation',
-    description: 'A specialized module within the CYNC Loan Origination System focused on collateral management, asset tracking, and automated valuation processes.',
+    title: 'CYNC Loan Origination System',
+    subtitle: 'Designed core loan origination workflows for enterprise lenders, supporting complex data capture, validation, and approvals.',
+    description: 'Simplified multi-step loan submission and review processes while improving efficiency and accuracy for underwriting teams.',
     image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    category: ['UI Design', 'UX Research', 'Product Design'],
+    category: ['Enterprise Fintech', 'B2B SaaS', 'Workflow Design'],
     metrics: [
-      { icon: 'users2', value: '50%', label: 'Faster Valuation' },
-      { icon: 'lineChart', value: '40%', label: 'Error Reduction' },
-      { icon: 'clock', value: '35%', label: 'Processing Time' },
-      { icon: 'target', value: '60%', label: 'Accuracy Improvement' }
+      { icon: 'workflow', value: 'Streamlined', label: 'Loan Submission' },
+      { icon: 'check', value: 'Simplified', label: 'Review Process' }
     ],
     tools: ['Adobe XD', 'Miro', 'Protopie', 'UserTesting'],
     link: 'https://collateral-management-out7cmc.gamma.site/',
-    challenge: 'Manual collateral tracking and valuation processes leading to delays and inconsistencies in loan processing.',
-    process: 'Designed automated workflows for asset tracking, real-time valuation updates, and integrated compliance monitoring.',
+    challenge: 'Complex loan origination workflows with multiple manual touchpoints.',
+    process: 'Designed streamlined workflows for data capture, validation, and approvals.',
     overview: {
-      challenge: 'Manual collateral tracking and valuation processes leading to delays and inconsistencies in loan processing.',
-      solution: 'Automated workflows for asset tracking, real-time valuation updates, and integrated compliance monitoring.',
-      impact: 'Reduced processing time and improved accuracy in collateral management workflows.'
+      challenge: 'Complex loan origination workflows with multiple manual touchpoints.',
+      solution: 'Streamlined workflows for data capture, validation, and approvals.',
+      impact: 'Improved efficiency and accuracy in loan origination processes.'
     },
     team: ['Product Designer', 'Business Analyst', 'Development Team (3)'],
     timeline: '2023',
     role: 'UI/UX Designer',
     keyFeatures: [
-      'Automated asset tracking',
-      'Real-time valuation',
-      'Compliance monitoring',
-      'Document management'
+      'Streamlined data capture',
+      'Automated validation',
+      'Approval workflows',
+      'Status tracking'
     ],
     status: 'Completed',
     isCaseStudy: true,
@@ -187,16 +178,14 @@ export const caseStudies: Project[] = [
   },
   {
     id: 7,
-    title: 'CYNC Liquid Assets Management',
-    subtitle: 'Cash Flow and Liquidity Analysis',
-    description: 'A comprehensive liquid assets management module that provides real-time cash flow analysis and liquidity assessment within the loan origination process.',
+    title: 'CYNC Collateral Management System',
+    subtitle: 'Designed collateral tracking and management workflows for complex asset portfolios within enterprise lending systems.',
+    description: 'Improved visibility into collateral status and dependencies while simplifying monitoring and review of pledged assets.',
     image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     category: ['UI Design', 'UX Research', 'Product Design'],
     metrics: [
-      { icon: 'users2', value: '45%', label: 'Analysis Speed' },
-      { icon: 'lineChart', value: '55%', label: 'Accuracy Gain' },
-      { icon: 'clock', value: '40%', label: 'Time Reduction' },
-      { icon: 'target', value: '50%', label: 'Risk Assessment' }
+      { icon: 'activity', value: 'Real-time', label: 'Liquidity Analysis' },
+      { icon: 'zap', value: 'Automated', label: 'Risk Scoring' }
     ],
     tools: ['Adobe XD', 'Analytics', 'Protopie', 'Confluence'],
     link: 'https://liquid-assets-case-study-glfrazg.gamma.site/',
@@ -222,16 +211,14 @@ export const caseStudies: Project[] = [
   },
   {
     id: 8,
-    title: 'CYNC Equity Stock Management',
-    subtitle: 'Portfolio Tracking and Valuation',
-    description: 'An advanced equity and stock management system integrated into the loan origination platform for comprehensive portfolio analysis and risk assessment.',
+    title: 'CYNC Appraisal & Valuation Component',
+    subtitle: 'Designed a flexible appraisal system supporting CRE valuation workflows, configurable logic, and audit-ready data capture.',
+    description: 'Reduced manual effort in appraisal configuration and review while improving consistency and traceability of valuation data.',
     image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     category: ['UI Design', 'UX Research', 'Product Design'],
     metrics: [
-      { icon: 'users2', value: '55%', label: 'Portfolio Analysis' },
-      { icon: 'lineChart', value: '45%', label: 'Valuation Speed' },
-      { icon: 'clock', value: '50%', label: 'Risk Processing' },
-      { icon: 'target', value: '40%', label: 'Decision Accuracy' }
+      { icon: 'trending-up', value: 'Live', label: 'Market Data Integration' },
+      { icon: 'shield', value: 'Automated', label: 'Risk Calculations' }
     ],
     tools: ['Adobe XD', 'Market Data APIs', 'Protopie', 'UserTesting'],
     link: 'https://equity-stock-management-ciqwlqu.gamma.site/',
@@ -257,16 +244,14 @@ export const caseStudies: Project[] = [
   },
   {
     id: 9,
-    title: 'CYNC Insurance Component Enhancement',
-    subtitle: 'Integrated Insurance Verification System',
-    description: 'Enhanced insurance verification and management components within the CYNC platform, streamlining insurance requirements for loan processing.',
+    title: 'CYNC Insurance Verification Component',
+    subtitle: 'Designed insurance verification workflows to support compliance, coverage validation, and exception handling.',
+    description: 'Streamlined insurance review and verification processes while reducing compliance risk through clearer system states.',
     image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     category: ['UI Design', 'UX Research', 'Product Design'],
     metrics: [
-      { icon: 'users2', value: '60%', label: 'Verification Speed' },
-      { icon: 'lineChart', value: '45%', label: 'Compliance Rate' },
-      { icon: 'clock', value: '35%', label: 'Processing Time' },
-      { icon: 'target', value: '50%', label: 'Error Reduction' }
+      { icon: 'check-circle', value: 'Automated', label: 'Policy Verification' },
+      { icon: 'alert-circle', value: 'Real-time', label: 'Compliance Tracking' }
     ],
     tools: ['Adobe XD', 'Insurance APIs', 'Protopie', 'Confluence'],
     link: 'https://insurance-component-enha-fsma6lw.gamma.site/',
@@ -292,25 +277,23 @@ export const caseStudies: Project[] = [
   },
   {
     id: 19,
-    title: 'CYNC Appraisal Component Enhancement',
-    subtitle: 'Configurable Asset Valuation System',
-    description: 'Strategic enhancement to the Appraisal Component within the Collateral Management System, focusing on CRE asset evaluation with modular, configurable design for increased usability and compliance accuracy.',
+    title: 'CYNC Appraisal & Valuation Component',
+    subtitle: 'Designed a flexible appraisal system supporting CRE valuation workflows, configurable logic, and audit-ready data capture.',
+    description: 'Reduced manual effort in appraisal configuration and review while improving consistency and traceability of valuation data.',
     image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    category: ['UI Design', 'UX Research', 'Product Design'],
+    category: ['Commercial Real Estate', 'Enterprise', 'Configuration-Driven UX'],
     metrics: [
-      { icon: 'users2', value: '40%', label: 'Configuration Time Reduction' },
-      { icon: 'lineChart', value: '55%', label: 'Data Accuracy Improvement' },
-      { icon: 'clock', value: '35%', label: 'Processing Speed' },
-      { icon: 'target', value: '90%', label: 'Compliance Rate' }
+      { icon: 'layers', value: 'Modular', label: 'Configuration System' },
+      { icon: 'check', value: 'Regulatory', label: 'Compliant Design' }
     ],
     tools: ['Adobe XD', 'Jira', 'Storybook', 'Confluence', 'React', 'Material UI'],
     link: 'https://case-study-enhancing-the-nrlwns9.gamma.site/',
-    challenge: 'Complex information structure with dozens of interdependent fields, conditional visibility requirements, and the need for consistency across different user types while maintaining auditability and regulatory compliance (USPAP, FIRREA).',
-    process: 'Designed a dual-interface system with admin configuration capabilities and streamlined end-user data input, implementing smart form logic and automated valuation mapping to ensure compliance and data integrity.',
+    challenge: 'Complex information structure with dozens of interdependent fields, conditional visibility requirements, and the need for consistency across different user types while maintaining auditability and regulatory compliance.',
+    process: 'Designed a dual-interface system with admin configuration capabilities and streamlined end-user data input, implementing smart form logic and automated valuation mapping.',
     overview: {
-      challenge: 'Complex appraisal workflows with manual processes, inconsistent data entry, and compliance challenges across CRE asset valuations.',
-      solution: 'Modular, configurable appraisal component with smart form logic, automated validation, and integrated compliance tracking.',
-      impact: 'Reduced configuration time by 40%, improved data accuracy, and achieved full regulatory compliance with streamlined user experience.'
+      challenge: 'Complex appraisal workflows with manual processes, inconsistent data entry, and compliance challenges.',
+      solution: 'Modular, configurable appraisal component with smart form logic and integrated compliance tracking.',
+      impact: 'Reduced manual effort, improved data consistency, and achieved regulatory compliance with streamlined workflows.'
     },
     team: ['Product Designer', 'Compliance Specialist', 'Development Team (4)', 'Business Analyst'],
     timeline: '2023',
@@ -328,25 +311,23 @@ export const caseStudies: Project[] = [
   },
   {
     id: 20,
-    title: 'CRE Comparable Integration',
-    subtitle: 'Streamlined Commercial Real Estate Valuation System',
-    description: 'A comprehensive integration system for commercial real estate comparable analysis, designed to streamline property valuation workflows and enhance decision-making accuracy for real estate professionals.',
+    title: 'CRE Comparable & Market Data Integration',
+    subtitle: 'Designed interfaces for comparing market data and property comps to support valuation and risk assessment.',
+    description: 'Simplified interpretation of complex market data and improved decision-making confidence for valuation teams.',
     image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    category: ['UI Design', 'UX Research', 'Product Design'],
+    category: ['Commercial Real Estate', 'Data Visualization', 'Decision Support'],
     metrics: [
-      { icon: 'users2', value: '50%', label: 'Faster Valuations' },
-      { icon: 'lineChart', value: '65%', label: 'Accuracy Improvement' },
-      { icon: 'clock', value: '40%', label: 'Time Reduction' },
-      { icon: 'target', value: '85%', label: 'User Satisfaction' }
+      { icon: 'database', value: 'Automated', label: 'Comparable Matching' },
+      { icon: 'bar-chart-2', value: 'Real-time', label: 'Market Data' }
     ],
     tools: ['Adobe XD', 'Figma', 'Real Estate APIs', 'Data Visualization', 'Protopie', 'UserTesting'],
     link: 'https://cre-comparable-integrati-w3y90dv.gamma.site/',
-    challenge: 'Commercial real estate professionals struggled with time-consuming manual comparable analysis processes, leading to inefficient valuations and potential accuracy issues in property assessments.',
-    process: 'Conducted extensive user research with real estate professionals, analyzed existing workflows, designed intuitive data visualization interfaces, and implemented automated comparable matching algorithms.',
+    challenge: 'Commercial real estate professionals need clear interfaces to compare market data and property comps.',
+    process: 'Designed intuitive data visualization interfaces for market data comparison.',
     overview: {
-      challenge: 'Commercial real estate professionals struggled with time-consuming manual comparable analysis processes, leading to inefficient valuations and potential accuracy issues in property assessments.',
-      solution: 'Developed an integrated system with automated comparable matching, intuitive data visualization, and streamlined valuation workflows.',
-      impact: 'Significantly reduced valuation time while improving accuracy and user satisfaction across commercial real estate operations.'
+      challenge: 'Commercial real estate professionals need clear interfaces to compare market data and property comps.',
+      solution: 'Intuitive data visualization and streamlined comparison workflows.',
+      impact: 'Improved decision-making confidence and clarity in valuation analysis.'
     },
     team: [
       'Product Designer (Lead)',
@@ -370,25 +351,23 @@ export const caseStudies: Project[] = [
   },
   {
     id: 21,
-    title: 'Vendor Relationship Management Enhancement',
-    subtitle: 'Streamlined Vendor Operations & Compliance System',
-    description: 'A comprehensive vendor relationship management system designed to streamline vendor onboarding, compliance tracking, and relationship management processes for enterprise-level operations.',
+    title: 'Vendor Relationship Management',
+    subtitle: 'Designed workflows for managing vendor onboarding, documentation, and ongoing compliance.',
+    description: 'Reduced friction in vendor management processes while improving operational visibility and control.',
     image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    category: ['UI Design', 'UX Research', 'Product Design'],
+    category: ['Enterprise SaaS', 'Operations', 'Workflow Design'],
     metrics: [
-      { icon: 'users2', value: '60%', label: 'Faster Onboarding' },
-      { icon: 'lineChart', value: '45%', label: 'Compliance Improvement' },
-      { icon: 'clock', value: '50%', label: 'Process Efficiency' },
-      { icon: 'target', value: '75%', label: 'User Satisfaction' }
+      { icon: 'users', value: 'Streamlined', label: 'Vendor Onboarding' },
+      { icon: 'shield', value: 'Centralized', label: 'Compliance Tracking' }
     ],
     tools: ['Adobe XD', 'Figma', 'Miro', 'Protopie', 'UserTesting', 'Confluence', 'Jira'],
     link: 'https://vendor-management-enhanc-e121rwj.gamma.site/',
-    challenge: 'Complex vendor management processes with manual workflows, inconsistent compliance tracking, and fragmented communication channels leading to operational inefficiencies and compliance risks.',
-    process: 'Conducted comprehensive stakeholder interviews, analyzed existing vendor workflows, designed intuitive management interfaces, and implemented automated compliance tracking systems.',
+    challenge: 'Complex vendor management with manual workflows and inconsistent compliance tracking.',
+    process: 'Designed intuitive management interfaces and automated compliance tracking systems.',
     overview: {
-      challenge: 'Complex vendor management processes with manual workflows, inconsistent compliance tracking, and fragmented communication channels leading to operational inefficiencies and compliance risks.',
-      solution: 'Developed an integrated vendor management platform with automated workflows, centralized compliance tracking, and streamlined communication tools.',
-      impact: 'Significantly improved vendor onboarding efficiency, enhanced compliance monitoring, and strengthened vendor relationships through better communication and process management.'
+      challenge: 'Complex vendor management with manual workflows and inconsistent compliance tracking.',
+      solution: 'Integrated vendor management platform with automated workflows and compliance tracking.',
+      impact: 'Improved efficiency, compliance monitoring, and vendor relationship management.'
     },
     team: [
       'Product Designer (Lead)',
@@ -414,25 +393,23 @@ export const caseStudies: Project[] = [
   },
   {
     id: 22,
-    title: 'Exposure Administration & Record Management',
-    subtitle: 'Comprehensive Risk Exposure Tracking System',
-    description: 'An advanced exposure administration and record management system designed to streamline risk assessment, exposure tracking, and regulatory compliance for financial institutions and lending organizations.',
+    title: 'Exposure & Risk Monitoring Dashboard',
+    subtitle: 'Designed dashboards to help enterprise teams monitor exposure, thresholds, and portfolio-level risk.',
+    description: 'Improved clarity of risk indicators and system status while enabling faster issue identification and response.',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    category: ['UI Design', 'UX Research', 'Product Design'],
+    category: ['Enterprise Fintech', 'Risk Analytics', 'Dashboard UX'],
     metrics: [
-      { icon: 'users2', value: '55%', label: 'Risk Assessment Speed' },
-      { icon: 'lineChart', value: '70%', label: 'Compliance Accuracy' },
-      { icon: 'clock', value: '45%', label: 'Processing Efficiency' },
-      { icon: 'target', value: '80%', label: 'Data Accuracy' }
+      { icon: 'alert-circle', value: 'Automated', label: 'Risk Assessment' },
+      { icon: 'archive', value: 'Centralized', label: 'Record Management' }
     ],
     tools: ['Adobe XD', 'Figma', 'Risk Analytics', 'Protopie', 'UserTesting', 'Confluence', 'Jira'],
     link: 'https://exposure-management-dh0l4va.gamma.site/',
-    challenge: 'Complex exposure tracking processes with manual risk calculations, fragmented record management, and inconsistent regulatory compliance reporting leading to operational risks and audit challenges.',
-    process: 'Conducted extensive risk management workflow analysis, designed intuitive exposure tracking interfaces, implemented automated compliance reporting, and created comprehensive record management systems.',
+    challenge: 'Complex exposure tracking with manual risk calculations and fragmented record management.',
+    process: 'Designed intuitive exposure tracking interfaces with automated risk calculations.',
     overview: {
-      challenge: 'Complex exposure tracking processes with manual risk calculations, fragmented record management, and inconsistent regulatory compliance reporting leading to operational risks and audit challenges.',
-      solution: 'Developed an integrated exposure management platform with automated risk calculations, centralized record keeping, and real-time compliance monitoring.',
-      impact: 'Significantly improved risk assessment accuracy, streamlined compliance reporting, and enhanced operational efficiency in exposure management workflows.'
+      challenge: 'Complex exposure tracking with manual risk calculations and fragmented record management.',
+      solution: 'Integrated exposure management platform with automated risk calculations and real-time monitoring.',
+      impact: 'Improved accuracy, streamlined compliance, and enhanced operational efficiency.'
     },
     team: [
       'Product Designer (Lead)',
@@ -458,25 +435,23 @@ export const caseStudies: Project[] = [
   },
   {
     id: 23,
-    title: 'Relationship Management Microservice',
-    subtitle: 'Comprehensive Client Relationship Platform',
-    description: 'An advanced relationship management microservice designed to streamline client interactions, relationship tracking, and communication workflows for financial institutions and lending organizations.',
+    title: 'Borrowing Base Certificate Workflow',
+    subtitle: 'Designed workflows for generating and reviewing borrowing base certificates within lending platforms.',
+    description: 'Simplified complex financial reporting workflows while reducing errors through clearer validation and system feedback.',
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    category: ['UI Design', 'UX Research', 'Product Design'],
+    category: ['Enterprise Lending', 'Financial Reporting', 'UX Strategy'],
     metrics: [
-      { icon: 'users2', value: '65%', label: 'Client Engagement' },
-      { icon: 'lineChart', value: '50%', label: 'Relationship Quality' },
-      { icon: 'clock', value: '40%', label: 'Response Time' },
-      { icon: 'target', value: '75%', label: 'Client Satisfaction' }
+      { icon: 'file-text', value: 'Streamlined', label: 'Reporting Workflows' },
+      { icon: 'check-circle', value: 'Reduced', label: 'Validation Errors' }
     ],
     tools: ['Adobe XD', 'Figma', 'Microservices Architecture', 'Protopie', 'UserTesting', 'Confluence', 'Jira'],
     link: 'https://relationship-microservic-pds8k8g.gamma.site/',
-    challenge: 'Fragmented client relationship management with disconnected communication channels, inconsistent client data, and lack of centralized relationship tracking leading to poor client experience and missed opportunities.',
-    process: 'Conducted comprehensive client journey mapping, analyzed relationship touchpoints, designed intuitive management interfaces, and implemented microservice architecture for scalable relationship management.',
+    challenge: 'Complex financial reporting workflows with manual processes and high error potential.',
+    process: 'Designed streamlined workflows with automated validation and clear system feedback.',
     overview: {
-      challenge: 'Fragmented client relationship management with disconnected communication channels, inconsistent client data, and lack of centralized relationship tracking leading to poor client experience and missed opportunities.',
-      solution: 'Developed an integrated relationship management microservice with centralized client data, automated communication workflows, and comprehensive relationship tracking capabilities.',
-      impact: 'Significantly improved client engagement, enhanced relationship quality, and streamlined communication processes across all client touchpoints.'
+      challenge: 'Complex financial reporting workflows with manual processes and high error potential.',
+      solution: 'Simplified workflows with automated validation and clear feedback mechanisms.',
+      impact: 'Reduced errors and improved efficiency in financial reporting processes.'
     },
     team: [
       'Product Designer (Lead)',

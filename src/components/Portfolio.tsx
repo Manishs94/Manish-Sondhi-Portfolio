@@ -151,7 +151,7 @@ const Portfolio = () => {
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="section-heading animate-fade-in opacity-0" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>Featured Projects</h2>
           <p className="section-subheading mx-auto animate-fade-in opacity-0" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
-            Take a look at some of my recent work that showcases my design thinking and problem-solving approach.
+            A curated selection of projects demonstrating my expertise in enterprise fintech, AI-assisted UX, and complex data-driven systems. Each case study highlights the challenge, process, tools used, and measurable impact of my design work.
           </p>
         </div>
         

@@ -27,7 +27,7 @@ export const ContactForm: React.FC = () => {
     email: '',
     company: '',
     message: '',
-    projectType: 'consultation'
+    projectType: 'fulltime'
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -92,21 +92,38 @@ export const ContactForm: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate form submission with files - replace with actual API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      console.log('Form submitted:', { formData, files: uploadedFiles });
+      // Use Formspree to send email
+      const response = await fetch('https://formspree.io/f/xyzgpznn', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          message: formData.message,
+          projectType: formData.projectType,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      console.log('Form submitted:', { formData });
       trackContactFormSubmit();
       
       setIsSubmitted(true);
       toast({
         title: "Message sent successfully!",
-        description: `I'll get back to you within 24 hours. ${uploadedFiles.length > 0 ? 'Your files have been received.' : ''}`,
+        description: "I'll get back to you within 24 hours.",
       });
     } catch (error) {
+      console.error('Error submitting form:', error);
       toast({
         title: "Error sending message",
-        description: "Please try again or contact me directly.",
+        description: "Please try again or email me directly at Manishsondhi94@gmail.com",
         variant: "destructive",
       });
     } finally {
@@ -121,13 +138,17 @@ export const ContactForm: React.FC = () => {
           <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
           <h3 className="text-xl font-semibold mb-2">Message Sent!</h3>
           <p className="text-muted-foreground mb-2">Thank you for reaching out. I'll respond within 24 hours.</p>
-          {uploadedFiles.length > 0 && (
-            <p className="text-sm text-portfolio-accent">✓ {uploadedFiles.length} file(s) received</p>
-          )}
           <Button 
             onClick={() => {
               setIsSubmitted(false);
               setUploadedFiles([]);
+              setFormData({
+                name: '',
+                email: '',
+                company: '',
+                message: '',
+                projectType: 'fulltime'
+              });
             }} 
             variant="outline" 
             className="mt-4"
@@ -142,7 +163,8 @@ export const ContactForm: React.FC = () => {
   return (
     <Card className="max-w-md mx-auto">
       <CardHeader>
-        <CardTitle>Let's Work Together</CardTitle>
+        <CardTitle>Tell Me About Your Challenge</CardTitle>
+        <p className="text-sm text-portfolio-text-light mt-2">The more context you share, the better I can assess if we're a good fit.</p>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -183,7 +205,7 @@ export const ContactForm: React.FC = () => {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="projectType">Project Type</Label>
+            <Label htmlFor="projectType">What brings you here? *</Label>
             <select
               id="projectType"
               name="projectType"
@@ -191,14 +213,14 @@ export const ContactForm: React.FC = () => {
               onChange={handleInputChange}
               className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-accent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
             >
-              <option value="" disabled>Select a project type...</option>
-              <option value="consultation">UX Consultation</option>
-              <option value="design">Product Design</option>
-              <option value="redesign">Website Redesign</option>
-              <option value="system">Design System</option>
-              <option value="research">User Research</option>
-              <option value="audit">UX Audit</option>
-              <option value="workshop">Design Workshop</option>
+              <option value="">Select one...</option>
+              <option value="fulltime">Full-time Opportunity</option>
+              <option value="enterprise">Enterprise Fintech Design</option>
+              <option value="redesign">Platform Redesign</option>
+              <option value="consultation">UX Consultation / Strategy</option>
+              <option value="system">Design System & Audit</option>
+              <option value="research">User Research / Testing</option>
+              <option value="workshop">Design Workshop / Training</option>
               <option value="other">Other</option>
             </select>
           </div>
@@ -219,6 +241,7 @@ export const ContactForm: React.FC = () => {
           {/* File Upload Section */}
           <div className="space-y-2">
             <Label htmlFor="files">Project Brief or References</Label>
+            <p className="text-xs text-portfolio-text-light dark:text-gray-400 mb-2">Optional: Share briefs, decks, or references.</p>
             <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-4 text-center hover:border-portfolio-accent transition-colors">
               <input
                 type="file"
@@ -272,18 +295,16 @@ export const ContactForm: React.FC = () => {
             disabled={isSubmitting}
             className="w-full flex items-center gap-2"
           >
-            {isSubmitting ? (
-              <>
-                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                Sending...
-              </>
-            ) : (
-              <>
-                <Send className="w-4 h-4" />
-                Send Message
-              </>
-            )}
+            <Send className="w-4 h-4" />
+            {isSubmitting ? 'Sending...' : 'Send Message'}
           </Button>
+
+          {/* Reassuring Microcopy */}
+          <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-md p-3 mt-4">
+            <p className="text-xs text-blue-900 dark:text-blue-200">
+              <strong>✓ Personal review.</strong> I respond within 24 business hours. All inquiries treated confidentially.
+            </p>
+          </div>
         </form>
       </CardContent>
     </Card>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, Briefcase, MapPin, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,16 +5,18 @@ import { Link } from 'react-router-dom';
 
 const ExperienceOverview = () => {
   const currentRole = {
-    title: 'Senior Product & UI/UX Designer',
+    title: 'Lead Product Designer — Enterprise Platforms',
     company: 'CYNC Software',
     location: 'Tampa, FL',
     period: 'Feb 2022 – Present',
-    description: 'Leading end-to-end user experience design for enterprise SaaS products in the commercial lending space, focusing on complex B2B workflows and improving usability across multiple modules.',
+    description: `Design lead for multiple enterprise financial platforms supporting lending, collateral management, analytics, and risk workflows across Angular and React applications. I lead end-to-end product design for complex, data-driven workflows, translating regulatory requirements, risk constraints, and multi-system dependencies into intuitive, production-ready experiences.`,
     highlights: [
-      'Collaborated directly with CEO and product managers to define product vision',
-      'Led user research and usability testing to increase adoption',
-      'Built and maintained modular design system across product verticals',
-      'Ensured WCAG 2.2 accessibility compliance'
+      'Led end-to-end product design for loan origination, underwriting, collateral management, and portfolio analytics.',
+      'Designed dashboards and decision-support interfaces to improve clarity and efficiency for enterprise users.',
+      'Established reusable UI patterns and modular design systems to improve consistency and reduce development rework.',
+      'Designed AI-assisted UX features, including guided workflows, conversational interfaces, and decision-support tools.',
+      'Collaborated cross-functionally with product managers, engineers, risk, and compliance stakeholders to align on workflow and system-level design.',
+      'Ensured accessibility compliance (WCAG) and reviewed implemented UI for fidelity, usability, and performance.'
     ]
   };
 
@@ -28,7 +29,7 @@ const ExperienceOverview = () => {
           </span>
           <h2 className="section-heading dark:text-white">Current Role</h2>
           <p className="section-subheading mx-auto dark:text-gray-300">
-            Currently bringing innovative design solutions to enterprise software.
+            Leading enterprise fintech design solutions with a focus on complex workflows, usability, and AI-assisted UX.
           </p>
         </div>
         
@@ -63,7 +64,7 @@ const ExperienceOverview = () => {
 
             <div className="mb-8">
               <h4 className="text-lg font-semibold text-portfolio-text-dark dark:text-white mb-4">
-                Key Highlights
+                Key Responsibilities & Impact
               </h4>
               <ul className="space-y-2">
                 {currentRole.highlights.map((highlight, idx) => (

@@ -1,8 +1,6 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Contact from '@/components/Contact';
-import TestimonialsCarousel from '@/components/TestimonialsCarousel';
-import NewsletterSignup from '@/components/NewsletterSignup';
 import Footer from '@/components/Footer';
 import ScrollProgress from '@/components/ScrollProgress';
 
@@ -13,14 +11,6 @@ const ContactPage = () => {
       <Navbar />
       <main className="pt-16">
         <Contact />
-        <TestimonialsCarousel />
-        
-        {/* Newsletter Section */}
-        <section className="py-24">
-          <div className="section-container">
-            <NewsletterSignup />
-          </div>
-        </section>
       </main>
       <Footer />
     </div>

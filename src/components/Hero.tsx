@@ -32,9 +32,9 @@ const Hero = () => {
   return (
     <>
       <SEOHead 
-        title="Manish Sondhi | Product & UX Designer Portfolio"
-        description="Creating delightful digital experiences through user-centered design. Product & UX Designer specializing in fintech and financial services."
-        keywords="UX Designer, Product Designer, Fintech UX, Financial Services Design, User Experience Portfolio"
+        title="Manish Sondhi | Senior Product Designer – Enterprise & Fintech"
+        description="Senior Product Designer specializing in enterprise fintech platforms. 8+ years designing and leading complex, data-driven financial products across lending, analytics, and risk workflows."
+        keywords="Senior Product Designer, Enterprise Fintech Design, Loan Origination, Design Leadership, Accessibility Design, Financial Systems"
       />
       
       <section id="home" className="pt-14 pb-12 md:pt-44 md:pb-32 relative overflow-hidden">
@@ -50,21 +50,21 @@ const Hero = () => {
             <div className="order-2 md:order-1">
               <div className={`mb-4 transition-all duration-1000 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
                 <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4">
-                  Product & UX Designer
+                  Senior Product & UX Designer · Fintech & Enterprise
                 </span>
               </div>
               
               <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-portfolio-text-dark dark:text-white mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                Creating <span className="text-portfolio-accent bg-gradient-to-r from-portfolio-accent to-blue-600 bg-clip-text text-transparent">delightful experiences</span> that users love
+                Designing and leading <span className="text-portfolio-accent bg-gradient-to-r from-portfolio-accent to-blue-600 bg-clip-text text-transparent">complex fintech systems</span> at scale
               </h1>
               
               <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-8 max-w-lg transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                I design user-centered digital products that solve real problems through research, iteration, and thoughtful UI/UX principles.
+                8+ years translating regulatory constraints, business complexity, and AI-assisted systems into intuitive, production-ready user experiences. Specialized in loan origination, underwriting, collateral management, and enterprise analytics.
               </p>
               
               <div className={`flex flex-wrap gap-4 mb-8 transition-all duration-1000 delay-600 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
                 <a href="#portfolio" className="portfolio-button-primary flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                  View My Work <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+                  View Case Studies <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
                 </a>
                 <button 
                   onClick={handleDownloadCV}
