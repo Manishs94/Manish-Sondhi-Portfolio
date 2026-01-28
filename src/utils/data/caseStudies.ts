@@ -4,43 +4,47 @@ import { Project } from '../types/project';
 export const caseStudies: Project[] = [
   {
     id: 2,
-    title: 'CYNC Enterprise Lending Platform',
-    subtitle: 'End-to-end design of a modular enterprise lending platform supporting loan origination, underwriting, collateral, and analytics workflows.',
-    description: 'Designed and delivered a cohesive enterprise platform reducing operational friction across complex lending workflows while improving clarity and consistency across multi-module systems.',
+    title: 'CYNC Enterprise Lending Platform – Platform Overview',
+    subtitle: 'Enterprise fintech platform supporting loan origination, underwriting, collateral management, analytics, and risk monitoring across modular lending workflows.',
+    description: 'Led end-to-end platform design for a modular enterprise lending system serving financial institutions in highly regulated, data-intensive environments. Created a cohesive, scalable platform experience across multiple products while solving for workflow complexity, regulatory compliance, and decision support.',
     image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    category: ['Enterprise Fintech', 'Loan Origination', 'B2B SaaS'],
+    category: ['Enterprise Fintech', 'Platform Design', 'B2B SaaS', 'Systems Thinking'],
     metrics: [
-      { icon: 'workflow', value: 'Automated', label: 'Loan Processing Workflows' },
-      { icon: 'zap', value: 'Multi-module', label: 'System Architecture' }
+      { icon: 'zap', value: 'Modular', label: 'Platform Architecture' },
+      { icon: 'shield', value: 'Multi-stakeholder', label: 'Compliance Integration' }
     ],
     tools: ['Adobe XD', 'Jira', 'Miro', 'Protopie', 'UserTesting', 'Confluence'],
-    link: 'https://cync-loan-origination-e8jwns9.gamma.site/',
+    link: 'https://cync-platform-overview.gamma.site/',
     overview: {
-      challenge: 'Complex loan origination process with multiple manual touchpoints, leading to delays, errors, and poor user experience for both lenders and borrowers.',
-      solution: 'Implemented a comprehensive, automated workflow system with multiple specialized modules for different aspects of loan processing.',
-      impact: 'Significantly reduced loan processing time, improved accuracy, and enhanced user satisfaction across all loan origination touchpoints.'
+      challenge: 'Designing CYNC required solving for multiple, overlapping challenges: highly complex, multi-step lending workflows; strict regulatory and compliance requirements; data-dense interfaces across different personas (credit analysts, risk teams, operations); need for configurability without compromising usability; increasing demand for analytics and decision support across portfolios.',
+      solution: 'Created a modular, workflow-first platform architecture with configuration-driven UX, decision-support analytics, and accessibility-first design embedded throughout. Each module was designed as a standalone component while sharing common interaction models, visual language, and system behavior.',
+      impact: 'Enabled a scalable, modular enterprise lending platform that improved clarity and consistency across complex workflows, reduced operational friction through structured patterns, supported compliance and auditability requirements, and created a foundation for future AI-assisted enhancements.'
     },
-    challenge: 'Complex loan origination process with multiple manual touchpoints, leading to delays, errors, and poor user experience for both lenders and borrowers.',
-    process: 'Implemented a comprehensive, automated workflow system with multiple specialized modules for different aspects of loan processing.',
+    challenge: 'Designing a cohesive platform across multiple, overlapping challenges: highly complex lending workflows, strict regulatory requirements, data-dense interfaces across different personas, need for configurability without compromising usability, and increasing demand for analytics and decision support.',
+    process: 'Established a modular, workflow-first architecture with configuration-driven UX patterns, decision-support analytics focus, and accessibility-first design embedded throughout. Created reusable interaction models and visual language shared across all modules while allowing independent evolution of each product area.',
     team: [
-      'Product Designer (Lead)',
-      'Business Analysts (3)',
-      'Development Team (8)',
-      'QA Engineers (3)'
+      'Product Designer (Lead) - Platform Architecture',
+      'Product Managers (2)',
+      'Business Analysts (4)',
+      'Development Team (12+)',
+      'Risk & Compliance Stakeholders'
     ],
-    timeline: '2023 - Present',
-    role: 'Senior Product & UX Designer',
+    timeline: '2022 - Present',
+    role: 'Lead Product Designer — Enterprise Platforms',
     keyFeatures: [
-      'Modular system architecture',
-      'Automated workflow processing',
-      'Integrated compliance checks',
-      'Real-time application tracking',
-      'Multi-component loan management'
+      'Modular, workflow-first architecture',
+      'Configuration-driven UX patterns',
+      'Decision-support dashboards and analytics',
+      'WCAG-compliant accessibility by design',
+      'Audit-ready data capture and compliance workflows',
+      'Reusable UI patterns and design system',
+      'Cross-functional collaboration framework'
     ],
     status: 'In Progress',
     isCaseStudy: true,
-    isFlagged: true, // New flag to identify flagship
-    subProjects: [6, 7, 8, 9, 19] // Added appraisal component (id: 19)
+    isFlagged: true,
+    platformOverview: true, // New flag to identify as platform overview
+    subProjects: [6, 7, 8, 9, 19] // Borrowing Base, Exposure & Risk, Vendor Management, CRE Comparable, Appraisal, Insurance Verification
   },
   {
     id: 1,
@@ -438,14 +442,14 @@ export const caseStudies: Project[] = [
     title: 'Borrowing Base Certificate Workflow',
     subtitle: 'Designed workflows for generating and reviewing borrowing base certificates within lending platforms.',
     description: 'Simplified complex financial reporting workflows while reducing errors through clearer validation and system feedback.',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    image: 'https://bbc-module-8t5opxq.gamma.site',
     category: ['Enterprise Lending', 'Financial Reporting', 'UX Strategy'],
     metrics: [
       { icon: 'file-text', value: 'Streamlined', label: 'Reporting Workflows' },
       { icon: 'check-circle', value: 'Reduced', label: 'Validation Errors' }
     ],
     tools: ['Adobe XD', 'Figma', 'Microservices Architecture', 'Protopie', 'UserTesting', 'Confluence', 'Jira'],
-    link: 'https://relationship-microservic-pds8k8g.gamma.site/',
+    link: 'https://bbc-module-8t5opxq.gamma.site/',
     challenge: 'Complex financial reporting workflows with manual processes and high error potential.',
     process: 'Designed streamlined workflows with automated validation and clear system feedback.',
     overview: {

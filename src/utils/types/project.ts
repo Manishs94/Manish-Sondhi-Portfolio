@@ -39,6 +39,8 @@ export interface Project {
   features?: string[];
   status?: 'Completed' | 'In Progress' | 'Planning';
   isCaseStudy?: boolean;
+  isFlagged?: boolean; // Flagship project indicator
+  platformOverview?: boolean; // Platform overview case study
   parentProjectId?: number; // New field for hierarchy
   subProjects?: number[]; // New field for sub-projects
 }
