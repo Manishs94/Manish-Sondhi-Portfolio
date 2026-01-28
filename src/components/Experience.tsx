@@ -83,7 +83,7 @@ const Experience = () => {
       tools: ['Figma', 'Adobe XD', 'InVision', 'Sketch', 'Angular', 'TypeScript', 'Jira', 'Confluence', 'Google Analytics', 'WCAG']
     },
     {
-      title: 'Junior UI/UX Designer',
+      title: 'UI/UX Designer',
       company: 'Innovative Design Studio',
       location: 'Freelance',
       period: 'Jan 2018 – Nov 2018',
