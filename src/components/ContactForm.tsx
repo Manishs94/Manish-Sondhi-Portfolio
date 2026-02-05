@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Send, CheckCircle, Upload, X, FileText } from 'lucide-react';
+import { Calendar, CheckCircle, Send, Upload, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -27,7 +27,7 @@ export const ContactForm: React.FC = () => {
     email: '',
     company: '',
     message: '',
-    projectType: 'fulltime'
+    projectType: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -147,7 +147,7 @@ export const ContactForm: React.FC = () => {
                 email: '',
                 company: '',
                 message: '',
-                projectType: 'fulltime'
+                projectType: ''
               });
             }} 
             variant="outline" 
@@ -164,7 +164,7 @@ export const ContactForm: React.FC = () => {
     <Card className="max-w-md mx-auto">
       <CardHeader>
         <CardTitle>Tell Me About Your Challenge</CardTitle>
-        <p className="text-sm text-portfolio-text-light mt-2">The more context you share, the better I can assess if we're a good fit.</p>
+        <p className="text-sm text-portfolio-text-light mt-2">The more context you share, the better I can assess fit for enterprise, fintech, or AI-assisted workflows.</p>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -205,17 +205,19 @@ export const ContactForm: React.FC = () => {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="projectType">What brings you here? *</Label>
+            <Label htmlFor="projectType">Inquiry Type *</Label>
             <select
               id="projectType"
               name="projectType"
               value={formData.projectType}
               onChange={handleInputChange}
+              required
               className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-accent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
             >
               <option value="">Select one...</option>
               <option value="fulltime">Full-time Opportunity</option>
               <option value="enterprise">Enterprise Fintech Design</option>
+              <option value="ai-assisted">AI-Assisted UX / Intelligent Workflows</option>
               <option value="redesign">Platform Redesign</option>
               <option value="consultation">UX Consultation / Strategy</option>
               <option value="system">Design System & Audit</option>
@@ -297,6 +299,13 @@ export const ContactForm: React.FC = () => {
           >
             <Send className="w-4 h-4" />
             {isSubmitting ? 'Sending...' : 'Send Message'}
+          </Button>
+
+          <Button asChild variant="outline" className="w-full flex items-center gap-2">
+            <a href="mailto:Manishsondhi94@gmail.com?subject=Consultation%20Request">
+              <Calendar className="w-4 h-4" />
+              Book Consultation
+            </a>
           </Button>
 
           {/* Reassuring Microcopy */}

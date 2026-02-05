@@ -2,18 +2,26 @@ import React from 'react';
 import { GraduationCap, Award, ExternalLink } from 'lucide-react';
 const Education = () => {
   const education = [{
-    degree: 'Bachelor\'s Degree in Information Technology',
+    degree: 'B.S. in Information Technology',
     institution: 'Southern New Hampshire University',
-    description: 'Graduated with a great learning experience in Information Technology',
+    description: 'Comprehensive degree in Information Technology providing foundational knowledge in systems design, technology principles, and digital transformation.',
     type: 'education'
   }];
   const certifications = [{
     title: 'Google UX Design Professional Certificate',
-    issuer: 'Google',
-    description: 'Comprehensive certification in UX design principles, research methods, and design tools',
+    issuer: 'Google · Coursera',
+    description: 'Comprehensive certification in UX design principles, research methodologies, design thinking, prototyping, wireframing, and usability testing. Covers end-to-end UX design process from problem discovery through testing and iteration.',
     credentialId: 'YFMCQB9B53QO',
     link: 'https://www.coursera.org/account/accomplishments/specialization/YFMCQB9B53QO',
     image: '/lovable-uploads/40a88f6c-2ff7-46f9-a46b-c70eecdba6e3.png',
+    type: 'certification'
+  },
+  {
+    title: 'Generative AI for UX Designers',
+    issuer: 'Coursera Instructor Network',
+    description: 'Specialized certification in applying generative AI and ChatGPT to UX design workflows. Covers AI-assisted design patterns, prompt engineering for design, workflow automation, and ethical considerations in AI-assisted UX.',
+    credentialId: 'FS4PK9ZJ12M9',
+    link: 'https://www.coursera.org/account/accomplishments/verify/FS4PK9ZJ12M9',
     type: 'certification'
   }];
   return <section id="education" className="py-24 bg-gray-50 dark:bg-gray-900">

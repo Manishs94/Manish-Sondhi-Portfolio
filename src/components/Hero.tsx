@@ -50,16 +50,16 @@ const Hero = () => {
             <div className="order-2 md:order-1">
               <div className={`mb-4 transition-all duration-1000 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
                 <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4">
-                  Senior Product & UX Designer · Fintech & Enterprise
+                  Senior Product Designer · Enterprise, B2B & Consumer · AI-Assisted UX
                 </span>
               </div>
               
               <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-portfolio-text-dark dark:text-white mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                Designing and leading <span className="text-portfolio-accent bg-gradient-to-r from-portfolio-accent to-blue-600 bg-clip-text text-transparent">complex fintech systems</span> at scale
+                Designing enterprise platforms that <span className="text-portfolio-accent bg-gradient-to-r from-portfolio-accent to-blue-600 bg-clip-text text-transparent">scale with complexity</span>
               </h1>
               
               <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-8 max-w-lg transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                8+ years designing systems that reduce risk, accelerate decisions, and scale with complexity. I translate regulatory constraints, business requirements, and data workflows into intuitive, accessible interfaces that users trust. Specialized in loan origination, underwriting, collateral management, and enterprise analytics.
+                Senior Product Designer with 8+ years transforming complex workflows into intuitive, accessible experiences. Specialized in enterprise fintech, loan origination systems, dashboards, and AI-assisted UX. I design decision-support platforms that reduce risk, accelerate decisions, and serve millions of users.
               </p>
               
               <div className={`flex flex-wrap gap-4 mb-8 transition-all duration-1000 delay-600 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
@@ -86,7 +86,7 @@ const Hero = () => {
                 
                 <SocialShare 
                   title="Check out Manish Sondhi's UX Portfolio"
-                  description="Amazing product and UX design work in fintech and financial services"
+                  description="Enterprise fintech design, AI-assisted UX, and accessibility-first product design"
                 />
               </div>
             </div>

@@ -5,18 +5,19 @@ import { Link } from 'react-router-dom';
 
 const ExperienceOverview = () => {
   const currentRole = {
-    title: 'Lead Product Designer — Enterprise Platforms',
+    title: 'Lead Product Designer — Enterprise Platforms & B2B Products',
     company: 'CYNC Software',
     location: 'Tampa, FL',
     period: 'Feb 2022 – Present',
-    description: `Design lead for multiple enterprise financial platforms supporting lending, collateral management, analytics, and risk workflows across Angular and React applications. I lead end-to-end product design for complex, data-driven workflows, translating regulatory requirements, risk constraints, and multi-system dependencies into intuitive, production-ready experiences.`,
+    description: `Lead designer for multiple enterprise fintech platforms supporting loan origination, underwriting, collateral management, analytics, and risk workflows. I lead end-to-end product design for complex, data-driven workflows, translating regulatory requirements, risk constraints, and multi-stakeholder needs into intuitive, accessible, production-ready experiences that serve enterprise lending teams.`,
     highlights: [
-      'Led end-to-end product design for loan origination, underwriting, collateral management, and portfolio analytics.',
-      'Designed dashboards and decision-support interfaces to improve clarity and efficiency for enterprise users.',
-      'Established reusable UI patterns and modular design systems to improve consistency and reduce development rework.',
-      'Designed AI-assisted UX features, including guided workflows, conversational interfaces, and decision-support tools.',
-      'Collaborated cross-functionally with product managers, engineers, risk, and compliance stakeholders to align on workflow and system-level design.',
-      'Ensured accessibility compliance (WCAG) and reviewed implemented UI for fidelity, usability, and performance.'
+      'Led end-to-end design of modular enterprise lending platform serving financial institutions with complex lending workflows and regulatory compliance requirements.',
+      'Designed AI-assisted UX features: guided workflows for complex tasks (appraisal configuration, risk assessment), conversational interfaces for compliance checks, and explainable decision-support dashboards.',
+      'Established reusable design system with 15+ component patterns across lending, analytics, and admin modules—reducing development rework and ensuring consistency across 12+ teams.',
+      'Designed decision-support dashboards and analytics platforms enabling enterprise users to monitor performance, risk, and portfolio health with clarity and confidence.',
+      'Ensured WCAG 2.1 accessibility compliance across all platforms—creating accessible data visualizations, keyboard-navigable interfaces, and screen reader support.',
+      'Collaborated cross-functionally with product managers, engineers, risk, and compliance stakeholders to align on complex workflows and system-level design.',
+      'Conducted user research, usability testing, and accessibility audits to inform design decisions and validate solutions.'
     ]
   };
 
