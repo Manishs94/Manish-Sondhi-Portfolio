@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 
 const ScrollProgress = () => {
+  return null;
+
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -22,7 +24,7 @@ const ScrollProgress = () => {
 
   return (
     <div 
-      className={`fixed top-0 left-0 w-full h-1 bg-gray-200 dark:bg-gray-800 z-50 transition-opacity duration-300 ${
+      className={`fixed left-0 w-full h-1 bg-gray-200 dark:bg-gray-800 z-40 pointer-events-none top-14 sm:top-14 lg:top-16 transition-opacity duration-300 hidden md:block ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
