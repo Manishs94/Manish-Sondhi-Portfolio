@@ -3,7 +3,7 @@ import { Project } from '../types/project';
 // Regular portfolio projects
 export const portfolioProjects: Project[] = [
   {
-    id: 5,
+    id: 19,
     title: 'CSS Animations Gallery',
     description: 'A curated collection of interaction design patterns and micro-animations, focusing on user engagement and visual feedback',
     image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
