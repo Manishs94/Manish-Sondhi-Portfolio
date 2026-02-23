@@ -17,6 +17,9 @@ import ExperiencePage from "./pages/ExperiencePage";
 import ContactPage from "./pages/ContactPage";
 import ProjectDetail from "./components/ProjectDetail";
 import AIChatAgent from "./components/AIChatAgent";
+import CyncCaseStudyPage from "./pages/CyncCaseStudyPage";
+import ClonedCaseStudyPage from "./pages/ClonedCaseStudyPage";
+import InnovativeDesignStudioCaseStudyPage from "./pages/InnovativeDesignStudioCaseStudyPage";
 import { useEffect } from "react";
 
 const queryClient = new QueryClient({
@@ -84,6 +87,9 @@ const App = () => {
                   <Route path="/portfolio" element={<PortfolioPage />} />
                   <Route path="/experience" element={<ExperiencePage />} />
                   <Route path="/contact" element={<ContactPage />} />
+                  <Route path="/case-study/cync-enterprise-lending-platform" element={<CyncCaseStudyPage />} />
+                  <Route path="/case-study/cloned-case-study" element={<ClonedCaseStudyPage />} />
+                  <Route path="/case-study/innovative-design-studio" element={<InnovativeDesignStudioCaseStudyPage />} />
                   <Route path="/style-guide" element={<StyleGuide />} />
                   <Route path="/project/:id" element={<ProjectDetail />} />
                   {/* Redirect old project route to home portfolio section */}
