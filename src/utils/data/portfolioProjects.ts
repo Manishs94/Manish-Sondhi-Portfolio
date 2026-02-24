@@ -381,8 +381,8 @@ export const portfolioProjects: Project[] = [
     image: 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     category: ['UI Design', 'Enterprise Fintech', 'AI-Assisted UX'],
     tools: ['React', 'TypeScript', 'Tailwind CSS'],
-    link: 'https://vercel.com/manishs94s-projects/fleet-finance-ai-integration/2Nw5hTZLZoWoKbQuUsqzMuL1Jt8k',
-    demoLink: 'https://vercel.com/manishs94s-projects/fleet-finance-ai-integration/2Nw5hTZLZoWoKbQuUsqzMuL1Jt8k',
+    link: 'https://fleet-finance-ai-integration.vercel.app',
+    demoLink: 'https://fleet-finance-ai-integration.vercel.app',
     metrics: [
       { icon: 'check', value: 'Improved', label: 'Workflow Guidance' },
       { icon: 'lineChart', value: 'Faster', label: 'Decision Support' }
@@ -445,6 +445,31 @@ export const portfolioProjects: Project[] = [
       'Role-based workflow cues',
       'State and dependency visibility',
       'Responsive enterprise layout'
+    ],
+    status: 'Completed',
+    isCaseStudy: false
+  },
+  {
+    id: 29,
+    title: 'System Flow MVP',
+    description: 'A system-flow MVP design focused on visualizing process stages, dependencies, and next actions for faster operational decisions.',
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['UI Design', 'System Design', 'Workflow Design'],
+    tools: ['React', 'TypeScript', 'Tailwind CSS'],
+    link: 'https://v0-system-flow-mvp.vercel.app',
+    demoLink: 'https://v0-system-flow-mvp.vercel.app',
+    metrics: [
+      { icon: 'check', value: 'Improved', label: 'Flow Clarity' },
+      { icon: 'lineChart', value: 'Faster', label: 'Process Decisions' }
+    ],
+    problem: 'Teams needed a clearer system view of workflow states and dependencies to avoid delays and confusion.',
+    process: 'Mapped the end-to-end flow, prioritized critical state changes, and designed a concise information hierarchy.',
+    solution: 'Delivered an MVP interface that improves process visibility and decision confidence.',
+    features: [
+      'State-based process visualization',
+      'Dependency mapping',
+      'Action-focused layout',
+      'Responsive workflow interface'
     ],
     status: 'Completed',
     isCaseStudy: false
