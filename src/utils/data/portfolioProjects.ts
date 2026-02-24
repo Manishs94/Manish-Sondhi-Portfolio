@@ -100,7 +100,7 @@ export const portfolioProjects: Project[] = [
     id: 14,
     title: 'Expanding Cards Gallery',
     description: 'An interactive image gallery with smooth expanding animations and responsive design.',
-    image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     category: ['Interactive Design'],
     tools: ['HTML', 'CSS', 'JavaScript', 'Animations'],
     link: 'https://expanding-cards-unique.netlify.app/',
@@ -150,7 +150,7 @@ export const portfolioProjects: Project[] = [
     id: 16,
     title: 'Video Game Database',
     description: 'A comprehensive video game database with search and filtering capabilities',
-    image: '/images/Ng-Video-Game.jpg',
+    image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     category: ['Database Interface Design'],
     tools: ['Angular', 'TypeScript', 'Firebase', 'RapidAPI'],
     link: 'https://ng-video-game-db.web.app/',
@@ -202,7 +202,7 @@ export const portfolioProjects: Project[] = [
     id: 18,
     title: 'Twitter Clone',
     description: 'A full-featured Twitter clone with real-time updates and social interactions',
-    image: '/images/Twitter.jpg',
+    image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     category: ['Social Media Design'],
     tools: ['React', 'Firebase', 'Material-UI', 'JavaScript'],
     link: 'https://twitter-clone-83a92.firebaseapp.com/',
@@ -220,6 +220,231 @@ export const portfolioProjects: Project[] = [
       'User authentication',
       'Tweet functionality',
       'Responsive design'
+    ],
+    status: 'Completed',
+    isCaseStudy: false
+  },
+  {
+    id: 20,
+    title: 'Investment Collateral Detail',
+    description: 'A detailed investment collateral interface focused on clear information hierarchy and decision support for financial workflows.',
+    image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['UI Design', 'Enterprise Fintech', 'Dashboard Design'],
+    tools: ['React', 'TypeScript', 'Tailwind CSS'],
+    link: 'https://v0-investment-collateral-detail.vercel.app',
+    demoLink: 'https://v0-investment-collateral-detail.vercel.app',
+    metrics: [
+      { icon: 'check', value: 'Improved', label: 'Information Clarity' },
+      { icon: 'lineChart', value: 'Faster', label: 'Data Review' }
+    ],
+    problem: 'Collateral details were difficult to scan quickly in high-stakes investment workflows.',
+    process: 'Structured the data layout, prioritized key financial attributes, and validated readability across screen sizes.',
+    solution: 'Delivered a clean, high-density design that improves scanability and decision confidence.',
+    features: [
+      'Collateral detail summary',
+      'Financial data hierarchy',
+      'Responsive layout',
+      'Action-oriented workflow design'
+    ],
+    status: 'Completed',
+    isCaseStudy: false
+  },
+  {
+    id: 21,
+    title: 'Commercial Real Estate Solution',
+    description: 'A commercial real estate experience designed to organize complex property and lending information into a clear, usable workflow.',
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['UI Design', 'Enterprise Fintech', 'Commercial Real Estate'],
+    tools: ['React', 'TypeScript', 'Tailwind CSS'],
+    link: 'https://v0-commercial-real-estate-solution.vercel.app',
+    demoLink: 'https://v0-commercial-real-estate-solution.vercel.app',
+    metrics: [
+      { icon: 'check', value: 'Improved', label: 'Workflow Clarity' },
+      { icon: 'lineChart', value: 'Faster', label: 'Property Review' }
+    ],
+    problem: 'Commercial real estate data and actions were spread across fragmented views, reducing operational efficiency.',
+    process: 'Mapped core CRE tasks, prioritized critical financial and property signals, and structured responsive layouts for quick scanning.',
+    solution: 'Created a cohesive interface that improves usability for reviewing, comparing, and acting on CRE information.',
+    features: [
+      'Property overview workflows',
+      'Organized financial and collateral details',
+      'Responsive design system',
+      'Decision-focused layout patterns'
+    ],
+    status: 'Completed',
+    isCaseStudy: false
+  },
+  {
+    id: 22,
+    title: 'Tip Calculator',
+    description: 'A clean, responsive calculator interface focused on quick bill splitting and tip calculation with clear visual feedback.',
+    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['UI Design', 'Interaction Design'],
+    tools: ['React', 'TypeScript', 'Tailwind CSS'],
+    link: 'https://tip-calculator-2z8roy6xz-manishs94s-projects.vercel.app',
+    demoLink: 'https://tip-calculator-2z8roy6xz-manishs94s-projects.vercel.app',
+    metrics: [
+      { icon: 'check', value: 'Improved', label: 'Calculation Clarity' },
+      { icon: 'lineChart', value: 'Faster', label: 'Bill Splitting' }
+    ],
+    problem: 'Users needed a straightforward way to calculate tip and per-person totals without confusion.',
+    process: 'Designed and refined the form flow, validation states, and output hierarchy for fast comprehension.',
+    solution: 'Built a simple, mobile-friendly interface with immediate calculation feedback.',
+    features: [
+      'Tip percentage controls',
+      'Per-person split calculation',
+      'Real-time result updates',
+      'Responsive layout'
+    ],
+    status: 'Completed',
+    isCaseStudy: false
+  },
+  {
+    id: 23,
+    title: 'Netflix Mobile Navigation',
+    description: 'A mobile navigation concept inspired by streaming app interaction patterns, optimized for thumb-friendly navigation and quick discovery.',
+    image: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['UI Design', 'Mobile Design', 'Interaction Design'],
+    tools: ['React', 'TypeScript', 'CSS'],
+    link: 'https://netflix-mobile-navigation-504fy6ok8-manishs94s-projects.vercel.app/#',
+    demoLink: 'https://netflix-mobile-navigation-504fy6ok8-manishs94s-projects.vercel.app/#',
+    metrics: [
+      { icon: 'users', value: 'Improved', label: 'Navigation Flow' },
+      { icon: 'lineChart', value: 'Faster', label: 'Content Access' }
+    ],
+    problem: 'Mobile users needed faster access to primary destinations with minimal cognitive load.',
+    process: 'Explored mobile-first navigation structures, tested hierarchy options, and refined interaction states.',
+    solution: 'Delivered a streamlined navigation pattern tailored for one-handed use and rapid switching.',
+    features: [
+      'Mobile-first navigation',
+      'Optimized interaction states',
+      'Clear visual hierarchy',
+      'Responsive behavior'
+    ],
+    status: 'Completed',
+    isCaseStudy: false
+  },
+  {
+    id: 24,
+    title: 'Seamless Auto Sync',
+    description: 'A product experience focused on automated synchronization workflows with clear status feedback and minimal user friction.',
+    image: 'https://images.unsplash.com/photo-1518773553398-650c184e0bb3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['UI Design', 'Workflow Design', 'Interaction Design'],
+    tools: ['React', 'TypeScript', 'Tailwind CSS'],
+    link: 'https://seamless-auto-sync.vercel.app',
+    demoLink: 'https://seamless-auto-sync.vercel.app',
+    metrics: [
+      { icon: 'check', value: 'Improved', label: 'Sync Transparency' },
+      { icon: 'lineChart', value: 'Faster', label: 'Task Continuity' }
+    ],
+    problem: 'Users lacked clear visibility into auto-sync states, causing uncertainty and repeated manual checks.',
+    process: 'Mapped sync states, designed status-first UI patterns, and refined interaction cues for confidence and clarity.',
+    solution: 'Created a streamlined interface that communicates sync progress and outcomes in real time.',
+    features: [
+      'Auto-sync status indicators',
+      'Progress and state feedback',
+      'Responsive interface behavior',
+      'Clear action recovery paths'
+    ],
+    status: 'Completed',
+    isCaseStudy: false
+  },
+  {
+    id: 25,
+    title: 'Floorplan Loan Compass',
+    description: 'A floorplan lending experience designed to simplify loan monitoring, inventory visibility, and operational decision-making.',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['UI Design', 'Enterprise Fintech', 'Workflow Design'],
+    tools: ['React', 'TypeScript', 'Tailwind CSS'],
+    link: 'https://floorplan-loan-compass.vercel.app',
+    demoLink: 'https://floorplan-loan-compass.vercel.app',
+    metrics: [
+      { icon: 'check', value: 'Improved', label: 'Inventory Visibility' },
+      { icon: 'lineChart', value: 'Faster', label: 'Loan Monitoring' }
+    ],
+    problem: 'Floorplan lending teams needed clearer visibility into inventory-backed loans and their changing risk states.',
+    process: 'Mapped user workflows, prioritized key lending indicators, and structured screens for quick monitoring and action.',
+    solution: 'Built a decision-oriented interface that improves clarity across loan status, collateral, and operational tasks.',
+    features: [
+      'Loan and inventory overview',
+      'Clear status and risk indicators',
+      'Workflow-driven layout',
+      'Responsive dashboard experience'
+    ],
+    status: 'Completed',
+    isCaseStudy: false
+  },
+  {
+    id: 26,
+    title: 'Fleet Finance AI Integration',
+    description: 'A design-focused concept integrating AI-assisted workflows into fleet finance operations for clearer guidance and faster decisions.',
+    image: 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['UI Design', 'Enterprise Fintech', 'AI-Assisted UX'],
+    tools: ['React', 'TypeScript', 'Tailwind CSS'],
+    link: 'https://vercel.com/manishs94s-projects/fleet-finance-ai-integration/2Nw5hTZLZoWoKbQuUsqzMuL1Jt8k',
+    demoLink: 'https://vercel.com/manishs94s-projects/fleet-finance-ai-integration/2Nw5hTZLZoWoKbQuUsqzMuL1Jt8k',
+    metrics: [
+      { icon: 'check', value: 'Improved', label: 'Workflow Guidance' },
+      { icon: 'lineChart', value: 'Faster', label: 'Decision Support' }
+    ],
+    problem: 'Fleet finance teams needed better visibility and guidance while combining operational data with lending decisions.',
+    process: 'Mapped finance workflows, identified AI support moments, and designed interfaces for clearer action prioritization.',
+    solution: 'Created an integrated experience that improves context, confidence, and efficiency across fleet finance tasks.',
+    features: [
+      'AI-assisted task guidance',
+      'Finance workflow integration',
+      'Clear decision states',
+      'Responsive enterprise UI'
+    ],
+    status: 'Completed',
+    isCaseStudy: false
+  },
+  {
+    id: 27,
+    title: 'Floorplan Loan Orchestrator',
+    description: 'A design concept for orchestrating floorplan lending workflows across monitoring, approvals, and operational actions.',
+    image: 'https://images.unsplash.com/photo-1460472178825-e5240623afd5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['UI Design', 'Enterprise Fintech', 'Workflow Design'],
+    tools: ['React', 'TypeScript', 'Tailwind CSS'],
+    link: 'https://floorplan-loan-orchestrator.lovable.app',
+    demoLink: 'https://floorplan-loan-orchestrator.lovable.app',
+    metrics: [
+      { icon: 'check', value: 'Improved', label: 'Workflow Coordination' },
+      { icon: 'lineChart', value: 'Faster', label: 'Loan Operations' }
+    ],
+    problem: 'Floorplan workflows were fragmented across screens, reducing visibility and slowing operational execution.',
+    process: 'Mapped orchestration paths, defined high-priority user actions, and designed clear state-based interface patterns.',
+    solution: 'Built a coordinated workflow experience that improves visibility, task flow, and operational speed.',
+    features: [
+      'Workflow orchestration views',
+      'Status and priority indicators',
+      'Role-oriented task design',
+      'Responsive enterprise layout'
+    ],
+    status: 'Completed',
+    isCaseStudy: false
+  },
+  {
+    id: 28,
+    title: 'Loan Pledge Orchestrator',
+    description: 'A workflow orchestration design for managing loan pledge processes, handoffs, and operational states across enterprise lending teams.',
+    image: 'https://images.unsplash.com/photo-1559526324-593bc073d938?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    category: ['UI Design', 'Enterprise Fintech', 'Workflow Design'],
+    tools: ['React', 'TypeScript', 'Tailwind CSS'],
+    link: 'https://loan-pledge-orchestrator.lovable.app',
+    demoLink: 'https://loan-pledge-orchestrator.lovable.app',
+    metrics: [
+      { icon: 'check', value: 'Improved', label: 'Pledge Workflow Clarity' },
+      { icon: 'lineChart', value: 'Faster', label: 'Operational Handoffs' }
+    ],
+    problem: 'Loan pledge processes involved complex transitions and dependencies that were difficult to track consistently.',
+    process: 'Mapped lifecycle states, aligned interface actions to operations, and refined sequencing for execution clarity.',
+    solution: 'Created a coordinated orchestration interface that improves visibility, control, and team alignment.',
+    features: [
+      'Pledge lifecycle tracking',
+      'Role-based workflow cues',
+      'State and dependency visibility',
+      'Responsive enterprise layout'
     ],
     status: 'Completed',
     isCaseStudy: false

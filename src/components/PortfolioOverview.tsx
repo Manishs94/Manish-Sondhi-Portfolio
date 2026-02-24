@@ -7,8 +7,15 @@ import { allProjects } from '@/utils/projectData';
 import ProjectCard from '@/components/ProjectCard';
 
 const PortfolioOverview = () => {
-  // Show only the first 3 projects for the overview
-  const featuredProjects = allProjects.slice(0, 3);
+  const featuredCaseStudyTitles = [
+    'Securities-Based Lending (SBL)',
+    'CYNC Collateral Platform',
+    'CYNC Advance Analytics (CAA)',
+  ];
+
+  const featuredProjects = featuredCaseStudyTitles
+    .map((title) => allProjects.find((project) => project.title === title))
+    .filter((project): project is NonNullable<typeof project> => Boolean(project));
 
   return (
     <section id="portfolio" className="py-24 bg-portfolio-bg-light">
