@@ -43,7 +43,7 @@ const Experience = () => {
     {
       title: 'Lead Product Designer – Enterprise Platforms',
       company: 'CYNC Software',
-      location: 'Tampa, FL',
+      location: 'Remote',
       period: 'Feb 2022 – Present',
       description: 'Design lead for enterprise fintech platforms supporting security-based lending, collateral management, and portfolio analytics. Responsible for product design leadership, workflow architecture, and system-level UX strategy.',
       highlights: [
