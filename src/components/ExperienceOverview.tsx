@@ -5,19 +5,19 @@ import { Link } from 'react-router-dom';
 
 const ExperienceOverview = () => {
   const currentRole = {
-    title: 'Lead Product Designer — Enterprise Platforms & B2B Products',
+    title: 'Lead Product Designer — Enterprise Platforms',
     company: 'CYNC Software',
     location: 'Tampa, FL',
     period: 'Feb 2022 – Present',
-    description: `Lead designer for multiple enterprise fintech platforms supporting loan origination, underwriting, collateral management, analytics, and risk workflows. I lead end-to-end product design for complex, data-driven workflows, translating regulatory requirements, risk constraints, and multi-stakeholder needs into intuitive, accessible, production-ready experiences that serve enterprise lending teams.`,
+    description: `Design lead for enterprise fintech platforms supporting security-based lending, collateral management, and portfolio analytics. Responsible for product design leadership, workflow architecture, and system-level UX strategy.`,
     highlights: [
-      'Led end-to-end design of modular enterprise lending platform serving financial institutions with complex lending workflows and regulatory compliance requirements.',
-      'Designed AI-assisted UX features: guided workflows for complex tasks (appraisal configuration, risk assessment), conversational interfaces for compliance checks, and explainable decision-support dashboards.',
-      'Established reusable design system with 15+ component patterns across lending, analytics, and admin modules—reducing development rework and ensuring consistency across 12+ teams.',
-      'Designed decision-support dashboards and analytics platforms enabling enterprise users to monitor performance, risk, and portfolio health with clarity and confidence.',
-      'Ensured WCAG 2.1 accessibility compliance across all platforms—creating accessible data visualizations, keyboard-navigable interfaces, and screen reader support.',
-      'Collaborated cross-functionally with product managers, engineers, risk, and compliance stakeholders to align on complex workflows and system-level design.',
-      'Conducted user research, usability testing, and accessibility audits to inform design decisions and validate solutions.'
+      'Led UX design for Loan Origination Systems and collateral workflows, translating complex multi-system processes into intuitive user journeys.',
+      'Defined workflow architecture, interaction models, and system states to ensure consistent, scalable enterprise UX across Angular and React platforms.',
+      'Influenced product direction by shaping decision-support interfaces and operational dashboards, improving clarity and task accuracy.',
+      'Established reusable UI/UX patterns and component standards, improving consistency and engineering efficiency.',
+      'Designed AI-assisted workflows and contextual guidance systems for complex financial processes.',
+      'Built conversational UX patterns, fallback logic, and explainable AI interfaces to increase adoption and trust.',
+      'Facilitated design workshops and collaborated closely with engineering to deliver production-ready UX across enterprise systems.'
     ]
   };
 

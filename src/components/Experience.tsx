@@ -41,81 +41,66 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: 'Lead Product Designer – Enterprise Platforms & B2B Products',
+      title: 'Lead Product Designer – Enterprise Platforms',
       company: 'CYNC Software',
       location: 'Tampa, FL',
       period: 'Feb 2022 – Present',
-      description: 'Design lead for enterprise fintech platforms supporting loan origination, underwriting, collateral management, analytics, and risk workflows. Owned end-to-end design for complex, data-driven enterprise systems, translating regulatory requirements, risk constraints, and multi-stakeholder needs into clear, accessible, production-ready workflows.',
+      description: 'Design lead for enterprise fintech platforms supporting security-based lending, collateral management, and portfolio analytics. Responsible for product design leadership, workflow architecture, and system-level UX strategy.',
       highlights: [
-        'Led end-to-end design of modular enterprise lending platform serving financial institutions with complex lending workflows, strict regulatory compliance, and multi-stakeholder alignment.',
-        'Designed AI-assisted UX features: guided workflows for complex tasks (appraisal configuration, risk assessment), conversational interfaces for compliance checks, and explainable decision-support dashboards.',
-        'Established reusable design system with 15+ component patterns across lending, analytics, and admin modules—reducing development rework and ensuring consistency across 12+ development teams.',
-        'Designed decision-support dashboards and analytics platforms enabling enterprise users to monitor performance, risk, and portfolio health with clarity and confidence.',
-        'Ensured WCAG 2.1 accessibility compliance across all platforms—creating accessible data visualizations, keyboard-navigable interfaces, and screen reader support.',
-        'Acted as screen- and workflow-level design authority, collaborating with product managers, engineers, AI/ML teams, risk, and compliance stakeholders to balance business objectives, technical constraints, and user needs.',
-        'Conducted user research, usability testing, and accessibility audits to inform design decisions and validate solutions across enterprise workflows.'
+        'Led UX design for Loan Origination Systems and collateral workflows, translating complex multi-system processes into intuitive user journeys.',
+        'Defined workflow architecture, interaction models, and system states to ensure consistent, scalable enterprise UX across Angular and React platforms.',
+        'Influenced product direction by shaping decision-support interfaces and operational dashboards to improve clarity and task accuracy.',
+        'Established reusable UI/UX patterns and component standards to enhance consistency, scalability, and engineering efficiency.',
+        'Designed AI-assisted workflows and contextual guidance systems for complex financial processes.',
+        'Built conversational UX patterns, fallback logic, and explainable AI interfaces to increase adoption and trust.',
+        'Facilitated design workshops and acted as the design authority for screen-level execution and workflow coherence across cross-functional teams.'
       ],
       impact: [
-        { metric: 'Improved operational efficiency across multi-module platforms', icon: '🎯' },
-        { metric: 'Increased adoption through clearer system states and workflows', icon: '📈' },
-        { metric: 'Established accessibility and UI standards across products', icon: '♿' },
-        { metric: 'Full WCAG 2.1 compliance across all platforms', icon: '✓' }
+        { metric: 'Improved workflow clarity across enterprise fintech platforms', icon: '🎯' },
+        { metric: 'Increased trust through explainable AI and guided experiences', icon: '📈' },
+        { metric: 'Strengthened cross-product consistency with reusable UX standards', icon: '🧩' },
+        { metric: 'Improved delivery quality through stronger design-engineering alignment', icon: '✓' }
       ],
-      tools: ['Figma', 'Adobe XD', 'Jira', 'Confluence', 'Miro', 'Protopie', 'UserTesting', 'ChatGPT', 'Angular', 'React', 'TypeScript', 'WCAG 2.1']
+      tools: ['Figma', 'Adobe XD', 'Jira', 'Confluence', 'ChatGPT', 'Angular', 'React', 'Workflow Design', 'Conversational UX', 'Explainable AI']
     },
     {
-      title: 'Senior UI/UX Designer – Mobile Consumer Banking',
+      title: 'Senior UI/UX Designer',
       company: 'Bank of America',
       location: 'New York, NY',
       period: 'Nov 2018 – Feb 2022',
-      description: 'Contributed to digital banking experiences for 68M+ users through improved mobile and desktop interfaces. Applied research-backed design, accessibility standards, and cross-functional collaboration to deliver high-impact consumer fintech products. Redesigned core banking workflows including bill payment, transfers, and account management.',
+      description: 'Designed digital banking experiences across consumer web and mobile platforms, supporting millions of users performing financial transactions, account management, and payments.',
       highlights: [
-        'Redesigned mobile bill payment and fund transfer workflows, improving clarity of payment scheduling, tracking, and transaction history for millions of users.',
-        'Conducted extensive user research and usability testing with 40+ participants, translated findings into wireframes, prototypes, and high-fidelity designs.',
-        'Performed accessibility testing and led WCAG 2.1 compliance reviews across all banking experiences—color contrast, keyboard navigation, screen reader support.',
-        'Delivered high-fidelity prototypes and design systems aligned with enterprise standards. Partnered with engineering teams using Angular, TypeScript, and CSS3.',
-        'Conducted analytics review, A/B testing, and iterative design improvements to optimize workflow efficiency and user satisfaction.',
-        'Collaborated with product managers, researchers, and engineers to balance user needs, business objectives, and technical constraints.'
+        'Led UX initiatives for payments, account management, and operational workflows to improve usability and task completion.',
+        'Designed responsive web and native mobile experiences optimized for clarity, accessibility, and efficiency.',
+        'Simplified complex operational processes into intuitive user journeys for diverse audiences.',
+        'Facilitated cross-functional design discussions to align UX solutions with product and technical goals.',
+        'Conducted usability testing and user behavior analysis to identify friction points and improve task efficiency.',
+        'Contributed to reusable UI components and templates, and delivered high-fidelity prototypes, wireframes, and specifications to engineering teams.'
       ],
       impact: [
-        { metric: '40% improvement in task completion rates', icon: '📈' },
-        { metric: '25% increase in feature adoption', icon: '✓' },
-        { metric: '35% reduction in support tickets for bill pay', icon: '🔻' },
-        { metric: 'Full WCAG 2.1 accessibility compliance at scale', icon: '♿' }
+        { metric: 'Improved usability for core consumer banking workflows', icon: '📈' },
+        { metric: 'Improved task completion through clearer interaction patterns', icon: '✓' },
+        { metric: 'Increased consistency through reusable UI templates', icon: '🧩' },
+        { metric: 'Strengthened collaboration across product, design, and engineering', icon: '🤝' }
       ],
-      tools: ['Figma', 'Adobe XD', 'InVision', 'Sketch', 'Angular', 'TypeScript', 'Jira', 'Confluence', 'Google Analytics', 'UserTesting', 'WCAG']
+      tools: ['Figma', 'Adobe XD', 'Jira', 'Confluence', 'Wireframing', 'Prototyping', 'Usability Testing', 'Responsive Design', 'Design Systems']
     },
     {
-      title: 'Freelance UI/UX Designer',
+      title: 'UI/UX Designer',
       company: 'Innovative Design Studio',
       location: 'Freelance',
       period: 'Jan 2018 – Nov 2018',
-      description: 'Contributed to multiple startup and nonprofit projects, applying human-centered design principles to early-stage products. Created research-backed designs, responsive layouts, and visual systems for web and mobile MVPs.',
+      description: 'Partnered with early-stage startups to design MVP web and mobile products, translating product ideas into scalable user experiences.',
       highlights: [
-        'Created low-fidelity wireframes and high-fidelity prototypes for startup and nonprofit clients based on user research and requirements.',
-        'Conducted user interviews, surveys, and heuristic evaluations to inform product direction and feature prioritization.',
-        'Designed mobile-first responsive layouts optimized for various screen sizes and devices.',
-        'Built comprehensive style guides, icon sets, and UI asset libraries for client handoffs and developer implementation.',
-        'Collaborated in brainstorming and design workshops to shape product vision and user experience strategy.',
-        'Focused on accessibility and inclusive design principles across all projects.'
+        'Collaborated with founders and product teams to define product concepts, user journeys, and feature requirements for early-stage digital products.',
+        'Designed end-to-end user experiences including information architecture, user flows, wireframes, and high-fidelity interfaces for web and mobile applications.',
+        'Rapidly iterated on product ideas through prototyping and feedback cycles in fast-paced startup environments.',
+        'Helped translate business goals and product vision into actionable UX solutions.',
+        'Created interactive prototypes and design specifications to support engineering implementation and product launch.',
+        'Delivered responsive design solutions optimized for usability across multiple devices.'
       ],
       impact: [],
-      tools: ['Sketch', 'Adobe Illustrator', 'Photoshop', 'InVision', 'User Interviews', 'Heuristic Evaluation', 'Wireframing', 'Agile Collaboration']
-    },
-    {
-      title: 'Customer Service Representative',
-      company: 'TD Bank',
-      location: 'Absecon, NJ',
-      period: 'Jan 2014 – Nov 2018',
-      description: 'Delivered high-quality customer service and operational support to banking customers. This experience provided valuable insights into user pain points, customer frustrations, and real-world banking workflows—informing later UX design work.',
-      highlights: [
-        'Provided customer support across banking products and services, understanding user pain points and workflow challenges.',
-        'Gained deep insight into customer frustrations with digital banking interfaces and processes.',
-        'Collaborated with operations and management to identify process improvements and customer experience opportunities.',
-        'Developed empathy for diverse user needs and accessibility challenges in financial services.'
-      ],
-      impact: [],
-      tools: ['Customer Service', 'Banking Systems', 'User Empathy', 'Problem Solving']
+      tools: ['Figma', 'Adobe XD', 'Wireframing', 'Prototyping', 'Information Architecture', 'Responsive Design', 'User Flows']
     }
   ];
 
@@ -125,7 +110,7 @@ const Experience = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-heading dark:text-white">Work Experience</h2>
           <p className="section-subheading mx-auto dark:text-gray-300 mb-8">
-            Senior Product & UX Designer with 8+ years of experience designing enterprise fintech platforms and consumer banking products. Specialized in complex, data-driven workflows, AI-assisted decision support, accessibility-first design, and regulatory-compliant systems. Experienced design lead partnering with product, engineering, risk, and compliance teams across large-scale organizations.
+            Senior Product Designer with 8+ years of experience designing complex enterprise and fintech platforms, with strengths in loan origination workflows, collateral management, AI-assisted UX, and scalable design systems. Experienced in translating regulatory requirements and multi-stakeholder needs into intuitive, production-ready user experiences.
           </p>
         </div>
         
