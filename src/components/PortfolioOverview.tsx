@@ -26,7 +26,7 @@ const PortfolioOverview = () => {
           </span>
           <h2 className="section-heading">Selected Case Studies</h2>
           <p className="section-subheading mx-auto">
-            A curated set of enterprise and fintech products where I led end-to-end design for complex, data-intensive workflows. These case studies highlight how I translate regulatory constraints, business requirements, and technical complexity into intuitive, accessible, and production-ready user experiences across web and mobile platforms.
+            A curated set of enterprise and consumer products across fintech, SaaS, and data-driven platforms. These case studies reflect how I turn operational complexity, analytics-heavy workflows, and financial processes into intuitive experiences that improve efficiency, usability, and product adoption.
           </p>
         </div>
         

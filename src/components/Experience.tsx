@@ -41,7 +41,7 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: 'Lead Product Designer – Enterprise Platforms',
+      title: 'Senior Product Designer',
       company: 'CYNC Software',
       location: 'Remote',
       period: 'Feb 2022 – Present',
@@ -66,7 +66,7 @@ const Experience = () => {
     {
       title: 'Senior UI/UX Designer',
       company: 'Bank of America',
-      location: 'New York, NY',
+      location: 'New York',
       period: 'Nov 2018 – Feb 2022',
       description: 'Designed digital banking experiences across consumer web and mobile platforms, supporting millions of users performing financial transactions, account management, and payments.',
       highlights: [
@@ -74,7 +74,9 @@ const Experience = () => {
         'Designed responsive web and native mobile experiences optimized for clarity, accessibility, and efficiency.',
         'Simplified complex operational processes into intuitive user journeys for diverse audiences.',
         'Facilitated cross-functional design discussions to align UX solutions with product and technical goals.',
+        'Influenced UX direction for multiple features by defining interaction patterns, system workflows, and component standards.',
         'Conducted usability testing and user behavior analysis to identify friction points and improve task efficiency.',
+        'Iterated designs using analytics insights and feedback from multiple user groups.',
         'Contributed to reusable UI components and templates, and delivered high-fidelity prototypes, wireframes, and specifications to engineering teams.'
       ],
       impact: [
@@ -101,6 +103,28 @@ const Experience = () => {
       ],
       impact: [],
       tools: ['Figma', 'Adobe XD', 'Wireframing', 'Prototyping', 'Information Architecture', 'Responsive Design', 'User Flows']
+    },
+    {
+      title: 'Customer Service Representative',
+      company: 'TD Bank',
+      location: 'Absecon, NJ',
+      period: 'Jan 2014 – Nov 2018',
+      description: 'Delivered high-quality customer-facing service while supporting branch operations and compliance standards. Built firsthand understanding of customer behavior, financial workflows, and service friction points that now informs product design decisions.',
+      highlights: [
+        'Assisted customers with account management, transactions, and product education using clear, needs-based communication.',
+        'Built strong customer relationships through proactive support and recommendations tailored to user needs.',
+        'Maintained 100% compliance with operational procedures, security policies, and regulatory standards.',
+        'Supported branch operations, team workflows, and training to improve daily efficiency and reliability.',
+        'Developed transferable strengths in problem-solving, communication, and operational workflow design.',
+        'Gained frontline insight into user pain points and behavior patterns that now inform customer-centered product decisions.'
+      ],
+      impact: [
+        { metric: 'Built deep empathy for real-world financial service users', icon: '🤝' },
+        { metric: 'Maintained strong compliance and operational accuracy', icon: '✓' },
+        { metric: 'Developed firsthand understanding of banking workflows', icon: '🏦' },
+        { metric: 'Strengthened communication and service design instincts', icon: '🧠' }
+      ],
+      tools: ['Customer Communication', 'Operations', 'Compliance', 'Problem Solving', 'Relationship Management', 'Financial Services']
     }
   ];
 
@@ -110,7 +134,7 @@ const Experience = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-heading dark:text-white">Work Experience</h2>
           <p className="section-subheading mx-auto dark:text-gray-300 mb-8">
-            Senior Product Designer with 8+ years of experience designing complex enterprise and fintech platforms, with strengths in loan origination workflows, collateral management, AI-assisted UX, and scalable design systems. Experienced in translating regulatory requirements and multi-stakeholder needs into intuitive, production-ready user experiences.
+            Senior Product Designer with 8+ years designing complex enterprise and consumer digital products across fintech, SaaS, and data-driven platforms. Specialized in transforming operational systems, analytics dashboards, and financial workflows into intuitive user-centered experiences that improve efficiency, usability, and product adoption.
           </p>
         </div>
         

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const ExperienceOverview = () => {
   const currentRole = {
-    title: 'Lead Product Designer — Enterprise Platforms',
+    title: 'Senior Product Designer',
     company: 'CYNC Software',
     location: 'Remote',
     period: 'Feb 2022 – Present',
@@ -28,7 +28,7 @@ const ExperienceOverview = () => {
           <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4">
             Experience
           </span>
-          <h2 className="section-heading dark:text-white">Lead Product Designer — Enterprise Platforms</h2>
+          <h2 className="section-heading dark:text-white">Senior Product Designer</h2>
           <p className="section-subheading mx-auto dark:text-gray-300">
             CYNC Software
           </p>
