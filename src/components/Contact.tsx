@@ -11,19 +11,19 @@ const Contact = () => {
       <div className="section-container">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className={`section-heading dark:text-white transition-all duration-700 delay-200 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-4'}`}>
-            Consultations for Enterprise, B2B SaaS, Fintech & AI-Assisted UX
+            Let&apos;s talk about product design opportunities
           </h2>
           <p className={`section-subheading mx-auto dark:text-gray-300 mb-6 transition-all duration-700 delay-300 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-4'}`}>
-            I help teams ship scalable, accessible, and <strong className="font-semibold text-portfolio-text-dark dark:text-white">AI-assisted UX</strong> for complex <strong className="font-semibold text-portfolio-text-dark dark:text-white">enterprise</strong> and <strong className="font-semibold text-portfolio-text-dark dark:text-white">fintech</strong> products. Expect thoughtful workflows, clear decisioning, and measurable outcomes.
+            I&apos;m open to senior product design roles and conversations with teams building complex digital products across <strong className="font-semibold text-portfolio-text-dark dark:text-white">fintech</strong>, <strong className="font-semibold text-portfolio-text-dark dark:text-white">SaaS</strong>, and <strong className="font-semibold text-portfolio-text-dark dark:text-white">data-driven platforms</strong>. My focus is thoughtful workflows, clear interaction models, and user-centered execution.
           </p>
           
           {/* Who this is for */}
           <div className={`bg-gray-50 dark:bg-gray-800 rounded-lg p-6 mb-8 transition-all duration-700 delay-400 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-4'}`}>
             <h3 className="font-semibold text-portfolio-text-dark dark:text-white mb-4 text-sm uppercase tracking-wide">Best fit for:</h3>
             <ul className="text-left max-w-2xl mx-auto space-y-2 text-portfolio-text-light dark:text-gray-300 text-sm">
-              <li>• Product & Design Leaders at Fintech / B2B SaaS companies</li>
-              <li>• Teams building <strong className="font-semibold text-portfolio-text-dark dark:text-white">AI-assisted UX</strong> or data-intensive workflows</li>
-              <li>• Founders scaling regulated or complex enterprise platforms</li>
+              <li>• Hiring managers looking for a senior product designer with enterprise and consumer product experience</li>
+              <li>• Product and design teams building complex workflows, analytics tools, or AI-assisted experiences</li>
+              <li>• Organizations working in regulated, operationally complex, or data-heavy environments</li>
             </ul>
           </div>
         </div>
@@ -56,8 +56,8 @@ const Contact = () => {
                   <Bot size={20} />
                 </div>
                 <div>
-                  <p className="font-medium text-portfolio-text-dark dark:text-white">AI-Assisted UX Focus</p>
-                  <p className="text-portfolio-text-light dark:text-gray-300">Intelligent workflows, decision support, and human-in-the-loop design.</p>
+                  <p className="font-medium text-portfolio-text-dark dark:text-white">Focus Areas</p>
+                  <p className="text-portfolio-text-light dark:text-gray-300">Enterprise workflows, AI-assisted UX, design systems, and data-rich product experiences.</p>
                 </div>
               </div>
             </div>
@@ -71,15 +71,15 @@ const Contact = () => {
               <ol className="space-y-3 text-sm text-portfolio-text-light dark:text-gray-300">
                 <li className="flex gap-3">
                   <span className="font-bold text-portfolio-accent flex-shrink-0">1.</span>
-                  <span>You submit your inquiry with context about your challenge.</span>
+                  <span>You send a note with context about the role, team, or opportunity.</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="font-bold text-portfolio-accent flex-shrink-0">2.</span>
-                  <span>I personally review it and respond within 24 business hours.</span>
+                  <span>I review it personally and reply as soon as possible.</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="font-bold text-portfolio-accent flex-shrink-0">3.</span>
-                  <span>If there's a strong fit, we schedule a call to explore next steps.</span>
+                  <span>If there&apos;s a fit, we set up time to talk through the work and next steps.</span>
                 </li>
               </ol>
             </div>
@@ -100,7 +100,7 @@ const Contact = () => {
             </div>
             <div className="flex flex-wrap gap-4">
               <a
-                href="https://linkedin.com/in/manish-sondhi"
+                href="https://www.linkedin.com/in/manish-sondhi-2b3bb2217/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-portfolio-accent hover:text-portfolio-text-dark dark:hover:text-white transition-colors font-medium"
@@ -108,7 +108,7 @@ const Contact = () => {
                 LinkedIn
               </a>
               <a
-                href="https://github.com/manishsondhi"
+                href="https://github.com/Manishs94"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-portfolio-accent hover:text-portfolio-text-dark dark:hover:text-white transition-colors font-medium"

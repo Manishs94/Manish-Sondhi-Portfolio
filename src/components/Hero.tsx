@@ -32,9 +32,9 @@ const Hero = () => {
   return (
     <>
       <SEOHead 
-        title="Manish Sondhi | Senior Product Designer – Enterprise & Fintech"
-        description="Senior Product Designer specializing in enterprise fintech platforms. 8+ years designing and leading complex, data-driven financial products across lending, analytics, and risk workflows."
-        keywords="Senior Product Designer, Enterprise Fintech Design, Loan Origination, Design Leadership, Accessibility Design, Financial Systems"
+        title="Manish Sondhi | Senior Product Designer – Fintech, SaaS & Data Platforms"
+        description="Senior Product Designer with 8+ years designing enterprise and consumer digital products across fintech, SaaS, and data-driven platforms."
+        keywords="Senior Product Designer, Fintech Product Design, SaaS Design, Data Platform UX, Loan Origination, Design Systems"
       />
       
       <section id="home" className="pt-14 pb-12 md:pt-44 md:pb-32 relative overflow-hidden">
@@ -50,16 +50,16 @@ const Hero = () => {
             <div className="order-2 md:order-1">
               <div className={`mb-4 transition-all duration-1000 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
                 <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4">
-                  Senior Product Designer · Enterprise, B2B & Consumer · AI-Assisted UX
+                  Senior Product Designer · Fintech, SaaS & Data Platforms · AI-Assisted UX
                 </span>
               </div>
               
               <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-portfolio-text-dark dark:text-white mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                Designing enterprise platforms that <span className="text-portfolio-accent bg-gradient-to-r from-portfolio-accent to-blue-600 bg-clip-text text-transparent">scale with complexity</span>
+                Designing digital products that bring <span className="text-portfolio-accent bg-gradient-to-r from-portfolio-accent to-blue-600 bg-clip-text text-transparent">clarity to complex systems</span>
               </h1>
               
               <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-8 max-w-lg transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                Senior Product Designer with 8+ years transforming complex workflows into intuitive, accessible experiences. Specialized in enterprise fintech, loan origination systems, dashboards, and AI-assisted UX. I design decision-support platforms that reduce risk, accelerate decisions, and serve millions of users.
+                Senior Product Designer with 8+ years designing enterprise and consumer digital products across fintech, SaaS, and data-driven platforms. I turn complex workflows, operational systems, and analytics-heavy experiences into intuitive products that improve usability, efficiency, and adoption.
               </p>
               
               <div className={`flex flex-wrap gap-4 mb-8 transition-all duration-1000 delay-600 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
@@ -86,7 +86,7 @@ const Hero = () => {
                 
                 <SocialShare 
                   title="Check out Manish Sondhi's UX Portfolio"
-                  description="Enterprise fintech design, AI-assisted UX, and accessibility-first product design"
+                  description="Product design across fintech, SaaS, data platforms, and AI-assisted UX"
                 />
               </div>
             </div>
@@ -112,4 +112,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
