@@ -5,7 +5,7 @@ export const caseStudies: Project[] = [
   {
     id: 3,
     title: 'CYNC Collateral Platform',
-    subtitle: 'Enterprise collateral management platform supporting complex loan portfolios, asset dependencies, and lifecycle tracking.',
+    subtitle: 'Enterprise collateral management platform supporting 50+ asset types and 200+ subtype configurations, enabling teams to monitor asset dependencies, manage lifecycle events, and maintain collateral coverage across complex loan portfolios.',
     description: 'Enterprise collateral management platform supporting 50+ asset types and 200+ subtype configurations across lending portfolios, enabling teams to monitor asset dependencies, manage lifecycle events, and maintain collateral coverage.',
     image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     category: ['Enterprise Fintech', 'Collateral Management', 'Workflow Design'],
@@ -29,7 +29,7 @@ export const caseStudies: Project[] = [
   {
     id: 5,
     title: 'Securities-Based Lending (SBL)',
-    subtitle: 'Enterprise securities-based lending workflows for multi-role credit operations and high-value loan decisions.',
+    subtitle: 'Enterprise securities-based lending platform supporting underwriting, portfolio monitoring, and exception management for credit operations and high-value lending decisions.',
     description: 'Enterprise securities-based lending platform supporting underwriting workflows, portfolio monitoring, and exception management for credit teams and lending operations.',
     image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=1080',
     category: ['Enterprise Fintech', 'Securities-Based Lending', 'Workflow Design'],
@@ -53,8 +53,8 @@ export const caseStudies: Project[] = [
   {
     id: 4,
     title: 'CYNC Advance Analytics (CAA)',
-    subtitle: 'Enterprise portfolio analytics platform for multi-role monitoring, risk visibility, and faster decision support.',
-    description: 'Enterprise portfolio analytics platform enabling lending teams to evaluate portfolio health, analyze collateral performance, and monitor risk exposure in real time.',
+    subtitle: 'Enterprise portfolio analytics platform enabling credit teams to evaluate portfolio health, analyze collateral performance, and monitor exposure risk in real time using interactive dashboards and decision-support insights.',
+    description: 'Enterprise portfolio analytics platform enabling credit teams to evaluate portfolio health, analyze collateral performance, and monitor exposure risk in real time using interactive dashboards and decision-support insights.',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1080',
     category: ['Enterprise Fintech', 'Advanced Analytics', 'Data Visualization'],
     metrics: [
