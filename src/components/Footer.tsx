@@ -16,7 +16,7 @@ const Footer = () => {
           <div className="flex-1">
             <a href="#" className="text-2xl font-bold">Manish <span className="text-portfolio-accent">Sondhi</span></a>
             <p className="text-gray-300 mt-3 max-w-md font-medium">
-              Designing complex digital products, data systems, and intelligent platforms that scale and support better decisions.
+              Designing complex digital products, enterprise platforms, and data-driven systems that help teams make better decisions.
             </p>
             <p className="text-gray-400 mt-2 text-sm">
               8+ years designing complex workflows, accessibility-first systems, and scalable product foundations.

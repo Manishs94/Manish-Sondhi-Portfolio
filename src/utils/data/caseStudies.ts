@@ -73,8 +73,8 @@ export const caseStudies: Project[] = [
   {
     id: 5,
     title: 'Securities-Based Lending (SBL)',
-    subtitle: 'Enterprise lending workflows for securities-backed financing, designed to improve decision speed, visibility, and control.',
-    description: 'Designed a securities-based lending system that helped lending teams review collateral, monitor risk signals, and move complex approvals forward with more confidence.',
+    subtitle: 'Enterprise securities-based lending workflows for multi-role credit operations and high-value loan decisions.',
+    description: 'Enterprise securities-based lending platform enabling credit teams to evaluate collateral portfolios, monitor exposure risk, and approve loans through integrated decision-support workflows.',
     image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=1080',
     category: ['Enterprise Fintech', 'Securities-Based Lending', 'Workflow Design'],
     metrics: [
@@ -86,8 +86,8 @@ export const caseStudies: Project[] = [
     link: 'https://sbl-design-78bjaff.gamma.site/',
     overview: {
       challenge: 'Lending teams were working through securities-backed approvals with fragmented collateral visibility, unclear workflow states, and slow access to risk signals.',
-      solution: 'Designed an enterprise lending workflow spanning underwriting, monitoring, and exception handling for analysts, approvers, and operations teams.',
-      impact: 'Improved decision speed, clearer operational handoffs, and stronger confidence in high-value lending reviews.'
+      solution: 'Designed underwriting workflows, portfolio monitoring, and exception handling for analysts, approvers, and operations teams working across shared lending data.',
+      impact: 'Faster approval workflows for high-value lending decisions; improved visibility into collateral and risk exposure; clearer operational handoffs between analysts and operations teams.'
     },
     challenge: 'SBL teams needed clearer workflow states and faster access to key lending signals.',
     process: 'Mapped SBL decision flows, designed role-aware interfaces, and validated with iterative feedback cycles.',
@@ -97,8 +97,8 @@ export const caseStudies: Project[] = [
   {
     id: 4,
     title: 'CYNC Advance Analytics (CAA)',
-    subtitle: 'Analytics workflows that help lending teams interpret portfolio health, exposure, and performance in real time.',
-    description: 'Created a portfolio analytics system that helped risk, credit, and operations teams read dense performance data faster and act on it with more confidence.',
+    subtitle: 'Enterprise portfolio analytics platform for multi-role monitoring, risk visibility, and faster decision support.',
+    description: 'Enterprise portfolio analytics platform enabling lending teams to evaluate portfolio health, analyze collateral performance, and monitor risk exposure in real time.',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1080',
     category: ['Enterprise Fintech', 'Advanced Analytics', 'Data Visualization'],
     metrics: [
@@ -110,8 +110,8 @@ export const caseStudies: Project[] = [
     link: 'https://cync-advance-analytics-dm754oh.gamma.site',
     overview: {
       challenge: 'Teams lacked a clear way to monitor portfolio health, spot exposure issues, and interpret performance trends across lending operations.',
-      solution: 'Designed an analytics capability with clearer hierarchy, filtering, and data interpretation patterns for portfolio managers, analysts, and business stakeholders.',
-      impact: 'Improved speed of analysis, stronger risk visibility, and better day-to-day decision making across portfolio operations.'
+      solution: 'Designed interactive dashboards, filtering tools, and decision-support insights for credit teams and portfolio managers replacing manual spreadsheet-based analysis.',
+      impact: 'Reduced manual analysis across lending operations; improved visibility into collateral performance and exposure risk; faster portfolio reviews for credit teams and managers.'
     },
     challenge: 'Analytics dashboards were difficult to interpret quickly across different user roles.',
     process: 'Defined analytics user journeys, designed data-first layouts, and validated usability for high-density information views.',
@@ -121,8 +121,8 @@ export const caseStudies: Project[] = [
   {
     id: 3,
     title: 'CYNC Collateral Platform',
-    subtitle: 'Collateral tracking and management workflows for complex asset portfolios inside enterprise lending systems.',
-    description: 'Designed a collateral management system that helped lending and operations teams track pledged assets, monitor status changes, and review dependencies with less manual effort.',
+    subtitle: 'Enterprise collateral management platform supporting complex loan portfolios, asset dependencies, and lifecycle tracking.',
+    description: 'Enterprise collateral management platform supporting 50+ asset types and 200+ subtype configurations across lending products.',
     image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     category: ['Enterprise Fintech', 'Collateral Management', 'Workflow Design'],
     metrics: [
@@ -134,8 +134,8 @@ export const caseStudies: Project[] = [
     link: 'https://cync-collateral-0urjvt8.gamma.site',
     overview: {
       challenge: 'Collateral data was fragmented across workflows, making asset review, monitoring, and exception handling slower and harder to scale.',
-      solution: 'Designed a collateral platform with structured tracking, status visibility, and review workflows for risk teams, analysts, and operations users.',
-      impact: 'Improved operational clarity, faster collateral reviews, and better visibility into asset dependencies.'
+      solution: 'The platform enables lending teams to track asset dependencies, manage collateral lifecycle events, and maintain collateral coverage across complex loan portfolios.',
+      impact: 'Improved visibility into collateral coverage and asset dependencies; faster collateral reviews across multi-role operations teams; reduced manual coordination across complex portfolios.'
     },
     challenge: 'Collateral tracking workflows were difficult to monitor and validate across teams.',
     process: 'Mapped collateral lifecycle states, designed streamlined review flows, and validated dashboards for status clarity.',

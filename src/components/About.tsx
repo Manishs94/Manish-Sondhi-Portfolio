@@ -31,7 +31,11 @@ const About = () => {
             </span>
             <h2 className="section-heading">I specialize in products where decisions carry operational and business risk</h2>
             <p className="text-lg text-portfolio-text-light mb-6">
-              My strongest work sits inside complex digital products where workflows, data, and decision-making intersect. I&apos;ve designed platforms across enterprise software, analytics tools, financial technology, and consumer applications.
+              I design products where decisions carry operational and business risk — platforms used by analysts, operators, and business teams to manage complex workflows and data.
+            </p>
+
+            <p className="text-lg text-portfolio-text-light mb-6">
+              My strongest work sits inside complex digital systems where workflows, analytics, and decision-making intersect.
             </p>
 
             <p className="text-lg text-portfolio-text-light mb-6">

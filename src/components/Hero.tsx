@@ -55,13 +55,15 @@ const Hero = () => {
               </div>
               
               <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-portfolio-text-dark dark:text-white mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                Senior Product Designer Designing <span className="text-portfolio-accent bg-gradient-to-r from-portfolio-accent to-blue-600 bg-clip-text text-transparent">Complex Digital Products</span> and Scalable Platforms
+                Senior Product Designer <span className="text-portfolio-accent bg-gradient-to-r from-portfolio-accent to-blue-600 bg-clip-text text-transparent">Complex Platforms, Data Products & Intelligent Systems</span>
               </h1>
               
               <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-8 max-w-xl transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
                 I design complex digital products that help people understand information, make confident decisions, and navigate sophisticated workflows.
                 <br /><br />
-                My work spans enterprise platforms, analytics tools, financial systems, and consumer applications where clarity, usability, and trust are critical. I specialize in transforming operational complexity into intuitive product experiences that scale across teams and organizations.
+                My work spans enterprise platforms, analytics systems, financial technology, and consumer applications where clarity, usability, and trust are critical. I specialize in transforming operational complexity into intuitive product experiences that scale across teams and organizations.
+                <br /><br />
+                Designed platforms supporting multi-role workflows, high-stakes decision systems, and data-driven operations.
               </p>
               
               <div className={`flex flex-wrap gap-4 mb-8 transition-all duration-1000 delay-600 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
