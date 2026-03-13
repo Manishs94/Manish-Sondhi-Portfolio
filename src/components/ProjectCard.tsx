@@ -141,14 +141,33 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index = 0, onQuickVi
             {project.subtitle && <p className="text-portfolio-text-light text-sm mb-4">{project.subtitle}</p>}
           </CardHeader>
           <CardContent className="p-4 sm:p-6 pt-0">
-            {/* Impact metrics (1-2 bullets max) */}
+            <div className="space-y-3 mb-5">
+              {project.overview?.challenge && (
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-portfolio-accent mb-1">Problem</p>
+                  <p className="text-sm text-portfolio-text-light">{project.overview.challenge}</p>
+                </div>
+              )}
+              {project.overview?.solution && (
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-portfolio-accent mb-1">Solution</p>
+                  <p className="text-sm text-portfolio-text-light">{project.overview.solution}</p>
+                </div>
+              )}
+              {project.overview?.impact && (
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-portfolio-accent mb-1">Impact</p>
+                  <p className="text-sm text-portfolio-text-light">{project.overview.impact}</p>
+                </div>
+              )}
+            </div>
+
             {project.metrics && project.metrics.length > 0 && (
-              <div className="mb-4 space-y-1">
+              <div className="mb-4 flex flex-wrap gap-2">
                 {project.metrics.slice(0, 2).map((metric, idx) => (
-                  <div key={idx} className="flex items-start gap-2 text-sm text-portfolio-text-light">
-                    <span className="text-portfolio-accent font-bold mt-0.5">•</span>
-                    <span>{metric.label}: {metric.value}</span>
-                  </div>
+                  <span key={idx} className="rounded-full bg-slate-50 px-3 py-1 text-xs font-medium text-portfolio-text-light">
+                    {metric.label}: {metric.value}
+                  </span>
                 ))}
               </div>
             )}

@@ -27,14 +27,15 @@ const About = () => {
           
           <div>
             <span className="inline-block px-4 py-2 bg-blue-100 text-portfolio-accent rounded-full font-medium mb-4">
-              About Me
+              About
             </span>
-            <h2 className="section-heading">I design complex products around clarity, usability, and adoption</h2>
-            <p className="text-lg text-portfolio-text-light mb-6">I'm a <strong>Senior Product Designer</strong> with <strong>8+ years of experience</strong> designing complex <strong>enterprise and consumer digital products</strong> across fintech, SaaS, and data-driven platforms. My work focuses on transforming complex workflows, operational systems, and analytics-heavy experiences into <strong>intuitive, user-centered products</strong> that improve efficiency, usability, and product adoption.
+            <h2 className="section-heading">I specialize in products where decisions carry operational and business risk</h2>
+            <p className="text-lg text-portfolio-text-light mb-6">
+              My strongest work sits inside complex enterprise systems: lending platforms, collateral workflows, analytics products, and regulated financial experiences. I design for teams who need to move quickly without losing confidence, accuracy, or visibility.
             </p>
 
             <p className="text-lg text-portfolio-text-light mb-6">
-              I specialize in <strong>end-to-end product design</strong>, including user research, information architecture, interaction design, usability testing, and design systems. My background spans enterprise lending platforms, collateral workflows, portfolio analytics, and consumer banking experiences, with additional focus on <strong>AI-assisted UX</strong>, reusable component systems, and cross-functional collaboration with product, engineering, and business stakeholders.
+              My approach combines product thinking, workflow design, and systems-level UX. I map decisions, surface dependencies, and design the structure around the work so users understand what to do, why it matters, and what happens next.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
@@ -45,23 +46,23 @@ const About = () => {
             </div>
             
             <div className="prose prose-blue max-w-none text-portfolio-text-light">
-              <p className="mb-4"><strong>Core expertise includes:</strong></p>
+              <p className="mb-4"><strong>What I design:</strong></p>
               <ul className="space-y-2 mb-6">
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span><strong>Enterprise platforms:</strong> Loan origination, collateral management, security-based lending workflows, portfolio analytics, and operational dashboards</span>
+                  <span><strong>Decision-heavy workflows:</strong> Loan origination, collateral review, exception handling, and portfolio monitoring</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span><strong>AI-assisted UX:</strong> Guided workflows, conversational interfaces, contextual guidance, and explainable decision-support patterns</span>
+                  <span><strong>Systems for multiple user groups:</strong> Analysts, underwriters, operations teams, and business stakeholders working across shared data</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span><strong>Design systems:</strong> Reusable UI patterns, component standards, design consistency, and scalable cross-product experiences</span>
+                  <span><strong>Scalable product foundations:</strong> Reusable patterns, design systems, and accessible interaction models for growing platforms</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span><strong>Research and optimization:</strong> User research, usability testing, workflow analysis, and data-informed iteration to improve adoption and task success</span>
+                  <span><strong>Emerging product capabilities:</strong> AI-assisted guidance, explainable decision support, and data-rich interfaces that preserve user trust</span>
                 </li>
               </ul>
             </div>

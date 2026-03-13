@@ -50,16 +50,16 @@ const Hero = () => {
             <div className="order-2 md:order-1">
               <div className={`mb-4 transition-all duration-1000 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
                 <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4">
-                  Senior Product Designer · Fintech, SaaS & Data Platforms · AI-Assisted UX
+                  Senior Product Designer for Enterprise Fintech Systems
                 </span>
               </div>
               
               <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-portfolio-text-dark dark:text-white mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                Designing digital products that bring <span className="text-portfolio-accent bg-gradient-to-r from-portfolio-accent to-blue-600 bg-clip-text text-transparent">clarity to complex systems</span>
+                I design <span className="text-portfolio-accent bg-gradient-to-r from-portfolio-accent to-blue-600 bg-clip-text text-transparent">complex product systems</span> that help teams make better decisions, faster.
               </h1>
               
-              <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-8 max-w-lg transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                Senior Product Designer with 8+ years designing enterprise and consumer digital products across fintech, SaaS, and data-driven platforms. I turn complex workflows, operational systems, and analytics-heavy experiences into intuitive products that improve usability, efficiency, and adoption.
+              <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-8 max-w-xl transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
+                I specialize in enterprise fintech platforms spanning loan origination, collateral operations, and portfolio analytics. My work turns high-stakes, multi-step workflows for lenders, analysts, and operations teams into products that improve decision quality, operational clarity, and adoption.
               </p>
               
               <div className={`flex flex-wrap gap-4 mb-8 transition-all duration-1000 delay-600 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
@@ -72,6 +72,21 @@ const Hero = () => {
                 >
                   Download Resume <Download size={18} />
                 </button>
+              </div>
+
+              <div className={`grid grid-cols-1 sm:grid-cols-3 gap-4 transition-all duration-1000 delay-700 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
+                <div className="rounded-xl bg-white/80 dark:bg-gray-900/70 border border-blue-100 dark:border-gray-800 p-4 shadow-sm">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-portfolio-accent mb-2">Domains</p>
+                  <p className="text-sm text-portfolio-text-light dark:text-gray-300">Enterprise lending, collateral management, portfolio analytics</p>
+                </div>
+                <div className="rounded-xl bg-white/80 dark:bg-gray-900/70 border border-blue-100 dark:border-gray-800 p-4 shadow-sm">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-portfolio-accent mb-2">Systems</p>
+                  <p className="text-sm text-portfolio-text-light dark:text-gray-300">Workflow-heavy products with compliance, risk, and data dependencies</p>
+                </div>
+                <div className="rounded-xl bg-white/80 dark:bg-gray-900/70 border border-blue-100 dark:border-gray-800 p-4 shadow-sm">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-portfolio-accent mb-2">Outcomes</p>
+                  <p className="text-sm text-portfolio-text-light dark:text-gray-300">Clearer decisions, faster reviews, stronger trust in complex operations</p>
+                </div>
               </div>
               
               <div className={`flex flex-col sm:flex-row items-start sm:items-center gap-4 transition-all duration-1000 delay-800 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>

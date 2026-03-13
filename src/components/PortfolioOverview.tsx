@@ -24,9 +24,9 @@ const PortfolioOverview = () => {
           <span className="inline-block px-4 py-2 bg-blue-100 text-portfolio-accent rounded-full font-medium mb-4">
             Selected Work
           </span>
-          <h2 className="section-heading">Selected Case Studies</h2>
+          <h2 className="section-heading">Case Studies in Complex Product Design</h2>
           <p className="section-subheading mx-auto">
-            A curated set of enterprise and consumer products across fintech, SaaS, and data-driven platforms. These case studies reflect how I turn operational complexity, analytics-heavy workflows, and financial processes into intuitive experiences that improve efficiency, usability, and product adoption.
+            A focused set of enterprise product case studies showing how I frame product problems, design operational systems, and improve decisions for the teams using them.
           </p>
         </div>
         
