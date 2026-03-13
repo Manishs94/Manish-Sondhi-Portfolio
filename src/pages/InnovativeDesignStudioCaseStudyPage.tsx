@@ -72,29 +72,21 @@ const InnovativeDesignStudioCaseStudyPage = () => {
 
         <SectionContainer id="product-context" title="Product Context" dark>
           <p className={bodyClass}>
-            Most client teams were working toward MVP launches or early product releases. They needed practical product design support to clarify user journeys, define core flows, and establish lightweight design systems that could evolve over time.
+            These projects focused on early-stage startups and mission-driven organizations building new digital products with limited design resources, evolving requirements, and tight delivery timelines.
           </p>
           <p className={bodyClass}>
-            The work typically involved early-stage web applications, mobile product concepts, and internal operational tools where usability and speed to market were both critical.
+            Most teams were working toward MVP launches or early product releases, which meant the design work needed to balance speed, usability, and long-term scalability. The products typically included web applications, mobile concepts, and lightweight operational tools used by small teams.
           </p>
           <FeaturedImage src={sectionImages.challenge} alt="Small team planning around startup constraints" />
         </SectionContainer>
 
         <SectionContainer id="my-role" title="My Role">
           <p className={bodyClass}>
-            As a UI/UX Designer, I contributed across multiple parts of the product design process, including:
+            As a UI/UX Designer, I contributed across multiple parts of the product design process, including user flow mapping, wireframing, interaction design, usability-focused interface decisions, reusable UI pattern creation, and design collaboration with developers and stakeholders.
           </p>
 
-          <ul className="mt-8 list-disc space-y-4 pl-6 text-base leading-relaxed text-[#314b69] sm:text-lg">
-            <li>user flow mapping</li>
-            <li>wireframing and interaction design</li>
-            <li>usability-focused interface decisions</li>
-            <li>reusable UI pattern creation</li>
-            <li>design collaboration with developers and stakeholders</li>
-          </ul>
-
           <p className={bodyClass}>
-            My focus was on helping small teams move from rough ideas to clearer product experiences that could support launch and iteration.
+            My role focused on helping early teams move from rough ideas to clearer product experiences that could support launch and iteration.
           </p>
           <FeaturedImage src={sectionImages.contributions} alt="Wireframing and UI design artifacts" />
         </SectionContainer>
@@ -127,7 +119,7 @@ const InnovativeDesignStudioCaseStudyPage = () => {
 
         <SectionContainer id="solution" title="Solution" dark>
           <p className={bodyClass}>
-            Designed foundational product experiences that helped early-stage teams define clear user flows, improve usability, and create more consistent interfaces under tight delivery constraints.
+            Designed foundational product experiences that helped early-stage teams clarify user flows, improve usability, and establish scalable UX foundations under tight delivery constraints.
           </p>
           <p className={bodyClass}>
             The work emphasized practical design systems thinking, clearer interaction patterns, and product structures that could support future iteration rather than one-off screens.

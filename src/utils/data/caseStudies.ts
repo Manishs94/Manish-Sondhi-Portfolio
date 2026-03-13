@@ -124,7 +124,7 @@ export const caseStudies: Project[] = [
     subtitle: 'Designing scalable product foundations for startups and mission-driven organizations working under tight timelines, limited resources, and evolving product requirements.',
     description: 'Foundational product design work for startups and mission-driven teams, focused on clarifying user flows, improving usability, and creating scalable design foundations under early-stage constraints.',
     image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1600',
-    category: ['UI Design', 'UX Research', 'Early-Stage Products'],
+    category: ['Product Design', 'UX Research', 'Early-Stage Products'],
     metrics: [
       { icon: 'check', value: 'Improved', label: 'Usability' },
       { icon: 'zap', value: 'Faster', label: 'Dev Handoffs' },
@@ -134,7 +134,7 @@ export const caseStudies: Project[] = [
     link: '/case-study/innovative-design-studio',
     overview: {
       challenge: 'Early-stage teams often lacked structured product workflows, validated user journeys, and clear interface foundations. Many were trying to move quickly toward MVP launches while balancing limited time, budget, and internal design maturity.',
-      solution: 'Designed foundational product experiences that helped early-stage teams define clear user flows, improve usability, and create more consistent interfaces under tight delivery constraints.',
+      solution: 'Designed foundational product experiences that helped early-stage teams clarify user flows, improve usability, and establish scalable UX foundations under tight delivery constraints.',
       impact: '• Improved clarity and usability across core early-stage product flows\n• Faster developer handoff through more structured interaction design\n• Stronger alignment between founders, stakeholders, and delivery teams\n• More scalable design foundations for future product iteration'
     },
     challenge: 'Scaling UX on limited resources.',
