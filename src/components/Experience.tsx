@@ -45,7 +45,7 @@ const Experience = () => {
       company: 'CYNC Software',
       location: 'Remote',
       period: 'Feb 2022 – Present',
-      description: 'Design lead for complex digital platforms spanning workflow-heavy systems, analytics experiences, and operational tools. Responsible for product design leadership, workflow architecture, and system-level UX strategy.',
+      description: 'Design lead for enterprise financial platforms including loan origination systems, collateral management platforms, and analytics dashboards used by lending operations and credit teams.',
       highlights: [
         'Led UX design for Loan Origination Systems and collateral workflows, translating complex multi-system processes into intuitive user journeys.',
         'Defined workflow architecture, interaction models, and system states to ensure consistent, scalable enterprise UX across Angular and React platforms.',
@@ -68,7 +68,7 @@ const Experience = () => {
       company: 'Bank of America',
       location: 'New York',
       period: 'Nov 2018 – Feb 2022',
-      description: 'Designed digital banking experiences across consumer web and mobile platforms, supporting millions of users performing financial transactions, account management, and payments.',
+      description: 'Designed digital banking experiences across consumer web and mobile platforms used by millions of customers for payments, account management, and financial transactions.',
       highlights: [
         'Led UX initiatives for payments, account management, and operational workflows to improve usability and task completion.',
         'Designed responsive web and native mobile experiences optimized for clarity, accessibility, and efficiency.',
@@ -92,7 +92,7 @@ const Experience = () => {
       company: 'Innovative Design Studio',
       location: 'Freelance',
       period: 'Jan 2018 – Nov 2018',
-      description: 'Partnered with early-stage startups to design MVP web and mobile products, translating product ideas into scalable user experiences.',
+      description: 'Partnered with early-stage startups to design MVP web and mobile products, helping founders translate product ideas into clear user flows, scalable UX foundations, and launch-ready interfaces.',
       highlights: [
         'Collaborated with founders and product teams to define product concepts, user journeys, and feature requirements for early-stage digital products.',
         'Designed end-to-end user experiences including information architecture, user flows, wireframes, and high-fidelity interfaces for web and mobile applications.',
@@ -134,7 +134,7 @@ const Experience = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-heading dark:text-white">Work Experience</h2>
           <p className="section-subheading mx-auto dark:text-gray-300 mb-8">
-            Senior Product Designer with 8+ years designing complex enterprise and consumer digital products across SaaS, data-driven platforms, and operational systems. Specialized in transforming workflow-heavy tools, analytics dashboards, and high-stakes user journeys into intuitive experiences that improve efficiency, usability, and adoption.
+            Senior Product Designer with 8+ years designing complex enterprise and consumer digital products across SaaS platforms, analytics systems, and operational workflows. I specialize in transforming workflow-heavy tools and data-rich interfaces into intuitive experiences that improve efficiency, usability, and decision clarity.
           </p>
         </div>
         

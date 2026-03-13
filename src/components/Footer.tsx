@@ -45,7 +45,7 @@ const Footer = () => {
               <h3 className="text-lg font-semibold mb-4">Focus Areas</h3>
               <ul className="space-y-2">
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Product Design</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Workflow Design</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Platform Design</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Design Systems</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Accessibility</a></li>
               </ul>
