@@ -120,9 +120,9 @@ export const caseStudies: Project[] = [
   },
   {
     id: 0,
-    title: 'UI/UX Case Study: Innovative Design Studio',
-    subtitle: 'Foundational Product Design for Early-Stage Clients: A UI/UX Case Study',
-    description: 'As a UI/UX Designer, I collaborated with senior designers to deliver impactful user experiences for startups and nonprofit organizations.',
+    title: 'Innovative Design Studio — Foundational Product Design for Early-Stage Teams',
+    subtitle: 'Designing scalable product foundations for startups and mission-driven organizations working under tight timelines, limited resources, and evolving product requirements.',
+    description: 'Foundational product design work for startups and mission-driven teams, focused on clarifying user flows, improving usability, and creating scalable design foundations under early-stage constraints.',
     image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1600',
     category: ['UI Design', 'UX Research', 'Early-Stage Products'],
     metrics: [
@@ -133,9 +133,9 @@ export const caseStudies: Project[] = [
     tools: ['Sketch', 'Illustrator', 'Google Forms'],
     link: '/case-study/innovative-design-studio',
     overview: {
-      challenge: 'Startups and nonprofits often face limited resources for design cycles, a lack of user insight at the outset, and a need to iterate quickly and launch MVPs.',
-      solution: 'Created foundational UX solutions that could scale while working within budget and time constraints.',
-      impact: '• Improved usability for early-stage product flows\n• Faster developer handoffs through clearer interaction definitions\n• Stronger product vision alignment across early client teams\n• Better foundation for iterative product growth'
+      challenge: 'Early-stage teams often lacked structured product workflows, validated user journeys, and clear interface foundations. Many were trying to move quickly toward MVP launches while balancing limited time, budget, and internal design maturity.',
+      solution: 'Designed foundational product experiences that helped early-stage teams define clear user flows, improve usability, and create more consistent interfaces under tight delivery constraints.',
+      impact: '• Improved clarity and usability across core early-stage product flows\n• Faster developer handoff through more structured interaction design\n• Stronger alignment between founders, stakeholders, and delivery teams\n• More scalable design foundations for future product iteration'
     },
     challenge: 'Scaling UX on limited resources.',
     process: 'From kickoff and research to wireframing, prototyping, and client handoff.',

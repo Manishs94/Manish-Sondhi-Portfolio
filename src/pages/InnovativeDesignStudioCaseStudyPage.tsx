@@ -52,169 +52,134 @@ const InnovativeDesignStudioCaseStudyPage = () => {
         <section className="min-h-[62vh] border-b border-[#d8e3f2] bg-gradient-to-b from-[#0f2743] via-[#163a61] to-[#1f5082] text-white sm:min-h-[70vh]">
           <div className="mx-auto flex min-h-[62vh] w-full max-w-5xl flex-col justify-center px-4 py-12 sm:min-h-[70vh] sm:px-6 sm:py-14 lg:px-10 lg:py-20">
             <h1 className="max-w-5xl text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl lg:text-6xl">
-              UI/UX Case Study: Innovative Design Studio
+              Innovative Design Studio — Foundational Product Design for Early-Stage Teams
             </h1>
             <p className="mt-5 max-w-4xl text-lg text-blue-100 sm:text-xl md:text-2xl">
-              Foundational Product Design for Early-Stage Clients: A UI/UX Case Study
+              Designing scalable product foundations for startups and mission-driven organizations working under tight timelines, limited resources, and evolving product requirements.
             </p>
           </div>
         </section>
 
-        <SectionContainer id="overview" title="Overview: Delivering Impactful User Experiences">
+        <SectionContainer id="overview" title="Overview">
           <p className={bodyClass}>
-            As a UI/UX Designer, I collaborated with senior designers to deliver impactful user experiences for startups and nonprofit organizations. The projects spanned mobile and web platforms, and my core focus was on wireframing, research support, and building UI assets.
+            At Innovative Design Studio, I worked on early-stage digital products for startups and nonprofit organizations that needed clear, usable product experiences but often lacked mature design processes, research depth, or reusable design foundations.
           </p>
           <p className={bodyClass}>
-            This role introduced me to human-centered design and allowed me to contribute across all stages of the design process while learning to balance business needs with user goals. Gaining experience with wireframing, user research, and UI development was crucial to my growth as a designer. I learned how to translate user needs into functional designs, contributing to the success of multiple projects.
+            These projects spanned web and mobile experiences and required balancing speed, clarity, and scalability. My role focused on helping teams translate early ideas into structured product flows, validate usability quickly, and create design directions that engineering teams could build from with confidence.
           </p>
           <FeaturedImage src={sectionImages.overview} alt="Team collaboration during product design" />
         </SectionContainer>
 
-        <SectionContainer id="challenge" title="Challenge: Scaling UX on Limited Resources" dark>
+        <SectionContainer id="product-context" title="Product Context" dark>
           <p className={bodyClass}>
-            Startups and nonprofits often face limited resources for design cycles, a lack of user insight at the outset, and a need to iterate quickly and launch MVPs. Our team&apos;s challenge was to create foundational UX solutions that could scale, all while working within budget and time constraints.
+            Most client teams were working toward MVP launches or early product releases. They needed practical product design support to clarify user journeys, define core flows, and establish lightweight design systems that could evolve over time.
           </p>
-
-          <div className="mt-8 space-y-7 sm:mt-10 sm:space-y-8">
-            <div>
-              <h3 className="text-xl font-semibold sm:text-2xl">Limited resources</h3>
-              <p className="mt-3 text-base leading-relaxed text-[#314b69] sm:text-lg">
-                Startups and nonprofits often face financial constraints that limit the resources available for design cycles.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold sm:text-2xl">Lack of user insight</h3>
-              <p className="mt-3 text-base leading-relaxed text-[#314b69] sm:text-lg">
-                Many early-stage companies lack comprehensive user data, making it challenging to create informed design decisions.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold sm:text-2xl">Need to iterate quickly</h3>
-              <p className="mt-3 text-base leading-relaxed text-[#314b69] sm:text-lg">
-                The fast-paced nature of startups requires rapid iteration and the ability to launch Minimum Viable Products (MVPs) efficiently.
-              </p>
-            </div>
-          </div>
+          <p className={bodyClass}>
+            The work typically involved early-stage web applications, mobile product concepts, and internal operational tools where usability and speed to market were both critical.
+          </p>
           <FeaturedImage src={sectionImages.challenge} alt="Small team planning around startup constraints" />
         </SectionContainer>
 
-        <SectionContainer id="contributions" title="My Contributions: A Multifaceted Approach">
-          <div className="mt-8 space-y-8 sm:mt-10 sm:space-y-10">
-            <div>
-              <h3 className="text-xl font-semibold sm:text-2xl">UX Research Support</h3>
-              <p className="mt-4 text-base leading-relaxed text-[#314b69] sm:text-lg">
-                I helped define early assumptions and user goals, conducted user interviews and online surveys using Google Forms, and documented usability issues from feedback and heuristic evaluations.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold sm:text-2xl">Wireframing &amp; User Flows</h3>
-              <p className="mt-4 text-base leading-relaxed text-[#314b69] sm:text-lg">
-                I created low-fidelity wireframes to map out user journeys for donation forms for a nonprofit platform and onboarding flows for a fintech MVP. I also participated in brainstorming sessions to help shape product features.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold sm:text-2xl">UI &amp; Visual Design</h3>
-              <p className="mt-4 text-base leading-relaxed text-[#314b69] sm:text-lg">
-                Designed UI mockups for responsive mobile and desktop views, built UI components and iconography using Sketch and Illustrator, and developed mini style guides to ensure brand consistency across pages.
-              </p>
-            </div>
-          </div>
-          <FeaturedImage src={sectionImages.contributions} alt="Wireframing and UI design artifacts" />
-        </SectionContainer>
-
-        <SectionContainer id="process" title="Process Snapshot: From Research to Handoff" dark>
+        <SectionContainer id="my-role" title="My Role">
           <p className={bodyClass}>
-            Our design process was iterative, ensuring that we delivered effective and scalable UX solutions within budget and time constraints.
-          </p>
-
-          <div className="mt-8 space-y-7 sm:mt-10 sm:space-y-8">
-            <div>
-              <h3 className="text-xl font-semibold sm:text-2xl">Kickoff &amp; Research</h3>
-              <p className="mt-3 text-base leading-relaxed text-[#314b69] sm:text-lg">
-                Stakeholder calls to identify pain points, simple surveys and interviews to capture user behavior.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold sm:text-2xl">Sketching &amp; Wireframing</h3>
-              <p className="mt-3 text-base leading-relaxed text-[#314b69] sm:text-lg">
-                Created task flows and page layouts, iterated based on mentor feedback.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold sm:text-2xl">UI Design &amp; Prototyping</h3>
-              <p className="mt-3 text-base leading-relaxed text-[#314b69] sm:text-lg">
-                Built polished mockups and clickable prototypes, conducted quick internal tests for usability.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold sm:text-2xl">Client Handoff</h3>
-              <p className="mt-3 text-base leading-relaxed text-[#314b69] sm:text-lg">
-                Shared design files and visual documentation, delivered responsive assets for developers.
-              </p>
-            </div>
-          </div>
-          <FeaturedImage src={sectionImages.process} alt="Design process from sketches to handoff" />
-        </SectionContainer>
-
-        <SectionContainer id="impact" title="Impact: Enhancing Usability and Streamlining Development">
-          <div className="mt-8 grid gap-4 sm:grid-cols-3 sm:mt-10">
-            <div className="rounded-xl border border-[#d8e3f2] bg-[#f6f9fe] p-4">
-              <p className="text-sm font-medium text-[#2b5d92]">Improved usability</p>
-            </div>
-            <div className="rounded-xl border border-[#d8e3f2] bg-[#f6f9fe] p-4">
-              <p className="text-sm font-medium text-[#2b5d92]">Faster dev handoffs</p>
-            </div>
-            <div className="rounded-xl border border-[#d8e3f2] bg-[#f6f9fe] p-4">
-              <p className="text-sm font-medium text-[#2b5d92]">Stronger product vision</p>
-            </div>
-          </div>
-
-          <div className="mt-8 space-y-7 sm:space-y-8">
-            <div>
-              <h3 className="text-xl font-semibold sm:text-2xl">Improved usability</h3>
-              <p className="mt-3 text-base leading-relaxed text-[#314b69] sm:text-lg">
-                Clearer navigation and layout resulted in more intuitive interfaces, enhancing the overall user experience.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold sm:text-2xl">Faster dev handoffs</h3>
-              <p className="mt-3 text-base leading-relaxed text-[#314b69] sm:text-lg">
-                Style guides minimized back-and-forth during development, accelerating the development process.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold sm:text-2xl">Stronger product vision</h3>
-              <p className="mt-3 text-base leading-relaxed text-[#314b69] sm:text-lg">
-                Design exploration shaped product ideas at an early stage, contributing to a more cohesive product vision.
-              </p>
-            </div>
-          </div>
-          <FeaturedImage src={sectionImages.impact} alt="Analytics and product impact dashboard" />
-        </SectionContainer>
-
-        <SectionContainer id="learnings" title="What I Learned: Key Takeaways from the Experience" dark>
-          <p className={bodyClass}>
-            This experience provided invaluable insights into the world of UI/UX design, shaping my approach to future projects.
+            As a UI/UX Designer, I contributed across multiple parts of the product design process, including:
           </p>
 
           <ul className="mt-8 list-disc space-y-4 pl-6 text-base leading-relaxed text-[#314b69] sm:text-lg">
-            <li>How to translate abstract ideas into visual workflows.</li>
-            <li>The power of low-fidelity wireframes to spark conversation.</li>
-            <li>The importance of team collaboration and mentorship in delivering successful UX.</li>
+            <li>user flow mapping</li>
+            <li>wireframing and interaction design</li>
+            <li>usability-focused interface decisions</li>
+            <li>reusable UI pattern creation</li>
+            <li>design collaboration with developers and stakeholders</li>
           </ul>
+
+          <p className={bodyClass}>
+            My focus was on helping small teams move from rough ideas to clearer product experiences that could support launch and iteration.
+          </p>
+          <FeaturedImage src={sectionImages.contributions} alt="Wireframing and UI design artifacts" />
+        </SectionContainer>
+
+        <SectionContainer id="problem" title="Problem" dark>
+          <p className={bodyClass}>
+            Early-stage teams often lacked structured product workflows, validated user journeys, and clear interface foundations. Many were trying to move quickly toward MVP launches while balancing limited time, budget, and internal design maturity.
+          </p>
+          <p className={bodyClass}>
+            As a result, product decisions were often reactive, handoff quality varied, and teams risked building experiences that were hard to scale or difficult for users to navigate.
+          </p>
+          <FeaturedImage src={sectionImages.process} alt="Design process from sketches to handoff" />
+        </SectionContainer>
+
+        <SectionContainer id="design-approach" title="Design Approach">
+          <p className={bodyClass}>
+            The design work focused on creating strong product foundations without slowing down delivery. Rather than over-designing early concepts, the approach emphasized clarity, iteration, and scalable structure.
+          </p>
+
+          <p className={bodyClass}>Key activities included:</p>
+          <ul className="mt-8 list-disc space-y-4 pl-6 text-base leading-relaxed text-[#314b69] sm:text-lg">
+            <li>mapping user flows before screen design</li>
+            <li>using low-fidelity wireframes to align quickly</li>
+            <li>refining interaction patterns around core user tasks</li>
+            <li>creating reusable UI components where appropriate</li>
+            <li>supporting developer handoff with clear design intent</li>
+          </ul>
+          <FeaturedImage src={sectionImages.impact} alt="Analytics and product impact dashboard" />
+        </SectionContainer>
+
+        <SectionContainer id="solution" title="Solution" dark>
+          <p className={bodyClass}>
+            Designed foundational product experiences that helped early-stage teams define clear user flows, improve usability, and create more consistent interfaces under tight delivery constraints.
+          </p>
+          <p className={bodyClass}>
+            The work emphasized practical design systems thinking, clearer interaction patterns, and product structures that could support future iteration rather than one-off screens.
+          </p>
           <FeaturedImage src={sectionImages.learnings} alt="Team workshop and collaborative learning" />
+        </SectionContainer>
+
+        <SectionContainer id="example-workflow" title="Example Workflow">
+          <p className={bodyClass}>
+            A typical engagement involved helping a team clarify one of its most important early product flows.
+          </p>
+
+          <div className="mt-8 rounded-2xl border border-[#d8e3f2] bg-[#f6f9fe] p-6 sm:p-8">
+            <p className="text-base font-medium leading-relaxed text-[#0f2035] sm:text-lg">
+              Example:
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-[#314b69] sm:text-lg">
+              User enters the product for the first time
+              <br />
+              → onboarding introduces the core value of the product
+              <br />
+              → user completes an initial setup or primary action
+              <br />
+              → interface guides the user toward the next meaningful task
+              <br />
+              → team uses this foundation to validate and iterate on the experience
+            </p>
+          </div>
+
+          <p className={bodyClass}>
+            This approach helped clients move from vague concepts to more testable and buildable product experiences.
+          </p>
+        </SectionContainer>
+
+        <SectionContainer id="impact" title="Impact" dark>
+          <ul className="mt-8 list-disc space-y-4 pl-6 text-base leading-relaxed text-[#314b69] sm:text-lg">
+            <li>Improved clarity and usability across core early-stage product flows</li>
+            <li>Faster developer handoff through more structured interaction design</li>
+            <li>Stronger alignment between founders, stakeholders, and delivery teams</li>
+            <li>More scalable design foundations for future product iteration</li>
+          </ul>
+          <FeaturedImage src={sectionImages.impact} alt="Analytics and product impact dashboard" />
         </SectionContainer>
 
         <section id="reflection" className="scroll-mt-28 bg-[#0f243b] text-white">
           <div className="mx-auto w-full max-w-5xl px-4 py-12 sm:px-6 sm:py-14 lg:px-10 lg:py-20">
-            <h2 className="text-2xl font-semibold leading-tight sm:text-3xl md:text-4xl lg:text-5xl">Reflection: Building a Foundation for Future Success</h2>
+            <h2 className="text-2xl font-semibold leading-tight sm:text-3xl md:text-4xl lg:text-5xl">What I Learned</h2>
             <p className="mt-8 text-base leading-relaxed text-blue-100 sm:text-lg">
-              This experience helped build the foundation of my UX skillset, from research to prototyping. Working under senior guidance gave me a clear understanding of best practices and instilled a commitment to user-first thinking that I carry forward in every project.
+              Working with early-stage teams reinforced the importance of designing for momentum as well as usability. In startup environments, the best design solution is often the one that helps teams move forward confidently while still creating a solid product foundation.
             </p>
             <p className="mt-6 text-base leading-relaxed text-blue-100 sm:text-lg">
-              I developed a deep appreciation for the importance of user-centered design, which has become a guiding principle in my approach to every project. The mentorship and collaborative environment enabled me to refine my skills and cultivate a user-first mindset.
+              This experience taught me how to balance speed, ambiguity, and scalability — skills that continue to shape how I approach product design today.
             </p>
             <FeaturedImage src={sectionImages.reflection} alt="Reflective team session on design outcomes" />
           </div>
