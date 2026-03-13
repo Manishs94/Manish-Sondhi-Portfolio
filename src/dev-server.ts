@@ -10,8 +10,8 @@ const PORT = process.env.DEV_SERVER_PORT || 3001;
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.GMAIL_ADDRESS || 'Manishsondhi94@gmail.com',
-    pass: process.env.GMAIL_APP_PASSWORD || 'Rachnas01.', // Use Google App Password
+    user: process.env.GMAIL_ADDRESS,
+    pass: process.env.GMAIL_APP_PASSWORD,
   },
 });
 
@@ -27,6 +27,12 @@ app.get('/health', (req: Request, res: Response) => {
 // Contact form submission endpoint
 app.post('/api/contact', async (req: Request, res: Response) => {
   try {
+    if (!process.env.GMAIL_ADDRESS || !process.env.GMAIL_APP_PASSWORD) {
+      return res.status(500).json({
+        error: 'Missing email configuration',
+      });
+    }
+
     const { name, email, company, message, projectType, files } = req.body;
 
     if (!name || !email || !message) {
@@ -35,8 +41,8 @@ app.post('/api/contact', async (req: Request, res: Response) => {
 
     // Email to you (owner)
     const ownerMailOptions = {
-      from: process.env.GMAIL_ADDRESS || 'Manishsondhi94@gmail.com',
-      to: process.env.GMAIL_ADDRESS || 'Manishsondhi94@gmail.com',
+      from: process.env.GMAIL_ADDRESS,
+      to: process.env.GMAIL_ADDRESS,
       subject: `New Contact Form Submission: ${projectType}`,
       html: `
         <h2>New Inquiry</h2>
@@ -54,7 +60,7 @@ app.post('/api/contact', async (req: Request, res: Response) => {
 
     // Confirmation email to sender
     const senderMailOptions = {
-      from: process.env.GMAIL_ADDRESS || 'Manishsondhi94@gmail.com',
+      from: process.env.GMAIL_ADDRESS,
       to: email,
       subject: 'I received your message',
       html: `

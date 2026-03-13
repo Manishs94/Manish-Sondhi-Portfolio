@@ -21,6 +21,12 @@ interface FileWithPreview extends File {
   preview?: string;
 }
 
+interface SerializedAttachment {
+  filename: string;
+  content: string;
+  contentType: string;
+}
+
 export const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
@@ -87,13 +93,36 @@ export const ContactForm: React.FC = () => {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
   };
 
+  const fileToBase64 = (file: File) =>
+    new Promise<string>((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const result = reader.result;
+        if (typeof result !== 'string') {
+          reject(new Error('Failed to read file'));
+          return;
+        }
+        const [, base64 = ''] = result.split(',');
+        resolve(base64);
+      };
+      reader.onerror = () => reject(reader.error || new Error('Failed to read file'));
+      reader.readAsDataURL(file);
+    });
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      // Use Formspree to send email
-      const response = await fetch('https://formspree.io/f/xyzgpznn', {
+      const attachments: SerializedAttachment[] = await Promise.all(
+        uploadedFiles.map(async (file) => ({
+          filename: file.name,
+          content: await fileToBase64(file),
+          contentType: file.type,
+        }))
+      );
+
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -104,6 +133,7 @@ export const ContactForm: React.FC = () => {
           company: formData.company,
           message: formData.message,
           projectType: formData.projectType,
+          attachments,
         }),
       });
 
@@ -111,7 +141,7 @@ export const ContactForm: React.FC = () => {
         throw new Error('Failed to send message');
       }
 
-      console.log('Form submitted:', { formData });
+      console.log('Form submitted:', { formData, attachmentCount: attachments.length });
       trackContactFormSubmit();
       
       setIsSubmitted(true);
@@ -302,9 +332,9 @@ export const ContactForm: React.FC = () => {
           </Button>
 
           <Button asChild variant="outline" className="w-full flex items-center gap-2">
-            <a href="mailto:Manishsondhi94@gmail.com?subject=Consultation%20Request">
+            <a href="mailto:Manishsondhi94@gmail.com?subject=Portfolio%20Opportunity">
               <Calendar className="w-4 h-4" />
-              Book Consultation
+              Email Me Directly
             </a>
           </Button>
 
