@@ -8,7 +8,7 @@ export const caseStudies: Project[] = [
     subtitle: 'Enterprise collateral management platform supporting 50+ asset types and 200+ subtype configurations, enabling teams to monitor asset dependencies, manage lifecycle events, and maintain collateral coverage across complex loan portfolios.',
     description: 'Enterprise collateral management platform supporting 50+ asset types and 200+ subtype configurations across lending portfolios, enabling teams to monitor asset dependencies, manage lifecycle events, and maintain collateral coverage.',
     image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    category: ['Enterprise Fintech', 'Collateral Management', 'Workflow Design'],
+    category: ['Enterprise Fintech', 'Collateral Management', 'Enterprise Platform'],
     metrics: [
       { icon: 'activity', value: 'Real-time', label: 'Collateral Monitoring' },
       { icon: 'check', value: 'Improved', label: 'Review Accuracy' },
@@ -18,7 +18,7 @@ export const caseStudies: Project[] = [
     link: 'https://cync-collateral-0urjvt8.gamma.site',
     overview: {
       challenge: 'Collateral data was fragmented across workflows, making asset review, monitoring, and exception handling slower and harder to scale.',
-      solution: 'The platform enables lending teams to track asset dependencies, manage collateral lifecycle events, and maintain collateral coverage across complex loan portfolios.',
+      solution: 'Designed a unified collateral management platform that gives lending teams structured visibility into asset dependencies, lifecycle events, and collateral coverage across complex loan portfolios.',
       impact: '• Improved visibility into collateral coverage and asset dependencies\n• Faster collateral reviews across multi-role operations teams\n• Reduced manual coordination across complex portfolios\n• Clearer operational coordination between analysts and operations teams'
     },
     challenge: 'Collateral tracking workflows were difficult to monitor and validate across teams.',
@@ -32,7 +32,7 @@ export const caseStudies: Project[] = [
     subtitle: 'Enterprise securities-based lending platform supporting underwriting, portfolio monitoring, and exception management for credit operations and high-value lending decisions.',
     description: 'Enterprise securities-based lending platform supporting underwriting workflows, portfolio monitoring, and exception management for credit teams and lending operations.',
     image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=1080',
-    category: ['Enterprise Fintech', 'Securities-Based Lending', 'Workflow Design'],
+    category: ['Enterprise Fintech', 'Securities-Based Lending', 'Decision Platform'],
     metrics: [
       { icon: 'trending-up', value: 'Faster', label: 'Approval Workflow' },
       { icon: 'check', value: 'Improved', label: 'Operational Clarity' },

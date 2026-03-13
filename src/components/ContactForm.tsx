@@ -163,8 +163,8 @@ export const ContactForm: React.FC = () => {
   return (
     <Card className="max-w-md mx-auto">
         <CardHeader>
-        <CardTitle>Tell Me About Your Challenge</CardTitle>
-        <p className="text-sm text-portfolio-text-light mt-2">The more context you share, the better I can assess fit for your product, team, and workflow challenges.</p>
+        <CardTitle>Tell Me About Your Opportunity</CardTitle>
+        <p className="text-sm text-portfolio-text-light mt-2">Share a few details about the role, team, or product opportunity so I can quickly assess fit and respond appropriately.</p>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">

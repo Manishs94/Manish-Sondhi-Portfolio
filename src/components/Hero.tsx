@@ -55,7 +55,7 @@ const Hero = () => {
               </div>
               
               <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-portfolio-text-dark dark:text-white mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                Senior Product Designer <span className="text-portfolio-accent bg-gradient-to-r from-portfolio-accent to-blue-600 bg-clip-text text-transparent">Complex Platforms, Data Products & Intelligent Systems</span>
+                <span className="block text-portfolio-accent bg-gradient-to-r from-portfolio-accent to-blue-600 bg-clip-text text-transparent">Complex Platforms, Data Products & Intelligent Systems</span>
               </h1>
               
               <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-8 max-w-xl transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
