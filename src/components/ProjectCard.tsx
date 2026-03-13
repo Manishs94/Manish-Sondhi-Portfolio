@@ -145,19 +145,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index = 0, onQuickVi
               {project.overview?.challenge && (
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-portfolio-accent mb-1">Problem</p>
-                  <p className="text-sm text-portfolio-text-light">{project.overview.challenge}</p>
+                  <p className="text-sm text-portfolio-text-light whitespace-pre-line">{project.overview.challenge}</p>
                 </div>
               )}
               {project.overview?.solution && (
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-portfolio-accent mb-1">Solution</p>
-                  <p className="text-sm text-portfolio-text-light">{project.overview.solution}</p>
+                  <p className="text-sm text-portfolio-text-light whitespace-pre-line">{project.overview.solution}</p>
                 </div>
               )}
               {project.overview?.impact && (
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-portfolio-accent mb-1">Impact</p>
-                  <p className="text-sm text-portfolio-text-light">{project.overview.impact}</p>
+                  <p className="text-sm text-portfolio-text-light whitespace-pre-line">{project.overview.impact}</p>
                 </div>
               )}
             </div>

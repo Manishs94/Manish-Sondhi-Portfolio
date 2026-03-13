@@ -63,7 +63,7 @@ const Hero = () => {
                 <br /><br />
                 My work spans enterprise platforms, analytics systems, financial technology, and consumer applications where clarity, usability, and trust are critical. I specialize in transforming operational complexity into intuitive product experiences that scale across teams and organizations.
                 <br /><br />
-                Designed platforms supporting multi-role workflows, high-stakes decision systems, and data-driven operations.
+                Designed enterprise platforms supporting complex financial operations, analytics workflows, and multi-role decision systems.
               </p>
               
               <div className={`flex flex-wrap gap-4 mb-8 transition-all duration-1000 delay-600 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
