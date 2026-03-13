@@ -131,7 +131,7 @@ const Portfolio = () => {
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="section-heading animate-fade-in opacity-0" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>Featured Projects</h2>
           <p className="section-subheading mx-auto animate-fade-in opacity-0" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
-            A curated selection of product design case studies spanning enterprise systems, analytics platforms, consumer experiences, and early-stage product work. Each case study highlights the product context, challenge, design approach, and impact of the work.
+            A curated selection of product design case studies spanning enterprise platforms, analytics systems, and AI-assisted workflows. Each project demonstrates how complex operational problems were translated into scalable product experiences.
           </p>
         </div>
 
