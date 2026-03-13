@@ -26,7 +26,7 @@ const PortfolioOverview = () => {
           </span>
           <h2 className="section-heading">Case Studies in Complex Product Design</h2>
           <p className="section-subheading mx-auto">
-            A focused set of enterprise product case studies showing how I frame product problems, design operational systems, and improve decisions for the teams using them.
+            A curated selection of product design case studies demonstrating how I frame complex product problems, design scalable systems, and build tools that help teams make confident decisions.
           </p>
         </div>
         

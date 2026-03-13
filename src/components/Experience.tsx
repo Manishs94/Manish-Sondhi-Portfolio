@@ -45,7 +45,7 @@ const Experience = () => {
       company: 'CYNC Software',
       location: 'Remote',
       period: 'Feb 2022 – Present',
-      description: 'Design lead for enterprise fintech platforms supporting security-based lending, collateral management, and portfolio analytics. Responsible for product design leadership, workflow architecture, and system-level UX strategy.',
+      description: 'Design lead for complex digital platforms spanning workflow-heavy systems, analytics experiences, and operational tools. Responsible for product design leadership, workflow architecture, and system-level UX strategy.',
       highlights: [
         'Led UX design for Loan Origination Systems and collateral workflows, translating complex multi-system processes into intuitive user journeys.',
         'Defined workflow architecture, interaction models, and system states to ensure consistent, scalable enterprise UX across Angular and React platforms.',
@@ -56,7 +56,7 @@ const Experience = () => {
         'Facilitated design workshops and acted as the design authority for screen-level execution and workflow coherence across cross-functional teams.'
       ],
       impact: [
-        { metric: 'Improved workflow clarity across enterprise fintech platforms', icon: '🎯' },
+        { metric: 'Improved workflow clarity across complex digital platforms', icon: '🎯' },
         { metric: 'Increased trust through explainable AI and guided experiences', icon: '📈' },
         { metric: 'Strengthened cross-product consistency with reusable UX standards', icon: '🧩' },
         { metric: 'Improved delivery quality through stronger design-engineering alignment', icon: '✓' }
@@ -134,7 +134,7 @@ const Experience = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-heading dark:text-white">Work Experience</h2>
           <p className="section-subheading mx-auto dark:text-gray-300 mb-8">
-            Senior Product Designer with 8+ years designing complex enterprise and consumer digital products across fintech, SaaS, and data-driven platforms. Specialized in transforming operational systems, analytics dashboards, and financial workflows into intuitive user-centered experiences that improve efficiency, usability, and product adoption.
+            Senior Product Designer with 8+ years designing complex enterprise and consumer digital products across SaaS, data-driven platforms, and operational systems. Specialized in transforming workflow-heavy tools, analytics dashboards, and high-stakes user journeys into intuitive experiences that improve efficiency, usability, and adoption.
           </p>
         </div>
         

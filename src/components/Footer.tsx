@@ -16,17 +16,17 @@ const Footer = () => {
           <div className="flex-1">
             <a href="#" className="text-2xl font-bold">Manish <span className="text-portfolio-accent">Sondhi</span></a>
             <p className="text-gray-300 mt-3 max-w-md font-medium">
-              Designing enterprise fintech and AI-assisted platforms that scale, comply, and convert.
+              Designing complex digital products, data systems, and intelligent platforms that scale and support better decisions.
             </p>
             <p className="text-gray-400 mt-2 text-sm">
-              8+ years designing complex workflows, accessibility-first systems, and regulatory-compliant platforms.
+              8+ years designing complex workflows, accessibility-first systems, and scalable product foundations.
             </p>
             
             {/* Secondary CTAs */}
             <div className="flex flex-wrap gap-4 mt-4 text-sm">
               <a href="#portfolio" className="text-portfolio-accent hover:text-white transition-colors font-medium">View Case Studies</a>
               <span className="text-gray-600">•</span>
-              <a href="#contact" className="text-portfolio-accent hover:text-white transition-colors font-medium">Book Consultation</a>
+              <a href="#contact" className="text-portfolio-accent hover:text-white transition-colors font-medium">Get In Touch</a>
             </div>
           </div>
           
@@ -42,10 +42,10 @@ const Footer = () => {
             </div>
             
             <div>
-              <h3 className="text-lg font-semibold mb-4">Services</h3>
+              <h3 className="text-lg font-semibold mb-4">Focus Areas</h3>
               <ul className="space-y-2">
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Product Design</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">UX Consultation</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Workflow Design</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Design Systems</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Accessibility</a></li>
               </ul>

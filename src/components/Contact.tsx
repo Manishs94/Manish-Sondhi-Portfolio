@@ -14,7 +14,7 @@ const Contact = () => {
             Let&apos;s talk about senior product design roles
           </h2>
           <p className={`section-subheading mx-auto dark:text-gray-300 mb-6 transition-all duration-700 delay-300 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-4'}`}>
-            I&apos;m most valuable on teams building complex products in fintech, SaaS, and regulated environments where workflow clarity, product judgment, and cross-functional collaboration matter.
+            I&apos;m open to senior product design roles and collaborations where teams are building complex products, data platforms, or intelligent systems that require thoughtful UX and strong product thinking.
           </p>
         </div>
 

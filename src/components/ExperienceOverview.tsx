@@ -9,7 +9,7 @@ const ExperienceOverview = () => {
     company: 'CYNC Software',
     location: 'Remote',
     period: 'Feb 2022 – Present',
-    description: `Design lead for enterprise fintech platforms supporting security-based lending, collateral management, and portfolio analytics. Responsible for product design leadership, workflow architecture, and system-level UX strategy.`,
+    description: `Design lead for complex digital platforms spanning workflow-heavy systems, analytics experiences, and operational tools. Responsible for product design leadership, workflow architecture, and system-level UX strategy.`,
     highlights: [
       'Led UX design for Loan Origination Systems and collateral workflows, translating complex multi-system processes into intuitive user journeys.',
       'Defined workflow architecture, interaction models, and system states to ensure consistent, scalable enterprise UX across Angular and React platforms.',

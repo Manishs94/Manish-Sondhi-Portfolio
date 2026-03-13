@@ -32,9 +32,9 @@ const Hero = () => {
   return (
     <>
       <SEOHead 
-        title="Manish Sondhi | Senior Product Designer – Fintech, SaaS & Data Platforms"
-        description="Senior Product Designer with 8+ years designing enterprise and consumer digital products across fintech, SaaS, and data-driven platforms."
-        keywords="Senior Product Designer, Fintech Product Design, SaaS Design, Data Platform UX, Loan Origination, Design Systems"
+        title="Senior Product Designer Portfolio — Complex Platforms & Data Products"
+        description="Portfolio of a senior product designer specializing in complex digital products, enterprise platforms, analytics systems, and scalable UX for data-driven applications."
+        keywords="Senior Product Designer, Product Designer Portfolio, Complex Platforms, Data Products, Enterprise UX, Scalable Digital Systems"
       />
       
       <section id="home" className="pt-14 pb-12 md:pt-44 md:pb-32 relative overflow-hidden">
@@ -50,16 +50,18 @@ const Hero = () => {
             <div className="order-2 md:order-1">
               <div className={`mb-4 transition-all duration-1000 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
                 <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4">
-                  Senior Product Designer for Enterprise Fintech Systems
+                  Senior Product Designer
                 </span>
               </div>
               
               <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-portfolio-text-dark dark:text-white mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                I design <span className="text-portfolio-accent bg-gradient-to-r from-portfolio-accent to-blue-600 bg-clip-text text-transparent">complex product systems</span> that help teams make better decisions, faster.
+                Senior Product Designer Designing <span className="text-portfolio-accent bg-gradient-to-r from-portfolio-accent to-blue-600 bg-clip-text text-transparent">Complex Digital Products</span> and Scalable Platforms
               </h1>
               
               <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-8 max-w-xl transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                I specialize in enterprise fintech platforms spanning loan origination, collateral operations, and portfolio analytics. My work turns high-stakes, multi-step workflows for lenders, analysts, and operations teams into products that improve decision quality, operational clarity, and adoption.
+                I design complex digital products that help people understand information, make confident decisions, and navigate sophisticated workflows.
+                <br /><br />
+                My work spans enterprise platforms, analytics tools, financial systems, and consumer applications where clarity, usability, and trust are critical. I specialize in transforming operational complexity into intuitive product experiences that scale across teams and organizations.
               </p>
               
               <div className={`flex flex-wrap gap-4 mb-8 transition-all duration-1000 delay-600 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
@@ -77,11 +79,11 @@ const Hero = () => {
               <div className={`grid grid-cols-1 sm:grid-cols-3 gap-4 transition-all duration-1000 delay-700 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
                 <div className="rounded-xl bg-white/80 dark:bg-gray-900/70 border border-blue-100 dark:border-gray-800 p-4 shadow-sm">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-portfolio-accent mb-2">Domains</p>
-                  <p className="text-sm text-portfolio-text-light dark:text-gray-300">Enterprise lending, collateral management, portfolio analytics</p>
+                  <p className="text-sm text-portfolio-text-light dark:text-gray-300">Enterprise Platforms, Analytics & Data Products, Operational Workflow Systems, Decision-Support Interfaces</p>
                 </div>
                 <div className="rounded-xl bg-white/80 dark:bg-gray-900/70 border border-blue-100 dark:border-gray-800 p-4 shadow-sm">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-portfolio-accent mb-2">Systems</p>
-                  <p className="text-sm text-portfolio-text-light dark:text-gray-300">Workflow-heavy products with compliance, risk, and data dependencies</p>
+                  <p className="text-sm text-portfolio-text-light dark:text-gray-300">Complex workflow platforms, data-driven product experiences, multi-user operational tools, and products with regulatory, data, and decision dependencies</p>
                 </div>
                 <div className="rounded-xl bg-white/80 dark:bg-gray-900/70 border border-blue-100 dark:border-gray-800 p-4 shadow-sm">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-portfolio-accent mb-2">Outcomes</p>
@@ -101,7 +103,7 @@ const Hero = () => {
                 
                 <SocialShare 
                   title="Check out Manish Sondhi's UX Portfolio"
-                  description="Product design across fintech, SaaS, data platforms, and AI-assisted UX"
+                  description="Product design across complex platforms, data products, and scalable digital systems"
                 />
               </div>
             </div>

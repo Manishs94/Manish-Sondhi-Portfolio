@@ -31,11 +31,11 @@ const About = () => {
             </span>
             <h2 className="section-heading">I specialize in products where decisions carry operational and business risk</h2>
             <p className="text-lg text-portfolio-text-light mb-6">
-              My strongest work sits inside complex enterprise systems: lending platforms, collateral workflows, analytics products, and regulated financial experiences. I design for teams who need to move quickly without losing confidence, accuracy, or visibility.
+              My strongest work sits inside complex digital products where workflows, data, and decision-making intersect. I&apos;ve designed platforms across enterprise software, analytics tools, financial technology, and consumer applications.
             </p>
 
             <p className="text-lg text-portfolio-text-light mb-6">
-              My approach combines product thinking, workflow design, and systems-level UX. I map decisions, surface dependencies, and design the structure around the work so users understand what to do, why it matters, and what happens next.
+              I specialize in turning operational complexity into clear product experiences. My approach combines product thinking, workflow design, and systems-level UX to help teams move quickly while maintaining clarity, accuracy, and trust.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
@@ -50,7 +50,7 @@ const About = () => {
               <ul className="space-y-2 mb-6">
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span><strong>Decision-heavy workflows:</strong> Loan origination, collateral review, exception handling, and portfolio monitoring</span>
+                  <span><strong>Decision-heavy workflows:</strong> Multi-step processes involving approvals, exception handling, operational review, and status visibility</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>

@@ -162,9 +162,9 @@ export const ContactForm: React.FC = () => {
 
   return (
     <Card className="max-w-md mx-auto">
-      <CardHeader>
+        <CardHeader>
         <CardTitle>Tell Me About Your Challenge</CardTitle>
-        <p className="text-sm text-portfolio-text-light mt-2">The more context you share, the better I can assess fit for enterprise, fintech, or AI-assisted workflows.</p>
+        <p className="text-sm text-portfolio-text-light mt-2">The more context you share, the better I can assess fit for your product, team, and workflow challenges.</p>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
