@@ -29,17 +29,17 @@ const About = () => {
             <span className="inline-block px-4 py-2 bg-blue-100 text-portfolio-accent rounded-full font-medium mb-4">
               About
             </span>
-            <h2 className="section-heading">I specialize in products where decisions carry operational and business risk</h2>
+            <h2 className="section-heading">Senior Product Designer for AI-enabled systems, product UX, and complex workflows</h2>
             <p className="text-lg text-portfolio-text-light mb-6">
-              I design products where decisions carry operational and business risk — platforms used by analysts, operators, and business teams to manage complex workflows and data.
+              I&apos;m a Senior Product Designer focused on AI-enabled systems, product UX, and complex platforms where clarity matters as much as capability.
             </p>
 
             <p className="text-lg text-portfolio-text-light mb-6">
-              My strongest work sits inside complex digital systems where workflows, analytics, and decision-making intersect.
+              I design for analysts, operators, business teams, and customers working across data, automation, and decision-heavy workflows. My background spans enterprise software, fintech, SaaS, and digital products that require structure, trust, and speed.
             </p>
 
             <p className="text-lg text-portfolio-text-light mb-6">
-              I specialize in turning operational complexity into clear product experiences. My approach combines product thinking, workflow design, and systems-level UX to help teams move quickly while maintaining clarity, accuracy, and trust.
+              My strength is translating complexity into usable product systems through strong UX craft, workflow thinking, and scalable interaction patterns. I&apos;m especially effective on products that need explainability, cross-functional alignment, and design foundations that can grow with the platform.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
@@ -54,19 +54,23 @@ const About = () => {
               <ul className="space-y-2 mb-6">
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span><strong>Decision-heavy workflows:</strong> Multi-step processes involving approvals, exception handling, operational review, and status visibility</span>
+                  <span><strong>Decision-heavy workflows:</strong> Guided experiences for review, approvals, exceptions, and next-step clarity</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span><strong>Systems for multiple user groups:</strong> Analysts, underwriters, operations teams, and business stakeholders working across shared data</span>
+                  <span><strong>AI-assisted product experiences:</strong> Intelligent workflows with explainable guidance, clear system feedback, and human oversight</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span><strong>Scalable product foundations:</strong> Reusable patterns, design systems, and accessible interaction models for growing platforms</span>
+                  <span><strong>Multi-user systems:</strong> Shared environments for analysts, operators, managers, and customers working from the same source of truth</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span><strong>Emerging product capabilities:</strong> AI-assisted guidance, explainable decision support, and data-rich interfaces that preserve user trust</span>
+                  <span><strong>Scalable product foundations:</strong> Reusable patterns, design systems, and flexible interaction models built for growing platforms</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-portfolio-accent mr-2">▹</span>
+                  <span><strong>Trustworthy interfaces:</strong> Data-rich experiences designed for visibility, confidence, and better decisions</span>
                 </li>
               </ul>
             </div>

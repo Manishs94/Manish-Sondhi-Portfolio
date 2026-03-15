@@ -70,7 +70,7 @@ const SkillsVisualization = () => {
           </span>
           <h2 className="section-heading dark:text-white">Core Capabilities</h2>
           <p className="section-subheading">
-            Specialized expertise in enterprise product design, research-backed UX, and cross-functional collaboration.
+            Specialized expertise in enterprise product design, AI-enabled systems, research-backed UX, and cross-functional product collaboration.
           </p>
         </div>
 

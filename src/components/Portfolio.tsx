@@ -3,6 +3,7 @@ import { BookOpen, Palette, Grid3X3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { allProjects, getAllCategories, getCaseStudies } from '@/utils/projectData';
+import { SEOHead } from '@/components/SEOHead';
 import QuickViewModal from '@/components/QuickViewModal';
 import { toast } from '@/hooks/use-toast';
 import PortfolioFilters from '@/components/PortfolioFilters';
@@ -127,11 +128,16 @@ const Portfolio = () => {
 
   return (
     <section id="portfolio" className="py-24 bg-portfolio-bg-light">
+      <SEOHead
+        title="Senior Product Designer Portfolio | AI-Enabled Systems, Product UX & Complex Platforms"
+        description="Senior Product Designer specializing in AI-enabled systems, product UX, decision-support platforms, complex workflows, and data-rich digital products."
+        keywords="Senior Product Designer Portfolio, AI Product Designer, Product UX, Decision-Support Design, Complex Workflows, Enterprise Platforms, Data Products"
+      />
       <div className="section-container">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="section-heading animate-fade-in opacity-0" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>Featured Projects</h2>
           <p className="section-subheading mx-auto animate-fade-in opacity-0" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
-            A curated selection of product design case studies spanning enterprise platforms, analytics systems, and AI-assisted workflows. Each project demonstrates how complex operational problems were translated into scalable product experiences.
+            A curated selection of product design case studies across AI-enabled systems, enterprise platforms, and data-driven decision tools. These projects show how complex operational challenges were translated into scalable product experiences that help teams interpret information, evaluate risk, and make confident decisions.
           </p>
         </div>
 
@@ -140,15 +146,15 @@ const Portfolio = () => {
             <TabsList className="grid w-full max-w-md grid-cols-3 bg-white shadow-sm">
               <TabsTrigger value="case-studies" className="flex items-center gap-2 data-[state=active]:bg-portfolio-accent data-[state=active]:text-white">
                 <BookOpen className="w-4 h-4" />
-                Case Study
+                Case Studies
               </TabsTrigger>
               <TabsTrigger value="design" className="flex items-center gap-2 data-[state=active]:bg-portfolio-accent data-[state=active]:text-white">
                 <Palette className="w-4 h-4" />
-                Design
+                Design Work
               </TabsTrigger>
               <TabsTrigger value="all" className="flex items-center gap-2 data-[state=active]:bg-portfolio-accent data-[state=active]:text-white">
                 <Grid3X3 className="w-4 h-4" />
-                All Projects
+                All Work
               </TabsTrigger>
             </TabsList>
           </div>

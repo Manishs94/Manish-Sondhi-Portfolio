@@ -19,7 +19,7 @@ const Education = () => {
   {
     title: 'Generative AI for UX Designers',
     issuer: 'Coursera Instructor Network',
-    description: 'Specialized certification in applying generative AI and ChatGPT to UX design workflows. Covers AI-assisted design patterns, prompt engineering for design, workflow automation, and ethical considerations in AI-assisted UX.',
+    description: 'Specialized certification in applying generative AI and ChatGPT to UX design workflows. Covers AI-assisted design workflows, conversational UX patterns, workflow automation, and ethical considerations for responsible AI experiences.',
     credentialId: 'FS4PK9ZJ12M9',
     link: 'https://www.coursera.org/account/accomplishments/verify/FS4PK9ZJ12M9',
     type: 'certification'

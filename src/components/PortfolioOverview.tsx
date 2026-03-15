@@ -24,9 +24,9 @@ const PortfolioOverview = () => {
           <span className="inline-block px-4 py-2 bg-blue-100 text-portfolio-accent rounded-full font-medium mb-4">
             Selected Work
           </span>
-          <h2 className="section-heading">Case Studies in Complex Product Design</h2>
+          <h2 className="section-heading">Case Studies in Product Strategy, Systems Thinking, and Decision Support</h2>
           <p className="section-subheading mx-auto">
-            A curated selection of product design case studies demonstrating how I frame complex product problems, design scalable systems, and build tools that help teams make confident decisions.
+            A selection of case studies showing how I approach product strategy, system design, and workflow design across complex platforms. The work highlights how I simplify high-stakes operations, shape scalable product foundations, and design decision-support experiences where clarity and trust are critical.
           </p>
         </div>
         

@@ -191,10 +191,10 @@ export const ContactForm: React.FC = () => {
   }
 
   return (
-    <Card className="max-w-md mx-auto">
+      <Card className="max-w-md mx-auto">
         <CardHeader>
-        <CardTitle>Tell Me About Your Opportunity</CardTitle>
-        <p className="text-sm text-portfolio-text-light mt-2">Share a few details about the role, team, or product opportunity so I can quickly assess fit and respond appropriately.</p>
+        <CardTitle>Discuss a Role or Product Opportunity</CardTitle>
+        <p className="text-sm text-portfolio-text-light mt-2">Share a few details about the role, team, or product opportunity so I can quickly assess fit and respond.</p>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -245,14 +245,16 @@ export const ContactForm: React.FC = () => {
               className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-accent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
             >
               <option value="">Select one...</option>
-              <option value="fulltime">Full-time Opportunity</option>
-              <option value="enterprise">Enterprise Fintech Design</option>
-              <option value="ai-assisted">AI-Assisted UX / Intelligent Workflows</option>
-              <option value="redesign">Platform Redesign</option>
-              <option value="consultation">UX Consultation / Strategy</option>
-              <option value="system">Design System & Audit</option>
+              <option value="fulltime">Full-time Design Role</option>
+              <option value="ai-product">AI Product Design</option>
+              <option value="product-design">Product / UX / UI Design</option>
+              <option value="enterprise-platform">Enterprise Platform Design</option>
+              <option value="ai-systems">AI Product Design / Intelligent Systems</option>
+              <option value="platform">Product Platform Redesign</option>
+              <option value="consultation">Product UX Strategy / Consultation</option>
+              <option value="system">Design Systems / UX Audit</option>
               <option value="research">User Research / Testing</option>
-              <option value="workshop">Design Workshop / Training</option>
+              <option value="workshop">Workshop / Design Leadership</option>
               <option value="other">Other</option>
             </select>
           </div>
@@ -265,7 +267,7 @@ export const ContactForm: React.FC = () => {
               value={formData.message}
               onChange={handleInputChange}
               required
-              placeholder="Tell me about your project, timeline, and goals..."
+              placeholder="Tell me about the role, product, team, timeline, or design challenges..."
               className="min-h-[100px]"
             />
           </div>
@@ -341,7 +343,7 @@ export const ContactForm: React.FC = () => {
           {/* Reassuring Microcopy */}
           <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-md p-3 mt-4">
             <p className="text-xs text-blue-900 dark:text-blue-200">
-              <strong>✓ Personal review.</strong> I respond within 24 business hours. All inquiries treated confidentially.
+              <strong>✓ Personally reviewed.</strong> I respond within 24 business hours. All inquiries are treated confidentially.
             </p>
           </div>
         </form>

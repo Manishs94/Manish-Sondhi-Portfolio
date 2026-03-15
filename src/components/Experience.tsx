@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Briefcase, MapPin, Calendar, TrendingUp, Users, Award } from 'lucide-react';
 import ExperienceSkeleton from './ExperienceSkeleton';
 
+type ToolGroup = {
+  label: string;
+  items: string[];
+};
+
 const Experience = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [visibleExperiences, setVisibleExperiences] = useState<number[]>([]);
@@ -45,47 +50,58 @@ const Experience = () => {
       company: 'CYNC Software',
       location: 'Remote',
       period: 'Feb 2022 – Present',
-      description: 'Design lead for enterprise financial platforms including loan origination systems, collateral management platforms, and analytics dashboards used by lending operations and credit teams.',
+      description: 'Design lead for AI-enabled systems and complex product platforms including loan origination systems, collateral platforms, analytics dashboards, and decision-support tools used by lending operations and credit teams.',
       highlights: [
-        'Led UX design for Loan Origination Systems and collateral workflows, translating complex multi-system processes into intuitive user journeys.',
-        'Defined workflow architecture, interaction models, and system states to ensure consistent, scalable enterprise UX across Angular and React platforms.',
-        'Influenced product direction by shaping decision-support interfaces and operational dashboards to improve clarity and task accuracy.',
-        'Established reusable UI/UX patterns and component standards to enhance consistency, scalability, and engineering efficiency.',
-        'Designed AI-assisted workflows and contextual guidance systems for complex financial processes.',
-        'Built conversational UX patterns, fallback logic, and explainable AI interfaces to increase adoption and trust.',
-        'Facilitated design workshops and acted as the design authority for screen-level execution and workflow coherence across cross-functional teams.'
+        'Led product design for loan origination systems, collateral workflows, and analytics experiences, turning complex multi-system processes into clear, scalable user journeys.',
+        'Defined workflow architecture, interaction models, and system states to create consistent product foundations across Angular and React enterprise platforms.',
+        'Shaped decision-support interfaces and operational dashboards that improved visibility into key signals, task clarity, and review accuracy.',
+        'Established reusable UX patterns and component standards that strengthened consistency, scalability, and design-engineering efficiency.',
+        'Designed AI-assisted workflows and guidance patterns that integrated automated insights into high-stakes operational processes without removing human oversight.',
+        'Created conversational and explainability patterns that surfaced system outputs with clear context, confidence cues, fallback logic, and review workflows.',
+        'Facilitated design workshops and influenced cross-functional product decisions across product, engineering, and business stakeholders.'
       ],
       impact: [
-        { metric: 'Improved workflow clarity across complex digital platforms', icon: '🎯' },
-        { metric: 'Increased trust through explainable AI and guided experiences', icon: '📈' },
-        { metric: 'Strengthened cross-product consistency with reusable UX standards', icon: '🧩' },
-        { metric: 'Improved delivery quality through stronger design-engineering alignment', icon: '✓' }
+        { metric: 'Improved decision clarity across workflow-heavy product platforms', icon: '🎯' },
+        { metric: 'Reduced manual analysis through better dashboards, guidance, and review flows', icon: '📈' },
+        { metric: 'Increased trust in automated insights through explainable interaction patterns', icon: '🧩' },
+        { metric: 'Strengthened product delivery through tighter design-engineering alignment', icon: '✓' }
       ],
-      tools: ['Figma', 'Adobe XD', 'Jira', 'Confluence', 'ChatGPT', 'Angular', 'React', 'Workflow Design', 'Conversational UX', 'Explainable AI']
+      tools: [
+        { label: 'Design Tools', items: ['Figma', 'Adobe XD'] },
+        { label: 'Product & Collaboration', items: ['Jira', 'Confluence'] },
+        { label: 'AI-Assisted Tools', items: ['ChatGPT'] },
+        { label: 'Technologies', items: ['Angular', 'React'] },
+        { label: 'Specialties', items: ['Workflow Design', 'Conversational UX', 'Explainable AI'] }
+      ] as ToolGroup[]
     },
     {
       title: 'Senior UI/UX Designer',
       company: 'Bank of America',
       location: 'New York',
       period: 'Nov 2018 – Feb 2022',
-      description: 'Designed digital banking experiences across consumer web and mobile platforms used by millions of customers for payments, account management, and financial transactions.',
+      description: 'Designed large-scale consumer banking experiences across web and mobile platforms, improving usability, accessibility, and task success for payments, account management, and other critical financial workflows.',
       highlights: [
-        'Led UX initiatives for payments, account management, and operational workflows to improve usability and task completion.',
-        'Designed responsive web and native mobile experiences optimized for clarity, accessibility, and efficiency.',
-        'Simplified complex operational processes into intuitive user journeys for diverse audiences.',
-        'Facilitated cross-functional design discussions to align UX solutions with product and technical goals.',
-        'Influenced UX direction for multiple features by defining interaction patterns, system workflows, and component standards.',
-        'Conducted usability testing and user behavior analysis to identify friction points and improve task efficiency.',
+        'Led UX initiatives for payments, account management, and high-traffic banking workflows to improve usability and task completion at scale.',
+        'Designed responsive web and native mobile experiences optimized for clarity, accessibility, and efficient task flow.',
+        'Simplified complex financial tasks into intuitive user journeys for a broad consumer audience.',
+        'Facilitated cross-functional design discussions to align UX decisions with product goals, technical constraints, and compliance needs.',
+        'Defined interaction patterns, workflow structures, and reusable components across multiple features.',
+        'Used usability testing and behavioral analysis to uncover friction points and improve completion rates.',
         'Iterated designs using analytics insights and feedback from multiple user groups.',
-        'Contributed to reusable UI components and templates, and delivered high-fidelity prototypes, wireframes, and specifications to engineering teams.'
+        'Delivered prototypes, specifications, and reusable UI patterns that supported high-quality engineering implementation.'
       ],
       impact: [
-        { metric: 'Improved usability for core consumer banking workflows', icon: '📈' },
-        { metric: 'Improved task completion through clearer interaction patterns', icon: '✓' },
-        { metric: 'Increased consistency through reusable UI templates', icon: '🧩' },
-        { metric: 'Strengthened collaboration across product, design, and engineering', icon: '🤝' }
+        { metric: 'Improved usability across core consumer banking experiences', icon: '📈' },
+        { metric: 'Increased task completion through clearer interaction patterns', icon: '✓' },
+        { metric: 'Strengthened accessibility and consistency with reusable UI standards', icon: '🧩' },
+        { metric: 'Improved cross-functional execution across product, design, and engineering', icon: '🤝' }
       ],
-      tools: ['Figma', 'Adobe XD', 'Jira', 'Confluence', 'Wireframing', 'Prototyping', 'Usability Testing', 'Responsive Design', 'Design Systems']
+      tools: [
+        { label: 'Design Tools', items: ['Figma', 'Adobe XD'] },
+        { label: 'Product & Collaboration', items: ['Jira', 'Confluence'] },
+        { label: 'UX Methods', items: ['Wireframing', 'Prototyping', 'Usability Testing'] },
+        { label: 'Specialties', items: ['Responsive Design', 'Design Systems'] }
+      ] as ToolGroup[]
     },
     {
       title: 'UI/UX Designer',
@@ -94,37 +110,44 @@ const Experience = () => {
       period: 'Jan 2018 – Nov 2018',
       description: 'Partnered with early-stage startups to design MVP web and mobile products, helping founders translate product ideas into clear user flows, scalable UX foundations, and launch-ready interfaces.',
       highlights: [
-        'Collaborated with founders and product teams to define product concepts, user journeys, and feature requirements for early-stage digital products.',
-        'Designed end-to-end user experiences including information architecture, user flows, wireframes, and high-fidelity interfaces for web and mobile applications.',
-        'Rapidly iterated on product ideas through prototyping and feedback cycles in fast-paced startup environments.',
-        'Helped translate business goals and product vision into actionable UX solutions.',
-        'Created interactive prototypes and design specifications to support engineering implementation and product launch.',
-        'Delivered responsive design solutions optimized for usability across multiple devices.'
+        'Collaborated with founders and early product teams to define product concepts, user journeys, and feature priorities for 0→1 digital products.',
+        'Designed end-to-end product experiences including information architecture, user flows, wireframes, and high-fidelity interfaces for web and mobile applications.',
+        'Rapidly iterated on MVP concepts through prototyping and feedback cycles in fast-moving startup environments.',
+        'Translated business goals and early product vision into actionable UX direction and launch-ready product decisions.',
+        'Created interactive prototypes and design specifications to support engineering implementation and faster product launches.',
+        'Delivered responsive experiences optimized for usability across devices and evolving product requirements.'
       ],
       impact: [],
-      tools: ['Figma', 'Adobe XD', 'Wireframing', 'Prototyping', 'Information Architecture', 'Responsive Design', 'User Flows']
+      tools: [
+        { label: 'Design Tools', items: ['Figma', 'Adobe XD'] },
+        { label: 'UX Methods', items: ['Wireframing', 'Prototyping', 'Information Architecture'] },
+        { label: 'Product Foundations', items: ['Responsive Design', 'User Flows'] }
+      ] as ToolGroup[]
     },
     {
       title: 'Customer Service Representative',
       company: 'TD Bank',
       location: 'Absecon, NJ',
       period: 'Jan 2014 – Nov 2018',
-      description: 'Delivered high-quality customer-facing service while supporting branch operations and compliance standards. Built firsthand understanding of customer behavior, financial workflows, and service friction points that now informs product design decisions.',
+      description: 'Built a strong foundation in customer empathy, financial workflows, and real-world service behavior while supporting branch operations and compliance standards.',
       highlights: [
-        'Assisted customers with account management, transactions, and product education using clear, needs-based communication.',
-        'Built strong customer relationships through proactive support and recommendations tailored to user needs.',
+        'Assisted customers with account management, transactions, and product education through clear, needs-based communication.',
+        'Observed firsthand how people navigate financial tasks, service friction, and trust-sensitive interactions.',
         'Maintained 100% compliance with operational procedures, security policies, and regulatory standards.',
-        'Supported branch operations, team workflows, and training to improve daily efficiency and reliability.',
-        'Developed transferable strengths in problem-solving, communication, and operational workflow design.',
-        'Gained frontline insight into user pain points and behavior patterns that now inform customer-centered product decisions.'
+        'Supported branch operations and team workflows to improve daily efficiency and reliability.',
+        'Developed transferable strengths in problem-solving, communication, and operational awareness.',
+        'Gained frontline insight into customer pain points and real-world behavior that now informs product decisions.'
       ],
       impact: [
         { metric: 'Built deep empathy for real-world financial service users', icon: '🤝' },
         { metric: 'Maintained strong compliance and operational accuracy', icon: '✓' },
         { metric: 'Developed firsthand understanding of banking workflows', icon: '🏦' },
-        { metric: 'Strengthened communication and service design instincts', icon: '🧠' }
+        { metric: 'Strengthened communication and user-centered service instincts', icon: '🧠' }
       ],
-      tools: ['Customer Communication', 'Operations', 'Compliance', 'Problem Solving', 'Relationship Management', 'Financial Services']
+      tools: [
+        { label: 'Customer & Operations', items: ['Customer Communication', 'Operations', 'Compliance'] },
+        { label: 'Transferable Strengths', items: ['Problem Solving', 'Relationship Management', 'Financial Services'] }
+      ] as ToolGroup[]
     }
   ];
 
@@ -134,7 +157,7 @@ const Experience = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-heading dark:text-white">Work Experience</h2>
           <p className="section-subheading mx-auto dark:text-gray-300 mb-8">
-            Senior Product Designer with 8+ years designing complex enterprise and consumer digital products across SaaS platforms, analytics systems, and operational workflows. I specialize in transforming workflow-heavy tools and data-rich interfaces into intuitive experiences that improve efficiency, usability, and decision clarity.
+            Senior Product Designer with 8+ years designing AI-enabled systems, enterprise platforms, and data-driven product experiences. I specialize in transforming complex workflows, analytics tools, and operational systems into intuitive products that help teams interpret information, evaluate risk, and make confident decisions.
           </p>
         </div>
         
@@ -229,14 +252,23 @@ const Experience = () => {
                     <Award size={18} className="text-portfolio-accent transition-transform duration-300 group-hover:scale-110" />
                     Tools & Stack
                   </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {exp.tools.map((tool, idx) => (
-                      <span 
-                        key={idx}
-                        className="px-3 py-1 bg-portfolio-accent/10 text-portfolio-accent rounded-full text-sm font-medium transition-all duration-300 hover:bg-portfolio-accent hover:text-white hover:scale-105 cursor-pointer"
-                      >
-                        {tool}
-                      </span>
+                  <div className="space-y-3">
+                    {exp.tools.map((group: ToolGroup, idx) => (
+                      <div key={idx}>
+                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-portfolio-accent mb-2">
+                          {group.label}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {group.items.map((tool, toolIdx) => (
+                            <span
+                              key={toolIdx}
+                              className="px-3 py-1 bg-portfolio-accent/10 text-portfolio-accent rounded-full text-sm font-medium transition-all duration-300 hover:bg-portfolio-accent hover:text-white hover:scale-105 cursor-pointer"
+                            >
+                              {tool}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
                     ))}
                   </div>
                 </div>

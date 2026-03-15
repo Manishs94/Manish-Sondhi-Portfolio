@@ -32,9 +32,9 @@ const Hero = () => {
   return (
     <>
       <SEOHead 
-        title="Senior Product Designer Portfolio — Complex Platforms & Data Products"
-        description="Portfolio of a senior product designer specializing in complex digital products, enterprise platforms, analytics systems, and scalable UX for data-driven applications."
-        keywords="Senior Product Designer, Product Designer Portfolio, Complex Platforms, Data Products, Enterprise UX, Scalable Digital Systems"
+        title="Senior Product Designer Portfolio | AI-Enabled Systems, Product UX & Complex Platforms"
+        description="Senior Product Designer specializing in AI-enabled systems, product UX, complex workflows, decision-support platforms, and data-rich digital products."
+        keywords="Senior Product Designer Portfolio, AI Product Designer, Product UX, Complex Platforms, Decision-Support Design, Data Products, Enterprise UX"
       />
       
       <section id="home" className="pt-14 pb-12 md:pt-44 md:pb-32 relative overflow-hidden">
@@ -50,20 +50,22 @@ const Hero = () => {
             <div className="order-2 md:order-1">
               <div className={`mb-4 transition-all duration-1000 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
                 <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4">
-                  Senior Product Designer
+                  Senior Product Designer | AI-Enabled Systems & Product UX
                 </span>
               </div>
               
               <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-portfolio-text-dark dark:text-white mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                <span className="block text-portfolio-accent bg-gradient-to-r from-portfolio-accent to-blue-600 bg-clip-text text-transparent">Complex Platforms, Data Products & Intelligent Systems</span>
+                <span className="block text-portfolio-accent bg-gradient-to-r from-portfolio-accent to-blue-600 bg-clip-text text-transparent">Designing AI-enabled systems, complex platforms, and product experiences people can trust</span>
               </h1>
               
               <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-8 max-w-xl transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                I design complex digital products that help people understand information, make confident decisions, and navigate sophisticated workflows.
+                I design digital products where people interact with data, automation, and intelligent workflows to make confident decisions.
                 <br /><br />
-                My work spans enterprise platforms, analytics systems, financial technology, and consumer applications where clarity, usability, and trust are critical. I specialize in transforming operational complexity into intuitive product experiences that scale across teams and organizations.
-                <br /><br />
-                Designed enterprise platforms supporting complex financial operations, analytics workflows, and multi-role decision systems.
+                My work spans enterprise software, SaaS, fintech, and complex operational platforms, translating complexity into clear product experiences that balance usability, speed, and trust.
+              </p>
+
+              <p className={`text-sm font-medium text-portfolio-text-dark dark:text-gray-100 mb-8 max-w-xl transition-all duration-1000 delay-500 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
+                8+ years shaping workflow-heavy products, decision-support tools, and data-rich interfaces.
               </p>
               
               <div className={`flex flex-wrap gap-4 mb-8 transition-all duration-1000 delay-600 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
@@ -81,15 +83,15 @@ const Hero = () => {
               <div className={`grid grid-cols-1 sm:grid-cols-3 gap-4 transition-all duration-1000 delay-700 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
                 <div className="rounded-xl bg-white/80 dark:bg-gray-900/70 border border-blue-100 dark:border-gray-800 p-4 shadow-sm">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-portfolio-accent mb-2">Domains</p>
-                  <p className="text-sm text-portfolio-text-light dark:text-gray-300">Enterprise Platforms, Analytics & Data Products, Operational Workflow Systems, Decision-Support Interfaces</p>
+                  <p className="text-sm text-portfolio-text-light dark:text-gray-300">AI-enabled products, workflow platforms, decision-support tools, and data-rich applications across SaaS, fintech, and enterprise software</p>
                 </div>
                 <div className="rounded-xl bg-white/80 dark:bg-gray-900/70 border border-blue-100 dark:border-gray-800 p-4 shadow-sm">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-portfolio-accent mb-2">Systems</p>
-                  <p className="text-sm text-portfolio-text-light dark:text-gray-300">Complex workflow platforms, data-driven product experiences, multi-user operational tools, and products with regulatory, data, and decision dependencies</p>
+                  <p className="text-sm text-portfolio-text-light dark:text-gray-300">Multi-user products that combine data, automation, and explainable guidance across complex operational workflows</p>
                 </div>
                 <div className="rounded-xl bg-white/80 dark:bg-gray-900/70 border border-blue-100 dark:border-gray-800 p-4 shadow-sm">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-portfolio-accent mb-2">Outcomes</p>
-                  <p className="text-sm text-portfolio-text-light dark:text-gray-300">Clearer decisions, faster reviews, stronger trust in complex operations</p>
+                  <p className="text-sm text-portfolio-text-light dark:text-gray-300">More clarity, faster decisions, and greater trust in complex product experiences</p>
                 </div>
               </div>
               
@@ -105,7 +107,7 @@ const Hero = () => {
                 
                 <SocialShare 
                   title="Check out Manish Sondhi's UX Portfolio"
-                  description="Product design across complex platforms, data products, and scalable digital systems"
+                  description="Senior product design across AI-enabled systems, product UX, complex platforms, and decision-support experiences"
                 />
               </div>
             </div>

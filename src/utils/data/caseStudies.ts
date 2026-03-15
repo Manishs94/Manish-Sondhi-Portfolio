@@ -5,8 +5,8 @@ export const caseStudies: Project[] = [
   {
     id: 3,
     title: 'CYNC Collateral Platform',
-    subtitle: 'Enterprise collateral management platform supporting 50+ asset types and 200+ subtype configurations, enabling teams to monitor asset dependencies, manage lifecycle events, and maintain collateral coverage across complex loan portfolios.',
-    description: 'Enterprise collateral management platform supporting 50+ asset types and 200+ subtype configurations across lending portfolios, enabling teams to monitor asset dependencies, manage lifecycle events, and maintain collateral coverage.',
+    subtitle: 'Enterprise collateral management platform supporting 50+ asset types and 200+ subtype configurations, enabling teams to monitor dependencies, track lifecycle events, and maintain portfolio clarity across complex lending workflows.',
+    description: 'Enterprise collateral management platform supporting 50+ asset types and 200+ subtype configurations across lending portfolios, helping teams monitor collateral dependencies, lifecycle status, and coverage through a more structured operational system.',
     image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     category: ['Enterprise Fintech', 'Collateral Management', 'Enterprise Platform'],
     metrics: [
@@ -18,7 +18,7 @@ export const caseStudies: Project[] = [
     link: 'https://cync-collateral-0urjvt8.gamma.site',
     overview: {
       challenge: 'Collateral data was fragmented across workflows, making asset review, monitoring, and exception handling slower and harder to scale.',
-      solution: 'Designed a unified collateral management platform that gives lending teams structured visibility into asset dependencies, lifecycle events, and collateral coverage across complex loan portfolios.',
+      solution: 'Designed a unified collateral management platform that gives teams structured visibility into asset dependencies, lifecycle events, and collateral coverage, creating clearer monitoring workflows and scalable infrastructure for complex portfolio operations.',
       impact: '• Improved visibility into collateral coverage and asset dependencies\n• Faster collateral reviews across multi-role operations teams\n• Reduced manual coordination across complex portfolios\n• Clearer operational coordination between analysts and operations teams'
     },
     challenge: 'Collateral tracking workflows were difficult to monitor and validate across teams.',
@@ -30,7 +30,7 @@ export const caseStudies: Project[] = [
     id: 5,
     title: 'Securities-Based Lending (SBL)',
     subtitle: 'Enterprise securities-based lending platform supporting underwriting, portfolio monitoring, and exception management for credit operations and high-value lending decisions.',
-    description: 'Enterprise securities-based lending platform supporting underwriting workflows, portfolio monitoring, and exception management for credit teams and lending operations.',
+    description: 'Enterprise securities-based lending platform supporting underwriting workflows, portfolio monitoring, and exception management for credit teams making high-value, risk-sensitive lending decisions.',
     image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=1080',
     category: ['Enterprise Fintech', 'Securities-Based Lending', 'Decision Platform'],
     metrics: [
@@ -42,7 +42,7 @@ export const caseStudies: Project[] = [
     link: 'https://sbl-design-78bjaff.gamma.site/',
     overview: {
       challenge: 'Lending teams were working through securities-backed approvals with fragmented collateral visibility, unclear workflow states, and slow access to risk signals.',
-      solution: 'Designed a lending workflow platform integrating underwriting, collateral evaluation, and portfolio monitoring, enabling analysts and operations teams to review high-value lending decisions through shared data and structured approval states.',
+      solution: 'Designed a decision-support workflow that brought underwriting, collateral evaluation, and portfolio monitoring into a shared view, helping analysts and operations teams interpret risk signals, review exposure with more confidence, and move through structured approval states.',
       impact: '• Faster approval workflows for high-value lending decisions\n• Improved visibility into collateral and exposure risk\n• Reduced manual analysis across lending operations\n• Clearer operational coordination between analysts and operations teams'
     },
     challenge: 'SBL teams needed clearer workflow states and faster access to key lending signals.',
@@ -54,7 +54,7 @@ export const caseStudies: Project[] = [
     id: 4,
     title: 'CYNC Advance Analytics (CAA)',
     subtitle: 'Enterprise portfolio analytics platform enabling credit teams to evaluate portfolio health, analyze collateral performance, and monitor exposure risk in real time using interactive dashboards and decision-support insights.',
-    description: 'Enterprise portfolio analytics platform enabling credit teams to evaluate portfolio health, analyze collateral performance, and monitor exposure risk in real time using interactive dashboards and decision-support insights.',
+    description: 'Enterprise portfolio analytics platform enabling credit teams to monitor portfolio health, interpret exposure risk, and act on decision-support insights through interactive analysis and data-rich dashboards.',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1080',
     category: ['Enterprise Fintech', 'Advanced Analytics', 'Data Visualization'],
     metrics: [
@@ -66,7 +66,7 @@ export const caseStudies: Project[] = [
     link: 'https://cync-advance-analytics-dm754oh.gamma.site',
     overview: {
       challenge: 'Teams lacked a clear way to monitor portfolio health, spot exposure issues, and interpret performance trends across lending operations.',
-      solution: 'Designed interactive dashboards, filtering tools, and decision-support insights for credit teams and portfolio managers replacing manual spreadsheet-based analysis.',
+      solution: 'Designed interactive dashboards, filtering tools, and decision-support insights that helped credit teams and portfolio managers monitor portfolio health, surface exposure issues faster, and replace manual spreadsheet-based analysis with more actionable operational intelligence.',
       impact: '• Reduced manual analysis across lending operations\n• Improved visibility into collateral performance and exposure risk\n• Faster portfolio reviews for credit teams and managers\n• Stronger decision support across portfolio monitoring workflows'
     },
     challenge: 'Analytics dashboards were difficult to interpret quickly across different user roles.',
@@ -78,7 +78,7 @@ export const caseStudies: Project[] = [
     id: 2,
     title: 'Bank of America – Mobile Banking Redesign',
     subtitle: 'Redesigned core mobile banking experiences—bill payment, transfers, and account management—for a large-scale consumer audience, improving usability and accessibility across 68M+ active users.',
-    description: 'Led the redesign of critical consumer banking workflows on mobile platforms. Improved clarity, usability, and accessibility of payment scheduling, fund transfers, and account management—delivering a cohesive, mobile-first experience for millions of users while maintaining enterprise-level security and compliance requirements.',
+    description: 'Led the redesign of critical consumer banking workflows on mobile platforms, improving clarity, usability, and accessibility across payment scheduling, fund transfers, and account management for millions of users.',
     image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     category: ['Consumer Banking', 'Mobile UX', 'Accessibility Design', 'Fintech'],
     metrics: [
@@ -122,7 +122,7 @@ export const caseStudies: Project[] = [
     id: 0,
     title: 'Innovative Design Studio — Foundational Product Design for Early-Stage Teams',
     subtitle: 'Designing scalable product foundations for startups and mission-driven organizations working under tight timelines, limited resources, and evolving product requirements.',
-    description: 'Foundational product design work for startups and mission-driven teams, focused on clarifying user flows, improving usability, and creating scalable design foundations under early-stage constraints.',
+    description: 'Foundational product design work for startups and mission-driven teams, focused on clarifying user flows, improving usability, and building scalable product foundations under early-stage constraints.',
     image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1600',
     category: ['Product Design', 'UX Research', 'Early-Stage Products'],
     metrics: [
@@ -134,7 +134,7 @@ export const caseStudies: Project[] = [
     link: '/case-study/innovative-design-studio',
     overview: {
       challenge: 'Early-stage teams often lacked structured product workflows, validated user journeys, and clear interface foundations. Many were trying to move quickly toward MVP launches while balancing limited time, budget, and internal design maturity.',
-      solution: 'Designed foundational product experiences that helped early-stage teams clarify user flows, improve usability, and establish scalable UX foundations under tight delivery constraints.',
+      solution: 'Designed foundational product experiences that helped early-stage teams clarify user flows, shape early product strategy, improve usability, and establish scalable UX foundations under tight delivery constraints.',
       impact: '• Improved clarity and usability across core early-stage product flows\n• Faster developer handoff through more structured interaction design\n• Stronger alignment between founders, stakeholders, and delivery teams\n• More scalable design foundations for future product iteration'
     },
     challenge: 'Scaling UX on limited resources.',
