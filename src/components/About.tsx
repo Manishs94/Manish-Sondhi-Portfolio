@@ -5,13 +5,13 @@ const About = () => {
     name: 'Product Design & Strategy',
     icon: <Briefcase size={24} className="text-portfolio-accent" />
   }, {
-    name: 'Enterprise & Consumer UX',
+    name: 'Enterprise, SaaS & Fintech UX',
     icon: <Monitor size={24} className="text-portfolio-accent" />
   }, {
-    name: 'AI-Assisted UX Patterns',
+    name: 'AI-Assisted Workflows',
     icon: <Brain size={24} className="text-portfolio-accent" />
   }, {
-    name: 'Accessibility & Compliance',
+    name: 'Design Systems & Scale',
     icon: <Shield size={24} className="text-portfolio-accent" />
   }];
   return <section id="about" className="py-24 bg-portfolio-bg-light">
@@ -31,15 +31,15 @@ const About = () => {
             </span>
             <h2 className="section-heading">Senior Product Designer for AI-enabled systems, product UX, and complex workflows</h2>
             <p className="text-lg text-portfolio-text-light mb-6">
-              I&apos;m a Senior Product Designer focused on AI-enabled systems, product UX, and complex platforms where clarity matters as much as capability.
+              I&apos;m a Senior Product Designer with 8+ years of experience designing complex digital products across fintech, SaaS, enterprise systems, and consumer banking.
             </p>
 
             <p className="text-lg text-portfolio-text-light mb-6">
-              I design for analysts, operators, business teams, and customers working across data, automation, and decision-heavy workflows. My background spans enterprise software, fintech, SaaS, and digital products that require structure, trust, and speed.
+              I design for analysts, operators, business teams, and customers working across data, automation, and decision-heavy workflows. My focus is on AI-assisted systems, decision-support platforms, and operational products where users need to interpret information quickly and act with confidence.
             </p>
 
             <p className="text-lg text-portfolio-text-light mb-6">
-              My strength is translating complexity into usable product systems through strong UX craft, workflow thinking, and scalable interaction patterns. I&apos;m especially effective on products that need explainability, cross-functional alignment, and design foundations that can grow with the platform.
+              My strength is translating complex product logic, analytics, and machine-generated insights into clear product experiences through strong UX craft, workflow thinking, research, and scalable design systems. I&apos;m especially effective on products that need explainability, cross-functional alignment, and foundations that can evolve with the platform.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
@@ -58,7 +58,7 @@ const About = () => {
                 </li>
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span><strong>AI-assisted product experiences:</strong> Intelligent workflows with explainable guidance, clear system feedback, and human oversight</span>
+                  <span><strong>AI-assisted product experiences:</strong> Intelligent workflows with explainable guidance, confidence cues, clear system feedback, and human oversight</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
@@ -70,7 +70,7 @@ const About = () => {
                 </li>
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span><strong>Trustworthy interfaces:</strong> Data-rich experiences designed for visibility, confidence, and better decisions</span>
+                  <span><strong>Content-driven product UX:</strong> Flexible interfaces for messaging, lifecycle touchpoints, and CMS-like content structures that support iteration and adoption</span>
                 </li>
               </ul>
             </div>

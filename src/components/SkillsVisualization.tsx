@@ -9,47 +9,47 @@ interface SkillCategory {
 
 const skillCategories: SkillCategory[] = [
   {
-    title: 'Design & Product',
+    title: 'AI Product Design',
     skills: [
-      'Product Design',
-      'Enterprise UX',
-      'Design Systems',
-      'Accessibility (WCAG)',
-      'Interaction & Workflow Design',
-      'Visual Design'
+      'Human-AI Interaction',
+      'AI-Assisted Workflows',
+      'AI Decision-Support Systems',
+      'Explainable AI Interfaces',
+      'Human-in-the-Loop Systems',
+      'AI Trust & Transparency'
     ]
   },
   {
-    title: 'Research & Validation',
+    title: 'Product & Interaction Design',
+    skills: [
+      'End-to-End Product Design',
+      'UX Strategy',
+      'Interaction Design',
+      'Information Architecture',
+      'Complex Workflow Design',
+      'Dashboard & Data Visualization UX'
+    ]
+  },
+  {
+    title: 'Research, Systems & Impact',
     skills: [
       'User Research',
       'Usability Testing',
-      'Analytics-Informed Design',
-      'A/B Testing',
-      'Heuristic Evaluation',
-      'User Interviews'
+      'Design Systems',
+      'Component Libraries',
+      'Data-Driven Design',
+      'Conversion-Focused UX'
     ]
   },
   {
-    title: 'Tools & Platforms',
+    title: 'Tools & Collaboration',
     skills: [
       'Figma',
+      'FigJam',
+      'Miro',
       'Adobe XD',
-      'Protopie',
-      'Jira',
-      'Confluence',
-      'Miro'
-    ]
-  },
-  {
-    title: 'Technical & Collaboration',
-    skills: [
-      'Angular',
-      'React',
-      'TypeScript',
-      'HTML/CSS',
-      'Design Collaboration',
-      'Cross-functional Agile Teams'
+      'Jira & Confluence',
+      'Cross-Functional Collaboration'
     ]
   }
 ];
@@ -70,7 +70,7 @@ const SkillsVisualization = () => {
           </span>
           <h2 className="section-heading dark:text-white">Core Capabilities</h2>
           <p className="section-subheading">
-            Specialized expertise in enterprise product design, AI-enabled systems, research-backed UX, and cross-functional product collaboration.
+            Core capabilities drawn directly from hands-on work in AI-assisted systems, enterprise fintech, consumer banking, and scalable product design.
           </p>
         </div>
 

@@ -50,28 +50,27 @@ const Experience = () => {
       company: 'CYNC Software',
       location: 'Remote',
       period: 'Feb 2022 – Present',
-      description: 'Design lead for AI-enabled systems and complex product platforms including loan origination systems, collateral platforms, analytics dashboards, and decision-support tools used by lending operations and credit teams.',
+      description: 'Design lead for enterprise fintech platforms supporting securities-based lending, collateral management, portfolio analytics, and AI-assisted decision-support workflows.',
       highlights: [
-        'Led product design for loan origination systems, collateral workflows, and analytics experiences, turning complex multi-system processes into clear, scalable user journeys.',
-        'Defined workflow architecture, interaction models, and system states to create consistent product foundations across Angular and React enterprise platforms.',
-        'Shaped decision-support interfaces and operational dashboards that improved visibility into key signals, task clarity, and review accuracy.',
-        'Established reusable UX patterns and component standards that strengthened consistency, scalability, and design-engineering efficiency.',
-        'Designed AI-assisted workflows and guidance patterns that integrated automated insights into high-stakes operational processes without removing human oversight.',
-        'Created conversational and explainability patterns that surfaced system outputs with clear context, confidence cues, fallback logic, and review workflows.',
-        'Facilitated design workshops and influenced cross-functional product decisions across product, engineering, and business stakeholders.'
+        'Led UX design for enterprise lending platforms including loan origination systems, collateral management platforms, and portfolio analytics tools used by financial institutions.',
+        'Designed complex operational workflows enabling credit analysts, operations teams, and financial managers to evaluate collateral, manage lending decisions, and monitor portfolio health.',
+        'Defined workflow architecture, interaction models, and product states to ensure consistent, scalable UX across enterprise platforms.',
+        'Shaped decision-support interfaces, dashboards, onboarding patterns, and workflow tools that improved clarity, feature adoption, and task accuracy.',
+        'Designed AI-assisted workflows and contextual guidance systems that help analysts interpret automated insights, evaluate risk signals, and make faster lending decisions.',
+        'Built explainable AI interfaces with clear explanations, confidence indicators, human override capabilities, and conversational fallback logic.',
+        'Established reusable UX patterns and component standards while providing design leadership across cross-functional product initiatives.'
       ],
       impact: [
-        { metric: 'Improved decision clarity across workflow-heavy product platforms', icon: '🎯' },
-        { metric: 'Reduced manual analysis through better dashboards, guidance, and review flows', icon: '📈' },
-        { metric: 'Increased trust in automated insights through explainable interaction patterns', icon: '🧩' },
-        { metric: 'Strengthened product delivery through tighter design-engineering alignment', icon: '✓' }
+        { metric: 'Enabled clearer portfolio risk evaluation and collateral monitoring', icon: '🎯' },
+        { metric: 'Improved workflow efficiency through guided product experiences', icon: '📈' },
+        { metric: 'Strengthened trust in automation with explainable AI interaction patterns', icon: '🧩' },
+        { metric: 'Improved product consistency through reusable design standards', icon: '✓' }
       ],
       tools: [
-        { label: 'Design Tools', items: ['Figma', 'Adobe XD'] },
-        { label: 'Product & Collaboration', items: ['Jira', 'Confluence'] },
-        { label: 'AI-Assisted Tools', items: ['ChatGPT'] },
-        { label: 'Technologies', items: ['Angular', 'React'] },
-        { label: 'Specialties', items: ['Workflow Design', 'Conversational UX', 'Explainable AI'] }
+        { label: 'Design Tools', items: ['Figma', 'FigJam', 'Adobe XD'] },
+        { label: 'Product & Collaboration', items: ['Jira', 'Confluence', 'Product Workshops'] },
+        { label: 'Technologies', items: ['React'] },
+        { label: 'Specialties', items: ['Workflow Design', 'Conversational UX', 'Explainable AI', 'Human-in-the-Loop Systems'] }
       ] as ToolGroup[]
     },
     {
@@ -79,28 +78,30 @@ const Experience = () => {
       company: 'Bank of America',
       location: 'New York',
       period: 'Nov 2018 – Feb 2022',
-      description: 'Designed large-scale consumer banking experiences across web and mobile platforms, improving usability, accessibility, and task success for payments, account management, and other critical financial workflows.',
+      description: 'Designed digital banking experiences across consumer web and mobile platforms, supporting payments, account management, and other critical financial workflows.',
       highlights: [
-        'Led UX initiatives for payments, account management, and high-traffic banking workflows to improve usability and task completion at scale.',
+        'Led UX initiatives for payments, account management, and operational workflows, improving usability and task completion.',
         'Designed responsive web and native mobile experiences optimized for clarity, accessibility, and efficient task flow.',
         'Simplified complex financial tasks into intuitive user journeys for a broad consumer audience.',
-        'Facilitated cross-functional design discussions to align UX decisions with product goals, technical constraints, and compliance needs.',
+        'Facilitated cross-functional design discussions to align UX solutions with product and technical goals.',
         'Defined interaction patterns, workflow structures, and reusable components across multiple features.',
-        'Used usability testing and behavioral analysis to uncover friction points and improve completion rates.',
+        'Conducted usability testing and analyzed user behavior to identify friction points and improve task efficiency.',
         'Iterated designs using analytics insights and feedback from multiple user groups.',
+        'Applied principles aligned with lifecycle UX, A/B testing, and conversion-focused design improvements.',
         'Delivered prototypes, specifications, and reusable UI patterns that supported high-quality engineering implementation.'
       ],
       impact: [
         { metric: 'Improved usability across core consumer banking experiences', icon: '📈' },
         { metric: 'Increased task completion through clearer interaction patterns', icon: '✓' },
-        { metric: 'Strengthened accessibility and consistency with reusable UI standards', icon: '🧩' },
+        { metric: 'Strengthened consistency with reusable UI standards', icon: '🧩' },
         { metric: 'Improved cross-functional execution across product, design, and engineering', icon: '🤝' }
       ],
       tools: [
-        { label: 'Design Tools', items: ['Figma', 'Adobe XD'] },
+        { label: 'Design Tools', items: ['Figma', 'FigJam', 'Adobe XD'] },
         { label: 'Product & Collaboration', items: ['Jira', 'Confluence'] },
-        { label: 'UX Methods', items: ['Wireframing', 'Prototyping', 'Usability Testing'] },
-        { label: 'Specialties', items: ['Responsive Design', 'Design Systems'] }
+        { label: 'UX Methods', items: ['Wireframing', 'Prototyping', 'Usability Testing', 'Behavioral Insights'] },
+        { label: 'Technologies', items: ['Angular'] },
+        { label: 'Specialties', items: ['Responsive Design', 'Design Systems', 'Conversion-Focused UX'] }
       ] as ToolGroup[]
     },
     {
@@ -108,20 +109,21 @@ const Experience = () => {
       company: 'Innovative Design Studio',
       location: 'Freelance',
       period: 'Jan 2018 – Nov 2018',
-      description: 'Partnered with early-stage startups to design MVP web and mobile products, helping founders translate product ideas into clear user flows, scalable UX foundations, and launch-ready interfaces.',
+      description: 'Partnered with early-stage startups to design MVP web and mobile products, translating product ideas into scalable user experiences.',
       highlights: [
-        'Collaborated with founders and early product teams to define product concepts, user journeys, and feature priorities for 0→1 digital products.',
+        'Collaborated with founders and product teams to define product concepts, user journeys, and feature requirements for early-stage digital products.',
         'Designed end-to-end product experiences including information architecture, user flows, wireframes, and high-fidelity interfaces for web and mobile applications.',
-        'Rapidly iterated on MVP concepts through prototyping and feedback cycles in fast-moving startup environments.',
-        'Translated business goals and early product vision into actionable UX direction and launch-ready product decisions.',
+        'Rapidly iterated on product ideas through prototyping and feedback cycles in fast-moving startup environments.',
+        'Created wireframes, prototypes, and high-fidelity designs using Figma and FigJam for stakeholder collaboration.',
+        'Translated business goals and product vision into actionable UX direction and launch-ready product decisions.',
         'Created interactive prototypes and design specifications to support engineering implementation and faster product launches.',
         'Delivered responsive experiences optimized for usability across devices and evolving product requirements.'
       ],
       impact: [],
       tools: [
-        { label: 'Design Tools', items: ['Figma', 'Adobe XD'] },
+        { label: 'Design Tools', items: ['Figma', 'FigJam', 'Adobe XD'] },
         { label: 'UX Methods', items: ['Wireframing', 'Prototyping', 'Information Architecture'] },
-        { label: 'Product Foundations', items: ['Responsive Design', 'User Flows'] }
+        { label: 'Product Foundations', items: ['Responsive Design', 'User Flows', 'MVP Product Design'] }
       ] as ToolGroup[]
     },
     {
@@ -129,10 +131,10 @@ const Experience = () => {
       company: 'TD Bank',
       location: 'Absecon, NJ',
       period: 'Jan 2014 – Nov 2018',
-      description: 'Built a strong foundation in customer empathy, financial workflows, and real-world service behavior while supporting branch operations and compliance standards.',
+      description: 'Delivered high-quality customer service while supporting branch operations, compliance standards, and day-to-day banking workflows.',
       highlights: [
         'Assisted customers with account management, transactions, and product education through clear, needs-based communication.',
-        'Observed firsthand how people navigate financial tasks, service friction, and trust-sensitive interactions.',
+        'Built strong relationships through proactive support and needs-based recommendations.',
         'Maintained 100% compliance with operational procedures, security policies, and regulatory standards.',
         'Supported branch operations and team workflows to improve daily efficiency and reliability.',
         'Developed transferable strengths in problem-solving, communication, and operational awareness.',
@@ -157,7 +159,7 @@ const Experience = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-heading dark:text-white">Work Experience</h2>
           <p className="section-subheading mx-auto dark:text-gray-300 mb-8">
-            Senior Product Designer with 8+ years designing AI-enabled systems, enterprise platforms, and data-driven product experiences. I specialize in transforming complex workflows, analytics tools, and operational systems into intuitive products that help teams interpret information, evaluate risk, and make confident decisions.
+            Senior Product Designer with 8+ years designing complex digital products across fintech, SaaS, enterprise systems, and consumer banking. I specialize in AI-assisted systems, operational workflows, analytics tools, and product experiences that help teams interpret information, evaluate risk, and act with confidence.
           </p>
         </div>
         
