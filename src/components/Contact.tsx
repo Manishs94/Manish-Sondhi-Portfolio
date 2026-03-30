@@ -11,10 +11,10 @@ const Contact = () => {
       <div className="section-container">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className={`section-heading dark:text-white transition-all duration-700 delay-200 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-4'}`}>
-            Let&apos;s talk about senior product design and AI-enabled products
+            Let&apos;s talk about senior product design and enterprise platform opportunities
           </h2>
           <p className={`section-subheading mx-auto dark:text-gray-300 mb-6 transition-all duration-700 delay-300 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-4'}`}>
-            I&apos;m open to Senior Product Designer, AI Product Designer, and product UX opportunities where teams are building AI-enabled products, complex platforms, and data-driven systems that help people make better decisions.
+            I&apos;m open to Senior Product Designer and Design Lead opportunities at enterprise software companies, regulated-industry platforms, and mission-critical SaaS products — where teams are building complex operational systems, AI-assisted workflows, and high-stakes decision experiences.
             <br /><br />
             For hiring conversations or product design opportunities, the fastest way to reach me is via email or LinkedIn.
           </p>

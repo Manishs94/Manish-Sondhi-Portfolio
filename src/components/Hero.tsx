@@ -31,10 +31,10 @@ const Hero = () => {
 
   return (
     <>
-      <SEOHead 
-        title="Senior Product Designer Portfolio | AI-Enabled Systems, Product UX & Complex Platforms"
-        description="Senior Product Designer specializing in AI-enabled systems, product UX, complex workflows, decision-support platforms, and data-rich digital products."
-        keywords="Senior Product Designer Portfolio, AI Product Designer, Product UX, Complex Platforms, Decision-Support Design, Data Products, Enterprise UX"
+      <SEOHead
+        title="Senior Product Designer Portfolio | Enterprise Systems, AI-Enabled Workflows & Complex Operational Platforms"
+        description="Senior Product Designer with 8+ years designing enterprise systems, regulated workflows, and AI-assisted decision platforms used by analysts, operators, and business teams."
+        keywords="Senior Product Designer Portfolio, Enterprise UX, AI-Assisted Workflow Design, Complex Operational Platforms, Regulated Industry UX, Design Systems, Workflow Architecture"
       />
       
       <section id="home" className="pt-14 pb-12 md:pt-44 md:pb-32 relative overflow-hidden">
@@ -50,22 +50,22 @@ const Hero = () => {
             <div className="order-2 md:order-1">
               <div className={`mb-4 transition-all duration-1000 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
                 <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4">
-                  Senior Product Designer | AI-Enabled Systems & Product UX
+                  Senior Product Designer · Enterprise Systems · AI-Enabled Workflows · Complex Operational Platforms
                 </span>
               </div>
               
               <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-portfolio-text-dark dark:text-white mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                <span className="block text-portfolio-accent bg-gradient-to-r from-portfolio-accent to-blue-600 bg-clip-text text-transparent">Designing AI-enabled systems, complex platforms, and product experiences people can trust</span>
+                <span className="block text-portfolio-accent bg-gradient-to-r from-portfolio-accent to-blue-600 bg-clip-text text-transparent">Designing enterprise systems, AI-enabled workflows, and complex operational platforms people can trust</span>
               </h1>
-              
+
               <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-8 max-w-xl transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                I design digital products where people interact with data, automation, and intelligent workflows to make confident decisions.
+                Senior Product Designer with 8+ years designing enterprise systems where the cost of a bad UX decision is real — regulated workflows, high-stakes operational decisions, and complex multi-role platforms used by analysts, operators, and business teams.
                 <br /><br />
-                My work spans enterprise software, SaaS, fintech, and complex operational platforms, translating complexity into clear product experiences that balance usability, speed, and trust.
+                Background spans financial services, enterprise SaaS, and AI-assisted decision platforms — with deep experience in workflow architecture, design systems, and cross-functional leadership across product, engineering, and compliance stakeholders.
               </p>
 
               <p className={`text-sm font-medium text-portfolio-text-dark dark:text-gray-100 mb-8 max-w-xl transition-all duration-1000 delay-500 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                8+ years shaping workflow-heavy products, decision-support tools, and data-rich interfaces.
+                Actively targeting senior product design and design lead roles at enterprise software companies, regulated-industry platforms, and mission-critical SaaS products.
               </p>
               
               <div className={`flex flex-wrap gap-4 mb-8 transition-all duration-1000 delay-600 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>

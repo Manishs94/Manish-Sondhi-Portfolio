@@ -50,27 +50,29 @@ const Experience = () => {
       company: 'CYNC Software',
       location: 'Remote',
       period: 'Feb 2022 – Present',
-      description: 'Design lead for enterprise fintech platforms supporting securities-based lending, collateral management, portfolio analytics, and AI-assisted decision-support workflows.',
+      description: 'Design lead for a multi-module enterprise platform supporting complex lending operations, collateral workflows, portfolio analytics, and AI-assisted decisioning for regulated financial institutions.',
       highlights: [
-        'Led UX design for enterprise lending platforms including loan origination systems, collateral management platforms, and portfolio analytics tools used by financial institutions.',
-        'Designed complex operational workflows enabling credit analysts, operations teams, and financial managers to evaluate collateral, manage lending decisions, and monitor portfolio health.',
-        'Defined workflow architecture, interaction models, and product states to ensure consistent, scalable UX across enterprise platforms.',
-        'Shaped decision-support interfaces, dashboards, onboarding patterns, and workflow tools that improved clarity, feature adoption, and task accuracy.',
-        'Designed AI-assisted workflows and contextual guidance systems that help analysts interpret automated insights, evaluate risk signals, and make faster lending decisions.',
-        'Built explainable AI interfaces with clear explanations, confidence indicators, human override capabilities, and conversational fallback logic.',
-        'Established reusable UX patterns and component standards while providing design leadership across cross-functional product initiatives.'
+        'Owned end-to-end UX for a multi-module enterprise platform used by 15+ institutional clients — spanning intake, multi-party record management, compliance-driven workflows, and operational dashboards for analysts and operations teams.',
+        'Designed a structured parent-child record architecture for a complex multi-entity module — defining document ownership boundaries, role-based access patterns, and audit-ready state management across parent and child records.',
+        'Architected a third-party service integration module with a full API lifecycle UX covering four states (not ordered, pending, completed, failed), manual override modes, and dual-path workflows for integration-on and integration-off environments.',
+        'Consolidated a 4-step collateral evaluation workflow into a single contextual dashboard, reducing estimated analyst review time by ~30% — validated through stakeholder walkthroughs and iterative usability feedback.',
+        'Built a 60+ component design system (form controls, status indicators, data grids, workflow steppers) used across Angular and React platform modules, cutting design-to-dev handoff cycles significantly.',
+        'Led discovery with operations, compliance, and product stakeholders to translate regulatory and business requirements into actionable product specifications — a pattern directly applicable to HIPAA, legal, or insurance compliance contexts.',
+        'Designed AI-assisted decision interfaces that surface automated signals and risk flags with confidence indicators, contextual explanations, and human override controls — enabling operators to act on machine-generated insights without losing accountability or audit trails.',
+        'Developed explainable AI interface patterns (contextual guidance, fallback states, model transparency disclosures) that increased user trust in automated outputs across high-stakes review workflows.',
+        'Collaborated with AI/ML engineers to translate predictive model outputs into clear, actionable UI — reducing cognitive load and improving the speed and accuracy of analyst decisions.'
       ],
       impact: [
-        { metric: 'Enabled clearer portfolio risk evaluation and collateral monitoring', icon: '🎯' },
-        { metric: 'Improved workflow efficiency through guided product experiences', icon: '📈' },
-        { metric: 'Strengthened trust in automation with explainable AI interaction patterns', icon: '🧩' },
-        { metric: 'Improved product consistency through reusable design standards', icon: '✓' }
+        { metric: 'Reduced analyst review time ~30% through consolidated collateral dashboard', icon: '📈' },
+        { metric: '60+ component design system across Angular and React modules', icon: '🧩' },
+        { metric: 'Explainable AI interfaces maintaining accountability and audit trails', icon: '🎯' },
+        { metric: 'Compliance-driven UX applicable to HIPAA, legal, and insurance contexts', icon: '✓' }
       ],
       tools: [
         { label: 'Design Tools', items: ['Figma', 'FigJam', 'Adobe XD'] },
         { label: 'Product & Collaboration', items: ['Jira', 'Confluence', 'Product Workshops'] },
-        { label: 'Technologies', items: ['React'] },
-        { label: 'Specialties', items: ['Workflow Design', 'Conversational UX', 'Explainable AI', 'Human-in-the-Loop Systems'] }
+        { label: 'Technologies', items: ['Angular', 'React'] },
+        { label: 'Specialties', items: ['Workflow Architecture', 'Explainable AI', 'Human-in-the-Loop Systems', 'Compliance UX'] }
       ] as ToolGroup[]
     },
     {
@@ -126,31 +128,6 @@ const Experience = () => {
         { label: 'Product Foundations', items: ['Responsive Design', 'User Flows', 'MVP Product Design'] }
       ] as ToolGroup[]
     },
-    {
-      title: 'Customer Service Representative',
-      company: 'TD Bank',
-      location: 'Absecon, NJ',
-      period: 'Jan 2014 – Nov 2018',
-      description: 'Delivered high-quality customer service while supporting branch operations, compliance standards, and day-to-day banking workflows.',
-      highlights: [
-        'Assisted customers with account management, transactions, and product education through clear, needs-based communication.',
-        'Built strong relationships through proactive support and needs-based recommendations.',
-        'Maintained 100% compliance with operational procedures, security policies, and regulatory standards.',
-        'Supported branch operations and team workflows to improve daily efficiency and reliability.',
-        'Developed transferable strengths in problem-solving, communication, and operational awareness.',
-        'Gained frontline insight into customer pain points and real-world behavior that now informs product decisions.'
-      ],
-      impact: [
-        { metric: 'Built deep empathy for real-world financial service users', icon: '🤝' },
-        { metric: 'Maintained strong compliance and operational accuracy', icon: '✓' },
-        { metric: 'Developed firsthand understanding of banking workflows', icon: '🏦' },
-        { metric: 'Strengthened communication and user-centered service instincts', icon: '🧠' }
-      ],
-      tools: [
-        { label: 'Customer & Operations', items: ['Customer Communication', 'Operations', 'Compliance'] },
-        { label: 'Transferable Strengths', items: ['Problem Solving', 'Relationship Management', 'Financial Services'] }
-      ] as ToolGroup[]
-    }
   ];
 
   return (
@@ -159,7 +136,7 @@ const Experience = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-heading dark:text-white">Work Experience</h2>
           <p className="section-subheading mx-auto dark:text-gray-300 mb-8">
-            Senior Product Designer with 8+ years designing complex digital products across fintech, SaaS, enterprise systems, and consumer banking. I specialize in AI-assisted systems, operational workflows, analytics tools, and product experiences that help teams interpret information, evaluate risk, and act with confidence.
+            Senior Product Designer with 8+ years designing enterprise systems where the cost of a bad UX decision is real — regulated workflows, high-stakes operational decisions, and complex multi-role platforms used by analysts, operators, and business teams across financial services, enterprise SaaS, and AI-assisted decision platforms.
           </p>
         </div>
         

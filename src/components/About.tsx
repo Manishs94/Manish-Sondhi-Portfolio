@@ -2,16 +2,16 @@ import React from 'react';
 import { Briefcase, Monitor, Brain, Shield } from 'lucide-react';
 const About = () => {
   const skills = [{
-    name: 'Product Design & Strategy',
+    name: 'Enterprise & Regulated-Industry UX',
     icon: <Briefcase size={24} className="text-portfolio-accent" />
   }, {
-    name: 'Enterprise, SaaS & Fintech UX',
-    icon: <Monitor size={24} className="text-portfolio-accent" />
-  }, {
-    name: 'AI-Assisted Workflows',
+    name: 'AI-Assisted Workflow Design',
     icon: <Brain size={24} className="text-portfolio-accent" />
   }, {
-    name: 'Design Systems & Scale',
+    name: 'Design Systems & Component Libraries',
+    icon: <Monitor size={24} className="text-portfolio-accent" />
+  }, {
+    name: 'Workflow Architecture & IA',
     icon: <Shield size={24} className="text-portfolio-accent" />
   }];
   return <section id="about" className="py-24 bg-portfolio-bg-light">
@@ -29,17 +29,17 @@ const About = () => {
             <span className="inline-block px-4 py-2 bg-blue-100 text-portfolio-accent rounded-full font-medium mb-4">
               About
             </span>
-            <h2 className="section-heading">Senior Product Designer for AI-enabled systems, product UX, and complex workflows</h2>
+            <h2 className="section-heading">Senior Product Designer for enterprise systems, AI-enabled workflows, and complex operational platforms</h2>
             <p className="text-lg text-portfolio-text-light mb-6">
-              I&apos;m a Senior Product Designer with 8+ years of experience designing complex digital products across fintech, SaaS, enterprise systems, and consumer banking.
+              I&apos;m a Senior Product Designer with 8+ years designing enterprise systems where the cost of a bad UX decision is real — regulated workflows, high-stakes operational decisions, and complex multi-role platforms used by analysts, operators, and business teams. Proven ability to translate dense technical and compliance requirements into clear, scalable product experiences that people actually trust and use.
             </p>
 
             <p className="text-lg text-portfolio-text-light mb-6">
-              I design for analysts, operators, business teams, and customers working across data, automation, and decision-heavy workflows. My focus is on AI-assisted systems, decision-support platforms, and operational products where users need to interpret information quickly and act with confidence.
+              Background spans financial services, enterprise SaaS, and AI-assisted decision platforms — with deep experience in workflow architecture, design systems, and cross-functional leadership across product, engineering, and compliance stakeholders. Equally at home designing for clinicians, analysts, case managers, underwriters, or operations teams: the discipline is the same, the domain changes.
             </p>
 
             <p className="text-lg text-portfolio-text-light mb-6">
-              My strength is translating complex product logic, analytics, and machine-generated insights into clear product experiences through strong UX craft, workflow thinking, research, and scalable design systems. I&apos;m especially effective on products that need explainability, cross-functional alignment, and foundations that can evolve with the platform.
+              Actively targeting senior product design and design lead roles at enterprise software companies, regulated-industry platforms, and mission-critical SaaS products.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
@@ -54,23 +54,23 @@ const About = () => {
               <ul className="space-y-2 mb-6">
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span><strong>Decision-heavy workflows:</strong> Guided experiences for review, approvals, exceptions, and next-step clarity</span>
+                  <span><strong>Enterprise & regulated workflows:</strong> Multi-role platforms for analysts, operators, underwriters, and compliance teams navigating high-stakes decisions</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span><strong>AI-assisted product experiences:</strong> Intelligent workflows with explainable guidance, confidence cues, clear system feedback, and human oversight</span>
+                  <span><strong>AI-assisted decision interfaces:</strong> Explainable signals, confidence indicators, human override controls, and audit-ready interaction patterns</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span><strong>Multi-user systems:</strong> Shared environments for analysts, operators, managers, and customers working from the same source of truth</span>
+                  <span><strong>Complex operational systems:</strong> Multi-module platforms with parent-child record architecture, role-based access, and compliance-driven workflow states</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span><strong>Scalable product foundations:</strong> Reusable patterns, design systems, and flexible interaction models built for growing platforms</span>
+                  <span><strong>Scalable design systems:</strong> 60+ component libraries across Angular and React platforms, cutting design-to-dev handoff cycles significantly</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-portfolio-accent mr-2">▹</span>
-                  <span><strong>Content-driven product UX:</strong> Flexible interfaces for messaging, lifecycle touchpoints, and CMS-like content structures that support iteration and adoption</span>
+                  <span><strong>Cross-functional alignment:</strong> Translating regulatory, compliance, and business requirements into actionable product specifications across HIPAA, legal, and insurance contexts</span>
                 </li>
               </ul>
             </div>

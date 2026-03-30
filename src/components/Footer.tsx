@@ -16,10 +16,10 @@ const Footer = () => {
           <div className="flex-1">
             <a href="#" className="text-2xl font-bold">Manish <span className="text-portfolio-accent">Sondhi</span></a>
             <p className="text-gray-300 mt-3 max-w-md font-medium">
-              Designing AI-enabled systems, complex platforms, and data-driven products that help teams interpret information, evaluate risk, and make confident decisions.
+              Designing enterprise systems, AI-enabled workflows, and complex operational platforms for analysts, operators, and business teams in regulated industries.
             </p>
             <p className="text-gray-400 mt-2 text-sm">
-              8+ years designing workflow-heavy products, scalable systems, and trustworthy data-rich interfaces.
+              8+ years translating dense technical and compliance requirements into clear, scalable product experiences people actually trust and use.
             </p>
             
             {/* Secondary CTAs */}
@@ -44,10 +44,10 @@ const Footer = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Focus Areas</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">AI-Enabled Product Design</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Product UX</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Complex Platforms</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Decision-Support Design</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Enterprise & Regulated-Industry UX</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">AI-Assisted Workflow Design</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Complex Operational Platforms</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Design Systems & Component Libraries</a></li>
               </ul>
             </div>
           </div>

@@ -9,15 +9,15 @@ const ExperienceOverview = () => {
     company: 'CYNC Software',
     location: 'Remote',
     period: 'Feb 2022 – Present',
-    description: `Design lead for complex digital platforms spanning workflow-heavy systems, analytics experiences, and operational tools. Responsible for product design leadership, workflow architecture, and system-level UX strategy.`,
+    description: `Design lead for a multi-module enterprise platform used by 15+ institutional clients — spanning intake, multi-party record management, compliance-driven workflows, and operational dashboards for analysts and operations teams at regulated financial institutions.`,
     highlights: [
-      'Led UX design for Loan Origination Systems and collateral workflows, translating complex multi-system processes into intuitive user journeys.',
-      'Defined workflow architecture, interaction models, and system states to ensure consistent, scalable enterprise UX across Angular and React platforms.',
-      'Influenced product direction by shaping decision-support interfaces and operational dashboards, improving clarity and task accuracy.',
-      'Established reusable UI/UX patterns and component standards, improving consistency and engineering efficiency.',
-      'Designed AI-assisted workflows and contextual guidance systems for complex financial processes.',
-      'Built conversational UX patterns, fallback logic, and explainable AI interfaces to increase adoption and trust.',
-      'Facilitated design workshops and collaborated closely with engineering to deliver production-ready UX across enterprise systems.'
+      'Owned end-to-end UX for a multi-module enterprise platform — spanning compliance-driven workflows, role-based record management, and operational dashboards across Angular and React.',
+      'Designed a structured parent-child record architecture defining document ownership boundaries, role-based access patterns, and audit-ready state management.',
+      'Consolidated a 4-step collateral evaluation workflow into a single contextual dashboard, reducing estimated analyst review time by ~30%.',
+      'Built a 60+ component design system (form controls, status indicators, data grids, workflow steppers) cutting design-to-dev handoff cycles significantly.',
+      'Led discovery with operations, compliance, and product stakeholders to translate regulatory requirements into actionable product specifications — applicable to HIPAA, legal, and insurance contexts.',
+      'Designed AI-assisted decision interfaces with confidence indicators, contextual explanations, and human override controls — maintaining accountability and audit trails.',
+      'Collaborated with AI/ML engineers to translate predictive model outputs into clear, actionable UI — improving analyst decision speed and accuracy.'
     ]
   };
 
