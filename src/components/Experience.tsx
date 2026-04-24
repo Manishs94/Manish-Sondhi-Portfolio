@@ -53,12 +53,13 @@ const Experience = () => {
       description: 'Design lead for a multi-module enterprise platform supporting complex lending operations, collateral workflows, portfolio analytics, and AI-assisted decisioning for regulated financial institutions.',
       highlights: [
         'Owned end-to-end UX for a multi-module enterprise platform used by 15+ institutional clients — spanning intake, multi-party record management, compliance-driven workflows, and operational dashboards for analysts and operations teams.',
+        'Led end-to-end design of collateral management module supporting 50+ asset types across Commercial, Consumer, ABL, Warehouse, and Specialty Lending products.',
         'Designed a structured parent-child record architecture for a complex multi-entity module — defining document ownership boundaries, role-based access patterns, and audit-ready state management across parent and child records.',
-        'Architected a third-party service integration module with a full API lifecycle UX covering four states (not ordered, pending, completed, failed), manual override modes, and dual-path workflows for integration-on and integration-off environments.',
+        'Integrated third-party data providers (Dataverify flood services, EODHD market data) into collateral evaluation workflows with inline API/manual mode toggling.',
         'Consolidated a 4-step collateral evaluation workflow into a single contextual dashboard, reducing estimated analyst review time by ~30% — validated through stakeholder walkthroughs and iterative usability feedback.',
-        'Built a 60+ component design system (form controls, status indicators, data grids, workflow steppers) used across Angular and React platform modules, cutting design-to-dev handoff cycles significantly.',
+        'Built Cync\'s first formal design system — 60+ production components (form controls, status indicators, data grids, workflow steppers) used across the full LOS product suite, cutting design-to-dev handoff cycles significantly.',
         'Led discovery with operations, compliance, and product stakeholders to translate regulatory and business requirements into actionable product specifications — a pattern directly applicable to HIPAA, legal, or insurance compliance contexts.',
-        'Designed AI-assisted decision interfaces that surface automated signals and risk flags with confidence indicators, contextual explanations, and human override controls — enabling operators to act on machine-generated insights without losing accountability or audit trails.',
+        'Designed AI-assisted decisioning interfaces — confidence scoring display, human override workflows, and audit trail documentation — enabling operators to act on machine-generated insights without losing accountability or regulatory compliance.',
         'Developed explainable AI interface patterns (contextual guidance, fallback states, model transparency disclosures) that increased user trust in automated outputs across high-stakes review workflows.',
         'Collaborated with AI/ML engineers to translate predictive model outputs into clear, actionable UI — reducing cognitive load and improving the speed and accuracy of analyst decisions.'
       ],
@@ -82,21 +83,21 @@ const Experience = () => {
       period: 'Nov 2018 – Feb 2022',
       description: 'Designed digital banking experiences across consumer web and mobile platforms, supporting payments, account management, and other critical financial workflows.',
       highlights: [
-        'Led UX initiatives for payments, account management, and operational workflows, improving usability and task completion.',
-        'Designed responsive web and native mobile experiences optimized for clarity, accessibility, and efficient task flow.',
-        'Simplified complex financial tasks into intuitive user journeys for a broad consumer audience.',
-        'Facilitated cross-functional design discussions to align UX solutions with product and technical goals.',
+        'Simplified a 7-step bill payment flow to 4 steps using progressive disclosure — reduced drop-off at primary task step by 20%.',
+        'Led usability testing sessions with 12+ participants across 3 payment workflows, translating behavioral insights into interaction improvements.',
+        'Designed transfer template management system for recurring transactions — reduced repeat-entry friction for high-frequency users.',
+        'Delivered WCAG 2.1 AA compliance across all redesigned flows — color contrast ratios, keyboard navigation, and screen reader labeling.',
+        'Designed responsive web and native mobile experiences across account management, payments, and operational workflows for 68M+ active users.',
+        'Facilitated cross-functional design discussions to align UX solutions with product and technical goals across mobile development and QA teams.',
         'Defined interaction patterns, workflow structures, and reusable components across multiple features.',
-        'Conducted usability testing and analyzed user behavior to identify friction points and improve task efficiency.',
-        'Iterated designs using analytics insights and feedback from multiple user groups.',
-        'Applied principles aligned with lifecycle UX, A/B testing, and conversion-focused design improvements.',
-        'Delivered prototypes, specifications, and reusable UI patterns that supported high-quality engineering implementation.'
+        'Iterated designs using behavioral analytics and A/B testing insights across multiple user segments.',
+        'Delivered prototypes and specifications supporting high-quality engineering implementation across iOS and Android platforms.'
       ],
       impact: [
-        { metric: 'Improved usability across core consumer banking experiences', icon: '📈' },
-        { metric: 'Increased task completion through clearer interaction patterns', icon: '✓' },
-        { metric: 'Strengthened consistency with reusable UI standards', icon: '🧩' },
-        { metric: 'Improved cross-functional execution across product, design, and engineering', icon: '🤝' }
+        { metric: '20% drop-off reduction at primary bill pay task step', icon: '📈' },
+        { metric: '12+ usability testing participants across 3 core workflows', icon: '✓' },
+        { metric: 'WCAG 2.1 AA compliance across all redesigned flows', icon: '🧩' },
+        { metric: '68M+ active users impacted across redesigned mobile experiences', icon: '🤝' }
       ],
       tools: [
         { label: 'Design Tools', items: ['Figma', 'FigJam', 'Adobe XD'] },

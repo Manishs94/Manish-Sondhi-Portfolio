@@ -42,12 +42,12 @@ const Footer = () => {
             </div>
             
             <div>
-              <h3 className="text-lg font-semibold mb-4">Focus Areas</h3>
+              <h3 className="text-lg font-semibold mb-4">Specializations</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Enterprise & Regulated-Industry UX</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">AI-Assisted Workflow Design</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Complex Operational Platforms</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Design Systems & Component Libraries</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">AI-Assisted Decision Interfaces</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Enterprise Collateral & Lending Systems</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Design Systems for Regulated Platforms</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Consumer Banking at Scale (68M+ users)</a></li>
               </ul>
             </div>
           </div>
