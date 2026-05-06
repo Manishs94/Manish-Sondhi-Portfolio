@@ -24,7 +24,26 @@ export const caseStudies: Project[] = [
     challenge: 'Collateral tracking workflows were difficult to monitor and validate across teams.',
     process: 'Mapped collateral lifecycle states, designed streamlined review flows, and validated dashboards for status clarity.',
     status: 'Completed',
-    isCaseStudy: true
+    isCaseStudy: true,
+    productType: 'Enterprise Collateral Management Platform',
+    platforms: 'Web (Enterprise SaaS)',
+    timeline: 'Multi-module, multi-quarter initiative',
+    role: 'Senior Product & UX Designer',
+    team: ['Product', 'Engineering', 'Risk', 'Compliance'],
+    responsibilities: [
+      'Led end-to-end design of a collateral management platform supporting 50+ asset types and 200+ subtype configurations.',
+      'Mapped collateral lifecycle states and designed streamlined review and monitoring workflows.',
+      'Built 60+ reusable components that became Cync\'s first formal design system.',
+      'Integrated third-party data sources (Dataverify, EODHD) into inline override and validation workflows.',
+      'Designed for 5 distinct loan product types: Commercial, Consumer, ABL, Warehouse, and Specialty Lending.',
+      'Partnered with engineering and risk teams to validate data hierarchy and edge case handling.'
+    ],
+    outcomes: [
+      'Unified 50+ asset types and 200+ subtype configurations into a single platform, previously managed across disconnected workflows.',
+      'Designed across 5 loan product types, replacing fragmented tooling with one coherent operational system.',
+      'Built 60+ reusable components that formed Cync\'s first formal design system.',
+      'Integrated Flood, Valuation, and Insurance data via third-party APIs with inline override logic.'
+    ]
   },
   {
     id: 5,
@@ -48,7 +67,26 @@ export const caseStudies: Project[] = [
     challenge: 'SBL teams needed clearer workflow states and faster access to key lending signals.',
     process: 'Mapped SBL decision flows, designed role-aware interfaces, and validated with iterative feedback cycles.',
     status: 'Completed',
-    isCaseStudy: true
+    isCaseStudy: true,
+    productType: 'Enterprise Decision Support Platform',
+    platforms: 'Web (Enterprise SaaS)',
+    timeline: 'Multi-phase delivery',
+    role: 'Senior Product & UX Designer',
+    team: ['Product', 'Engineering', 'Credit Operations', 'Risk'],
+    responsibilities: [
+      'Designed underwriting, portfolio monitoring, and exception management workflows for credit teams.',
+      'Mapped SBL decision flows and created role-aware interfaces for analysts and operations teams.',
+      'Unified collateral evaluation, underwriting, and portfolio monitoring into a shared decision view.',
+      'Designed structured approval states with built-in audit trail for regulatory compliance.',
+      'Validated designs through iterative feedback cycles with lending teams and stakeholders.',
+      'Increased loan volume capacity from 12 to 28 loans per analyst per month (projected, stakeholder-validated).'
+    ],
+    outcomes: [
+      'Approval cycle time reduced from 6.2 days to 1.8 days, based on time-study analysis of 15 loan workflows.',
+      'Analyst manual prep time cut from 4.2 hours to 0.8 hours per loan by unifying 4 previously separate systems.',
+      'Loan volume capacity increased from 12 to 28 loans per analyst per month (projected, stakeholder-validated).',
+      'Full audit trail per decision — designed for regulatory compliance from day one.'
+    ]
   },
   {
     id: 4,
@@ -72,7 +110,26 @@ export const caseStudies: Project[] = [
     challenge: 'Analytics dashboards were difficult to interpret quickly across different user roles.',
     process: 'Defined analytics user journeys, designed data-first layouts, and validated usability for high-density information views.',
     status: 'Completed',
-    isCaseStudy: true
+    isCaseStudy: true,
+    productType: 'Enterprise Analytics Platform',
+    platforms: 'Web (Enterprise SaaS)',
+    timeline: 'Multi-phase delivery',
+    role: 'Senior Product & UX Designer',
+    team: ['Product', 'Engineering', 'Data'],
+    responsibilities: [
+      'Designed an analytics platform for enterprise credit and operations teams to monitor portfolio health and exposure.',
+      'Established reusable dashboard component patterns used across Cync\'s LOS product suite.',
+      'Translated complex data workflows into intuitive visualizations and decision-support dashboards.',
+      'Designed a filtering system handling 50+ collateral types with real-time exposure surfacing.',
+      'Partnered with product, engineering, and data teams to align on analytics requirements and insight delivery.',
+      'Validated designs for usability, performance, and accessibility compliance across high-density data views.'
+    ],
+    outcomes: [
+      'Replaced spreadsheet-based portfolio monitoring used by 3+ analyst roles across credit and operations.',
+      'Designed filtering system handling 50+ collateral types with real-time exposure surfacing.',
+      'Reduced time-to-insight for portfolio health reviews, validated through stakeholder walkthroughs.',
+      'Established reusable dashboard component patterns now used across Cync\'s LOS product suite.'
+    ]
   },
   {
     id: 2,
@@ -116,6 +173,22 @@ export const caseStudies: Project[] = [
       'Detailed error handling and validation feedback'
     ],
     status: 'Completed',
-    isCaseStudy: true
+    isCaseStudy: true,
+    productType: 'Consumer Banking Mobile Application',
+    platforms: 'iOS & Android',
+    responsibilities: [
+      'Designed end-to-end mobile banking experiences for high-volume consumer users across payment, transfer, and account management flows.',
+      'Simplified payment scheduling and improved task completion across iOS, Android, and web.',
+      'Conducted user research and usability testing with 40+ participants to identify friction points and optimize flows.',
+      'Worked closely with engineers to ensure design feasibility and implementation fidelity.',
+      'Ensured WCAG 2.1 AA accessibility compliance across all redesigned workflows.',
+      'Improved trust and clarity in high-stakes financial transactions through progressive disclosure and clear error states.'
+    ],
+    outcomes: [
+      '40% improvement in task completion rates, measured via behavioral analytics pre/post redesign.',
+      '25% increase in feature adoption for bill pay and transfers, tracked through in-app instrumentation.',
+      '35% reduction in support tickets tied to redesigned workflows, validated against support operations data.',
+      'Full WCAG 2.1 AA compliance across all redesigned flows — color contrast, keyboard navigation, screen reader support.'
+    ]
   }
 ];
