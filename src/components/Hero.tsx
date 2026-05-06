@@ -33,7 +33,7 @@ const Hero = () => {
     <>
       <SEOHead
         title="Manish Sondhi — AI & Enterprise Product Designer | Fintech, Lending Systems, Design Systems"
-        description="Senior Product Designer specializing in AI-enabled decisioning workflows, enterprise collateral management, and regulated lending platforms. 8+ years at Cync Software (nCino) and Bank of America."
+        description="Senior Product Designer specializing in AI-enabled decisioning workflows, enterprise collateral management, and regulated lending platforms. 8+ years at Cync Software and Bank of America."
         keywords="Senior Product Designer Portfolio, AI-Enabled Decision Interfaces, Enterprise Fintech UX, Collateral Management Design, Lending Platform UX, Regulated Industry Design, Design Systems"
       />
       
@@ -59,7 +59,7 @@ const Hero = () => {
               </h1>
 
               <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-8 max-w-xl transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                Senior Product Designer with 8+ years in enterprise fintech — building collateral management systems, AI-assisted decisioning workflows, and regulated lending platforms at Cync Software (nCino) and Bank of America. I work closest to the decisions that are expensive to get wrong.
+                Senior Product Designer with 8+ years in enterprise fintech — building collateral management systems, AI-assisted decisioning workflows, and regulated lending platforms at Cync Software and Bank of America. I work closest to the decisions that are expensive to get wrong.
               </p>
 
               <p className={`text-sm font-medium text-portfolio-text-dark dark:text-gray-100 mb-8 max-w-xl transition-all duration-1000 delay-500 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
