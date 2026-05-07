@@ -66,7 +66,7 @@ export const caseStudies: Project[] = [
       { icon: 'activity', value: '41%', label: 'Error Reduction via Inline Validation' }
     ],
     tools: ['Figma', 'Uizard', 'Analytics', 'Protopie'],
-    link: 'https://cre-comparable-integrati-w3y90dv.gamma.site/',
+    link: 'https://cre-comparable-integrati-zwjndil.gamma.site/',
     overview: {
       challenge: 'Loan officers spent an average of 45 minutes per property gathering comparable data from disparate sources. Manual entry across multiple systems created data inconsistency across teams and complex workflows that bottlenecked underwriting review.',
       solution: 'Designed a unified interface integrating existing internal comparable data into the LOS with dual-view functionality — a synchronized map and sortable list — accommodating both automated suggestions and manual additions with real-time field-level validation and status indicators distinguishing system-suggested from manually added comparables.',
