@@ -3,6 +3,57 @@ import { Project } from '../types/project';
 // Case studies - in-depth projects
 export const caseStudies: Project[] = [
   {
+    id: 6,
+    title: 'CRE Comparable Integration',
+    subtitle: 'Unified dual-view interface for comparable property analysis in commercial real estate loan origination — reducing per-property research time by 68%.',
+    description: 'Designed a unified comparable property interface integrating internal LOS data with a synchronized map and list view, enabling loan officers and underwriters to evaluate CRE valuations faster with less manual data entry and fewer cross-system switches.',
+    image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&q=80&w=1080',
+    category: ['Enterprise Fintech', 'Commercial Real Estate', 'Data Visualization'],
+    metrics: [
+      { icon: 'trending-up', value: '68%', label: 'Time Reduction in Comparable Analysis' },
+      { icon: 'check', value: '92%', label: 'User Satisfaction Score' },
+      { icon: 'activity', value: '41%', label: 'Error Reduction via Inline Validation' }
+    ],
+    tools: ['Figma', 'Uizard', 'Analytics', 'Protopie'],
+    link: 'https://cre-comparable-integrati-w3y90dv.gamma.site/',
+    overview: {
+      challenge: 'Loan officers spent an average of 45 minutes per property gathering comparable data from disparate sources. Manual entry across multiple systems created data inconsistency across teams and complex workflows that bottlenecked underwriting review.',
+      solution: 'Designed a unified interface integrating existing internal comparable data into the LOS with dual-view functionality — a synchronized map and sortable list — accommodating both automated suggestions and manual additions with real-time field-level validation and status indicators distinguishing system-suggested from manually added comparables.',
+      impact: '• 68% reduction in comparable property analysis time versus the prior workflow\n• 92% user satisfaction across loan officers and underwriters (12 stakeholder interview participants)\n• 41% decrease in data entry errors through improved inline validation\n• SUS score of 87 — indicating excellent usability — from 8 moderated usability testing participants'
+    },
+    challenge: 'Loan officers averaged 45 minutes per property gathering comparable data across disconnected systems, with manual entry creating inconsistency and bottlenecks in underwriting review.',
+    process: 'Conducted 12 stakeholder interviews across loan officers, underwriters, and administrative staff. Ran shadowing sessions and process mapping workshops. Followed with 8-participant moderated usability testing with think-aloud protocol and SUS assessment.',
+    status: 'Completed',
+    isCaseStudy: true,
+    productType: 'Commercial Real Estate Lending Platform',
+    platforms: 'Web (Enterprise SaaS)',
+    timeline: 'Discovery through phased rollout',
+    role: 'Senior Product & UX Designer',
+    team: ['Product', 'Engineering', 'Loan Officers', 'Underwriters'],
+    responsibilities: [
+      'Designed a dual-view comparable interface (interactive map + sortable data table) with synchronized property selection across both views.',
+      'Built an expandable filter control panel for radius, property type, and advanced parameters with dynamic application.',
+      'Conducted 12 stakeholder interviews across loan officers, underwriters, and administrative staff to map workflow pain points.',
+      'Led 8-participant moderated usability testing with think-aloud protocol, achieving a final SUS score of 87.',
+      'Designed progressive disclosure for comparable detail — essential metrics visible by default with expandable panels for full data.',
+      'Collaborated with engineering on API integration planning, design handoff documentation, and phased rollout monitoring.'
+    ],
+    outcomes: [
+      '68% reduction in comparable property analysis time versus the prior multi-system workflow.',
+      '92% user satisfaction score across loan officers and underwriters at usability testing completion.',
+      '41% decrease in data entry errors through real-time field-level validation and status indicators.',
+      'SUS score of 87 (excellent usability) from 8 moderated testing participants using think-aloud protocol.'
+    ],
+    keyFeatures: [
+      'Dual-view layout: synchronized interactive map and sortable data table',
+      'Expandable filter panel for radius, property type, and advanced parameters',
+      'Status indicators distinguishing auto-suggested from manually added comparables',
+      'Progressive disclosure: essential metrics visible with expandable detail panels',
+      'Real-time field-level validation during manual data entry',
+      'Non-linear evaluation flow supporting how users actually review comparables'
+    ]
+  },
+  {
     id: 3,
     title: 'CYNC Collateral Platform',
     subtitle: 'Enterprise collateral management platform supporting 50+ asset types and 200+ subtype configurations, enabling teams to monitor dependencies, track lifecycle events, and maintain portfolio clarity across complex lending workflows.',
