@@ -3,6 +3,57 @@ import { Project } from '../types/project';
 // Case studies - in-depth projects
 export const caseStudies: Project[] = [
   {
+    id: 7,
+    title: 'Investment Collateral — AI-Assisted Valuation',
+    subtitle: 'Dual-mode valuation interface bridging machine-generated market data and analyst judgment for securities collateral in enterprise lending.',
+    description: 'Designed an AI-assisted valuation system within the Investment Collateral record — integrating live EODHD market data via API, distinguishing source provenance through teal field labeling, and enforcing a documented override workflow with full audit trail to meet compliance requirements.',
+    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=1080',
+    category: ['Enterprise Fintech', 'AI-Assisted UX', 'Compliance Design'],
+    metrics: [
+      { icon: 'check', value: '100%', label: 'Source Traceability for All Collateral Values' },
+      { icon: 'activity', value: '0', label: 'Undocumented Overrides Since Implementation' },
+      { icon: 'trending-up', value: 'Real-time', label: 'Market Data (Previously Manual / Daily Max)' }
+    ],
+    tools: ['Figma', 'Miro', 'Analytics', 'Protopie'],
+    link: 'https://investment-collateral-va-2j8yzth.gamma.site/',
+    overview: {
+      challenge: 'Valuation data for investment securities lived outside the loan origination system. Analysts manually retrieved market prices from external sources and re-entered them by hand, with no way to identify system-generated versus manually entered values — creating regulatory exposure, data quality issues, and significant manual workload.',
+      solution: 'Designed a dual-mode valuation interface with EODHD API integration for live market data, teal color coding for API-sourced fields, a toggle preserving both datasets, an override workflow requiring explicit action and mandatory rationale above threshold values, three explicit failure states, and a comprehensive audit trail logging every pull, switch, override, and reversion.',
+      impact: '• 100% source traceability for all collateral values — every field attributed to API or manual entry\n• 0 undocumented overrides since implementation — mandatory rationale enforced for threshold values\n• Real-time market data replacing a previously manual, daily-maximum process\n• Eliminated manual price lookup and data re-entry workflow entirely\n• Analyst confidence in system-sourced data increased through visible provenance'
+    },
+    challenge: 'Investment security valuations were manually retrieved and re-entered with no source distinction, creating regulatory exposure and preventing any audit trail for lending decisions.',
+    process: 'Mapped analyst valuation workflows, identified trust gaps driving manual override defaults, designed dual-mode interface with teal source labeling and explicit failure states, validated override rationale requirements with compliance team.',
+    status: 'Completed',
+    isCaseStudy: true,
+    productType: 'Enterprise Lending — Investment Collateral Module',
+    platforms: 'Web (Enterprise SaaS)',
+    timeline: 'Multi-phase delivery',
+    role: 'Senior Product Designer',
+    team: ['Product', 'Engineering', 'Compliance', 'Risk Analysts'],
+    responsibilities: [
+      'Designed dual-mode valuation interface integrating EODHD API live market data with manual entry capability.',
+      'Established teal source labeling system — API-populated fields visually distinct from manual entries at a glance.',
+      'Designed override workflow: lock icon → confirmation prompt → mandatory rationale (for threshold values) → automatic audit log with reversion capability.',
+      'Mapped three explicit failure states: stale data (amber indicator + timestamp), no pricing available (manual entry with documented rationale), API connection failure (banner with last successful pull).',
+      'Designed audit trail architecture logging every API pull, field display, mode switch, override, and reversion with user identity, timestamp, original values, and rationale.',
+      'Validated compliance requirements with the risk and compliance teams before implementation — audit trail was non-negotiable from day one.'
+    ],
+    outcomes: [
+      '100% source traceability for all collateral values — every field attributed to API or manual entry, meeting audit documentation requirements.',
+      '0 undocumented overrides since implementation — mandatory rationale for threshold-value overrides enforced deliberate analyst judgment.',
+      'Real-time EODHD market data replaced a previously manual, daily-maximum process — eliminating manual price lookup and data re-entry entirely.',
+      'Analyst adoption increased when override pathways felt trustworthy — compliance requirements shaped better UX, not worse.'
+    ],
+    keyFeatures: [
+      'Teal source labeling — API-populated fields visually distinct from manual entries',
+      'Manual/API toggle preserving both datasets simultaneously',
+      'Override workflow with lock icon, confirmation prompt, and mandatory rationale',
+      'Three explicit failure states: stale data, no pricing, API connection failure',
+      'Full audit trail: every pull, switch, override, and reversion logged',
+      'Reversion capability for any analyst override action'
+    ]
+  },
+  {
     id: 6,
     title: 'CRE Comparable Integration',
     subtitle: 'Unified dual-view interface for comparable property analysis in commercial real estate loan origination — reducing per-property research time by 68%.',
