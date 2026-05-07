@@ -262,7 +262,7 @@ export const caseStudies: Project[] = [
       'Mobile Development Team (8)',
       'QA Engineer'
     ],
-    timeline: 'Nov 2018 – Feb 2022',
+    timeline: 'Feb 2021 – Feb 2022',
     role: 'Senior UI/UX Designer — Mobile Consumer Banking',
     keyFeatures: [
       'Simplified payment scheduling with progressive disclosure',

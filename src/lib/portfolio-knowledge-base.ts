@@ -134,7 +134,7 @@ export const portfolioKnowledgeBase = {
       company: "Bank of America",
       location: "Charlotte, NC",
       role: "UI/UX Designer",
-      period: "06/2018 - 02/2022",
+      period: "02/2021 - 02/2022",
       responsibilities: {
         productStrategy: [
           "Collaborated with product managers on feature prioritization for 68M+ users",
@@ -240,7 +240,7 @@ export const portfolioKnowledgeBase = {
       company: "Innovative Design Studio",
       location: "Raleigh, NC",
       role: "Junior UI/UX Designer",
-      period: "05/2017 - 05/2018",
+      period: "01/2018 - 01/2021",
       responsibilities: {
         design: [
           "Create wireframes, mockups, and user flows for web and mobile applications",

@@ -80,7 +80,7 @@ const Experience = () => {
       title: 'Senior UI/UX Designer',
       company: 'Bank of America',
       location: 'New York',
-      period: 'Nov 2018 – Feb 2022',
+      period: 'Feb 2021 – Feb 2022',
       description: 'Designed digital banking experiences across consumer web and mobile platforms, supporting payments, account management, and other critical financial workflows.',
       highlights: [
         'Simplified a 7-step bill payment flow to 4 steps using progressive disclosure — reduced drop-off at primary task step by 20%.',
@@ -111,7 +111,7 @@ const Experience = () => {
       title: 'UI/UX Designer',
       company: 'Innovative Design Studio',
       location: 'Freelance',
-      period: 'Jan 2018 – Nov 2018',
+      period: 'Jan 2018 – Jan 2021',
       description: 'Partnered with early-stage startups to design MVP web and mobile products, translating product ideas into scalable user experiences.',
       highlights: [
         'Collaborated with founders and product teams to define product concepts, user journeys, and feature requirements for early-stage digital products.',
