@@ -276,7 +276,7 @@ export const ContactForm: React.FC = () => {
           <div className="space-y-2">
             <Label htmlFor="files">Project Brief or References</Label>
             <p className="text-xs text-portfolio-text-light dark:text-gray-400 mb-2">Optional: Share briefs, decks, or references.</p>
-            <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-4 text-center hover:border-portfolio-accent transition-colors">
+            <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-4 text-center hover:border-portfolio-accent hover:bg-blue-50/30 dark:hover:bg-blue-900/10 transition-all duration-300">
               <input
                 type="file"
                 id="files"
@@ -324,12 +324,17 @@ export const ContactForm: React.FC = () => {
             )}
           </div>
 
-          <Button 
-            type="submit" 
+          <Button
+            type="submit"
             disabled={isSubmitting}
-            className="w-full flex items-center gap-2"
+            className={`w-full flex items-center justify-center gap-2 relative overflow-hidden transition-all duration-300 ${
+              isSubmitting ? 'opacity-80 cursor-not-allowed' : 'hover:scale-[1.02] hover:shadow-md'
+            }`}
           >
-            <Send className="w-4 h-4" />
+            {isSubmitting && (
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" />
+            )}
+            <Send className={`w-4 h-4 transition-transform duration-300 ${isSubmitting ? 'animate-pulse' : ''}`} />
             {isSubmitting ? 'Sending...' : 'Send Message'}
           </Button>
 

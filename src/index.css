@@ -331,6 +331,10 @@ html {
     @apply bg-transparent border-2 border-portfolio-accent text-portfolio-accent px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:bg-portfolio-accent hover:text-white;
   }
 
+  .portfolio-button-outline {
+    @apply bg-transparent border-2 border-gray-300 dark:border-gray-600 text-portfolio-text-dark dark:text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:border-portfolio-accent hover:text-portfolio-accent dark:hover:border-portfolio-accent dark:hover:text-portfolio-accent;
+  }
+
   .hover-lift {
     @apply transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl;
   }
@@ -452,4 +456,38 @@ html {
 .content-visibility-auto {
   content-visibility: auto;
   contain-intrinsic-size: 500px;
+}
+
+/* Animation delay utilities */
+.animation-delay-100  { animation-delay: 100ms; }
+.animation-delay-200  { animation-delay: 200ms; }
+.animation-delay-300  { animation-delay: 300ms; }
+.animation-delay-400  { animation-delay: 400ms; }
+.animation-delay-500  { animation-delay: 500ms; }
+.animation-delay-600  { animation-delay: 600ms; }
+.animation-delay-700  { animation-delay: 700ms; }
+.animation-delay-800  { animation-delay: 800ms; }
+.animation-delay-1000 { animation-delay: 1000ms; }
+.animation-delay-1200 { animation-delay: 1200ms; }
+.animation-delay-2000 { animation-delay: 2000ms; }
+.animation-delay-4000 { animation-delay: 4000ms; }
+
+/* Nav link animated underline */
+.nav-underline {
+  position: relative;
+}
+.nav-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #4169E1;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+.nav-underline:hover::after,
+.nav-underline.active::after {
+  width: 100%;
 }

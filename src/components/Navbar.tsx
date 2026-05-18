@@ -81,9 +81,9 @@ const Navbar = () => {
               <Link
                 key={item.label}
                 to={item.href}
-                className={`font-medium transition-colors duration-200 ${
+                className={`nav-underline font-medium transition-colors duration-200 pb-0.5 ${
                   isActive(item.href)
-                    ? 'text-portfolio-accent'
+                    ? 'text-portfolio-accent active'
                     : 'text-portfolio-text-light hover:text-portfolio-accent'
                 }`}
                 aria-current={isActive(item.href) ? 'page' : undefined}

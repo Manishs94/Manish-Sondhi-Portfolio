@@ -75,13 +75,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index = 0, onQuickVi
           }`}
           style={{ animationDelay: `${0.1 * index}s`, animationFillMode: 'forwards' }}
         >
-          <div className="overflow-hidden h-60 sm:h-64 relative">
-            <img 
-              src={getProjectImage(project)} 
-              alt={getProjectTitle(project)} 
-              className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+          <div className="overflow-hidden h-60 sm:h-64 relative group/img">
+            <img
+              src={getProjectImage(project)}
+              alt={getProjectTitle(project)}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
             />
-            
+            {/* Gradient overlay on hover */}
+            <div className="absolute inset-0 bg-gradient-to-t from-portfolio-accent/40 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
             {/* Case study badge */}
             {project.isCaseStudy && (
               <div className="absolute top-3 left-3 px-3 py-1 bg-portfolio-accent text-white rounded-full text-sm flex items-center gap-1">

@@ -24,22 +24,22 @@ const Contact = () => {
           {/* Contact Information */}
           <div className={`space-y-8 transition-all duration-700 delay-600 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-x-8'}`}>
             <div className="space-y-6">
-              <div className="flex items-center gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg transition-colors duration-300">
-                <div className="bg-portfolio-accent text-white p-3 rounded-full">
+              <div className="group/card flex items-center gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 hover:bg-white dark:hover:bg-gray-700">
+                <div className="bg-portfolio-accent text-white p-3 rounded-full transition-transform duration-300 group-hover/card:scale-110">
                   <Mail size={20} />
                 </div>
                 <div>
                   <p className="font-medium text-portfolio-text-dark dark:text-white">Email</p>
-                  <p className="text-portfolio-text-light dark:text-gray-300">Manishsondhi94@gmail.com</p>
+                  <p className="text-portfolio-text-light dark:text-gray-300 transition-colors duration-300 group-hover/card:text-portfolio-accent">Manishsondhi94@gmail.com</p>
                 </div>
               </div>
-              <div className="flex items-center gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg transition-colors duration-300">
-                <div className="bg-portfolio-accent text-white p-3 rounded-full">
+              <div className="group/card flex items-center gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 hover:bg-white dark:hover:bg-gray-700">
+                <div className="bg-portfolio-accent text-white p-3 rounded-full transition-transform duration-300 group-hover/card:scale-110">
                   <Phone size={20} />
                 </div>
                 <div>
                   <p className="font-medium text-portfolio-text-dark dark:text-white">Phone</p>
-                  <p className="text-portfolio-text-light dark:text-gray-300">(609)-816-5121</p>
+                  <p className="text-portfolio-text-light dark:text-gray-300 transition-colors duration-300 group-hover/card:text-portfolio-accent">(609)-816-5121</p>
                 </div>
               </div>
             </div>

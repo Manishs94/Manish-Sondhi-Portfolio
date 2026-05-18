@@ -60,39 +60,39 @@ const Footer = () => {
           
           {/* Social Icons */}
           <div className="flex gap-4">
-            <a 
-              href="https://linkedin.com/in/manish-sondhi" 
-              target="_blank" 
+            <a
+              href="https://linkedin.com/in/manish-sondhi"
+              target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-gray-800 rounded-full hover:bg-portfolio-accent transition-colors"
+              className="p-2 bg-gray-800 rounded-full hover:bg-portfolio-accent transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-portfolio-accent/30"
               aria-label="LinkedIn"
             >
               <Linkedin size={18} />
             </a>
-            <a 
-              href="https://github.com/manishsondhi" 
-              target="_blank" 
+            <a
+              href="https://github.com/manishsondhi"
+              target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-gray-800 rounded-full hover:bg-portfolio-accent transition-colors"
+              className="p-2 bg-gray-800 rounded-full hover:bg-portfolio-accent transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-portfolio-accent/30"
               aria-label="GitHub"
             >
               <Github size={18} />
             </a>
-            <a 
+            <a
               href="mailto:Manishsondhi94@gmail.com"
-              className="p-2 bg-gray-800 rounded-full hover:bg-portfolio-accent transition-colors"
+              className="p-2 bg-gray-800 rounded-full hover:bg-portfolio-accent transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-portfolio-accent/30"
               aria-label="Email"
             >
               <Mail size={18} />
             </a>
           </div>
-          
-          <button 
+
+          <button
             onClick={scrollToTop}
-            className="p-3 bg-gray-800 rounded-full hover:bg-portfolio-accent transition-colors"
+            className="group p-3 bg-gray-800 rounded-full hover:bg-portfolio-accent transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-portfolio-accent/30"
             aria-label="Scroll to top"
           >
-            <ArrowUp size={20} />
+            <ArrowUp size={20} className="transition-transform duration-300 group-hover:-translate-y-0.5" />
           </button>
         </div>
       </div>
