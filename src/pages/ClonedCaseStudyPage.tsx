@@ -59,7 +59,7 @@ const CyncCaseStudyPage = () => {
               </div>
               <div>
                 <p className="text-xs uppercase tracking-[0.2em] text-blue-200">Role</p>
-                <p className="mt-2 text-sm text-blue-50">Lead Product Designer, Platform Architecture</p>
+                <p className="mt-2 text-sm text-blue-50">Senior Product Designer, Platform Architecture</p>
               </div>
               <div>
                 <p className="text-xs uppercase tracking-[0.2em] text-blue-200">Timeline</p>

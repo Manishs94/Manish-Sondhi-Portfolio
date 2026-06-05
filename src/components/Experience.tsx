@@ -136,7 +136,7 @@ const Experience = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-heading dark:text-white">Work Experience</h2>
           <p className="section-subheading mx-auto dark:text-gray-300 mb-8">
-            Senior Product Designer with 8+ years designing enterprise systems where the cost of a bad UX decision is real — regulated workflows, high-stakes operational decisions, and complex multi-role platforms used by analysts, operators, and business teams across financial services, enterprise SaaS, and AI-assisted decision platforms.
+            Principal-level Product Designer with 8+ years shaping complex, high-stakes enterprise platforms across financial services and regulated SaaS — operating beyond pure design execution to define product strategy, workflow architecture, and integration design across engineering, product, and compliance teams.
           </p>
         </div>
         

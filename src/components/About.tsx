@@ -31,7 +31,7 @@ const About = () => {
           >
             <div className="relative z-10 rounded-xl overflow-hidden transition-transform duration-700 hover:scale-[1.02] hover:shadow-xl">
               <img
-                alt="Manish Sondhi - Senior Product Designer"
+                alt="Manish Sondhi - Principal Product & UX Designer"
                 className="w-full h-auto rounded-xl"
                 src="/lovable-uploads/6f0b8c00-1540-45e5-95d0-c41efc358c2a.jpg"
               />

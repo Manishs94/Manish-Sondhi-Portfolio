@@ -129,9 +129,9 @@ const Portfolio = () => {
   return (
     <section id="portfolio" className="py-24 bg-portfolio-bg-light">
       <SEOHead
-        title="Senior Product Designer Portfolio | Enterprise Systems, AI-Enabled Workflows & Complex Operational Platforms"
-        description="Senior Product Designer with 8+ years designing enterprise systems, regulated workflows, and AI-assisted decision platforms for analysts, operators, and business teams."
-        keywords="Senior Product Designer Portfolio, Enterprise UX, AI-Assisted Workflow Design, Regulated Industry UX, Complex Operational Platforms, Design Systems, Workflow Architecture"
+        title="Principal Product Designer Portfolio | Enterprise Systems, AI-Enabled Workflows & Regulated Platforms"
+        description="Principal-level Product Designer with 8+ years shaping enterprise fintech platforms, AI-assisted decisioning workflows, and regulated lending systems."
+        keywords="Principal Product Designer Portfolio, Enterprise UX, AI-Assisted Workflow Design, Regulated Industry UX, Fintech UX, Design Systems, Collateral Management Design"
       />
       <div className="section-container">
         <div className="text-center max-w-2xl mx-auto mb-16">
