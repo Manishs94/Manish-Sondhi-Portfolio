@@ -48,10 +48,10 @@ const About = () => {
               About
             </span>
             <h2 className={`section-heading dark:text-white transition-all duration-600 delay-100 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-              Senior Product Designer for enterprise systems, AI-enabled workflows, and complex operational platforms
+              Principal-level Product & UX Designer for enterprise systems, AI-enabled workflows, and regulated platforms
             </h2>
             <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-6 transition-all duration-600 delay-200 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-              I&apos;m a Senior Product Designer with 8+ years designing enterprise systems where the cost of a bad UX decision is real — regulated workflows, high-stakes operational decisions, and complex multi-role platforms used by analysts, operators, and business teams. Proven ability to translate dense technical and compliance requirements into clear, scalable product experiences that people actually trust and use.
+              I&apos;m a Principal-level Product Designer with 8+ years shaping complex, high-stakes enterprise platforms across financial services and regulated SaaS. Known for operating beyond pure design execution — defining product strategy, architecting system-level interaction models, and driving alignment across engineering, product, and compliance stakeholders without being managed toward it.
             </p>
 
             <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-6 transition-all duration-600 delay-300 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>

@@ -50,7 +50,7 @@ const Hero = () => {
             <div className="order-2 md:order-1">
               <div className={`mb-4 transition-all duration-1000 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
                 <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4">
-                  Senior Product Designer · Enterprise Systems · AI-Enabled Workflows · Complex Operational Platforms
+                  Principal Product & UX Designer · Enterprise Systems · AI-Enabled Workflows · Regulated Platforms
                 </span>
               </div>
               

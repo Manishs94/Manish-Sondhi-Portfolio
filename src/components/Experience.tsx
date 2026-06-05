@@ -50,30 +50,32 @@ const Experience = () => {
       company: 'CYNC Software',
       location: 'Remote',
       period: 'Feb 2022 – Present',
-      description: 'Design lead for a multi-module enterprise platform supporting complex lending operations, collateral workflows, portfolio analytics, and AI-assisted decisioning for regulated financial institutions.',
+      description: 'Design lead and product strategist for a multi-module enterprise lending platform serving 15+ regulated financial institutions across loan origination, collateral management, AI-assisted decisioning, and portfolio analytics. Operate beyond pure design execution — defining product strategy, interaction models, and integration design in close partnership with product, engineering, compliance, and data teams.',
       highlights: [
-        'Owned end-to-end UX for a multi-module enterprise platform used by 15+ institutional clients — spanning intake, multi-party record management, compliance-driven workflows, and operational dashboards for analysts and operations teams.',
-        'Led end-to-end design of collateral management module supporting 50+ asset types across Commercial, Consumer, ABL, Warehouse, and Specialty Lending products.',
-        'Designed a structured parent-child record architecture for a complex multi-entity module — defining document ownership boundaries, role-based access patterns, and audit-ready state management across parent and child records.',
-        'Integrated third-party data providers (Dataverify flood services, EODHD market data) into collateral evaluation workflows with inline API/manual mode toggling.',
-        'Consolidated a 4-step collateral evaluation workflow into a single contextual dashboard, reducing estimated analyst review time by ~30% — validated through stakeholder walkthroughs and iterative usability feedback.',
-        'Built Cync\'s first formal design system — 60+ production components (form controls, status indicators, data grids, workflow steppers) used across the full LOS product suite, cutting design-to-dev handoff cycles significantly.',
-        'Led discovery with operations, compliance, and product stakeholders to translate regulatory and business requirements into actionable product specifications — a pattern directly applicable to HIPAA, legal, or insurance compliance contexts.',
-        'Designed AI-assisted decisioning interfaces — confidence scoring display, human override workflows, and audit trail documentation — enabling operators to act on machine-generated insights without losing accountability or regulatory compliance.',
-        'Developed explainable AI interface patterns (contextual guidance, fallback states, model transparency disclosures) that increased user trust in automated outputs across high-stakes review workflows.',
-        'Collaborated with AI/ML engineers to translate predictive model outputs into clear, actionable UI — reducing cognitive load and improving the speed and accuracy of analyst decisions.'
+        'Defined end-to-end design strategy for 5+ concurrent product modules — establishing interaction models, IA frameworks, and workflow standards that became the engineering implementation baseline across quarterly release cycles.',
+        'Built Investment Collateral module from scratch — full IA spec and production-ready HTML prototype with 17-column grid, EODHD real-time pricing integration, Securities Master autofill, and three-block Add Investment modal architecture.',
+        'Architected the Borrowing Base Certificate (BBC) system — four-layer configuration ownership chain (Collateral Type Library, Rule Set Library, BBC Template Library, Product Library) with priority build sequence and gap analysis.',
+        'Designed Flood Details Tab / Dataverify integration — unified component serving integrated and non-integrated institutions through behavior-only differences, SFHA escalation as automatic, flood insurance routed to Insurance Module.',
+        'Built Collateral Valuation & Appraisal module — eight-tab component with Manual/Integration toggle, persistent summary card with Loan Determinant Value always visible, inline override in the Credit Decision tab.',
+        'Designed Securities Master module (Admin Platform) — pure reference data store with search-first cascade pattern, three-tier column inventory across six security types, type pill filters driving smart column adaptation.',
+        'Re-architected fragmented collateral evaluation experience into a single unified decision surface — reducing analyst review time by 30% and improving multi-role clarity for underwriters, analysts, and compliance reviewers.',
+        'Designed end-to-end AI-assisted financial decisioning workflows — confidence score indicators, dynamic risk prioritization queues, exception flagging, human override mechanisms, and audit-ready state management.',
+        'Established production-grade patterns for explainable AI — transparency disclosures surfacing model reasoning, graceful fallback states when confidence thresholds are not met.',
+        'Built and scaled a 60+ component Figma design system across Angular and React applications — standardizing implementation quality across concurrent engineering teams working on separate modules.',
+        'Incorporated Claude, ChatGPT, and Figma Make as a core working method — using AI-generated IA frameworks and throwaway prototypes to compress early discovery from days to hours.',
+        'Authored complete acceptance criteria and field-level specifications for complex modules — working directly with CEO and engineering leads in the absence of dedicated product managers.'
       ],
       impact: [
-        { metric: 'Reduced analyst review time ~30% through consolidated collateral dashboard', icon: '📈' },
+        { metric: 'Reduced analyst review time 30% through consolidated collateral dashboard', icon: '📈' },
         { metric: '60+ component design system across Angular and React modules', icon: '🧩' },
-        { metric: 'Explainable AI interfaces maintaining accountability and audit trails', icon: '🎯' },
-        { metric: 'Compliance-driven UX applicable to HIPAA, legal, and insurance contexts', icon: '✓' }
+        { metric: 'Explainable AI interfaces with human override and audit trails', icon: '🎯' },
+        { metric: 'Production-ready HTML prototypes enabling direct engineering implementation', icon: '✓' }
       ],
       tools: [
-        { label: 'Design Tools', items: ['Figma', 'FigJam', 'Adobe XD'] },
+        { label: 'Design Tools', items: ['Figma', 'FigJam', 'Claude', 'ChatGPT', 'Figma Make', 'Copilot'] },
         { label: 'Product & Collaboration', items: ['Jira', 'Confluence', 'Product Workshops'] },
-        { label: 'Technologies', items: ['Angular', 'React'] },
-        { label: 'Specialties', items: ['Workflow Architecture', 'Explainable AI', 'Human-in-the-Loop Systems', 'Compliance UX'] }
+        { label: 'Technologies', items: ['Angular', 'React', 'HTML Prototypes'] },
+        { label: 'Specialties', items: ['Workflow Architecture', 'Explainable AI', 'Human-in-the-Loop Systems', 'Compliance UX', 'Integration Design'] }
       ] as ToolGroup[]
     },
     {
@@ -83,15 +85,14 @@ const Experience = () => {
       period: 'Feb 2021 – Feb 2022',
       description: 'Designed digital banking experiences across consumer web and mobile platforms, supporting payments, account management, and other critical financial workflows.',
       highlights: [
-        'Simplified a 7-step bill payment flow to 4 steps using progressive disclosure — reduced drop-off at primary task step by 20%.',
-        'Led usability testing sessions with 12+ participants across 3 payment workflows, translating behavioral insights into interaction improvements.',
-        'Designed transfer template management system for recurring transactions — reduced repeat-entry friction for high-frequency users.',
-        'Delivered WCAG 2.1 AA compliance across all redesigned flows — color contrast ratios, keyboard navigation, and screen reader labeling.',
-        'Designed responsive web and native mobile experiences across account management, payments, and operational workflows for 68M+ active users.',
-        'Facilitated cross-functional design discussions to align UX solutions with product and technical goals across mobile development and QA teams.',
-        'Defined interaction patterns, workflow structures, and reusable components across multiple features.',
-        'Iterated designs using behavioral analytics and A/B testing insights across multiple user segments.',
-        'Delivered prototypes and specifications supporting high-quality engineering implementation across iOS and Android platforms.'
+        'Led end-to-end UX for payments and account management flows used by millions of retail banking users — driving measurable improvements in task completion rates, error reduction, and WCAG 2.1 AA compliance across web and native mobile platforms.',
+        'Simplified a 7-step transactional workflow to 4 steps by eliminating redundant confirmation states and consolidating information architecture — reducing user errors and inbound support escalations, validated through moderated usability sessions with 12+ participants.',
+        'Redesigned a high-traffic mobile self-service flow — identified through behavioral analytics as the primary drop-off point — confirmed a 20% reduction in abandonment at the critical task step through post-launch behavioral analytics.',
+        'Drove WCAG 2.1 AA compliance reviews across payment and account management surfaces — establishing a structured audit process that resolved contrast, focus order, and screen reader compatibility issues before engineering handoff.',
+        'Contributed 20+ reusable, documented components to the enterprise-scale Bank of America design system — supporting consistent UX across platform products and improving engineering implementation speed.',
+        'Conducted mixed-method usability research using interactive prototypes, behavioral analytics, heatmap analysis, and journey mapping — translating findings into prioritized design backlogs.',
+        'Partnered with data analytics teams to instrument new flows and establish behavioral baselines — enabling post-launch measurement of design impact against pre-defined success metrics.',
+        'Collaborated directly with iOS, Android, and web engineering leads to resolve implementation questions at the component level — preventing design intent loss without requiring redesign cycles.'
       ],
       impact: [
         { metric: '20% drop-off reduction at primary bill pay task step', icon: '📈' },
@@ -112,15 +113,13 @@ const Experience = () => {
       company: 'Innovative Design Studio',
       location: 'Freelance',
       period: 'Jan 2018 – Jan 2021',
-      description: 'Partnered with early-stage startups to design MVP web and mobile products, translating product ideas into scalable user experiences.',
+      description: 'Independent product design practice partnering with early-stage startups to design MVP web and mobile products across fintech and SaaS verticals — operating as sole designer across each engagement from discovery through investor-ready delivery.',
       highlights: [
-        'Collaborated with founders and product teams to define product concepts, user journeys, and feature requirements for early-stage digital products.',
-        'Designed end-to-end product experiences including information architecture, user flows, wireframes, and high-fidelity interfaces for web and mobile applications.',
-        'Rapidly iterated on product ideas through prototyping and feedback cycles in fast-moving startup environments.',
-        'Created wireframes, prototypes, and high-fidelity designs using Figma and FigJam for stakeholder collaboration.',
-        'Translated business goals and product vision into actionable UX direction and launch-ready product decisions.',
-        'Created interactive prototypes and design specifications to support engineering implementation and faster product launches.',
-        'Delivered responsive experiences optimized for usability across devices and evolving product requirements.'
+        'Designed complete end-to-end product experiences for 3 startup clients — covering full information architecture, user research synthesis, user flows, wireframes, and high-fidelity interfaces, each delivered within a 6-week design sprint with no junior design support.',
+        'Delivered interactive prototypes with sufficient fidelity to enable founders to conduct investor pitch demonstrations and initiate engineering sprints with implementation-ready specifications.',
+        'Managed full client relationship lifecycle independently — from initial discovery workshops and requirements definition through design delivery, stakeholder review cycles, and final handoff.',
+        'Designed across fintech and B2B SaaS verticals — developing early fluency in regulated product constraints, financial data presentation, and complex workflow design that directly informed later enterprise work.',
+        'Translated business goals and product vision into actionable UX direction and launch-ready product decisions across fast-moving startup environments.'
       ],
       impact: [],
       tools: [

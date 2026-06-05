@@ -1,27 +1,29 @@
 export const portfolioKnowledgeBase = {
   personalProfile: {
     name: "Manish Sondhi",
-    currentRole: "Lead Product & UI/UX Designer",
+    currentRole: "Senior Product Designer (Principal-level)",
     yearsOfExperience: "8+",
-    location: "Tampa, FL",
-    summary: `Experienced Lead Product & UI/UX Designer with 8+ years of success delivering user-centered, scalable digital solutions across web
-    and mobile platforms—primarily in the financial, enterprise SaaS, and B2B domains. Known for balancing human-centered design
-    with business strategy, translating complex workflows into intuitive products that drive adoption, satisfaction, and efficiency.`,
+    location: "Remote",
+    summary: `Principal-level Product Designer with 8+ years shaping complex, high-stakes enterprise platforms across financial services and regulated SaaS. Known for operating beyond pure design execution — defining product strategy, architecting system-level interaction models, and driving alignment across engineering, product, and compliance stakeholders without being managed toward it.`,
     coreProficiencies: [
-      "Product Strategy & Leadership",
-      "UI/UX Design & Research",
-      "AI/ML Integration",
-      "Enterprise SaaS Solutions",
-      "Financial Software Design",
-      "Cross-functional Leadership"
+      "Platform-Scale UX Strategy",
+      "Design Systems as Infrastructure",
+      "AI-Assisted Workflow Design",
+      "Regulated & Compliance-Driven UX",
+      "Prototype-First Design Strategy",
+      "Cross-Functional Product Leadership",
+      "Interaction & Information Architecture",
+      "Roadmap Influence & Stakeholder Alignment",
+      "Systems Thinking & Integration Design",
+      "Usability Research & Validation"
     ]
   },
 
   careerHistory: [
     {
       company: "CYNC Software",
-      location: "Tampa, FL",
-      role: "Lead UI/UX Designer",
+      location: "Remote",
+      role: "Senior Product Designer",
       period: "02/2022 - Present",
       responsibilities: {
         productStrategy: [
@@ -121,19 +123,19 @@ export const portfolioKnowledgeBase = {
         }
       ],
       achievements: [
-        "Led digital transformation of legacy systems into modern, AI-enabled platforms",
-        "Established company-wide design system and component library (200+ components)",
-        "Implemented AI-driven research methodology reducing analysis time by 30%",
-        "Reduced development cycles by 10% through improved documentation and specifications",
-        "Improved cross-team collaboration efficiency by 25% via design reviews and feedback loops",
-        "Increased product adoption by 20% through intuitive UX improvements",
-        "Mentored 5+ junior designers on AI integration and modern design practices"
+        "Reduced analyst review time 30% through consolidated collateral evaluation dashboard",
+        "Built 60+ component Figma design system across Angular and React applications",
+        "Designed production-ready HTML prototypes for Investment Collateral, Valuation/Appraisal, BBC, and Flood Details modules",
+        "Architected four-layer BBC configuration system (Collateral Type, Rule Set, Template, Product libraries)",
+        "Established explainable AI patterns with human override and audit trail documentation",
+        "Incorporated Claude, ChatGPT, and Figma Make into core design workflow",
+        "Mentored junior and mid-level designers through structured critique and shared component library standards"
       ]
     },
     {
       company: "Bank of America",
-      location: "Charlotte, NC",
-      role: "UI/UX Designer",
+      location: "New York",
+      role: "Senior UI/UX Designer",
       period: "02/2021 - 02/2022",
       responsibilities: {
         productStrategy: [
@@ -227,19 +229,18 @@ export const portfolioKnowledgeBase = {
         }
       ],
       achievements: [
-        "Enhanced UX for 68M+ users across digital banking platform",
-        "Led Bill Payment redesign resulting in 25% adoption increase",
-        "Improved mobile app rating from 3.8 to 4.6 stars",
-        "Achieved 95% reduction in accessibility violations",
-        "Implemented accessibility-first design methodology",
-        "Mentored 3 junior designers on enterprise design practices",
-        "Reduced support costs by 18% through improved UX"
+        "Simplified a 7-step transactional workflow to 4 steps — validated 20% reduction in abandonment via post-launch behavioral analytics",
+        "Drove WCAG 2.1 AA compliance reviews across payment and account management surfaces",
+        "Contributed 20+ reusable components to the enterprise Bank of America design system",
+        "Conducted moderated usability testing with 12+ participants across 3 core payment workflows",
+        "Delivered annotated specifications and interactive prototypes across 10+ product releases with zero critical handoff issues",
+        "Partnered with data analytics teams to establish behavioral baselines enabling post-launch impact measurement"
       ]
     },
     {
       company: "Innovative Design Studio",
-      location: "Raleigh, NC",
-      role: "Junior UI/UX Designer",
+      location: "Freelance",
+      role: "UI/UX Designer",
       period: "01/2018 - 01/2021",
       responsibilities: {
         design: [
@@ -317,11 +318,10 @@ export const portfolioKnowledgeBase = {
         }
       ],
       achievements: [
-        "Successfully shipped 12+ web and mobile design projects",
-        "Maintained 95% on-time delivery rate for all projects",
-        "Received positive client feedback and 5-star reviews",
-        "Developed strong foundation in design fundamentals and processes",
-        "Built professional network and industry connections"
+        "Designed complete end-to-end product experiences for 3 startup clients, each delivered within a 6-week design sprint as sole designer",
+        "Delivered interactive prototypes enabling investor pitch demonstrations and engineering sprint kickoffs",
+        "Managed full client lifecycle independently — from discovery workshops through final design handoff",
+        "Developed early fluency in fintech and B2B SaaS product constraints that directly informed later enterprise work"
       ]
     }
   ],
@@ -561,86 +561,18 @@ export const portfolioKnowledgeBase = {
 
   certifications: [
     {
-      name: "AWS Certified Solutions Architect - Associate",
-      year: 2024,
-      focus: "Cloud architecture, AWS services including Bedrock for AI applications",
-      relevance: "Directly applicable to AWS Bedrock integration in portfolio assistant"
-    },
-    {
-      name: "Certified Usability Analyst (CUA)",
-      year: 2023,
-      issuer: "Human Factors International",
-      focus: "Advanced UX research methodologies, usability testing, and analysis",
-      relevance: "Professional credential validating expertise in user-centered design"
-    },
-    {
-      name: "WCAG 2.2 Accessibility Specialist",
-      year: 2023,
-      focus: "Digital accessibility standards, inclusive design principles, WCAG compliance",
-      relevance: "Demonstrates commitment to accessible design practices"
-    },
-    {
-      name: "Certified Product Owner (CPO)",
-      year: 2022,
-      issuer: "Scrum Alliance",
-      focus: "Agile product management, backlog prioritization, sprint planning",
-      relevance: "Validates product ownership and Agile expertise"
-    },
-    {
       name: "Google UX Design Professional Certificate",
-      year: 2022,
-      issuer: "Google (Coursera)",
-      focus: "UX design fundamentals, wireframing, prototyping, user testing",
+      issuer: "Google · Coursera",
+      credentialId: "YFMCQB9B53QO",
+      focus: "UX design principles, research methodologies, design thinking, prototyping, wireframing, and usability testing. End-to-end UX design process from problem discovery through testing and iteration.",
       relevance: "Comprehensive UX design credential"
     },
     {
-      name: "GenAI for UX Designers Specialization",
-      year: 2024,
-      issuer: "Professional Development",
-      focus: "AI integration in UX, prompt engineering, generative design tools",
-      relevance: "Current expertise in AI-powered design practices"
-    }
-  ],
-
-  publications: [
-    {
-      title: "AI-Driven UX Design in Financial Software: A Case Study",
-      year: 2024,
-      publisher: "UX Design Weekly",
-      type: "Featured Article",
-      impact: "10,000+ reads, influenced industry design practices",
-      summary: "Explored how AWS Bedrock and AI integration can enhance UX research and design processes in financial domain applications."
-    },
-    {
-      title: "Integrating AWS Bedrock in Enterprise UX Research",
-      year: 2025,
-      conference: "FinTech UX Summit",
-      type: "Keynote Presentation",
-      impact: "Presented to 500+ UX professionals and fintech leaders",
-      summary: "Demonstrated practical applications of AWS Bedrock for accelerating UX research, insight synthesis, and design decision-making."
-    },
-    {
-      title: "Accessibility in AI-Powered Interfaces",
-      year: 2024,
-      publisher: "A11y Project",
-      type: "Technical Guide",
-      impact: "Community resource for accessible AI design",
-      summary: "Guidelines for ensuring AI-driven features remain accessible to users with disabilities."
-    }
-  ],
-
-  awards: [
-    {
-      title: "Design Excellence Award",
-      year: 2023,
-      issuer: "CYNC Software",
-      description: "Recognized for outstanding contribution to financial platform redesign and user experience excellence"
-    },
-    {
-      title: "Innovation Award",
-      year: 2023,
-      issuer: "CYNC Software",
-      description: "Awarded for pioneering AI integration in product design workflows and research processes"
+      name: "Generative AI for UX Designers",
+      issuer: "Coursera Instructor Network",
+      credentialId: "FS4PK9ZJ12M9",
+      focus: "Applying generative AI and ChatGPT to UX design workflows. Covers AI-assisted design workflows, conversational UX patterns, workflow automation, and ethical considerations for responsible AI experiences.",
+      relevance: "Current expertise in AI-powered design practices and explainable AI"
     }
   ],
 
@@ -659,19 +591,19 @@ export const portfolioKnowledgeBase = {
     },
     {
       question: "How do you measure the success of your designs?",
-      answer: "I use a combination of quantitative metrics and qualitative feedback: Quantitative: User engagement rates, task completion rates, error rates, adoption metrics, session duration. Qualitative: User feedback from testing, stakeholder satisfaction, support ticket volume. Example metrics from my work: At CYNC, tracked 20% increase in user engagement and 25% reduction in onboarding time. At Bank of America, achieved 25% adoption increase for Bill Payment and improved app rating from 3.8 to 4.6 stars."
+      answer: "I use a combination of quantitative metrics and qualitative feedback: Quantitative: task completion rates, error rates, workflow efficiency, adoption metrics. Qualitative: stakeholder walkthroughs, usability sessions, engineering feedback. Example metrics from my work: At CYNC, reduced analyst review time 30% through consolidated collateral dashboard — validated through stakeholder walkthroughs and iterative usability feedback. At Bank of America, confirmed 20% reduction in abandonment at the critical task step through post-launch behavioral analytics."
     },
     {
       question: "Tell me about your CYNC Software experience.",
-      answer: "At CYNC Software (Feb 2022-Present), I serve as Lead UI/UX Designer with Product Owner responsibilities. Key responsibilities include: (1) Product Strategy - partnering with CEO on roadmap and feature prioritization, (2) Design Leadership - overseeing all UX/UI work across financial platforms, (3) AI Integration - leading intelligent systems and conversational UX initiatives, (4) User Research - conducting research with financial professionals. Major projects include: Financial Platform Redesign (7 loan/credit products), Collateral Management System, AI Analytics Dashboard, Conversational Interfaces. Impact: 20% increase in user engagement, 25% reduction in onboarding time, 30% improvement in analytics insights, 10% reduction in development cycles."
+      answer: "At CYNC Software (Feb 2022-Present), I serve as Senior Product Designer operating at a principal level. I function beyond a pure design remit — defining product strategy, interaction models, and integration design directly with engineering leads and the CEO. Major work includes: Investment Collateral Module (17-column grid, EODHD real-time pricing, Securities Master autofill), BBC System (four-layer configuration ownership chain), Flood Details/Dataverify integration, Collateral Valuation & Appraisal module (eight-tab component), and Securities Master Admin Platform. AI decisioning work includes confidence score indicators, human override workflows, and explainable AI patterns. Built and scaled a 60+ component Figma design system. Reduced analyst review time by 30% through consolidated collateral dashboard."
     },
     {
       question: "Tell me about your Bank of America experience.",
-      answer: "At Bank of America (June 2018-Feb 2022), I worked as UI/UX Designer on high-impact digital banking projects. Key responsibilities: (1) Bill Payment Redesign - led feature redesign for 68M+ users, (2) Mobile App UX - comprehensive usability improvements, (3) Design System - contributed to enterprise design system, (4) Accessibility - led WCAG compliance audit. Major achievements: 25% increase in Bill Payment adoption, 15% improvement in mobile usability, 20% reduction in user errors, 30% increase in mobile active users, improved app rating from 3.8 to 4.6 stars, 95% reduction in accessibility violations, supported 68M+ users across digital platforms."
+      answer: "At Bank of America (Feb 2021-Feb 2022), I worked as Senior UI/UX Designer on high-impact digital banking projects in New York. Key work: Led end-to-end UX for payments and account management flows — simplified a 7-step transactional workflow to 4 steps, confirmed 20% reduction in abandonment through post-launch behavioral analytics. Conducted moderated usability testing with 12+ participants. Drove WCAG 2.1 AA compliance reviews across payment and account management surfaces. Contributed 20+ reusable components to the enterprise Bank of America design system. Collaborated directly with iOS, Android, and web engineering leads on component-level implementation."
     },
     {
       question: "What about your early career at Innovative Design Studio?",
-      answer: "At Innovative Design Studio (May 2017-May 2018), I developed fundamental design skills across 12+ projects. My responsibilities included: (1) Design - creating wireframes, mockups, and interactive prototypes, (2) Research - user interviews, competitive analysis, usability testing, (3) Development - collaborating with developers on implementation, (4) Client Management - presenting concepts and managing feedback. Key projects: E-Commerce Redesign (25% conversion increase), Mobile Fitness App (1,000+ downloads, 4.5-star rating), SaaS Dashboard (35% engagement increase). Achievements: 95% on-time delivery, positive client reviews, developed design fundamentals and professional network."
+      answer: "At Innovative Design Studio (Jan 2018-Jan 2021), I operated as a freelance UI/UX Designer partnering with early-stage startups across fintech and B2B SaaS verticals. Designed complete end-to-end product experiences for 3 startup clients — each delivered within a 6-week design sprint as sole designer. Delivered interactive prototypes enabling investor pitch demonstrations and engineering sprint kickoffs. Managed full client relationship lifecycle independently from discovery through final handoff. Developed early fluency in regulated product constraints and complex workflow design that directly informed later enterprise work at Cync and Bank of America."
     },
     {
       question: "What are your key technical skills?",
@@ -695,7 +627,7 @@ export const portfolioKnowledgeBase = {
     },
     {
       question: "How do you stay current with industry trends and emerging technologies?",
-      answer: "I actively engage with the design and tech communities through: (1) Continuous Learning - certifications in AWS, generative AI, accessibility, (2) Conference Speaking - keynote at FinTech UX Summit, (3) Publications - featured articles in UX Design Weekly, (4) Community Participation - attending design meetups and contributing to A11y Project, (5) Tool Exploration - regularly testing new design tools and AI capabilities, (6) Mentorship - both giving and receiving mentorship from peers, (7) Experimentation - building side projects to test new approaches. This ensures my skills remain relevant and cutting-edge."
+      answer: "I stay current through: (1) Continuous Learning - certifications in UX design and generative AI (Google UX Professional Certificate, GenAI for UX Designers), (2) Tool Exploration - actively using Claude, ChatGPT, Figma Make, and Copilot as core working tools rather than curiosities, (3) Hands-on Prototyping - building HTML and Figma prototypes to stress-test interaction patterns before committing engineering resources, (4) Mentorship - structured critique sessions with junior and mid-level designers, (5) Domain Immersion - staying close to regulatory, compliance, and financial services trends that impact enterprise product design."
     },
     {
       question: "What are your career goals and vision?",

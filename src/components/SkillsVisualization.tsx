@@ -9,47 +9,47 @@ interface SkillCategory {
 
 const skillCategories: SkillCategory[] = [
   {
-    title: 'AI Product Design',
+    title: 'Strategy & Product Direction',
     skills: [
-      'Human-AI Interaction',
-      'AI-Assisted Workflows',
-      'AI Decision-Support Systems',
+      'Platform-Scale UX Strategy',
+      'Roadmap Influence & Stakeholder Alignment',
+      'Cross-Functional Product Leadership',
+      'Prototype-First Design Strategy',
+      'Design Mentorship & Practice Elevation',
+      'End-to-End Journey Architecture'
+    ]
+  },
+  {
+    title: 'Design Practice',
+    skills: [
+      'AI-Assisted Workflow Design',
+      'Regulated & Compliance-Driven UX',
+      'Interaction & Information Architecture',
+      'Design Systems as Infrastructure',
+      'Usability Research & Validation',
+      'Accessibility (WCAG 2.1 AA)'
+    ]
+  },
+  {
+    title: 'Systems & Integration Design',
+    skills: [
+      'Systems Thinking & Integration Design',
+      'Third-Party Integration Workflows',
+      'Multi-Module Architecture',
       'Explainable AI Interfaces',
       'Human-in-the-Loop Systems',
-      'AI Trust & Transparency'
+      'Angular & React Platform UX'
     ]
   },
   {
-    title: 'Product & Interaction Design',
+    title: 'Tools & AI Tooling',
     skills: [
-      'End-to-End Product Design',
-      'UX Strategy',
-      'Interaction Design',
-      'Information Architecture',
-      'Complex Workflow Design',
-      'Dashboard & Data Visualization UX'
-    ]
-  },
-  {
-    title: 'Research, Systems & Impact',
-    skills: [
-      'User Research',
-      'Usability Testing',
-      'Design Systems',
-      'Component Libraries',
-      'Data-Driven Design',
-      'Conversion-Focused UX'
-    ]
-  },
-  {
-    title: 'Tools & Collaboration',
-    skills: [
-      'Figma',
-      'FigJam',
-      'Miro',
-      'Adobe XD',
+      'Figma & FigJam',
+      'Claude & ChatGPT',
+      'Figma Make & Copilot',
       'Jira & Confluence',
-      'Cross-Functional Collaboration'
+      'HTML Prototyping',
+      'Behavioral Analytics'
     ]
   }
 ];
