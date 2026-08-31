@@ -10,6 +10,7 @@ const PortfolioOverview = () => {
   const featuredCaseStudyTitles = [
     'Cync Collateral Platform',
     'Cync Advance Analytics',
+    'Bank of America Bill Pay Redesign',
   ];
 
   const featuredProjects = featuredCaseStudyTitles
