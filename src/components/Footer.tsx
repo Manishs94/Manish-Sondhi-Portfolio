@@ -61,7 +61,7 @@ const Footer = () => {
           {/* Social Icons */}
           <div className="flex gap-4">
             <a
-              href="https://linkedin.com/in/manish-sondhi"
+              href="https://www.linkedin.com/in/manish-sondhi-2b3bb2217/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 bg-gray-800 rounded-full hover:bg-portfolio-accent transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-portfolio-accent/30"
@@ -70,7 +70,7 @@ const Footer = () => {
               <Linkedin size={18} />
             </a>
             <a
-              href="https://github.com/manishsondhi"
+              href="https://github.com/Manishs94"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 bg-gray-800 rounded-full hover:bg-portfolio-accent transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-portfolio-accent/30"

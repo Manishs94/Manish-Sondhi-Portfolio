@@ -8,9 +8,8 @@ import ProjectCard from '@/components/ProjectCard';
 
 const PortfolioOverview = () => {
   const featuredCaseStudyTitles = [
-    'CYNC Collateral Platform',
-    'Securities-Based Lending (SBL)',
-    'CYNC Advance Analytics (CAA)',
+    'Cync Collateral Platform',
+    'Cync Advance Analytics',
   ];
 
   const featuredProjects = featuredCaseStudyTitles

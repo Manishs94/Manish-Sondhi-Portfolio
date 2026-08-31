@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
 
 interface ProjectDetailActionsProps {
@@ -12,16 +13,27 @@ interface ProjectDetailActionsProps {
 }
 
 const ProjectDetailActions: React.FC<ProjectDetailActionsProps> = ({ project }) => {
+  const isInternalLink = project.link.startsWith('/');
+
   return (
     <div className="flex flex-wrap gap-4">
-      <a
-        href={project.link}
-        className="flex items-center gap-2 text-white bg-portfolio-accent px-6 py-3 rounded-md hover:bg-opacity-90 transition-all"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {project.isCaseStudy ? 'View Case Study' : 'View Project'} <ExternalLink size={16} />
-      </a>
+      {isInternalLink ? (
+        <Link
+          to={project.link}
+          className="flex items-center gap-2 text-white bg-portfolio-accent px-6 py-3 rounded-md hover:bg-opacity-90 transition-all"
+        >
+          {project.isCaseStudy ? 'View Case Study' : 'View Project'} <ExternalLink size={16} />
+        </Link>
+      ) : (
+        <a
+          href={project.link}
+          className="flex items-center gap-2 text-white bg-portfolio-accent px-6 py-3 rounded-md hover:bg-opacity-90 transition-all"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {project.isCaseStudy ? 'View Case Study' : 'View Project'} <ExternalLink size={16} />
+        </a>
+      )}
 
       {project.githubLink && (
         <a

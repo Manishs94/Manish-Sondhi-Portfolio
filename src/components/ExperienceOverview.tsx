@@ -5,19 +5,14 @@ import { Link } from 'react-router-dom';
 
 const ExperienceOverview = () => {
   const currentRole = {
-    title: 'Senior Product Designer',
-    company: 'CYNC Software',
+    title: 'Senior UX Product Designer',
+    company: 'Infinite Computer Solutions',
     location: 'Remote',
-    period: 'Feb 2022 – Present',
-    description: `Design lead for a multi-module enterprise platform used by 15+ institutional clients — spanning intake, multi-party record management, compliance-driven workflows, and operational dashboards for analysts and operations teams at regulated financial institutions.`,
+    period: 'May 2026 – Present',
+    description: `UX/UI Designer and Business Analyst for MDE4Vets, a back-office platform managing VA disability (C&P) exam logistics, provider billing, and compliance reporting — covering case-queue distribution, CPT billing configuration, invoice and travel/mileage reimbursement reporting, and provider training compliance.`,
     highlights: [
-      'Owned end-to-end UX for a multi-module enterprise platform — spanning compliance-driven workflows, role-based record management, and operational dashboards across Angular and React.',
-      'Designed a structured parent-child record architecture defining document ownership boundaries, role-based access patterns, and audit-ready state management.',
-      'Consolidated a 4-step collateral evaluation workflow into a single contextual dashboard, reducing estimated analyst review time by ~30%.',
-      'Built a 60+ component design system (form controls, status indicators, data grids, workflow steppers) cutting design-to-dev handoff cycles significantly.',
-      'Led discovery with operations, compliance, and product stakeholders to translate regulatory requirements into actionable product specifications — applicable to HIPAA, legal, and insurance contexts.',
-      'Designed AI-assisted decision interfaces with confidence indicators, contextual explanations, and human override controls — maintaining accountability and audit trails.',
-      'Collaborated with AI/ML engineers to translate predictive model outputs into clear, actionable UI — improving analyst decision speed and accuracy.'
+      "Conducted an end-to-end IA and UX audit across the platform's full surface, operating as a de facto business analyst alongside design work to document patterns, redundancies, and gaps.",
+      'Identified a recurring sensitive-data exposure pattern — veteran SSNs displayed unmasked directly in report data grids — a concrete compliance and security finding surfaced through systematic audit.'
     ]
   };
 
@@ -28,9 +23,9 @@ const ExperienceOverview = () => {
           <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4">
             Experience
           </span>
-          <h2 className="section-heading dark:text-white">Senior Product Designer · Principal-level</h2>
+          <h2 className="section-heading dark:text-white">Senior UX Product Designer</h2>
           <p className="section-subheading mx-auto dark:text-gray-300">
-            CYNC Software
+            Infinite Computer Solutions
           </p>
         </div>
         

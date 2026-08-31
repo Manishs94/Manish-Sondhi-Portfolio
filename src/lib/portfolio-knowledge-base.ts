@@ -1,10 +1,10 @@
 export const portfolioKnowledgeBase = {
   personalProfile: {
     name: "Manish Sondhi",
-    currentRole: "Senior Product Designer (Principal-level)",
+    currentRole: "Senior Product Designer",
     yearsOfExperience: "8+",
     location: "Remote",
-    summary: `Principal-level Product Designer with 8+ years shaping complex, high-stakes enterprise platforms across financial services and regulated SaaS. Known for operating beyond pure design execution — defining product strategy, architecting system-level interaction models, and driving alignment across engineering, product, and compliance stakeholders without being managed toward it.`,
+    summary: `Senior Product Designer with 8+ years designing systems where people have to trust and verify high-stakes output before acting on it. Known for operating beyond pure design execution — defining product strategy, architecting system-level interaction models, and driving alignment across engineering, product, and compliance stakeholders without being managed toward it.`,
     coreProficiencies: [
       "Platform-Scale UX Strategy",
       "Design Systems as Infrastructure",

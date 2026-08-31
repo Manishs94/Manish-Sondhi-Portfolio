@@ -19,6 +19,11 @@ import ProjectDetail from "./components/ProjectDetail";
 import CyncCaseStudyPage from "./pages/CyncCaseStudyPage";
 import ClonedCaseStudyPage from "./pages/ClonedCaseStudyPage";
 import InnovativeDesignStudioCaseStudyPage from "./pages/InnovativeDesignStudioCaseStudyPage";
+import InvestmentCollateralCaseStudyPage from "./pages/InvestmentCollateralCaseStudyPage";
+import CreComparableCaseStudyPage from "./pages/CreComparableCaseStudyPage";
+import CyncCollateralCaseStudyPage from "./pages/CyncCollateralCaseStudyPage";
+import CyncAdvanceAnalyticsCaseStudyPage from "./pages/CyncAdvanceAnalyticsCaseStudyPage";
+import BoaMobileBankingCaseStudyPage from "./pages/BoaMobileBankingCaseStudyPage";
 import { useEffect } from "react";
 
 const queryClient = new QueryClient({
@@ -89,6 +94,11 @@ const App = () => {
                   <Route path="/case-study/cync-enterprise-lending-platform" element={<CyncCaseStudyPage />} />
                   <Route path="/case-study/cloned-case-study" element={<ClonedCaseStudyPage />} />
                   <Route path="/case-study/innovative-design-studio" element={<InnovativeDesignStudioCaseStudyPage />} />
+                  <Route path="/work/investment-collateral" element={<InvestmentCollateralCaseStudyPage />} />
+                  <Route path="/work/commercial-real-estate-collateral" element={<CreComparableCaseStudyPage />} />
+                  <Route path="/work/cync-collateral-platform" element={<CyncCollateralCaseStudyPage />} />
+                  <Route path="/work/cync-advance-analytics" element={<CyncAdvanceAnalyticsCaseStudyPage />} />
+                  <Route path="/work/bank-of-america-mobile-banking" element={<BoaMobileBankingCaseStudyPage />} />
                   <Route path="/style-guide" element={<StyleGuide />} />
                   <Route path="/project/:id" element={<ProjectDetail />} />
                   {/* Redirect old project route to home portfolio section */}

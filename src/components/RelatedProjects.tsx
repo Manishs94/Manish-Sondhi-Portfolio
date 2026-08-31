@@ -94,16 +94,24 @@ const RelatedProjects = ({ currentProjectId, currentProjectCategory }: RelatedPr
                     </Link>
                   </Button>
                   
-                  <Button asChild variant="outline" size="sm">
-                    <a 
-                      href={project.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1"
-                    >
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                  </Button>
+                  {project.link.startsWith('/') ? (
+                    <Button asChild variant="outline" size="sm">
+                      <Link to={project.link} className="flex items-center gap-1">
+                        <ExternalLink className="w-3 h-3" />
+                      </Link>
+                    </Button>
+                  ) : (
+                    <Button asChild variant="outline" size="sm">
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1"
+                      >
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>

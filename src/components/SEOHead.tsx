@@ -17,9 +17,9 @@ interface SEOHeadProps {
 }
 
 export const SEOHead: React.FC<SEOHeadProps> = ({
-  title = "Manish Sondhi | Principal Product & UX Designer | Enterprise Systems & AI-Enabled Workflows",
-  description = "Principal-level Product Designer with 8+ years shaping enterprise fintech platforms, AI-assisted decisioning workflows, and regulated lending systems at Cync Software and Bank of America.",
-  keywords = "Principal Product Designer, Enterprise UX, AI-Assisted Workflow Design, Regulated Industry UX, Fintech UX, Design Systems, Collateral Management Design, Workflow Architecture",
+  title = "Manish Sondhi | Senior Product Designer | AI-Assisted Decisioning & Trust Design",
+  description = "Senior Product Designer with 8+ years designing systems where people have to trust and verify high-stakes output before acting on it — proven across financial services and healthcare compliance platforms.",
+  keywords = "Senior Product Designer, AI-Assisted Decisioning, Trust Design, Explainable AI, Enterprise UX, Regulated Industry UX, Fintech UX, Healthcare Compliance UX, Design Systems, Collateral Management Design, Workflow Architecture",
   image = "https://lovable.dev/opengraph-image-p98pqg.png",
   url = window.location.href,
   type = "website",
@@ -56,15 +56,14 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       ...(tags.length > 0 && { "keywords": tags.join(", ") })
     }),
     ...(type === "website" && {
-      "jobTitle": "Senior Product Designer (Principal-level)",
+      "jobTitle": "Senior Product Designer",
       "worksFor": {
         "@type": "Organization",
-        "name": "Freelance"
+        "name": "Infinite Computer Solutions"
       },
       "sameAs": [
-        "https://linkedin.com/in/manishsondhi",
-        "https://github.com/manishsondhi",
-        "https://twitter.com/alex_design"
+        "https://www.linkedin.com/in/manish-sondhi-2b3bb2217/",
+        "https://github.com/Manishs94"
       ]
     })
   };
@@ -101,8 +100,6 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
-      <meta name="twitter:creator" content="@alex_design" />
-      <meta name="twitter:site" content="@alex_design" />
 
       {/* Additional SEO Meta Tags */}
       <meta name="theme-color" content="#4169E1" />

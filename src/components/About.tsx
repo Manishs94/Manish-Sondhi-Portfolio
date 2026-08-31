@@ -31,7 +31,7 @@ const About = () => {
           >
             <div className="relative z-10 rounded-xl overflow-hidden transition-transform duration-700 hover:scale-[1.02] hover:shadow-xl">
               <img
-                alt="Manish Sondhi - Principal Product & UX Designer"
+                alt="Manish Sondhi - Senior Product Designer"
                 className="w-full h-auto rounded-xl"
                 src="/lovable-uploads/6f0b8c00-1540-45e5-95d0-c41efc358c2a.jpg"
               />
@@ -48,10 +48,10 @@ const About = () => {
               About
             </span>
             <h2 className={`section-heading dark:text-white transition-all duration-600 delay-100 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-              Principal-level Product & UX Designer for enterprise systems, AI-enabled workflows, and regulated platforms
+              Senior Product Designer for enterprise systems, AI-enabled workflows, and regulated platforms
             </h2>
             <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-6 transition-all duration-600 delay-200 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-              I&apos;m a Principal-level Product Designer with 8+ years shaping complex, high-stakes enterprise platforms across financial services and regulated SaaS. Known for operating beyond pure design execution — defining product strategy, architecting system-level interaction models, and driving alignment across engineering, product, and compliance stakeholders without being managed toward it.
+              I&apos;m a Senior Product Designer with 8+ years designing systems where people have to trust and verify high-stakes output before acting on it. Known for operating beyond pure design execution — defining product strategy, architecting system-level interaction models, and driving alignment across engineering, product, and compliance stakeholders without being managed toward it.
             </p>
 
             <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-6 transition-all duration-600 delay-300 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>

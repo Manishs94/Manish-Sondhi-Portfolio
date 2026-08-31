@@ -46,10 +46,27 @@ const Experience = () => {
 
   const experiences = [
     {
+      title: 'Senior UX Product Designer',
+      company: 'Infinite Computer Solutions',
+      location: 'Remote',
+      period: 'May 2026 – Present',
+      description: "UX/UI Designer and Business Analyst for MDE4Vets, a back-office platform managing VA disability (C&P) exam logistics, provider billing, and compliance reporting — covering case-queue distribution, CPT billing configuration, invoice and travel/mileage reimbursement reporting, and provider training compliance, alongside a junior designer.",
+      highlights: [
+        "Conducted an end-to-end IA and UX audit across the platform's full surface, operating as a de facto business analyst alongside design work to document patterns, redundancies, and gaps.",
+        'Identified a recurring sensitive-data exposure pattern — veteran SSNs displayed unmasked directly in report data grids — a concrete compliance and security finding surfaced through systematic audit.'
+      ],
+      impact: [],
+      tools: [
+        { label: 'Design Tools', items: ['Figma', 'FigJam'] },
+        { label: 'AI-Assisted Tools', items: ['Claude', 'ChatGPT', 'Copilot'] },
+        { label: 'Specialties', items: ['Business Analysis', 'Compliance Auditing', 'Healthcare & Federal Systems', 'Information Architecture'] }
+      ] as ToolGroup[]
+    },
+    {
       title: 'Senior Product Designer',
       company: 'CYNC Software',
       location: 'Remote',
-      period: 'Feb 2022 – Present',
+      period: 'Feb 2022 – Jul 2026',
       description: 'Design lead and product strategist for a multi-module enterprise lending platform serving 15+ regulated financial institutions across loan origination, collateral management, AI-assisted decisioning, and portfolio analytics. Operate beyond pure design execution — defining product strategy, interaction models, and integration design in close partnership with product, engineering, compliance, and data teams.',
       highlights: [
         'Defined end-to-end design strategy for 5+ concurrent product modules — establishing interaction models, IA frameworks, and workflow standards that became the engineering implementation baseline across quarterly release cycles.',
@@ -136,7 +153,7 @@ const Experience = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-heading dark:text-white">Work Experience</h2>
           <p className="section-subheading mx-auto dark:text-gray-300 mb-8">
-            Principal-level Product Designer with 8+ years shaping complex, high-stakes enterprise platforms across financial services and regulated SaaS — operating beyond pure design execution to define product strategy, workflow architecture, and integration design across engineering, product, and compliance teams.
+            Senior Product Designer with 8+ years designing systems where people have to trust and verify high-stakes output before acting on it — proven across two regulated domains: financial services and, more recently, healthcare compliance. Operating beyond pure design execution to define product strategy, workflow architecture, and integration design across engineering, product, and compliance teams.
           </p>
         </div>
         

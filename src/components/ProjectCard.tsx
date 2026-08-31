@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ExternalLink, BookOpen } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -14,6 +15,9 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index = 0, onQuickView }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const isInternalLink = (link: string) => link.startsWith('/');
 
   // Function to get the appropriate image for each project
   const getProjectImage = (project: any) => {
@@ -46,6 +50,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index = 0, onQuickVi
   const shouldOpenModal = project.isCaseStudy || isDesignProject();
 
   const handleCardClick = () => {
+    if (project.isCaseStudy && isInternalLink(project.link)) {
+      navigate(project.link);
+      return;
+    }
     if (shouldOpenModal) {
       setIsModalOpen(true);
     } else if (typeof onQuickView === 'function') {
@@ -56,6 +64,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index = 0, onQuickVi
   const handleViewProject = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    if (project.isCaseStudy && isInternalLink(project.link)) {
+      navigate(project.link);
+      return;
+    }
     if (shouldOpenModal) {
       setIsModalOpen(true);
     } else if (typeof onQuickView === 'function') {

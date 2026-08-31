@@ -32,9 +32,9 @@ const Hero = () => {
   return (
     <>
       <SEOHead
-        title="Manish Sondhi — AI & Enterprise Product Designer | Fintech, Lending Systems, Design Systems"
-        description="Principal-level Product Designer with 8+ years shaping enterprise fintech platforms, AI-assisted decisioning workflows, and regulated lending systems at Cync Software and Bank of America."
-        keywords="Principal Product Designer Portfolio, AI-Enabled Decision Interfaces, Enterprise Fintech UX, Collateral Management Design, Lending Platform UX, Regulated Industry Design, Design Systems"
+        title="Manish Sondhi — Senior Product Designer | AI-Assisted Decisioning & Trust Design"
+        description="Senior Product Designer with 8+ years designing systems where people have to trust and verify high-stakes output before acting on it — proven across financial services and healthcare compliance platforms."
+        keywords="Senior Product Designer Portfolio, AI-Assisted Decisioning, Trust Design, Explainable AI, Enterprise Fintech UX, Healthcare Compliance UX, Collateral Management Design, Regulated Industry Design, Design Systems"
       />
       
       <section id="home" className="pt-14 pb-12 md:pt-44 md:pb-32 relative overflow-hidden">
@@ -50,16 +50,16 @@ const Hero = () => {
             <div className="order-2 md:order-1">
               <div className={`mb-4 transition-all duration-1000 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
                 <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4">
-                  Principal Product & UX Designer · Enterprise Systems · AI-Enabled Workflows · Regulated Platforms
+                  Senior Product Designer · AI-Assisted Decisioning & Trust Design · Complex, Regulated Systems
                 </span>
               </div>
-              
+
               <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-portfolio-text-dark dark:text-white mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                <span className="block text-portfolio-accent bg-gradient-to-r from-portfolio-accent to-blue-600 bg-clip-text text-transparent">Designing AI-Enabled Decision Systems for Enterprise Finance</span>
+                <span className="block text-portfolio-accent bg-gradient-to-r from-portfolio-accent to-blue-600 bg-clip-text text-transparent">Designing Systems People Trust Enough to Act On</span>
               </h1>
 
               <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-8 max-w-xl transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                Principal-level Product Designer with 8+ years shaping complex, high-stakes enterprise platforms across financial services and regulated SaaS — collateral management systems, AI-assisted decisioning workflows, and regulated lending platforms at Cync Software and Bank of America.
+                Senior Product Designer with 8+ years designing systems where people have to trust and verify high-stakes output before acting on it — confidence indicators, explainable-AI disclosures, and human-override mechanisms with documented rationale. That discipline is proven across two regulated domains: financial services and, more recently, healthcare compliance.
               </p>
 
               <p className={`text-sm font-medium text-portfolio-text-dark dark:text-gray-100 mb-8 max-w-xl transition-all duration-1000 delay-500 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>

@@ -23,8 +23,8 @@ const BreadcrumbNav = ({ projectTitle }: BreadcrumbNavProps) => {
     return null;
   }
 
-  // For project detail pages, show: Home > Project Title
-  if (location.pathname.startsWith('/project/') && projectTitle) {
+  // For project detail pages and case study pages, show: Home > Project Title
+  if ((location.pathname.startsWith('/project/') || location.pathname.startsWith('/work/')) && projectTitle) {
     return (
       <div className="py-4 overflow-x-auto scrollbar-hide">
         <Breadcrumb className="min-w-max animate-fadeIn">
