@@ -122,23 +122,25 @@ export const caseStudies: Project[] = [
   {
     id: 4,
     title: 'Cync Advance Analytics',
-    subtitle: 'A portfolio analytics product for commercial lending — dashboard, chart, and detail views designed within Cync\'s platform. Full scope not yet documented.',
-    description: 'A real, in-production analytics product within Cync\'s platform, confirmed by roughly 25 screens in the design file — dashboard views with chart components, table-based data views, and modal/detail states. What the product does, who uses it, and what problem it solves have not yet been verified for this case study.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1080',
-    category: ['Enterprise Fintech', 'Data Visualization'],
+    subtitle: 'A consolidated reporting and dashboard layer for Cync\'s application suite, built around HMDA and lending-compliance data — conceptually similar to Google Analytics in role, but for Cync\'s own products. Shipped and integrated with LOS and Financial Analyzer.',
+    description: 'Built from scratch, not a redesign of a prior tool: a single application aggregating reports, dashboards, self-service SQL access, and a lending-compliance glossary from individual Cync applications, rather than requiring users to check each source system separately. Currently shipped and integrated with the Loan Origination System (LOS) and Financial Analyzer, with the stated intent to extend coverage to additional Cync applications over time.',
+    image: '/case-studies/advance-analytics-screens/01-overview.png',
+    category: ['Enterprise Fintech', 'Data Visualization', 'Compliance UX'],
     metrics: [
-      { icon: 'activity', value: '~25', label: 'Screens in Design File' }
+      { icon: 'activity', value: '7', label: 'Confirmed Top-Level Sections' },
+      { icon: 'check', value: '2', label: 'Integrated Source Systems (LOS, Financial Analyzer)' }
     ],
     tools: ['Figma'],
     link: '/work/cync-advance-analytics',
     overview: {
-      challenge: 'Not yet documented — see the full case study for exactly what is and is not verified about this product.',
-      solution: 'Confirmed screen inventory only: dashboard views with bar/column chart components, table-based data views, and several dark-background modal or detail-state screens.'
+      challenge: 'Cync application data lived in separate source systems, requiring users to check each one individually rather than viewing reports and dashboards in one consolidated place — with no prior in-house analytics product to build from.',
+      solution: 'Built a consolidated analytics application from scratch — Overview, Dashboards, Reports, DWH Query (self-service SQL against the source data warehouse), Metadata (a built-in lending-compliance glossary), Document & Data, and Administration — aggregating LOS and Financial Analyzer into one interface, with the stated intent to extend to additional Cync applications over time.'
     },
     status: 'Completed',
     isCaseStudy: true,
     productType: 'Enterprise Web',
-    platforms: 'Web (Enterprise SaaS)'
+    platforms: 'Web (Enterprise SaaS)',
+    role: 'Lead Product Designer'
   },
   {
     id: 2,

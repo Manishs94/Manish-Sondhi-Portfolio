@@ -66,6 +66,7 @@ interface CaseStudyPageLayoutProps {
 
   additionalSections?: CaseStudyAdditionalSection[];
 
+  galleryNote?: string;
   images?: CaseStudyImage[];
 
   retrospective?: CaseStudyDetailBlock[];
@@ -109,6 +110,7 @@ const CaseStudyPageLayout: React.FC<CaseStudyPageLayoutProps> = ({
   outcomeHighlights,
   outcomeBullets,
   additionalSections,
+  galleryNote,
   images,
   retrospective,
   closingImage,
@@ -423,9 +425,14 @@ const CaseStudyPageLayout: React.FC<CaseStudyPageLayoutProps> = ({
           <div className="section-container">
             <div ref={gallery.ref} className={`fade-in-up ${gallery.isVisible ? 'visible' : ''}`}>
               <SectionEyebrow>Selected Screens</SectionEyebrow>
-              <h2 className="text-3xl font-bold text-portfolio-text-dark font-display mb-10">
+              <h2 className="text-3xl font-bold text-portfolio-text-dark font-display mb-6">
                 The Work
               </h2>
+              {galleryNote && (
+                <p className="text-xs text-portfolio-text-light italic leading-relaxed border-l-2 border-gray-300 pl-4 mb-10 max-w-2xl">
+                  {galleryNote}
+                </p>
+              )}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {images.map((image) => (
                   <ImagePlaceholder key={image.filename} filename={image.filename} caption={image.caption} />
