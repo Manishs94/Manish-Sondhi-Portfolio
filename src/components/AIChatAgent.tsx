@@ -17,6 +17,10 @@ interface Message {
   type?: string;
 }
 
+// Set VITE_AI_CHAT_ENABLED=true (in Vercel env vars, then redeploy) to answer with Claude via /api/chat.
+// Otherwise the chat answers from the built-in responder below.
+const AI_CHAT_ENABLED = import.meta.env.VITE_AI_CHAT_ENABLED === 'true';
+
 export default function AIChatAgent() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([{
@@ -52,6 +56,8 @@ export default function AIChatAgent() {
     const timeout = setTimeout(() => controller.abort(), 45_000);
 
     try {
+      if (!AI_CHAT_ENABLED) throw new Error('AI chat disabled');
+
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -73,7 +79,7 @@ export default function AIChatAgent() {
       ]);
     } catch (err) {
       // AI unavailable (not configured, network, timeout): answer from the built-in responder instead.
-      console.warn('AI chat unavailable, using built-in responder:', err);
+      if (AI_CHAT_ENABLED) console.warn('AI chat unavailable, using built-in responder:', err);
       const local = generateAIResponse(messageText);
       setMessages((prev) => [
         ...prev,
