@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { SEOHead } from '@/components/SEOHead';
 import CaseStudyPageLayout from '@/components/CaseStudyPageLayout';
+import InvestmentPolicyDiagram from '@/components/motion/InvestmentPolicyDiagram';
 import NeedsAnswerFlag from '@/components/NeedsAnswerFlag';
 import ImagePlaceholder from '@/components/ImagePlaceholder';
 import { caseStudies } from '@/utils/data/caseStudies';
@@ -69,6 +70,10 @@ const keyDecisions = [
 ];
 
 const additionalSections = [
+  {
+    title: 'One Change, Every Loan',
+    content: <InvestmentPolicyDiagram />,
+  },
   {
     title: 'The Securities Master — Full Field List',
     content: (

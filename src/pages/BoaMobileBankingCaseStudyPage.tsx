@@ -19,6 +19,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { caseStudies } from '@/utils/data/caseStudies';
+import BillPayFlowDiagram from '@/components/motion/BillPayFlowDiagram';
 
 const project = caseStudies.find((p) => p.id === 2)!;
 
@@ -430,6 +431,17 @@ const BoaMobileBankingCaseStudyPage = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Scheduling flow, animated */}
+        <section className="py-24 bg-white">
+          <div className="section-container max-w-3xl mx-auto">
+            <SectionEyebrow>Flow</SectionEyebrow>
+            <h2 className="text-3xl font-bold text-portfolio-text-dark font-display mb-6">
+              Scheduling a Payment
+            </h2>
+            <BillPayFlowDiagram />
           </div>
         </section>
 

@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { SEOHead } from '@/components/SEOHead';
 import CaseStudyPageLayout from '@/components/CaseStudyPageLayout';
+import AdvanceAnalyticsDiagram from '@/components/motion/AdvanceAnalyticsDiagram';
 import { caseStudies } from '@/utils/data/caseStudies';
 
 const project = caseStudies.find((p) => p.id === 4)!;
@@ -56,6 +57,10 @@ const keyDecisions = [
 ];
 
 const additionalSections = [
+  {
+    title: 'Many Apps, One Place',
+    content: <AdvanceAnalyticsDiagram />,
+  },
   {
     title: 'The System — Confirmed Detail',
     content: (

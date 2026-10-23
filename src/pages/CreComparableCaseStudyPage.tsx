@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { SEOHead } from '@/components/SEOHead';
 import CaseStudyPageLayout from '@/components/CaseStudyPageLayout';
+import CreComponentsDiagram from '@/components/motion/CreComponentsDiagram';
 import NeedsAnswerFlag from '@/components/NeedsAnswerFlag';
 import ImagePlaceholder from '@/components/ImagePlaceholder';
 import { caseStudies } from '@/utils/data/caseStudies';
@@ -49,6 +50,10 @@ const keyDecisions = [
 ];
 
 const additionalSections = [
+  {
+    title: 'Shared Components, Varying Facts',
+    content: <CreComponentsDiagram />,
+  },
   {
     title: 'The System — Collateral Record: Commercial Real Estate',
     content: (

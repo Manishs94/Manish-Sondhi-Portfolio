@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { SEOHead } from '@/components/SEOHead';
 import CaseStudyPageLayout from '@/components/CaseStudyPageLayout';
+import CollateralPlatformDiagram from '@/components/motion/CollateralPlatformDiagram';
 import NeedsAnswerFlag from '@/components/NeedsAnswerFlag';
 import { caseStudies } from '@/utils/data/caseStudies';
 
@@ -107,6 +108,10 @@ const keyDecisions = [
 ];
 
 const additionalSections = [
+  {
+    title: 'Two Services, One Explicit Link',
+    content: <CollateralPlatformDiagram />,
+  },
   {
     title: 'The Verified System — Collateral Record Structure',
     content: (
