@@ -16,6 +16,7 @@ import PortfolioPage from "./pages/PortfolioPage";
 import ExperiencePage from "./pages/ExperiencePage";
 import ContactPage from "./pages/ContactPage";
 import ProjectDetail from "./components/ProjectDetail";
+import AIChatAgent from "./components/AIChatAgent";
 import CyncCaseStudyPage from "./pages/CyncCaseStudyPage";
 import ClonedCaseStudyPage from "./pages/ClonedCaseStudyPage";
 import InnovativeDesignStudioCaseStudyPage from "./pages/InnovativeDesignStudioCaseStudyPage";
@@ -107,6 +108,7 @@ const App = () => {
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>
+              <AIChatAgent />
             </BrowserRouter>
           </TooltipProvider>
         </QueryClientProvider>
