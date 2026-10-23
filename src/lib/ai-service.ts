@@ -1,152 +1,118 @@
-import { BedrockRuntimeClient, InvokeModelCommand } from "@aws-sdk/client-bedrock-runtime";
-import { portfolioKnowledgeBase } from './portfolio-knowledge-base';
+// Server-only: imported by api/chat.ts (Vercel) and src/dev-server.ts (local).
+// Never import this from browser code — it reads AWS credentials from process.env.
+import Anthropic from '@anthropic-ai/sdk';
+import { AnthropicBedrockMantle } from '@anthropic-ai/bedrock-sdk';
+import { portfolioKnowledgeBase } from './portfolio-knowledge-base.js';
 
+export interface ChatHistoryItem {
+  content: string;
+  sender: 'user' | 'ai';
+}
+
+export class AIUnavailableError extends Error {}
+
+const AI_GATEWAY_URL = 'https://ai-gateway.vercel.sh';
+const DEFAULT_GATEWAY_MODEL = 'anthropic/claude-opus-5';
+const DEFAULT_BEDROCK_MODEL = 'anthropic.claude-opus-5';
+const MAX_MESSAGE_CHARS = 2000;
+const MAX_HISTORY_MESSAGES = 12;
+
+// Accept the legacy NEXT_PUBLIC_* names too, since existing env files use them.
 const getEnv = (key: string) => process.env[key] || process.env[`NEXT_PUBLIC_${key}`] || '';
 
+// Legacy InvokeModel IDs (e.g. anthropic.claude-v2, ...-v2:0) don't work with the Messages API client.
+const resolveBedrockModel = () => {
+  const configured = getEnv('BEDROCK_MODEL_ID');
+  if (!configured || /claude-(v2|instant)|:\d+$/.test(configured)) return DEFAULT_BEDROCK_MODEL;
+  return configured;
+};
+
+// The full knowledge base is stable across requests, so it sits in a cached system block.
+const SYSTEM_PROMPT = `You are the AI assistant on ${portfolioKnowledgeBase.personalProfile.name}'s product design portfolio website. Visitors are mostly recruiters, hiring managers, product managers, and designers evaluating ${portfolioKnowledgeBase.personalProfile.name} for a role.
+
+Answer using only the portfolio knowledge base below. If something isn't covered, say so plainly and suggest a related topic you can speak to, or suggest reaching out through the contact form. Never invent employers, metrics, dates, or projects.
+
+Tailor depth to the question: a short, recruiter-friendly answer for broad questions; a detailed walkthrough (challenge, approach, key decisions, impact) when someone asks to go deep on a project or process. Refer to ${portfolioKnowledgeBase.personalProfile.name} in the third person.
+
+The chat window renders plain text only. Do not use Markdown syntax (no #, **, or tables). Use short paragraphs, and "•" for bullet points. Keep most answers under 200 words.
+
+<portfolio_knowledge_base>
+${JSON.stringify(portfolioKnowledgeBase, null, 2)}
+</portfolio_knowledge_base>`;
+
+const toMessages = (history: ChatHistoryItem[], message: string): Anthropic.MessageParam[] => {
+  const messages: Anthropic.MessageParam[] = history
+    .filter((m) => m && typeof m.content === 'string' && m.content.trim())
+    .slice(-MAX_HISTORY_MESSAGES)
+    .map((m) => ({
+      role: m.sender === 'user' ? 'user' : 'assistant',
+      content: m.content.slice(0, 4000),
+    }));
+
+  // The conversation must start with a user turn (drops the canned greeting).
+  while (messages.length && messages[0].role !== 'user') messages.shift();
+
+  messages.push({ role: 'user', content: message });
+  return messages;
+};
+
 class AIService {
-  private client?: BedrockRuntimeClient;
-  private useBedrock: boolean;
+  private bedrockClient?: AnthropicBedrockMantle;
 
-  constructor() {
-    const accessKey = getEnv('AWS_ACCESS_KEY_ID');
-    const secretKey = getEnv('AWS_SECRET_ACCESS_KEY');
-    const region = getEnv('AWS_REGION') || getEnv('NEXT_PUBLIC_AWS_REGION') || 'us-east-1';
-
-    this.useBedrock = !!(accessKey && secretKey) && !getEnv('FORCE_LOCAL_RESPONDER');
-
-    if (this.useBedrock) {
-      try {
-        this.client = new BedrockRuntimeClient({
-          region,
-          credentials: {
-            accessKeyId: accessKey,
-            secretAccessKey: secretKey,
-          },
-        });
-      } catch (err) {
-        console.warn('Failed to initialize Bedrock client, falling back to local responder:', err);
-        this.useBedrock = false;
-      }
-    }
-  }
-
-  // Build a richer system prompt from the knowledge base (used when Bedrock is available)
-  private buildSystemPrompt(): string {
-    const pb = portfolioKnowledgeBase;
-    const current = pb.careerHistory[0];
-
-    // Limit the number of projects and achievements to avoid overly long prompts
-    const maxProjects = 3;
-    const maxAchievements = 5;
-
-    const projectDetails = current.keyProjects
-      .slice(0, maxProjects)
-      .map((p) => `- ${p.name}: ${p.description} (Impact: ${p.impact || 'N/A'})`)
-      .join('\n');
-
-    const achievements = current.achievements
-      ?.slice(0, maxAchievements)
-      .join(', ') || 'N/A';
-
-    return `### AI Assistant Prompt ###
-
-You are an AI assistant for a professional portfolio website. Respond concisely, accurately, and professionally. Use the context below to answer questions. Avoid hallucinating facts outside the provided context.
-
----
-
-**Professional Summary:**
-${pb.personalProfile.summary}
-
-**Current Role:**
-- Company: ${current.company}
-- Role: ${current.role}
-- Period: ${current.period}
-- Location: ${current.location}
-- Key Achievements: ${achievements}
-
-**Highlighted Projects (Top ${maxProjects}):**
-${projectDetails}
-
-**Core Skills:**
-- Design: ${pb.technicalSkills.design.tools.join(', ')}
-- Frontend: ${pb.technicalSkills.technical.frontend.join(', ')}
-- AI: ${pb.technicalSkills.technical.ai.join(', ')}
-
----
-
-When answering, prioritize:
-1. Technical skills and tools.
-2. Recent projects and their impact.
-3. Metrics and measurable outcomes.
-
-If the user asks about unavailable details, acknowledge the limitation and suggest follow-up questions.
-`;
-  }
-
-  // Very small local responder that uses the portfolio knowledge base to answer common prompts when Bedrock is unavailable.
-  private localResponder(prompt: string): string {
-    const q = (prompt || '').toLowerCase();
-
-    if (q.includes('portfolio') || q.includes('overview')) {
-      return `Professional Summary:\n${portfolioKnowledgeBase.personalProfile.summary}\n\nCore Proficiencies: ${portfolioKnowledgeBase.personalProfile.coreProficiencies?.join(', ') || ''}`;
-    }
-
-    if (q.includes('experience') || q.includes('background')) {
-      const ch = portfolioKnowledgeBase.careerHistory.map((c) => `- ${c.company} (${c.period}) — ${c.role}`).join('\n');
-      return `Experience:\n${ch}\n\nAsk about a specific company or project for more details.`;
-    }
-
-    if (q.includes('cync') || q.includes('cync software') || q.includes('loan') || q.includes('collateral')) {
-      const c = portfolioKnowledgeBase.careerHistory[0];
-      return `CYNC Software — ${c.role} (${c.period}) in ${c.location}\n\nKey projects include: ${c.keyProjects.map(p=>p.name).join(', ')}\n\nHighlights:\n- ${c.responsibilities?.productStrategy?.slice(0,3).join('\n- ') || 'Product strategy details available on request.'}\n\nAsk for more details about any project.`;
-    }
-
-    if (q.includes('skills') || q.includes('technologies')) {
-      return `Skills:\nDesign: ${portfolioKnowledgeBase.technicalSkills.design.tools.join(', ')}\nDevelopment: ${portfolioKnowledgeBase.technicalSkills.technical.frontend.join(', ')}\nAI: ${portfolioKnowledgeBase.technicalSkills.technical.ai.join(', ')}`;
-    }
-
-    // Fallback: echo context-aware summary plus recommend follow-ups
-    return `I couldn't find a direct match, but here's a summary of the portfolio: \n${portfolioKnowledgeBase.personalProfile.summary}\n\nYou can ask about: projects, experience, skills, certifications, or publications.`;
-  }
-
-  // When Bedrock is configured, call it; otherwise use local responder.
-  async generateResponse(prompt: string): Promise<string> {
-    if (!prompt) return 'Please provide a question.';
-
-    if (!this.useBedrock || !this.client) {
-      // Local responder is synchronous but return Promise for same API.
-      return Promise.resolve(this.localResponder(prompt));
-    }
-
-    try {
-      const systemPrompt = this.buildSystemPrompt();
-      const finalPrompt = `${systemPrompt}\nUser question: ${prompt}`;
-
-      const input = {
-        modelId: getEnv('BEDROCK_MODEL_ID') || getEnv('NEXT_PUBLIC_BEDROCK_MODEL_ID') || 'anthropic.claude-v2',
-        contentType: 'application/json',
-        accept: 'application/json',
-        body: JSON.stringify({
-          prompt: `\n\nHuman: ${finalPrompt}\n\nAssistant:`,
-          max_tokens_to_sample: 1500,
-          temperature: 0.7,
-        }),
+  // Preferred: Vercel AI Gateway. On Vercel deployments the OIDC token comes from the
+  // `x-vercel-oidc-token` request header, so no API keys are needed. Locally, set
+  // AI_GATEWAY_API_KEY (or VERCEL_OIDC_TOKEN). AWS Bedrock is an optional alternative.
+  private resolveProvider(gatewayToken?: string) {
+    const token = gatewayToken || getEnv('AI_GATEWAY_API_KEY') || getEnv('VERCEL_OIDC_TOKEN');
+    if (token) {
+      return {
+        client: new Anthropic({ apiKey: token, baseURL: AI_GATEWAY_URL, timeout: 45_000 }),
+        model: getEnv('AI_GATEWAY_MODEL') || DEFAULT_GATEWAY_MODEL,
       };
-
-      const command = new InvokeModelCommand(input as any);
-      const response = await this.client!.send(command);
-      const text = new TextDecoder().decode(response.body as any);
-
-      try {
-        const parsed = JSON.parse(text);
-        return parsed.completion || parsed.output?.[0]?.content?.[0]?.text || parsed.outputText || text;
-      } catch (e) {
-        return text;
-      }
-    } catch (err) {
-      console.error('Bedrock call failed, falling back to local responder:', err);
-      return this.localResponder(prompt);
     }
+
+    if (getEnv('AWS_ACCESS_KEY_ID') && getEnv('AWS_SECRET_ACCESS_KEY')) {
+      this.bedrockClient ??= new AnthropicBedrockMantle({
+        awsRegion: getEnv('AWS_REGION') || 'us-east-1',
+        awsAccessKey: getEnv('AWS_ACCESS_KEY_ID'),
+        awsSecretAccessKey: getEnv('AWS_SECRET_ACCESS_KEY'),
+        awsSessionToken: getEnv('AWS_SESSION_TOKEN') || null,
+        timeout: 45_000,
+      });
+      return { client: this.bedrockClient, model: resolveBedrockModel() };
+    }
+
+    throw new AIUnavailableError('No AI provider configured (AI Gateway or AWS Bedrock)');
+  }
+
+  async generateResponse(
+    message: string,
+    history: ChatHistoryItem[] = [],
+    gatewayToken?: string
+  ): Promise<string> {
+    const { client, model } = this.resolveProvider(gatewayToken);
+
+    const response = await client.messages.create({
+      model,
+      max_tokens: 4000,
+      // Chat answers don't need deep reasoning; low effort keeps replies fast.
+      output_config: { effort: 'low' },
+      system: [{ type: 'text', text: SYSTEM_PROMPT, cache_control: { type: 'ephemeral' } }],
+      messages: toMessages(history, message.slice(0, MAX_MESSAGE_CHARS)),
+    });
+
+    if (response.stop_reason === 'refusal') {
+      throw new AIUnavailableError('Model declined the request');
+    }
+
+    const text = response.content
+      .filter((block): block is Anthropic.TextBlock => block.type === 'text')
+      .map((block) => block.text)
+      .join('\n')
+      .trim();
+
+    if (!text) throw new AIUnavailableError('Model returned an empty response');
+    return text;
   }
 }
 

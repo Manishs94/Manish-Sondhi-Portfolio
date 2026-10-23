@@ -48,73 +48,40 @@ export default function AIChatAgent() {
     setInputValue('');
     setIsTyping(true);
 
-    const doFetch = async () => {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 45_000);
+
+    try {
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        signal: controller.signal,
         body: JSON.stringify({
           message: messageText,
           history: messages.map((m) => ({ content: m.content, sender: m.sender })),
         }),
       });
 
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const json = await res.json();
-      if (json.error) throw new Error(json.error);
-      return json.response;
-    };
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || typeof json.response !== 'string') {
+        throw new Error(json.error || `HTTP ${res.status}`);
+      }
 
-    try {
-      const aiText = await doFetch();
       setMessages((prev) => [
         ...prev,
-        { id: Date.now().toString(), content: aiText, sender: 'ai', timestamp: new Date(), hasActions: true },
+        { id: Date.now().toString(), content: json.response, sender: 'ai', timestamp: new Date(), hasActions: false },
       ]);
-    } catch (firstErr) {
-      console.warn('First fetch failed, retrying...', firstErr);
-      // Retry once
-      try {
-        const aiText = await doFetch();
-        setMessages((prev) => [
-          ...prev,
-          { id: Date.now().toString(), content: aiText, sender: 'ai', timestamp: new Date(), hasActions: true },
-        ]);
-      } catch (secondErr) {
-        console.warn('Retry failed, scheduling final attempt...', secondErr);
-        // Leave isTyping true and do a final attempt in background
-        setTimeout(async () => {
-          try {
-            const aiText = await doFetch();
-            setMessages((prev) => [
-              ...prev,
-              { id: Date.now().toString(), content: aiText, sender: 'ai', timestamp: new Date(), hasActions: true },
-            ]);
-          } catch (finalErr) {
-            console.error('Final retry failed:', finalErr);
-            // Final fallback: use local static responder to ensure user still gets an answer
-            try {
-              const local = generateAIResponse(messageText);
-              setMessages((prev) => [
-                ...prev,
-                { id: Date.now().toString(), content: local.content, sender: 'ai', timestamp: new Date(), hasActions: local.hasActions || false, type: local.type },
-              ]);
-            } catch (localErr) {
-              console.error('Local responder failed:', localErr);
-              setMessages((prev) => [
-                ...prev,
-                { id: Date.now().toString(), content: "I'm having trouble reaching the AI right now. Please try again.", sender: 'ai', timestamp: new Date(), hasActions: false },
-              ]);
-            }
-          } finally {
-            setIsTyping(false);
-          }
-        }, 2000);
-      } finally {
-        if (!isTyping) setIsTyping(false);
-      }
+    } catch (err) {
+      // AI unavailable (not configured, network, timeout): answer from the built-in responder instead.
+      console.warn('AI chat unavailable, using built-in responder:', err);
+      const local = generateAIResponse(messageText);
+      setMessages((prev) => [
+        ...prev,
+        { id: Date.now().toString(), content: local.content, sender: 'ai', timestamp: new Date(), hasActions: local.hasActions || false, type: local.type },
+      ]);
     } finally {
-      // Ensure typing state is turned off unless waiting for final retry
-      if (isTyping) setIsTyping(false);
+      clearTimeout(timeout);
+      setIsTyping(false);
     }
   };
 

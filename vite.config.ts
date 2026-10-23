@@ -12,7 +12,6 @@ export default defineConfig(({ mode }) => ({
       '/api': {
         target: 'http://localhost:3001',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
   },
@@ -26,12 +25,4 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  optimizeDeps: {
-    exclude: ['@aws-sdk/client-bedrock-runtime'],
-  },
-  build: {
-    rollupOptions: {
-      external: ['@aws-sdk/client-bedrock-runtime'],
-    },
-  }
 }));

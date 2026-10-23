@@ -1,7 +1,8 @@
+import 'dotenv/config';
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import nodemailer from 'nodemailer';
-import { aiService } from './lib/ai-service';
+import { aiService, AIUnavailableError } from './lib/ai-service.js';
 
 const app = express();
 const PORT = process.env.DEV_SERVER_PORT || 3001;
@@ -110,15 +111,15 @@ app.post('/api/chat', async (req: Request, res: Response) => {
 
     console.log(`[${new Date().toISOString()}] Chat request: "${message.substring(0, 50)}..."`);
 
-    // Call aiService to generate response (uses Bedrock if credentials are set, otherwise local responder)
-    const response = await aiService.generateResponse(message);
+    const response = await aiService.generateResponse(message.trim(), Array.isArray(history) ? history : []);
 
     res.json({ response });
   } catch (error) {
     console.error('Error in /api/chat endpoint:', error);
-    res.status(500).json({
-      error: 'Failed to generate response',
-      message: error instanceof Error ? error.message : 'Unknown error',
+    // `fallback: true` tells the client to answer from its built-in responder.
+    res.status(error instanceof AIUnavailableError ? 503 : 502).json({
+      error: 'AI response unavailable',
+      fallback: true,
     });
   }
 });
