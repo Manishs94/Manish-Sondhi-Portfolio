@@ -1,5 +1,4 @@
 import React from 'react';
-import { ShieldCheck } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
@@ -111,29 +110,11 @@ const additionalSections = [
       </p>
     ),
   },
-  {
-    title: "Scope of What's Confirmed Here",
-    content: (
-      <div className="rounded-2xl border-2 border-gray-200 bg-portfolio-bg-light p-6 sm:p-8">
-        <ShieldCheck className="w-5 h-5 text-portfolio-text-dark mb-3" />
-        <p className="text-sm text-portfolio-text-light leading-relaxed mb-3">
-          <span className="font-semibold text-portfolio-text-dark">Confirmed:</span> the product
-          exists, it was designed from scratch, it's shipped, it's built around HMDA and broader
-          lending-compliance data, it includes the seven confirmed sections above (Overview,
-          Dashboards, Reports, DWH Query, Metadata, Document &amp; Data, Administration), and the
-          role on this project was Lead Product Designer.
-        </p>
-        <p className="text-sm text-portfolio-text-light leading-relaxed">
-          <span className="font-semibold text-portfolio-text-dark">Not confirmed:</span> product
-          name accuracy ("Advance Analytics" vs. "Cync Advance Analytics" vs. "CAA"), the "NDS
-          Systems, LC" footer attribution and how it relates to Cync, whether/how this connects
-          specifically to the Collateral or Loan modules beyond LOS/Financial Analyzer generally,
-          any user research process, any adoption or performance metrics, and any regulatory
-          reporting claims (CCAR/IFRS9/Basel).
-        </p>
-      </div>
-    ),
-  },
+];
+
+const closingReflection = [
+  'The central lesson of building analytics inside a lending platform: the hard part is not the charts, it is trust and vocabulary. Data from the Loan Origination System and Financial Analyzer only becomes usable when the reader knows what each term means (the built-in glossary), can verify a number against its source (the DWH query access), and can move between a summary and the underlying records without leaving the product. A dashboard that cannot be questioned does not get used in a regulated setting.',
+  'The second lesson is structural: keeping Dashboards and Reports as parallel structures, instead of one merged view, matched two different jobs (monitoring and answering a specific question). Designing for the job, not the feature list, is what the product comes down to.',
 ];
 
 // Real product screenshots. Environment shown is a QA/sample instance — see galleryNote below
@@ -178,6 +159,7 @@ const CyncAdvanceAnalyticsCaseStudyPage = () => {
           additionalSections={additionalSections}
           galleryNote={'Direct product screenshots. The environment shown is a QA/sample instance — dashboard and report rows read "reallyLongDashboardName" / "Lorem ipsum..." as placeholder content, and Administration → Profile Management fields are unpopulated ("-"). The structure, navigation, and query data are real; the row-level content is not.'}
           images={images}
+          closingReflection={closingReflection}
         />
       </div>
       <Footer />

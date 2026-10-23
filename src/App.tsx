@@ -21,6 +21,14 @@ import CyncCaseStudyPage from "./pages/CyncCaseStudyPage";
 import ClonedCaseStudyPage from "./pages/ClonedCaseStudyPage";
 import InnovativeDesignStudioCaseStudyPage from "./pages/InnovativeDesignStudioCaseStudyPage";
 import InvestmentCollateralCaseStudyPage from "./pages/InvestmentCollateralCaseStudyPage";
+import EquityStockManagementCaseStudyPage from "./pages/EquityStockManagementCaseStudyPage";
+import CollateralPledgeLinkCaseStudyPage from "./pages/CollateralPledgeLinkCaseStudyPage";
+import FleetFinancingCaseStudyPage from "./pages/FleetFinancingCaseStudyPage";
+import AgricultureCollateralCaseStudyPage from "./pages/AgricultureCollateralCaseStudyPage";
+import BorrowingBaseCertificateCaseStudyPage from "./pages/BorrowingBaseCertificateCaseStudyPage";
+import NavSubscriptionCollateralCaseStudyPage from "./pages/NavSubscriptionCollateralCaseStudyPage";
+import RolesPermissionsCaseStudyPage from "./pages/RolesPermissionsCaseStudyPage";
+import EquipmentDepositCollateralCaseStudyPage from "./pages/EquipmentDepositCollateralCaseStudyPage";
 import CreComparableCaseStudyPage from "./pages/CreComparableCaseStudyPage";
 import CyncCollateralCaseStudyPage from "./pages/CyncCollateralCaseStudyPage";
 import CyncAdvanceAnalyticsCaseStudyPage from "./pages/CyncAdvanceAnalyticsCaseStudyPage";
@@ -96,6 +104,14 @@ const App = () => {
                   <Route path="/case-study/cloned-case-study" element={<ClonedCaseStudyPage />} />
                   <Route path="/case-study/innovative-design-studio" element={<InnovativeDesignStudioCaseStudyPage />} />
                   <Route path="/work/investment-collateral" element={<InvestmentCollateralCaseStudyPage />} />
+                  <Route path="/work/equity-stock-management" element={<EquityStockManagementCaseStudyPage />} />
+                  <Route path="/work/collateral-pledge-link" element={<CollateralPledgeLinkCaseStudyPage />} />
+                  <Route path="/work/fleet-financing" element={<FleetFinancingCaseStudyPage />} />
+                  <Route path="/work/agriculture-collateral" element={<AgricultureCollateralCaseStudyPage />} />
+                  <Route path="/work/borrowing-base-certificate" element={<BorrowingBaseCertificateCaseStudyPage />} />
+                  <Route path="/work/nav-subscription-collateral" element={<NavSubscriptionCollateralCaseStudyPage />} />
+                  <Route path="/work/roles-and-permissions" element={<RolesPermissionsCaseStudyPage />} />
+                  <Route path="/work/equipment-deposit-collateral" element={<EquipmentDepositCollateralCaseStudyPage />} />
                   <Route path="/work/commercial-real-estate-collateral" element={<CreComparableCaseStudyPage />} />
                   <Route path="/work/cync-collateral-platform" element={<CyncCollateralCaseStudyPage />} />
                   <Route path="/work/cync-advance-analytics" element={<CyncAdvanceAnalyticsCaseStudyPage />} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
@@ -13,9 +13,9 @@ import { caseStudies } from '@/utils/data/caseStudies';
 const project = caseStudies.find((p) => p.id === 7)!;
 
 // Temporary stand-in stock photography — not real product screenshots. Swap for actual
-// Figma exports once available (see "Open Items"); ImagePlaceholder will pick them up
-// automatically once local files exist at these paths (just replace the URL with the
-// local filename, e.g. 'ic-hero.png').
+// Figma exports once available; ImagePlaceholder will pick them up automatically once
+// local files exist at these paths (just replace the URL with the local filename, e.g.
+// 'ic-hero.png').
 const img = {
   hero: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=1600',
   securitiesMaster: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600',
@@ -23,6 +23,8 @@ const img = {
   advanceRate: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=1600',
   bulkUpdate: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&q=80&w=1600',
   connection: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600',
+  eligibilityTesting: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600',
+  linkPledge: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&q=80&w=1600',
 };
 
 const securitiesMasterFields = [
@@ -39,6 +41,19 @@ const securitiesMasterFields = [
   { name: 'Issuer / Fund House', body: 'Who issues or manages the security.' },
   { name: 'Pricing (EODHD)', body: 'Closing price, price date, ingestion status — sourced from EODHD.' },
 ];
+
+const eligibilityTests = [
+  'Single Security Concentration', 'Market Cap Requirement', 'Sector Concentration Limit',
+  'Issuer Eligibility', 'Minimum Diversification', 'Collateral Coverage Requirement',
+  'Penny Stock Exclusion',
+];
+
+const investmentSubTypes = [
+  '401a', 'Brokerage', '529', '403b', '457b', 'IRA', 'Roth 401k', 'Pension', 'Trust',
+  'Life Insurance', 'Crypto', 'and others',
+];
+
+const securityTypes = ['Stock', 'Bonds', 'ETFs', 'Stock Option', 'Mutual Funds', 'Crypto'];
 
 const problemDetails = [
   {
@@ -94,7 +109,7 @@ const additionalSections = [
     ),
   },
   {
-    title: 'The Connection: Collateral and Loan as Separate Services, Linked by Policy Inheritance',
+    title: 'Collateral and Loan as Separate Services, Linked by Policy Inheritance',
     content: (
       <>
         <p className="text-sm text-portfolio-text-light leading-relaxed mb-4">
@@ -129,34 +144,97 @@ const additionalSections = [
     ),
   },
   {
-    title: 'Scope of What\'s Confirmed Here',
+    title: 'Eligibility Is Tested, Not Just Flagged',
     content: (
-      <div className="rounded-2xl border-2 border-gray-200 bg-portfolio-bg-light p-6 sm:p-8">
-        <ShieldCheck className="w-5 h-5 text-portfolio-text-dark mb-3" />
-        <p className="text-sm text-portfolio-text-light leading-relaxed">
-          This page describes the Investments Management admin surface and the policy-inheritance
-          mechanism as they apply to securities specifically. It does not claim this exact mechanism
-          is identical across the other 10 collateral categories (Commercial Real Estate, NAV,
-          Deposit, Accounts Receivable, Inventory, Equipment, Agriculture, Subscription, Automobiles,
-          and general Business collateral) — that comparison hasn't been verified and isn't asserted
-          here.
+      <>
+        <p className="text-xs text-portfolio-text-light italic mb-4">From the Figma file.</p>
+        <div className="mb-6">
+          <ImagePlaceholder
+            filename={img.eligibilityTesting}
+            caption="Security panel — aggregate eligibility tests"
+            aspect="wide"
+          />
+        </div>
+        <p className="text-sm text-portfolio-text-light leading-relaxed mb-4">
+          The Figma frames add a Security panel on the loan side that evaluates a pledged portfolio
+          against a rule set, one row per test, across tabs for{' '}
+          <span className="font-semibold text-portfolio-text-dark">
+            Concentration, Eligibility, Diversification, and Coverage
+          </span>
+          :
         </p>
-      </div>
+        <div className="flex flex-wrap gap-2 mb-6">
+          {eligibilityTests.map((test) => (
+            <span
+              key={test}
+              className="px-3 py-1 bg-portfolio-bg-light text-portfolio-text-dark rounded-full text-xs font-medium"
+            >
+              {test}
+            </span>
+          ))}
+        </div>
+        <p className="text-sm text-portfolio-text-light leading-relaxed mb-4">
+          Each row shows Current Value against Threshold, a plain-language Summary, and an Action
+          Required. Sample rows read "No single security exceeds the allowed portfolio
+          concentration limit" (18.40% against a 25.00% threshold), "47/47 pass" for market cap, a
+          Technology exposure warning ("close to the threshold. Keep under review," 38.20% against
+          40.00%), and a coverage failure ("Coverage is below the minimum threshold. Additional
+          collateral is required") with an Add to Borrower Request action.
+        </p>
+        <p className="text-sm text-portfolio-text-light leading-relaxed mb-4">
+          <span className="font-semibold text-portfolio-text-dark">Why it matters:</span> a
+          portfolio can pass every individual-security rule and still fail in aggregate. Showing the
+          aggregate tests with a current value, a threshold, and a next step turns a pass/fail flag
+          into something an officer can act on.
+        </p>
+        <NeedsAnswerFlag>
+          The values shown are sample data, and whether this panel shipped is not confirmed.
+        </NeedsAnswerFlag>
+      </>
     ),
   },
   {
-    title: 'Open Questions Before This Case Study Is Final',
+    title: 'Link, Pledge, and Unlink Keep the Portfolio Visible',
     content: (
-      <div className="space-y-4">
-        <NeedsAnswerFlag>
-          Was there a distinct manual workaround for eligibility-marking or per-security updates
-          before this Admin flow existed, or did it ship as designed from the start?
-        </NeedsAnswerFlag>
-        <NeedsAnswerFlag>
-          Did the loan-side view have any prior state before the policy-inheritance pattern
-          shipped?
-        </NeedsAnswerFlag>
-      </div>
+      <>
+        <p className="text-xs text-portfolio-text-light italic mb-4">From the Figma file.</p>
+        <div className="mb-6">
+          <ImagePlaceholder
+            filename={img.linkPledge}
+            caption="Linked accounts and positions view"
+            aspect="wide"
+          />
+        </div>
+        <p className="text-sm text-portfolio-text-light leading-relaxed mb-4">
+          The linking flows show the account-level and position-level view together: linked
+          accounts (for example by institution and ID), positions with Symbol, Name, Asset Type,
+          Quantity, Last Price, Market Value, Advance Rate, and Availability, and a summary of Total
+          Availability, Total Market Value, Outstanding Loan, and Coverage Ratio. An Unlink view
+          removes an account from the loan without deleting the collateral.
+        </p>
+        <p className="text-xs text-portfolio-text-light italic leading-relaxed border-l-2 border-gray-300 pl-4 mb-6">
+          See{' '}
+          <Link to="/work/collateral-pledge-link" className="text-portfolio-accent underline hover:no-underline">
+            Linking Collateral to Loans: Pledge, Link, and Unlink
+          </Link>{' '}
+          for the full relationship model.
+        </p>
+        <p className="text-sm text-portfolio-text-light leading-relaxed">
+          Administration also shows the Investment sub-type list ({investmentSubTypes.join(', ')})
+          and security types ({securityTypes.join(', ')}) as configured components.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: 'Role',
+    content: (
+      <p className="text-sm text-portfolio-text-light leading-relaxed">
+        Foundational designer and de facto business analyst for the Investment collateral category
+        within the broader collateral module — translating securities-lending policy (advance
+        rates, eligibility rules) into the Investments Management admin spec and the loan-side
+        inheritance behavior, in addition to the UI/UX design work itself.
+      </p>
     ),
   },
 ];
@@ -168,6 +246,13 @@ const images = [
   { filename: 'ic-bulk-investment-update.png', caption: 'Bulk Investment Update — file upload flow' },
   { filename: 'ic-availability-toggle.png', caption: 'Per-row ON/OFF availability toggle' },
   { filename: 'ic-policy-inheritance-loan-view.png', caption: 'Loan-side view — inherited advance rate and eligibility' },
+  { filename: 'ic-eligibility-testing-panel.png', caption: 'Security panel — aggregate eligibility tests' },
+  { filename: 'ic-link-pledge-unlink.png', caption: 'Link, pledge, and unlink flows' },
+];
+
+const closingReflection = [
+  'The main lesson from securities collateral is that policy belongs upstream. Setting advance rate and eligibility once in Investments Management, and letting every loan inherit it, turns a per-loan data-entry task into a single point of control. Bulk upload and per-row toggles matter for the same reason: they change policy for every affected loan at once.',
+  'The Figma work added a second lesson: a flag is not enough. A portfolio can pass every individual-security rule and still fail in aggregate, so showing current value, threshold, and next action for each test turns a pass/fail result into a decision.',
 ];
 
 const InvestmentCollateralCaseStudyPage = () => {
@@ -203,6 +288,7 @@ const InvestmentCollateralCaseStudyPage = () => {
           keyDecisions={keyDecisions}
           additionalSections={additionalSections}
           images={images}
+          closingReflection={closingReflection}
         />
       </div>
       <Footer />
