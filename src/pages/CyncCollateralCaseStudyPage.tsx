@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { SEOHead } from '@/components/SEOHead';
 import CaseStudyPageLayout from '@/components/CaseStudyPageLayout';
+import ImagePlaceholder from '@/components/ImagePlaceholder';
 import CollateralPlatformDiagram from '@/components/motion/CollateralPlatformDiagram';
 import { caseStudies } from '@/utils/data/caseStudies';
 
@@ -17,6 +18,31 @@ const gammaImages = {
   designSystem: 'https://cdn.gamma.app/avmi4uurdte9tfh/generated-images/UHt_APlBO2jLYrS9mD7C7.png',
   closing: 'https://cdn.gamma.app/avmi4uurdte9tfh/generated-images/8DFGrHgybl9uMIoyzUXqE.png',
 };
+
+// Product screenshots under /case-studies/collateral-screens/ — ImagePlaceholder shows an
+// "Export Needed" box with the expected filename until the file exists at that path.
+const screens = [
+  {
+    filename: 'collateral-screens/01-overview.png',
+    title: 'Collateral Overview',
+    body: "A monitoring graph of collateral value over time sits beside nine policy metric tiles (Policy LTV, Proposed LTV, Current Collateral LTV, Current Loan Commitments, Current Third-Party Loan Commitments, Total Current Loan Commitment, Available Equity, Available Equity to Margin, Recovery Rate), with the record's identity, ownership table, valuation, and map below. Tabs: Overview, Collateral Files, Pledged Loans, Title Information.",
+  },
+  {
+    filename: 'collateral-screens/02-edit-mode.png',
+    title: 'Edit mode',
+    body: 'Edit switches the overview to a form with Save and Cancel. Owners are chips with an ownership percentage and a Primary Owner selector; the Collateral Code is locked.',
+  },
+  {
+    filename: 'collateral-screens/03-locked-value-tooltip.png',
+    title: 'Controlled value changes',
+    body: 'In edit mode, Collateral Value, Valuation Source, and Valuation Date are read-only, each with an info icon explaining: "This value must be edited via the Title Information Modal."',
+  },
+  {
+    filename: 'collateral-screens/04-header-metrics-variant.png',
+    title: 'Header metrics variant',
+    body: 'An alternate layout moves the same policy metrics into a persistent strip under the record title and gives the top of the overview a drag-and-drop file area beside the monitoring graph.',
+  },
+];
 
 const collateralCategories = [
   'Commercial Real Estate', 'NAV', 'Investment', 'Deposit', 'Accounts Receivable', 'Inventory',
@@ -51,6 +77,11 @@ const keyDecisions = [
     title: 'Distinct Information Architecture Per Collateral Category',
     body: "The Problem: Commercial Real Estate, NAV, Investment, Deposit, Accounts Receivable, Inventory, Equipment, Agriculture, Subscription, Automobiles, and Business collateral don't just differ in field values — they differ in data model and structure. A Commercial Real Estate record centers on appraisal, flood certification, title search, and environmental screening. An Investment record centers on pricing, ISIN/CUSIP, advance rate, and eligibility status pulled from a securities master. These aren't the same shape of record with different fields switched on — they're different records.\n\nThe Decision: Each of the 11 collateral categories gets its own information architecture — its own tab set, its own field structure, its own third-party integration points (Dataverify for Real Estate's flood data, EODHD for Investment pricing) — unified only at the record-chrome level: shared header metrics (Policy LTV%, Discounted Collateral Value, Available Equity, etc.), shared action patterns, and shared audit behavior across every category. What's consistent is the record's outer behavior and governance layer, not its internal structure.\n\nFlood Details, within the Commercial Real Estate category specifically, runs in two modes off the same tab structure — auto-populated from Dataverify where that integration is active for a given institution, fully manual where it isn't — so an analyst moving between institutions with different integration states doesn't have to relearn that one tab's layout. This is a mode-switch within one category's architecture, not a pattern that generalizes across all 11 categories.",
     image: gammaImages.floodDetails,
+  },
+  {
+    title: 'Value Changes Go Through One Controlled Path',
+    body: 'The overview is editable, but the three fields that drive lending math (Collateral Value, Valuation Source, Valuation Date) are locked there and point the user to the Title Information modal, with the reason shown on the field. Anyone can correct a name or an owner; changing the value that feeds LTV and equity has to go through the place where its source is recorded.',
+    image: screens[2].filename,
   },
 ];
 
@@ -166,11 +197,38 @@ const additionalSections = [
     ),
   },
   {
+    title: 'Screens',
+    content: (
+      <>
+        <p className="text-xs text-portfolio-text-light italic mb-6">
+          Product screenshots of the collateral record. Names, owners, and values are QA sample
+          data.
+        </p>
+        <div className="space-y-8">
+          {screens.map((screen) => (
+            <div key={screen.filename}>
+              <ImagePlaceholder filename={screen.filename} caption={screen.title} aspect="wide" />
+              <p className="text-sm text-portfolio-text-light leading-relaxed mt-3">
+                <span className="font-semibold text-portfolio-text-dark">{screen.title}.</span>{' '}
+                {screen.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </>
+    ),
+  },
+  {
     title: "How This Project Built the Foundation for Cync's Design System",
     content: (
       <>
         <p className="text-sm text-portfolio-text-light mb-6 -mt-2">
-          The collateral platform didn't just need components — it created them.
+          The collateral platform didn't just need components — it created them. The full system
+          is covered in{' '}
+          <Link to="/work/cync-design-system" className="text-portfolio-accent underline hover:no-underline">
+            The Cync Design System (Style Guide 2.0)
+          </Link>
+          .
         </p>
         <img
           src={gammaImages.designSystem}
@@ -225,15 +283,6 @@ const additionalSections = [
       </p>
     ),
   },
-];
-
-const images = [
-  { filename: 'frame-01-overview.png', caption: 'Collateral record — Overview tab' },
-  { filename: 'frame-02-configurable-shell.png', caption: 'Admin → Collateral Management — taxonomy layer' },
-  { filename: 'frame-03-valuation-modes.png', caption: 'Admin → Investments Management — securities master' },
-  { filename: 'frame-04-flood-details.png', caption: 'Flood Details dual-mode (integrated vs non-integrated)' },
-  { filename: 'frame-05-record-header.png', caption: 'Collateral record header — policy and coverage metrics' },
-  { filename: 'frame-07-relationships-collateral.png', caption: 'Relationships module — collateral rollup grid' },
 ];
 
 const outcomeHighlights = [
@@ -321,7 +370,6 @@ const CyncCollateralCaseStudyPage = () => {
             { value: '60+', label: 'Design System Components Created' },
           ]}
           outcomeHighlights={outcomeHighlights}
-          images={images}
           retrospective={retrospective}
           closingImage={gammaImages.closing}
           closingReflection={closingReflection}

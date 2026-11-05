@@ -29,6 +29,7 @@ import BorrowingBaseCertificateCaseStudyPage from "./pages/BorrowingBaseCertific
 import NavSubscriptionCollateralCaseStudyPage from "./pages/NavSubscriptionCollateralCaseStudyPage";
 import RolesPermissionsCaseStudyPage from "./pages/RolesPermissionsCaseStudyPage";
 import EquipmentDepositCollateralCaseStudyPage from "./pages/EquipmentDepositCollateralCaseStudyPage";
+import CyncDesignSystemCaseStudyPage from "./pages/CyncDesignSystemCaseStudyPage";
 import CreComparableCaseStudyPage from "./pages/CreComparableCaseStudyPage";
 import CyncCollateralCaseStudyPage from "./pages/CyncCollateralCaseStudyPage";
 import CyncAdvanceAnalyticsCaseStudyPage from "./pages/CyncAdvanceAnalyticsCaseStudyPage";
@@ -112,6 +113,7 @@ const App = () => {
                   <Route path="/work/nav-subscription-collateral" element={<NavSubscriptionCollateralCaseStudyPage />} />
                   <Route path="/work/roles-and-permissions" element={<RolesPermissionsCaseStudyPage />} />
                   <Route path="/work/equipment-deposit-collateral" element={<EquipmentDepositCollateralCaseStudyPage />} />
+                  <Route path="/work/cync-design-system" element={<CyncDesignSystemCaseStudyPage />} />
                   <Route path="/work/commercial-real-estate-collateral" element={<CreComparableCaseStudyPage />} />
                   <Route path="/work/cync-collateral-platform" element={<CyncCollateralCaseStudyPage />} />
                   <Route path="/work/cync-advance-analytics" element={<CyncAdvanceAnalyticsCaseStudyPage />} />

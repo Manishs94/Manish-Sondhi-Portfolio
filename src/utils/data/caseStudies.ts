@@ -320,6 +320,40 @@ export const caseStudies: Project[] = [
     ]
   },
   {
+    id: 16,
+    title: 'The Cync Design System (Style Guide 2.0)',
+    subtitle: 'A single visual and interaction language for a lending platform with more than a dozen modules: colors, type, grid, forms, feedback, and navigation defined once, with the rules for when not to break them.',
+    description: 'Cync is a Loan Origination System with more than a dozen modules built across many releases. Style Guide 2.0 is the shared language that keeps them from drifting — semantic color with state ramps, one documented feedback pattern, a 12-column grid at a fixed default screen size, and components defined once and proven on real modules.',
+    image: '/case-studies/design-system-screens/01-introduction.png',
+    category: ['Enterprise Fintech', 'Design Systems', 'UI Design'],
+    tools: ['Figma'],
+    link: '/work/cync-design-system',
+    overview: {
+      challenge: 'Without a shared language, every module drifts: a different green for success, a different way to confirm a save, a different table layout, a different grid.',
+      solution: 'Style Guide 2.0 — an internal, interactive guide with foundations (color, type, grid, iconography), components (buttons, forms, navigation, progress, feedback, data display), code specs beside each element, and the system applied to Risk Rating, Loans, and Spreading.',
+      impact: '• Color meaning, confirmation copy, grid, and component states settled once\n• One "[Noun] successfully [verbed]." confirmation pattern across modules\n• Screens composed at 1344×768 on a 12-column grid read as one product\n• An explicit rule for when the system may be modified'
+    },
+    challenge: 'A design system that lives in a PDF gets ignored. Developers need exact values, and designers need to know what they are allowed to change.',
+    process: 'Built the system in Figma — foundations, components, and design concepts applying it to real modules — and used it across the platform\'s modules.',
+    isCaseStudy: true,
+    productType: 'Loan Origination System (LOS)',
+    platforms: 'Web (Enterprise SaaS)',
+    role: 'Senior Product Designer',
+    team: ['Product', 'Engineering'],
+    responsibilities: [
+      'Built the Cync design system in Figma: color, typography, grid, iconography, logos, and loading.',
+      'Defined components — buttons, form elements, navigation, progress, feedback, and data display — with their states.',
+      'Documented the feedback copy pattern and the rules for modifying documented elements.',
+      'Applied the system to Risk Rating, Loans, and Spreading design concepts and to print layouts.'
+    ],
+    outcomes: [
+      'Semantic color with a tint ramp per hue, so a state change is a step along the ramp.',
+      'Four toast types with one documented confirmation sentence.',
+      'A 12-column grid, fixed base-unit scale, and 1344×768 default screen size.',
+      'Components defined once and composed into screens.'
+    ]
+  },
+  {
     id: 6,
     title: 'Commercial Real Estate Collateral',
     subtitle: 'One of 11 structurally distinct collateral categories in Cync\'s platform — the highest-integration category, assembling appraisal, comparable, flood, title, tax, environmental, insurance, and lien data into one auditable record, administered through a component-based record builder, and linked to loans that may spread exposure across more than one property.',
