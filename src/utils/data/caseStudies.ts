@@ -354,6 +354,74 @@ export const caseStudies: Project[] = [
     ]
   },
   {
+    id: 17,
+    title: 'Financial Spreading',
+    subtitle: 'A spreadsheet-grade workspace inside a lending platform: template-driven spreads, period columns that aggregate, balance checks on every period, and industry benchmarks one click away.',
+    description: 'Spreading is dense, numeric work analysts do for hours at a stretch. Designed it in three layers — Spreads Overview, administrator-defined Spreading Templates, and a spreadsheet-like workspace — with a balance check under every period, aggregate period columns, in-cell validation, and RMA benchmarks in a flyout beside the numbers.',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1080',
+    category: ['Enterprise Fintech', 'Data-Dense UI', 'Credit Analysis'],
+    tools: ['Figma'],
+    link: '/work/financial-spreading',
+    overview: {
+      challenge: 'Analysts enter balance sheets, income statements, and tax returns into a standard structure so ratios, cash flow, and debt service can be calculated and compared. The interface has to behave like a spreadsheet and still enforce the structure a bank needs.',
+      solution: 'Templates per borrower type decide which statements and fields a spread contains; the workspace borrows the spreadsheet grid, formula bar, and collapsing groups, and adds balance status per period, collapsible aggregate columns, in-cell validation, an RMA comparison flyout, custom ratios, and presence.',
+      impact: '• Spreads comparable across the portfolio because structure is set by template\n• Unbalanced periods flagged under the period header and in a red Difference row\n• Monthly, quarterly, and annual figures in one grid\n• Industry benchmarks beside the borrower\'s ratios without leaving the spread'
+    },
+    challenge: 'If every analyst picks their own statements, spreads can\'t be compared, and a balance sheet that doesn\'t balance poisons every ratio computed from it.',
+    process: 'Designed 25 Spreading frames in the CYNC Figma file covering the Spreads Overview, Create Spreading Template, the spread workspace, Debt Schedule, Rent Roll, personal templates, and custom ratios.',
+    isCaseStudy: true,
+    productType: 'Loan Origination System (LOS)',
+    platforms: 'Web (Enterprise SaaS)',
+    role: 'Senior Product Designer',
+    team: ['Product', 'Engineering', 'Credit'],
+    responsibilities: [
+      'Designed the Spreads Overview and the Create Spreading Record and Create Spreading Template modals.',
+      'Designed the spread workspace: statement tabs, formula bar, view toggles, period columns, balance status, and aggregate periods.',
+      'Designed the RMA benchmark flyout, Edit Period, Debt Schedule with in-cell validation, Rent Roll, and custom ratios.',
+      'Specified behavior for nested aggregates, disabled cells, and error states for development.'
+    ],
+    outcomes: [
+      'Statement structure decided once per borrower type, centrally.',
+      'Balanced / Unbalanced status shown under every period header.',
+      'Debt Schedule errors caught in the cell with exact copy.',
+      'Periods hidden rather than deleted, with their identity read-only.'
+    ]
+  },
+  {
+    id: 18,
+    title: 'Appraisal: Valuation, Review, and Evaluation',
+    subtitle: 'Turning the most consequential number on a commercial real estate record into three separate, auditable workflows, with one explicit decision about which value the bank lends against.',
+    description: 'The appraisal produces the number everything else on a CRE record is measured against. Designed valuation as three workflows — Appraisal, Review, and Evaluation — with the approaches considered kept separate from the Loan Determinant Value the bank relies on, a structured regulatory review checklist, and automated valuations recorded in the same structure as human ones.',
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1080',
+    category: ['Enterprise Fintech', 'Compliance UX', 'Commercial Real Estate'],
+    tools: ['Figma'],
+    link: '/work/appraisal',
+    overview: {
+      challenge: 'A raw appraisal can consider several valuation approaches, a second person has to review it against regulatory standards, and sometimes an evaluation or automated valuation stands in for it. A single "Appraisal" form with a value field would hide all of that.',
+      solution: 'Three sub-tabs with their own fields and completion flags; a Valuation Approach table kept separate from the Final Valuation Approach and Loan Determinant Value; helper text and a warning that state what the choice affects; a locked value on the overview; a review checklist; and Appraisal as a configurable component.',
+      impact: '• Which number counts, who produced it, and who checked it are answerable from the screen\n• Saving without a Loan Determinant Value triggers a warning that ratios may be affected\n• The collateral value can only be edited in one place\n• FIRREA, USPAP, and approved-appraiser compliance each answered separately'
+    },
+    challenge: 'An appraisal often produces several values. Showing one hides the others; showing all of them leaves the user unsure which one counts — and the field that decides it quietly feeds LTV.',
+    process: 'Designed about 220 Appraisal frames in the CYNC Figma file across the collateral-record Appraisal screens, Appraisal Administration, and Order Appraisal Certification.',
+    isCaseStudy: true,
+    productType: 'Enterprise Collateral Management Platform',
+    platforms: 'Web (Enterprise SaaS)',
+    role: 'Senior Product Designer',
+    team: ['Product', 'Engineering', 'Risk', 'Compliance'],
+    responsibilities: [
+      'Designed the Appraisal, Review, and Evaluation sub-tabs of Appraisal Details on the collateral record.',
+      'Designed the Valuation Approach table, Final Valuation Approach, and Loan Determinant Value selection, with helper text and a missing-value warning.',
+      'Designed the AVM evaluation view, Valuation History, and the locked value on the collateral overview.',
+      'Designed the Appraisal component in Collateral Management administration, with field selection and live preview.'
+    ],
+    outcomes: [
+      'Appraisal, review, and evaluation recorded as separate workflows with their own completion flags.',
+      'The value the bank lends against is named explicitly and recorded.',
+      'Automated and human valuations share one Evaluation structure.',
+      'One Appraisal component configured across all twelve CRE sub-types.'
+    ]
+  },
+  {
     id: 6,
     title: 'Commercial Real Estate Collateral',
     subtitle: 'One of 11 structurally distinct collateral categories in Cync\'s platform — the highest-integration category, assembling appraisal, comparable, flood, title, tax, environmental, insurance, and lien data into one auditable record, administered through a component-based record builder, and linked to loans that may spread exposure across more than one property.',
