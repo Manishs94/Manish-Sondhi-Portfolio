@@ -46,53 +46,59 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: 'Senior UX Product Designer',
+      title: 'Staff UX Product Designer',
       company: 'Infinite Computer Solutions',
       location: 'Remote',
       period: 'May 2026 – Present',
-      description: "UX/UI Designer and Business Analyst for MDE4Vets, a back-office platform managing VA disability (C&P) exam logistics, provider billing, and compliance reporting — covering case-queue distribution, CPT billing configuration, invoice and travel/mileage reimbursement reporting, and provider training compliance, alongside a junior designer.",
+      description: "UX/UI Designer and Business Analyst for MDE4Vets, a federal back-office platform managing VA disability (C&P) exam logistics, provider billing, and compliance reporting — covering case-queue distribution, CPT billing configuration, invoice and travel/mileage reimbursement reporting, and provider training compliance, alongside a junior designer.",
       highlights: [
-        "Conducted an end-to-end IA and UX audit across the platform's full surface, operating as a de facto business analyst alongside design work to document patterns, redundancies, and gaps.",
-        'Identified a recurring sensitive-data exposure pattern — veteran SSNs displayed unmasked directly in report data grids — a concrete compliance and security finding surfaced through systematic audit.'
+        "Conducted an end-to-end IA and UX audit across the platform's full surface, operating as a business analyst alongside design work to document patterns, redundancies, and gaps across a complex multi-persona system.",
+        'Identified a recurring sensitive-data exposure pattern — veteran SSNs displayed unmasked in report data grids — a concrete compliance and security finding surfaced through systematic audit.',
+        'Designing across the full MDE4Vets and Veteran Design System: UI/UX Principles, Banner Config, Announcements Config, Appointment Scheduling, Admin Roles, Clusters, and Availability Calendar — each story designed to system standards with no new patterns introduced.',
+        'Work spans Case Management, Provider, and Admin personas across a government-regulated platform where UX decisions have direct operational and compliance consequences for veterans.'
       ],
       impact: [],
       tools: [
         { label: 'Design Tools', items: ['Figma', 'FigJam'] },
         { label: 'AI-Assisted Tools', items: ['Claude', 'ChatGPT', 'Copilot'] },
-        { label: 'Specialties', items: ['Business Analysis', 'Compliance Auditing', 'Healthcare & Federal Systems', 'Information Architecture'] }
+        { label: 'Specialties', items: ['Business Analysis', 'Compliance Auditing', 'Federal Health Systems', 'Information Architecture', 'Veteran Design System'] }
       ] as ToolGroup[]
     },
     {
-      title: 'Senior Product Designer',
+      title: 'Founding Designer',
       company: 'CYNC Software',
       location: 'Remote',
       period: 'Feb 2022 – Jul 2026',
-      description: 'Design lead and product strategist for a multi-module enterprise lending platform serving 15+ regulated financial institutions across loan origination, collateral management, AI-assisted decisioning, and portfolio analytics. Operate beyond pure design execution — defining product strategy, interaction models, and integration design in close partnership with product, engineering, compliance, and data teams.',
+      description: 'Design lead and product strategist for a multi-module B2B SaaS lending platform serving 15+ regulated financial institutions across loan origination, collateral management, AI-assisted decisioning, and portfolio analytics. Operated beyond a pure design remit — taking on product ownership and business analysis responsibilities, defining interaction models, workflow architecture, and integration design in close partnership with product, engineering, compliance, and data teams. All design work executed from discovery through production-ready spec.',
       highlights: [
+        'Lead Product Designer, Advance Analytics: designed from scratch, with no internal precedent, the lending-compliance reporting and dashboard product, from information architecture through production-ready screens.',
         'Defined end-to-end design strategy for 5+ concurrent product modules — establishing interaction models, IA frameworks, and workflow standards that became the engineering implementation baseline across quarterly release cycles.',
-        'Built Investment Collateral module from scratch — full IA spec and production-ready HTML prototype with 17-column grid, EODHD real-time pricing integration, Securities Master autofill, and three-block Add Investment modal architecture.',
-        'Architected the Borrowing Base Certificate (BBC) system — four-layer configuration ownership chain (Collateral Type Library, Rule Set Library, BBC Template Library, Product Library) with priority build sequence and gap analysis.',
-        'Designed Flood Details Tab / Dataverify integration — unified component serving integrated and non-integrated institutions through behavior-only differences, SFHA escalation as automatic, flood insurance routed to Insurance Module.',
-        'Built Collateral Valuation & Appraisal module — eight-tab component with Manual/Integration toggle, persistent summary card with Loan Determinant Value always visible, inline override in the Credit Decision tab.',
-        'Designed Securities Master module (Admin Platform) — pure reference data store with search-first cascade pattern, three-tier column inventory across six security types, type pill filters driving smart column adaptation.',
-        'Re-architected fragmented collateral evaluation experience into a single unified decision surface — reducing analyst review time by 30% and improving multi-role clarity for underwriters, analysts, and compliance reviewers.',
-        'Designed end-to-end AI-assisted financial decisioning workflows — confidence score indicators, dynamic risk prioritization queues, exception flagging, human override mechanisms, and audit-ready state management.',
-        'Established production-grade patterns for explainable AI — transparency disclosures surfacing model reasoning, graceful fallback states when confidence thresholds are not met.',
-        'Built and scaled a 60+ component Figma design system across Angular and React applications — standardizing implementation quality across concurrent engineering teams working on separate modules.',
-        'Incorporated Claude, ChatGPT, and Figma Make as a core working method — using AI-generated IA frameworks and throwaway prototypes to compress early discovery from days to hours.',
-        'Authored complete acceptance criteria and field-level specifications for complex modules — working directly with CEO and engineering leads in the absence of dedicated product managers.'
+        'Designed the collateral platform across 11 structurally distinct collateral categories, including a component-based administration builder that assembles sub-types (12 for Commercial Real Estate, 13 for Agriculture) from a shared library, so a new sub-type is a configuration task, not a new screen.',
+        'Re-architected a fragmented collateral evaluation experience spanning multiple disconnected screens into a single unified decision surface — reducing analyst review time by 30% and improving multi-role clarity for underwriters, analysts, and compliance reviewers.',
+        'Designed override-with-rationale patterns across the lending platform: risk-rating scores that show the original and updated score and decision with overrides and comments, and required reason fields on pledge amount, collateral discount, Policy LTV, and Advance Rate overrides, so the reason stays on the record.',
+        'Designed a natural-language rule-entry component for Fleet collateral, where administrators describe advance rules in plain language and AI interprets and structures them into the rule set, with guarded deletion and the same override-permission controls as manually built rules.',
+        'Designed how a third-party automated valuation (ClearAVM) is presented as evidence: market value with a confidence score and nested 20%, 10%, and 5% confidence bands, order ID, and run date, recorded as an Evaluation under the same completion, review, and acceptance fields as a human valuation.',
+        'Designed complete end-to-end third-party integration workflows for Dataverify Flood Services — the full lifecycle state machine from not-ordered through pending, completed, and failed states, dual-path automated and manual determination flows, offline fallback logic, and SFHA escalation as an automatic system behavior.',
+        'Architected EODHD financial data integration for the Investment Collateral module — real-time pricing fetch behavior, Securities Master auto-population logic, stale data handling, and symbol lookup cascade patterns.',
+        'Designed the Roles & Permissions model (reusable Permission Sets composed into Roles, with license tiers and role deletion that reassigns users instead of orphaning them) and the loan-to-collateral pledge and release-approval workflow, with equity and margin metrics shown at the point of decision.',
+        'Resolved the Subscription collateral parent-child architecture around BBC pool-level aggregation requirements — a parent collateral record for subscription facilities with individual LP child records, driven by downstream reporting and compliance needs.',
+        'Built and scaled a 60+ component Figma design system across Angular and React applications — standardizing implementation quality and reducing redundant pattern-building across concurrent engineering teams.',
+        'Produced complete HTML prototypes for complex modules — Investment Collateral, Valuation/Appraisal, BBC, and Flood Details — enabling engineering teams to implement from working references rather than static Figma specs.',
+        'Authored complete acceptance criteria and field-level specifications for complex modules — working directly with CEO and engineering leads in the absence of dedicated product managers.',
+        'Facilitated cross-functional alignment workshops in FigJam and mentored junior and mid-level designers through structured critique sessions and shared component library standards.',
+        'Incorporated Claude, ChatGPT, and Figma Make as a core working method — using AI-generated IA frameworks and throwaway prototypes to compress early discovery from days to hours.'
       ],
       impact: [
-        { metric: 'Reduced analyst review time 30% through consolidated collateral dashboard', icon: '📈' },
+        { metric: 'Reduced analyst review time 30% through a unified collateral decision surface', icon: '📈' },
         { metric: '60+ component design system across Angular and React modules', icon: '🧩' },
-        { metric: 'Explainable AI interfaces with human override and audit trails', icon: '🎯' },
+        { metric: '11 collateral categories on one adaptive component system', icon: '🎯' },
         { metric: 'Production-ready HTML prototypes enabling direct engineering implementation', icon: '✓' }
       ],
       tools: [
         { label: 'Design Tools', items: ['Figma', 'FigJam', 'Claude', 'ChatGPT', 'Figma Make', 'Copilot'] },
         { label: 'Product & Collaboration', items: ['Jira', 'Confluence', 'Product Workshops'] },
         { label: 'Technologies', items: ['Angular', 'React', 'HTML Prototypes'] },
-        { label: 'Specialties', items: ['Workflow Architecture', 'Explainable AI', 'Human-in-the-Loop Systems', 'Compliance UX', 'Integration Design'] }
+        { label: 'Specialties', items: ['Workflow Architecture', 'Human-in-the-Loop Systems', 'Override-with-Rationale Patterns', 'Compliance UX', 'Integration Design'] }
       ] as ToolGroup[]
     },
     {
@@ -100,7 +106,7 @@ const Experience = () => {
       company: 'Bank of America',
       location: 'New York',
       period: 'Feb 2021 – Feb 2022',
-      description: 'Designed digital banking experiences across consumer web and mobile platforms, supporting payments, account management, and other critical financial workflows.',
+      description: 'Designed consumer-facing and operational digital experiences across web and mobile platforms serving millions of retail banking users — focused on high-frequency transactional workflows, account management, and accessible product design at scale across iOS, Android, and responsive web.',
       highlights: [
         'Led end-to-end UX for payments and account management flows used by millions of retail banking users — driving measurable improvements in task completion rates, error reduction, and WCAG 2.1 AA compliance across web and native mobile platforms.',
         'Simplified a 7-step transactional workflow to 4 steps by eliminating redundant confirmation states and consolidating information architecture — reducing user errors and inbound support escalations, validated through moderated usability sessions with 12+ participants.',
@@ -153,7 +159,7 @@ const Experience = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-heading dark:text-white">Work Experience</h2>
           <p className="section-subheading mx-auto dark:text-gray-300 mb-8">
-            Senior Product Designer with 8+ years designing systems where people have to trust and verify high-stakes output before acting on it — proven across two regulated domains: financial services and, more recently, healthcare compliance. Operating beyond pure design execution to define product strategy, workflow architecture, and integration design across engineering, product, and compliance teams.
+            Product designer with 9+ years owning design strategy across complex, regulated enterprise platforms — financial services, lending, and government health systems. Operates at the intersection of design, product, and engineering: resolving architectural ambiguity before it costs engineering cycles, defining interaction models that become the implementation baseline, and building systems other teams build on.
           </p>
         </div>
         

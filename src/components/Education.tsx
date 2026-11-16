@@ -2,7 +2,7 @@ import React from 'react';
 import { GraduationCap, Award, ExternalLink } from 'lucide-react';
 const Education = () => {
   const education = [{
-    degree: 'B.S. in Information Technology',
+    degree: 'B.S. Information Technology',
     institution: 'Southern New Hampshire University',
     description: 'Comprehensive degree in Information Technology providing foundational knowledge in systems design, technology principles, and digital transformation.',
     type: 'education'
@@ -23,7 +23,27 @@ const Education = () => {
     credentialId: 'FS4PK9ZJ12M9',
     link: 'https://www.coursera.org/account/accomplishments/verify/FS4PK9ZJ12M9',
     type: 'certification'
-  }];
+  },
+  {
+    title: 'Anthropic Courses',
+    issuer: 'Anthropic',
+    description: 'Introduction to Claude Cowork · Claude Platform 101 · Claude Code 101 · Claude 101 · AI Fluency Framework & Foundations.',
+    type: 'certification'
+  },
+  {
+    title: 'Fundamentals of UI/UX Design',
+    issuer: 'Microsoft',
+    description: 'Microsoft course covering the fundamentals of UI/UX design.',
+    type: 'certification'
+  }] as {
+    title: string;
+    issuer: string;
+    description: string;
+    credentialId?: string;
+    link?: string;
+    image?: string;
+    type: string;
+  }[];
   return <section id="education" className="py-24 bg-gray-50 dark:bg-gray-900">
       <div className="section-container">
         <div className="text-center max-w-2xl mx-auto mb-16">
@@ -70,7 +90,7 @@ const Education = () => {
               Certifications
             </h3>
             
-            {certifications.map((cert, index) => <div key={index} className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in" style={{
+            {certifications.map((cert, index) => <div key={index} className="mb-6 last:mb-0 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in" style={{
             animationDelay: `${0.1 * (education.length + index)}s`
           }}>
                 <div className="flex flex-col lg:flex-row gap-6">

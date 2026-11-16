@@ -48,14 +48,14 @@ const About = () => {
               About
             </span>
             <h2 className={`section-heading dark:text-white transition-all duration-600 delay-100 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-              Senior Product Designer for enterprise systems, AI-enabled workflows, and regulated platforms
+              Staff UX Product Designer for human-in-the-loop decision systems and complex, regulated platforms
             </h2>
             <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-6 transition-all duration-600 delay-200 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-              I&apos;m a Senior Product Designer with 8+ years designing systems where people have to trust and verify high-stakes output before acting on it. Known for operating beyond pure design execution — defining product strategy, architecting system-level interaction models, and driving alignment across engineering, product, and compliance stakeholders without being managed toward it.
+              I&apos;m a product designer with 9+ years owning design strategy across complex, regulated enterprise platforms — financial services, lending, and government health systems. I operate at the intersection of design, product, and engineering: resolving architectural ambiguity before it costs engineering cycles, defining interaction models that become the implementation baseline, and building systems other teams build on.
             </p>
 
             <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-6 transition-all duration-600 delay-300 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-              Background spans financial services, enterprise SaaS, and AI-assisted decision platforms — with deep experience in workflow architecture, design systems, and cross-functional leadership across product, engineering, and compliance stakeholders. Equally at home designing for clinicians, analysts, case managers, underwriters, or operations teams: the discipline is the same, the domain changes.
+              At Cync Software, I identified that 11 structurally different collateral types required a single adaptive component system — not 11 separate UIs — and proved it out on the Flood/DataVerify integration, keeping the system coherent as it scaled. At Infinite Computer Solutions, I lead UI/UX on a federal VA benefits platform across a full enterprise design system, multiple personas, and compliance workflows with direct impact on veterans.
             </p>
 
             <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-6 transition-all duration-600 delay-400 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
@@ -83,7 +83,7 @@ const About = () => {
               <ul className="space-y-2 mb-6">
                 {[
                   { label: 'Enterprise & regulated workflows:', text: 'Multi-role platforms for analysts, operators, underwriters, and compliance teams navigating high-stakes decisions' },
-                  { label: 'AI-assisted decision interfaces:', text: 'Explainable signals, confidence indicators, human override controls, and audit-ready interaction patterns' },
+                  { label: 'AI-assisted decision interfaces:', text: 'Override-with-rationale patterns, AI-assisted rule entry, confidence-scored evidence, and audit-ready decision surfaces' },
                   { label: 'Complex operational systems:', text: 'Multi-module platforms with parent-child record architecture, role-based access, and compliance-driven workflow states' },
                   { label: 'Scalable design systems:', text: '60+ component libraries across Angular and React platforms, cutting design-to-dev handoff cycles significantly' },
                   { label: 'Cross-functional alignment:', text: 'Translating regulatory, compliance, and business requirements into actionable product specifications across HIPAA, legal, and insurance contexts' },

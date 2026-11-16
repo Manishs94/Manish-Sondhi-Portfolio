@@ -19,7 +19,7 @@ const Footer = () => {
               Designing enterprise systems, AI-enabled workflows, and complex operational platforms for analysts, operators, and business teams in regulated industries.
             </p>
             <p className="text-gray-400 mt-2 text-sm">
-              8+ years translating dense technical and compliance requirements into clear, scalable product experiences people actually trust and use.
+              9+ years translating dense technical and compliance requirements into clear, scalable product experiences people actually trust and use.
             </p>
             
             {/* Secondary CTAs */}

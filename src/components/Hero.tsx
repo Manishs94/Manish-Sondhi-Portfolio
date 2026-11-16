@@ -32,9 +32,9 @@ const Hero = () => {
   return (
     <>
       <SEOHead
-        title="Manish Sondhi — Senior Product Designer | AI-Assisted Decisioning & Trust Design"
-        description="Senior Product Designer with 8+ years designing systems where people have to trust and verify high-stakes output before acting on it — proven across financial services and healthcare compliance platforms."
-        keywords="Senior Product Designer Portfolio, AI-Assisted Decisioning, Trust Design, Explainable AI, Enterprise Fintech UX, Healthcare Compliance UX, Collateral Management Design, Regulated Industry Design, Design Systems"
+        title="Manish Sondhi — Staff UX Product Designer | Human-in-the-Loop Decision Systems"
+        description="Staff UX Product Designer with 9+ years owning design strategy across complex, regulated enterprise platforms — financial services, lending, and government health systems."
+        keywords="Staff UX Product Designer Portfolio, Human-in-the-Loop Decision Systems, Override-with-Rationale Patterns, AI-Assisted Workflow Design, Enterprise Fintech UX, Government Health Systems UX, Collateral Management Design, Regulated Industry Design, Design Systems"
       />
       
       <section id="home" className="pt-14 pb-12 md:pt-44 md:pb-32 relative overflow-hidden">
@@ -50,7 +50,7 @@ const Hero = () => {
             <div className="order-2 md:order-1">
               <div className={`mb-4 transition-all duration-1000 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
                 <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4">
-                  Senior Product Designer · AI-Assisted Decisioning & Trust Design · Complex, Regulated Systems
+                  Staff UX Product Designer · Human-in-the-Loop Decision Systems · Complex, Regulated Platforms
                 </span>
               </div>
 
@@ -59,7 +59,7 @@ const Hero = () => {
               </h1>
 
               <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-8 max-w-xl transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                Senior Product Designer with 8+ years designing systems where people have to trust and verify high-stakes output before acting on it — confidence indicators, explainable-AI disclosures, and human-override mechanisms with documented rationale. That discipline is proven across two regulated domains: financial services and, more recently, healthcare compliance.
+                Product designer with 9+ years owning design strategy across complex, regulated enterprise platforms — financial services, lending, and government health systems. Human-in-the-Loop specialist: override-with-rationale patterns, AI-assisted rule entry, and audit-ready decision surfaces, working at the intersection of design, product, and engineering.
               </p>
 
               <p className={`text-sm font-medium text-portfolio-text-dark dark:text-gray-100 mb-8 max-w-xl transition-all duration-1000 delay-500 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>

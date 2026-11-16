@@ -17,9 +17,9 @@ interface SEOHeadProps {
 }
 
 export const SEOHead: React.FC<SEOHeadProps> = ({
-  title = "Manish Sondhi | Senior Product Designer | AI-Assisted Decisioning & Trust Design",
-  description = "Senior Product Designer with 8+ years designing systems where people have to trust and verify high-stakes output before acting on it — proven across financial services and healthcare compliance platforms.",
-  keywords = "Senior Product Designer, AI-Assisted Decisioning, Trust Design, Explainable AI, Enterprise UX, Regulated Industry UX, Fintech UX, Healthcare Compliance UX, Design Systems, Collateral Management Design, Workflow Architecture",
+  title = "Manish Sondhi | Staff UX Product Designer | Human-in-the-Loop Decision Systems",
+  description = "Staff UX Product Designer with 9+ years owning design strategy across complex, regulated enterprise platforms — financial services, lending, and government health systems.",
+  keywords = "Staff UX Product Designer, Human-in-the-Loop Decision Systems, AI-Assisted Workflow Design, Enterprise UX, Regulated Industry UX, Fintech UX, Government Health Systems UX, Design Systems, Collateral Management Design, Workflow Architecture",
   image = "https://lovable.dev/opengraph-image-p98pqg.png",
   url = window.location.href,
   type = "website",
@@ -56,7 +56,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       ...(tags.length > 0 && { "keywords": tags.join(", ") })
     }),
     ...(type === "website" && {
-      "jobTitle": "Senior Product Designer",
+      "jobTitle": "Staff UX Product Designer",
       "worksFor": {
         "@type": "Organization",
         "name": "Infinite Computer Solutions"

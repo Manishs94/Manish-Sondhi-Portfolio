@@ -1,10 +1,10 @@
 export const portfolioKnowledgeBase = {
   personalProfile: {
     name: "Manish Sondhi",
-    currentRole: "Senior Product Designer",
-    yearsOfExperience: "8+",
+    currentRole: "Staff UX Product Designer at Infinite Computer Solutions",
+    yearsOfExperience: "9+",
     location: "Remote",
-    summary: `Senior Product Designer with 8+ years designing systems where people have to trust and verify high-stakes output before acting on it. Known for operating beyond pure design execution — defining product strategy, architecting system-level interaction models, and driving alignment across engineering, product, and compliance stakeholders without being managed toward it.`,
+    summary: `Product designer with 9+ years owning design strategy across complex, regulated enterprise platforms — financial services, lending, and government health systems. Operates at the intersection of design, product, and engineering: resolving architectural ambiguity before it costs engineering cycles, defining interaction models that become the implementation baseline, and building systems other teams build on. Human-in-the-Loop specialist: override-with-rationale patterns, AI-assisted rule entry, audit-ready decision surfaces. Currently Staff UX Product Designer at Infinite Computer Solutions (since May 2026); previously Founding Designer at CYNC Software (Feb 2022 - Jul 2026).`,
     coreProficiencies: [
       "Platform-Scale UX Strategy",
       "Design Systems as Infrastructure",
@@ -21,10 +21,23 @@ export const portfolioKnowledgeBase = {
 
   careerHistory: [
     {
+      company: "Infinite Computer Solutions",
+      location: "Remote",
+      role: "Staff UX Product Designer",
+      period: "05/2026 - Present",
+      summary: "UX/UI Designer and Business Analyst for MDE4Vets, a federal back-office platform managing VA disability (C&P) exam logistics, provider billing, and compliance reporting — covering case-queue distribution, CPT billing configuration, invoice and travel/mileage reimbursement reporting, and provider training compliance, alongside a junior designer.",
+      achievements: [
+        "Conducted an end-to-end IA and UX audit across the platform's full surface, operating as a business analyst alongside design work to document patterns, redundancies, and gaps across a complex multi-persona system",
+        "Identified a recurring sensitive-data exposure pattern — veteran SSNs displayed unmasked in report data grids — a concrete compliance and security finding surfaced through systematic audit",
+        "Designing across the full MDE4Vets and Veteran Design System: UI/UX Principles, Banner Config, Announcements Config, Appointment Scheduling, Admin Roles, Clusters, and Availability Calendar — each story designed to system standards with no new patterns introduced",
+        "Work spans Case Management, Provider, and Admin personas across a government-regulated platform where UX decisions have direct operational and compliance consequences for veterans"
+      ]
+    },
+    {
       company: "CYNC Software",
       location: "Remote",
-      role: "Senior Product Designer",
-      period: "02/2022 - Present",
+      role: "Founding Designer",
+      period: "02/2022 - 07/2026",
       responsibilities: {
         productStrategy: [
           "Partner with CEO and stakeholders for feature prioritization and roadmap definition",
@@ -573,6 +586,18 @@ export const portfolioKnowledgeBase = {
       credentialId: "FS4PK9ZJ12M9",
       focus: "Applying generative AI and ChatGPT to UX design workflows. Covers AI-assisted design workflows, conversational UX patterns, workflow automation, and ethical considerations for responsible AI experiences.",
       relevance: "Current expertise in AI-powered design practices and explainable AI"
+    },
+    {
+      name: "Anthropic Courses",
+      issuer: "Anthropic",
+      focus: "Introduction to Claude Cowork, Claude Platform 101, Claude Code 101, Claude 101, AI Fluency Framework & Foundations.",
+      relevance: "Hands-on fluency with Claude as a core design working tool"
+    },
+    {
+      name: "Fundamentals of UI/UX Design",
+      issuer: "Microsoft",
+      focus: "Fundamentals of UI/UX design.",
+      relevance: "UI/UX design fundamentals"
     }
   ],
 
@@ -595,7 +620,7 @@ export const portfolioKnowledgeBase = {
     },
     {
       question: "Tell me about your CYNC Software experience.",
-      answer: "At CYNC Software (Feb 2022-Present), I serve as Senior Product Designer operating at a principal level. I function beyond a pure design remit — defining product strategy, interaction models, and integration design directly with engineering leads and the CEO. Major work includes: Investment Collateral Module (17-column grid, EODHD real-time pricing, Securities Master autofill), BBC System (four-layer configuration ownership chain), Flood Details/Dataverify integration, Collateral Valuation & Appraisal module (eight-tab component), and Securities Master Admin Platform. AI decisioning work includes confidence score indicators, human override workflows, and explainable AI patterns. Built and scaled a 60+ component Figma design system. Reduced analyst review time by 30% through consolidated collateral dashboard."
+      answer: "At CYNC Software (Feb 2022-Jul 2026), I served as Founding Designer. I functioned beyond a pure design remit — defining product strategy, interaction models, and integration design directly with engineering leads and the CEO. Major work includes: Investment Collateral Module (17-column grid, EODHD real-time pricing, Securities Master autofill), BBC System (four-layer configuration ownership chain), Flood Details/Dataverify integration, Collateral Valuation & Appraisal module (eight-tab component), and Securities Master Admin Platform. AI decisioning work includes confidence score indicators, human override workflows, and explainable AI patterns. Built and scaled a 60+ component Figma design system. Reduced analyst review time by 30% through consolidated collateral dashboard."
     },
     {
       question: "Tell me about your Bank of America experience.",
@@ -627,7 +652,7 @@ export const portfolioKnowledgeBase = {
     },
     {
       question: "How do you stay current with industry trends and emerging technologies?",
-      answer: "I stay current through: (1) Continuous Learning - certifications in UX design and generative AI (Google UX Professional Certificate, GenAI for UX Designers), (2) Tool Exploration - actively using Claude, ChatGPT, Figma Make, and Copilot as core working tools rather than curiosities, (3) Hands-on Prototyping - building HTML and Figma prototypes to stress-test interaction patterns before committing engineering resources, (4) Mentorship - structured critique sessions with junior and mid-level designers, (5) Domain Immersion - staying close to regulatory, compliance, and financial services trends that impact enterprise product design."
+      answer: "I stay current through: (1) Continuous Learning - certifications in UX design and generative AI (Google UX Professional Certificate, GenAI for UX Designers, Anthropic's Claude and AI Fluency courses, Microsoft Fundamentals of UI/UX Design), (2) Tool Exploration - actively using Claude, ChatGPT, Figma Make, and Copilot as core working tools rather than curiosities, (3) Hands-on Prototyping - building HTML and Figma prototypes to stress-test interaction patterns before committing engineering resources, (4) Mentorship - structured critique sessions with junior and mid-level designers, (5) Domain Immersion - staying close to regulatory, compliance, and financial services trends that impact enterprise product design."
     },
     {
       question: "What are your career goals and vision?",
