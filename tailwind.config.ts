@@ -131,6 +131,10 @@ export default {
 					'66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
 					'100%': { transform: 'translate(0px, 0px) scale(1)' }
 				},
+				'page-in': {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' }
+				},
 				'float': {
 					'0%, 100%': { transform: 'translateY(0px)' },
 					'50%': { transform: 'translateY(-12px)' }
@@ -152,6 +156,8 @@ export default {
 				'shimmer': 'shimmer 2s infinite linear',
 				'blob': 'blob 7s infinite ease-in-out',
 				'float': 'float 4s ease-in-out infinite',
+				'float-slow': 'float 7s ease-in-out infinite',
+				'page-in': 'page-in 0.45s ease-out',
 				'border-pulse': 'border-pulse 2.5s ease-in-out infinite'
 			}
 		}

@@ -106,7 +106,9 @@ const Navbar = () => {
               aria-controls="mobile-menu"
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              <span className={`block transition-transform duration-300 ${isMenuOpen ? 'rotate-90' : ''}`}>
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </span>
             </button>
           </div>
         </div>
@@ -125,11 +127,14 @@ const Navbar = () => {
               <Link
                 key={item.label}
                 to={item.href}
-                className={`block px-3 py-2 rounded-lg transition-colors ${
+                className={`block px-3 py-2 rounded-lg transition-all duration-300 ${
+                  isMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-3'
+                } ${
                   isActive(item.href)
                     ? 'text-portfolio-accent bg-gray-100 dark:bg-gray-800'
                     : 'text-portfolio-text-light hover:text-portfolio-accent hover:bg-gray-50 dark:hover:bg-gray-800'
                 }`}
+                style={{ transitionDelay: isMenuOpen ? `${index * 60}ms` : '0ms' }}
                 onClick={() => setIsMenuOpen(false)}
                 tabIndex={isMenuOpen ? 0 : -1}
                 aria-current={isActive(item.href) ? 'page' : undefined}

@@ -67,27 +67,27 @@ const Hero = () => {
               </p>
               
               <div className={`flex flex-wrap gap-4 mb-8 transition-all duration-1000 delay-600 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                <a href="#portfolio" className="portfolio-button-primary flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                <a href="#portfolio" className="group portfolio-button-primary flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                   View Case Studies <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
                 </a>
                 <button 
                   onClick={handleDownloadCV}
-                  className="portfolio-button-outline flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  className="group portfolio-button-outline flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 >
-                  Download Resume <Download size={18} />
+                  Download Resume <Download size={18} className="transition-transform duration-300 group-hover:translate-y-0.5" />
                 </button>
               </div>
 
               <div className={`grid grid-cols-1 sm:grid-cols-3 gap-4 transition-all duration-1000 delay-700 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                <div className="rounded-xl bg-white/80 dark:bg-gray-900/70 border border-blue-100 dark:border-gray-800 p-4 shadow-sm">
+                <div className="rounded-xl bg-white/80 dark:bg-gray-900/70 border border-blue-100 dark:border-gray-800 p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-portfolio-accent/40">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-portfolio-accent mb-2">Domains</p>
                   <p className="text-sm text-portfolio-text-light dark:text-gray-300">AI-enabled products, workflow platforms, decision-support tools, and data-rich applications across SaaS, fintech, and enterprise software</p>
                 </div>
-                <div className="rounded-xl bg-white/80 dark:bg-gray-900/70 border border-blue-100 dark:border-gray-800 p-4 shadow-sm">
+                <div className="rounded-xl bg-white/80 dark:bg-gray-900/70 border border-blue-100 dark:border-gray-800 p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-portfolio-accent/40">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-portfolio-accent mb-2">Systems</p>
                   <p className="text-sm text-portfolio-text-light dark:text-gray-300">Multi-user products that combine data, automation, and explainable guidance across complex operational workflows</p>
                 </div>
-                <div className="rounded-xl bg-white/80 dark:bg-gray-900/70 border border-blue-100 dark:border-gray-800 p-4 shadow-sm">
+                <div className="rounded-xl bg-white/80 dark:bg-gray-900/70 border border-blue-100 dark:border-gray-800 p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-portfolio-accent/40">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-portfolio-accent mb-2">Outcomes</p>
                   <p className="text-sm text-portfolio-text-light dark:text-gray-300">More clarity, faster decisions, and greater trust in complex product experiences</p>
                 </div>
@@ -111,7 +111,7 @@ const Hero = () => {
             </div>
             
             <div className={`order-1 md:order-2 transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-              <div className="relative max-w-md mx-auto">
+              <div className="relative max-w-md mx-auto animate-float-slow">
                 <div className="absolute -top-4 -left-4 w-20 h-20 bg-blue-100 dark:bg-blue-900/30 rounded-full z-0 animate-pulse"></div>
                 <div className="absolute -bottom-4 -right-4 w-28 h-28 bg-portfolio-accent opacity-10 dark:opacity-20 rounded-full z-0 animate-pulse animation-delay-1000"></div>
                 <div className="relative z-10 overflow-hidden rounded-xl transform transition-all duration-700 hover:scale-[1.02] hover:shadow-xl">

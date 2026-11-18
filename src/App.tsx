@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation, useNavigationType } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Analytics } from "@/components/Analytics";
@@ -36,7 +36,7 @@ import CreComparableCaseStudyPage from "./pages/CreComparableCaseStudyPage";
 import CyncCollateralCaseStudyPage from "./pages/CyncCollateralCaseStudyPage";
 import CyncAdvanceAnalyticsCaseStudyPage from "./pages/CyncAdvanceAnalyticsCaseStudyPage";
 import BoaMobileBankingCaseStudyPage from "./pages/BoaMobileBankingCaseStudyPage";
-import { useEffect } from "react";
+import { useEffect, type ReactNode } from "react";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -55,6 +55,26 @@ const ToastInitializer = () => {
   }, [toast]);
   
   return null;
+};
+
+// Fades each page in on navigation and starts it at the top. Opacity only: a transform here
+// would break the fixed navbar. Back/forward keeps the browser's restored scroll position.
+const RouteTransition = ({ children }: { children: ReactNode }) => {
+  const { pathname, hash } = useLocation();
+  const navigationType = useNavigationType();
+
+  useEffect(() => {
+    if (navigationType !== 'POP' && !hash) {
+      window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname]);
+
+  return (
+    <div key={pathname} className="animate-page-in">
+      {children}
+    </div>
+  );
 };
 
 const App = () => {
@@ -98,37 +118,39 @@ const App = () => {
             <Analytics trackingId="GA_MEASUREMENT_ID" />
             <BrowserRouter>
               <main id="main-content" className="min-h-screen">
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/portfolio" element={<PortfolioPage />} />
-                  <Route path="/experience" element={<ExperiencePage />} />
-                  <Route path="/contact" element={<ContactPage />} />
-                  <Route path="/case-study/cync-enterprise-lending-platform" element={<CyncCaseStudyPage />} />
-                  <Route path="/case-study/cloned-case-study" element={<ClonedCaseStudyPage />} />
-                  <Route path="/case-study/innovative-design-studio" element={<InnovativeDesignStudioCaseStudyPage />} />
-                  <Route path="/work/investment-collateral" element={<InvestmentCollateralCaseStudyPage />} />
-                  <Route path="/work/equity-stock-management" element={<EquityStockManagementCaseStudyPage />} />
-                  <Route path="/work/collateral-pledge-link" element={<CollateralPledgeLinkCaseStudyPage />} />
-                  <Route path="/work/fleet-financing" element={<FleetFinancingCaseStudyPage />} />
-                  <Route path="/work/agriculture-collateral" element={<AgricultureCollateralCaseStudyPage />} />
-                  <Route path="/work/borrowing-base-certificate" element={<BorrowingBaseCertificateCaseStudyPage />} />
-                  <Route path="/work/nav-subscription-collateral" element={<NavSubscriptionCollateralCaseStudyPage />} />
-                  <Route path="/work/roles-and-permissions" element={<RolesPermissionsCaseStudyPage />} />
-                  <Route path="/work/equipment-deposit-collateral" element={<EquipmentDepositCollateralCaseStudyPage />} />
-                  <Route path="/work/cync-design-system" element={<CyncDesignSystemCaseStudyPage />} />
-                  <Route path="/work/financial-spreading" element={<FinancialSpreadingCaseStudyPage />} />
-                  <Route path="/work/appraisal" element={<AppraisalCaseStudyPage />} />
-                  <Route path="/work/commercial-real-estate-collateral" element={<CreComparableCaseStudyPage />} />
-                  <Route path="/work/cync-collateral-platform" element={<CyncCollateralCaseStudyPage />} />
-                  <Route path="/work/cync-advance-analytics" element={<CyncAdvanceAnalyticsCaseStudyPage />} />
-                  <Route path="/work/bank-of-america-mobile-banking" element={<BoaMobileBankingCaseStudyPage />} />
-                  <Route path="/style-guide" element={<StyleGuide />} />
-                  <Route path="/project/:id" element={<ProjectDetail />} />
-                  {/* Redirect old project route to home portfolio section */}
-                  <Route path="/project" element={<Navigate to="/#portfolio" replace />} />
-                  {/* Catch-all route for 404 - this must be last */}
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
+                <RouteTransition>
+                  <Routes>
+                    <Route path="/" element={<Index />} />
+                    <Route path="/portfolio" element={<PortfolioPage />} />
+                    <Route path="/experience" element={<ExperiencePage />} />
+                    <Route path="/contact" element={<ContactPage />} />
+                    <Route path="/case-study/cync-enterprise-lending-platform" element={<CyncCaseStudyPage />} />
+                    <Route path="/case-study/cloned-case-study" element={<ClonedCaseStudyPage />} />
+                    <Route path="/case-study/innovative-design-studio" element={<InnovativeDesignStudioCaseStudyPage />} />
+                    <Route path="/work/investment-collateral" element={<InvestmentCollateralCaseStudyPage />} />
+                    <Route path="/work/equity-stock-management" element={<EquityStockManagementCaseStudyPage />} />
+                    <Route path="/work/collateral-pledge-link" element={<CollateralPledgeLinkCaseStudyPage />} />
+                    <Route path="/work/fleet-financing" element={<FleetFinancingCaseStudyPage />} />
+                    <Route path="/work/agriculture-collateral" element={<AgricultureCollateralCaseStudyPage />} />
+                    <Route path="/work/borrowing-base-certificate" element={<BorrowingBaseCertificateCaseStudyPage />} />
+                    <Route path="/work/nav-subscription-collateral" element={<NavSubscriptionCollateralCaseStudyPage />} />
+                    <Route path="/work/roles-and-permissions" element={<RolesPermissionsCaseStudyPage />} />
+                    <Route path="/work/equipment-deposit-collateral" element={<EquipmentDepositCollateralCaseStudyPage />} />
+                    <Route path="/work/cync-design-system" element={<CyncDesignSystemCaseStudyPage />} />
+                    <Route path="/work/financial-spreading" element={<FinancialSpreadingCaseStudyPage />} />
+                    <Route path="/work/appraisal" element={<AppraisalCaseStudyPage />} />
+                    <Route path="/work/commercial-real-estate-collateral" element={<CreComparableCaseStudyPage />} />
+                    <Route path="/work/cync-collateral-platform" element={<CyncCollateralCaseStudyPage />} />
+                    <Route path="/work/cync-advance-analytics" element={<CyncAdvanceAnalyticsCaseStudyPage />} />
+                    <Route path="/work/bank-of-america-mobile-banking" element={<BoaMobileBankingCaseStudyPage />} />
+                    <Route path="/style-guide" element={<StyleGuide />} />
+                    <Route path="/project/:id" element={<ProjectDetail />} />
+                    {/* Redirect old project route to home portfolio section */}
+                    <Route path="/project" element={<Navigate to="/#portfolio" replace />} />
+                    {/* Catch-all route for 404 - this must be last */}
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </RouteTransition>
               </main>
               <AIChatAgent />
             </BrowserRouter>

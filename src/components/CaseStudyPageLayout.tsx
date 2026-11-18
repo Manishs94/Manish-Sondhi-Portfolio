@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { CheckCircle2, Lightbulb } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import ImagePlaceholder from '@/components/ImagePlaceholder';
+import ScrollProgress from '@/components/ScrollProgress';
+import Reveal from '@/components/motion/Reveal';
+import CountUp from '@/components/motion/CountUp';
 
 interface CaseStudyImage {
   filename: string;
@@ -129,19 +132,34 @@ const CaseStudyPageLayout: React.FC<CaseStudyPageLayoutProps> = ({
 
   return (
     <>
+      <ScrollProgress />
+
       {/* Hero */}
       <section className="py-24 bg-portfolio-bg-light">
         <div className="section-container">
           {heroImage && (
-            <div className="mb-10">
+            <div className="mb-10 animate-scale-in opacity-0">
               <ImagePlaceholder filename={heroImage} caption={title} aspect="wide" />
             </div>
           )}
-          {eyebrow && <SectionEyebrow>{eyebrow}</SectionEyebrow>}
-          <h1 className="section-heading">{title}</h1>
-          {subtitle && <p className="section-subheading">{subtitle}</p>}
+          {eyebrow && (
+            <div className="animate-fade-in opacity-0" style={{ animationDelay: '0.15s' }}>
+              <SectionEyebrow>{eyebrow}</SectionEyebrow>
+            </div>
+          )}
+          <h1 className="section-heading animate-fade-in opacity-0" style={{ animationDelay: '0.25s' }}>
+            {title}
+          </h1>
+          {subtitle && (
+            <p className="section-subheading animate-fade-in opacity-0" style={{ animationDelay: '0.35s' }}>
+              {subtitle}
+            </p>
+          )}
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-10 pt-8 border-t border-gray-200">
+          <div
+            className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-10 pt-8 border-t border-gray-200 animate-fade-in opacity-0"
+            style={{ animationDelay: '0.5s' }}
+          >
             {role && (
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-portfolio-text-light mb-1">
@@ -339,8 +357,8 @@ const CaseStudyPageLayout: React.FC<CaseStudyPageLayoutProps> = ({
               </h2>
               <div className="space-y-10 max-w-3xl">
                 {keyDecisions.map((decisionItem, idx) => (
-                  <div key={decisionItem.title} className="flex gap-5">
-                    <div className="shrink-0 w-10 h-10 rounded-full bg-portfolio-accent text-white flex items-center justify-center font-bold font-display">
+                  <Reveal key={decisionItem.title} className="group flex gap-5">
+                    <div className="shrink-0 w-10 h-10 rounded-full bg-portfolio-accent text-white flex items-center justify-center font-bold font-display transition-transform duration-300 group-hover:scale-110">
                       {idx + 1}
                     </div>
                     <div className="flex-1">
@@ -354,7 +372,7 @@ const CaseStudyPageLayout: React.FC<CaseStudyPageLayoutProps> = ({
                         {decisionItem.body}
                       </p>
                     </div>
-                  </div>
+                  </Reveal>
                 ))}
               </div>
             </div>
@@ -365,12 +383,12 @@ const CaseStudyPageLayout: React.FC<CaseStudyPageLayoutProps> = ({
       {/* Additional case-study-specific sections */}
       {additionalSections?.map((section) => (
         <section key={section.title} className="py-24 bg-white border-t border-gray-100">
-          <div className="section-container max-w-3xl mx-auto">
+          <Reveal className="section-container max-w-3xl mx-auto">
             <h2 className="text-2xl font-bold text-portfolio-text-dark font-display mb-6">
               {section.title}
             </h2>
             {section.content}
-          </div>
+          </Reveal>
         </section>
       ))}
 
@@ -385,8 +403,10 @@ const CaseStudyPageLayout: React.FC<CaseStudyPageLayoutProps> = ({
             {outcomeMetrics && outcomeMetrics.length > 0 && (
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 mb-10">
                 {outcomeMetrics.map((metric, idx) => (
-                  <div key={idx} className="rounded-xl border border-white/15 bg-white/5 p-6">
-                    <p className="text-3xl font-bold font-display text-white">{metric.value}</p>
+                  <div key={idx} className="rounded-xl border border-white/15 bg-white/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/40">
+                    <p className="text-3xl font-bold font-display text-white">
+                      <CountUp value={metric.value} />
+                    </p>
                     <p className="text-sm text-white/70 mt-2">{metric.label}</p>
                   </div>
                 ))}
@@ -396,7 +416,7 @@ const CaseStudyPageLayout: React.FC<CaseStudyPageLayoutProps> = ({
             {outcomeHighlights && outcomeHighlights.length > 0 && (
               <div className="grid sm:grid-cols-2 gap-6">
                 {outcomeHighlights.map((item) => (
-                  <div key={item.title} className="rounded-xl border border-white/15 bg-white/5 p-6">
+                  <div key={item.title} className="rounded-xl border border-white/15 bg-white/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/40">
                     <p className="font-semibold text-white mb-2">{item.title}</p>
                     <p className="text-sm text-white/70 leading-relaxed">{item.body}</p>
                   </div>
@@ -434,8 +454,10 @@ const CaseStudyPageLayout: React.FC<CaseStudyPageLayoutProps> = ({
                 </p>
               )}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {images.map((image) => (
-                  <ImagePlaceholder key={image.filename} filename={image.filename} caption={image.caption} />
+                {images.map((image, idx) => (
+                  <Reveal key={image.filename} variant="scale" delay={(idx % 2) * 120}>
+                    <ImagePlaceholder filename={image.filename} caption={image.caption} />
+                  </Reveal>
                 ))}
               </div>
             </div>

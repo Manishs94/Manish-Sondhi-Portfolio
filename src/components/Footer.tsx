@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowUp, Github, Linkedin, Mail } from 'lucide-react';
+import Reveal from '@/components/motion/Reveal';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -12,7 +13,7 @@ const Footer = () => {
   return (
     <footer className="bg-portfolio-text-dark text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
+        <Reveal className="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
           <div className="flex-1">
             <a href="#" className="text-2xl font-bold">Manish <span className="text-portfolio-accent">Sondhi</span></a>
             <p className="text-gray-300 mt-3 max-w-md font-medium">
@@ -34,24 +35,24 @@ const Footer = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                <li><a href="#home" className="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                <li><a href="#about" className="text-gray-400 hover:text-white transition-colors">About</a></li>
-                <li><a href="#portfolio" className="text-gray-400 hover:text-white transition-colors">Portfolio</a></li>
-                <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                <li><a href="#home" className="inline-block text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-200">Home</a></li>
+                <li><a href="#about" className="inline-block text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-200">About</a></li>
+                <li><a href="#portfolio" className="inline-block text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-200">Portfolio</a></li>
+                <li><a href="#contact" className="inline-block text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-200">Contact</a></li>
               </ul>
             </div>
             
             <div>
               <h3 className="text-lg font-semibold mb-4">Specializations</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">AI-Assisted Decision Interfaces</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Enterprise Collateral & Lending Systems</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Design Systems for Regulated Platforms</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Consumer Banking at Scale (68M+ users)</a></li>
+                <li><a href="#" className="inline-block text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-200">AI-Assisted Decision Interfaces</a></li>
+                <li><a href="#" className="inline-block text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-200">Enterprise Collateral & Lending Systems</a></li>
+                <li><a href="#" className="inline-block text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-200">Design Systems for Regulated Platforms</a></li>
+                <li><a href="#" className="inline-block text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-200">Consumer Banking at Scale (68M+ users)</a></li>
               </ul>
             </div>
           </div>
-        </div>
+        </Reveal>
         
         <div className="border-t border-gray-800 mt-10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-gray-400 text-sm">

@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { allProjects } from '@/utils/projectData';
 import ProjectCard from '@/components/ProjectCard';
+import Reveal from '@/components/motion/Reveal';
 
 const PortfolioOverview = () => {
   const featuredCaseStudyTitles = [
@@ -20,7 +21,7 @@ const PortfolioOverview = () => {
   return (
     <section id="portfolio" className="py-24 bg-portfolio-bg-light">
       <div className="section-container">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <Reveal className="text-center max-w-2xl mx-auto mb-16">
           <span className="inline-block px-4 py-2 bg-blue-100 text-portfolio-accent rounded-full font-medium mb-4">
             Selected Work
           </span>
@@ -28,7 +29,7 @@ const PortfolioOverview = () => {
           <p className="section-subheading mx-auto">
             A selection of case studies showing how I approach product strategy, system design, and workflow design across complex platforms. The work highlights how I simplify high-stakes operations, shape scalable product foundations, and design decision-support experiences where clarity and trust are critical.
           </p>
-        </div>
+        </Reveal>
         
         {/* Featured Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
@@ -37,15 +38,15 @@ const PortfolioOverview = () => {
           ))}
         </div>
         
-        <div className="text-center">
+        <Reveal variant="scale" className="text-center">
           <Link to="/portfolio">
-            <Button className="portfolio-button-primary transition-transform hover:scale-105 duration-300 flex items-center gap-2">
+            <Button className="group portfolio-button-primary transition-transform hover:scale-105 duration-300 flex items-center gap-2">
               <BookOpen className="w-4 h-4" />
               View Full Portfolio
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
           </Link>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

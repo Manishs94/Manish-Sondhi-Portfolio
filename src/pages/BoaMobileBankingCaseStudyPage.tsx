@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { SEOHead } from '@/components/SEOHead';
+import ScrollProgress from '@/components/ScrollProgress';
 import { Link } from 'react-router-dom';
 import {
   Ruler,
@@ -99,6 +100,7 @@ const takeaways = [
 const BoaMobileBankingCaseStudyPage = () => {
   return (
     <div className="min-h-screen overflow-x-hidden">
+      <ScrollProgress />
       <Navbar />
       <SEOHead
         title={`${project.title} | Manish Sondhi`}

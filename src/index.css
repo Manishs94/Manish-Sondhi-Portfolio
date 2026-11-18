@@ -324,15 +324,15 @@ html {
   }
 
   .portfolio-button-primary {
-    @apply bg-portfolio-accent text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:bg-blue-600 hover:shadow-lg;
+    @apply bg-portfolio-accent text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:bg-blue-600 hover:shadow-lg active:scale-[0.98];
   }
 
   .portfolio-button-secondary {
-    @apply bg-transparent border-2 border-portfolio-accent text-portfolio-accent px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:bg-portfolio-accent hover:text-white;
+    @apply bg-transparent border-2 border-portfolio-accent text-portfolio-accent px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:bg-portfolio-accent hover:text-white active:scale-[0.98];
   }
 
   .portfolio-button-outline {
-    @apply bg-transparent border-2 border-gray-300 dark:border-gray-600 text-portfolio-text-dark dark:text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:border-portfolio-accent hover:text-portfolio-accent dark:hover:border-portfolio-accent dark:hover:text-portfolio-accent;
+    @apply bg-transparent border-2 border-gray-300 dark:border-gray-600 text-portfolio-text-dark dark:text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:border-portfolio-accent hover:text-portfolio-accent dark:hover:border-portfolio-accent dark:hover:text-portfolio-accent active:scale-[0.98];
   }
 
   .hover-lift {
@@ -490,4 +490,31 @@ html {
 .nav-underline:hover::after,
 .nav-underline.active::after {
   width: 100%;
+}
+
+/* Scroll reveal (see components/motion/Reveal.tsx) */
+.reveal {
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal-up { transform: translateY(24px); }
+.reveal-left { transform: translateX(-32px); }
+.reveal-right { transform: translateX(32px); }
+.reveal-scale { transform: scale(0.94); }
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Cursor-following highlight on cards; --mx/--my are set on mouse move */
+.card-spotlight {
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(65, 105, 225, 0.1), transparent 60%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transition-delay: 0s !important; }
+}
+@media print {
+  .reveal { opacity: 1 !important; transform: none !important; }
 }
