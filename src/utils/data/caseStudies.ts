@@ -456,6 +456,73 @@ export const caseStudies: Project[] = [
     ]
   },
   {
+    id: 20,
+    title: 'Residential For-Sale Collateral: Underwriting a Development Before It Is Built',
+    subtitle: 'Modeling a homebuilder\'s lots, pads, and sell-out schedule as collateral, with a configurable field set that changes with the kind of project being financed.',
+    description: 'A loan to a home builder is secured by land, lots, and a plan. Designed Residential For-Sale as its own information component — lots, contracts, pads, absorption, and competing projects as structured data — inside the same record and builder as every other collateral type, with an administrator-configurable field set.',
+    image: '/case-studies/residential-for-sale-screens/02-record-lot-information.png',
+    category: ['Enterprise Fintech', 'Information Architecture', 'Form Design'],
+    tools: ['Figma'],
+    link: '/work/residential-for-sale-collateral',
+    overview: {
+      challenge: 'The collateral value depends on a sell-out schedule — approved lots, contract purchasers and prices, comparable absorption, sell-out date — and almost none of it fits the fields of an ordinary real-estate record, which describe an existing building.',
+      solution: 'A Residential For-Sale information component with a development-oriented field set (property basics, project, lot information, contracts, pads and condominiums, completed units, absorption, competing projects), built in the shared administration builder with a configurable field set and an editable Property Type list.',
+      impact: '• Repayment assumptions readable from the record instead of a separate memo\n• Subject absorption shown beside competing projects\n• Add Lot and Add Contract Purchaser repeaters for projects of any shape\n• Same header, confirmations, and exit guard as every other collateral type'
+    },
+    challenge: 'A builder\'s loan is repaid from future sales; the risk lies in absorption rates, contract terms, and per-lot price increases, not in the current appraised value of the land.',
+    process: 'Designed about 70 frames in the CYNC Figma file: 51 Residential For-Sale collateral-record frames and 20 administration frames.',
+    isCaseStudy: true,
+    productType: 'Enterprise Collateral Management Platform',
+    platforms: 'Web (Enterprise SaaS)',
+    role: 'Senior Product Designer',
+    team: ['Product', 'Engineering', 'Risk', 'Compliance'],
+    responsibilities: [
+      'Designed the Residential For-Sale section of the collateral record, with its field groups, repeaters, confirmation, and exit guard.',
+      'Designed the sub-type in the administration builder, the Available / Selected field configuration, and the live preview.',
+      'Designed the Edit Property Type dialog for administrator-maintained pick lists.'
+    ],
+    outcomes: [
+      'The sell-out plan captured as structured data on the collateral record.',
+      'Competing-project absorption recorded beside the subject project.',
+      'Pick lists and Yes / No answers instead of free text, editable by administrators.',
+      'A development-finance collateral type added by changing only the information component.'
+    ]
+  },
+  {
+    id: 21,
+    title: 'Collateral Lifecycle: Creating, Copying, Pledging, and Deleting From the Relationship',
+    subtitle: 'Letting a relationship manager manage a borrower\'s collateral without leaving the borrower, with a status that tells the truth about where each asset stands.',
+    description: 'A relationship manager starts from the borrower, not the asset. Designed a Collateral section inside the Relationship module and a Create Collateral entry on the loan application, with create, copy, edit, and delete actions, a status derived from the asset\'s loans, and a delete that cannot orphan a pledge.',
+    image: '/case-studies/collateral-lifecycle-screens/01-relationship-collateral-list.png',
+    category: ['Enterprise Fintech', 'Information Architecture', 'Workflow Design'],
+    tools: ['Figma'],
+    link: '/work/collateral-lifecycle',
+    overview: {
+      challenge: 'A banker thinks "my client," not "this asset." They want to see everything a client could pledge, add something new mid-call, copy a similar asset instead of retyping it, and know which assets are free and which are committed.',
+      solution: 'Collateral as a first-class section of the Relationship (and reachable from the loan application\'s Security section), with create, edit, copy, and delete actions, a status derived from the asset\'s loans (Available, Pending, Active), and a guarded delete.',
+      impact: '• The list answers "what can I still lend against?"\n• Pledged collateral cannot be deleted until unpledged\n• Several similar assets created in one step with distinct IDs\n• Ownership and affiliated-entity collateral visible on the borrower'
+    },
+    challenge: 'The harder design problem is the lifecycle: what each action does to an asset\'s status, and what must stop a user from breaking it.',
+    process: 'Designed about 45 frames in the CYNC Figma file across the Collateral Section in the Relationship Module, Relationship: Collateral, and the Create Task / Create Collateral frames on a loan application.',
+    isCaseStudy: true,
+    productType: 'Loan Origination System (LOS)',
+    platforms: 'Web (Enterprise SaaS)',
+    role: 'Senior Product Designer',
+    team: ['Product', 'Engineering', 'Risk', 'Compliance'],
+    responsibilities: [
+      'Designed the Collateral list on the Relationship, with row actions, affiliations, and empty state.',
+      'Designed Create, Copy, Edit, and Delete Collateral, with their confirmations and guards.',
+      'Designed the Create Collateral entry from the loan application\'s Security section.',
+      'Annotated the collateral and loan status rules in the file.'
+    ],
+    outcomes: [
+      'Collateral managed from the borrower without leaving the relationship.',
+      'Status derived from the loans rather than typed by the user.',
+      'Delete blocked for pledged collateral, with the fix stated in the message.',
+      'Copy creates multiple records in one step, each marked "Copy".'
+    ]
+  },
+  {
     id: 6,
     title: 'Commercial Real Estate Collateral',
     subtitle: 'One of 11 structurally distinct collateral categories in Cync\'s platform — the highest-integration category, assembling appraisal, comparable, flood, title, tax, environmental, insurance, and lien data into one auditable record, administered through a component-based record builder, and linked to loans that may spread exposure across more than one property.',
@@ -565,52 +632,43 @@ export const caseStudies: Project[] = [
   {
     id: 2,
     title: 'Bank of America Bill Pay Redesign',
-    subtitle: 'Enhancing digital banking experience for over 68 million customers through an intuitive and user-friendly Bill Pay feature redesign.',
-    description: 'Redesigned the Bill Pay feature on the Bank of America mobile app — simplifying payment scheduling, improving payment history visibility, and creating a smoother experience for individual and business banking customers.',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    subtitle: 'A concept redesign of three Bill Pay flows in the Bank of America mobile app: adding a payee and paying, scheduling a payment, and reviewing payment history.',
+    description: 'Concept redesign, not affiliated with Bank of America. Public app-store reviews show people struggling with Bill Pay. Redesigned add-and-pay as a guided flow, made scheduling its own step, and organized payment history by status, with an action matched to each status.',
+    image: '/case-studies/boa-screens/01-cover-redesigned-screens.png',
     category: ['Consumer Banking', 'Mobile UX', 'Fintech'],
-    metrics: [
-      { icon: 'users2', value: '68M+', label: 'Customers Served' }
-    ],
-    tools: ['Figma', 'UserTesting', 'App Store Review Analysis'],
+    tools: ['Figma', 'App Store Review Analysis'],
     link: '/work/bank-of-america-mobile-banking',
     overview: {
-      challenge: 'Users found the Bill Pay feature complex and inflexible: difficult scheduling and management, limited ability to modify options and delivery dates, confusing payment formats, and difficulty tracking payment history.',
-      solution: 'Streamlined the bill payment UI, added scheduling flexibility with real-time notifications, and upgraded payment history to a searchable, filterable view — validated through two rounds of usability testing with returning participants.',
-      impact: '• Streamlined UI for setting up and managing bill payments\n• Greater scheduling flexibility with real-time notifications and intuitive prompts\n• Searchable, detailed payment history with filtering by date, recipient, and payment type\n• Delete button, in-flow help text, and a repeat-payment button added after usability testing feedback'
+      challenge: 'App-store reviews point to four problems: scheduling (a "fixed amount" locks frequency to "one time"), fragile autopay editing, unclear payment status (scheduled, pending, or failed), and hard-to-find history.',
+      solution: 'A guided add-and-pay flow for individuals or companies; scheduling as its own step with frequency, start and end dates, a plain-language note on when the payment goes out, and an email toggle; and payment history organized by transaction type and status.',
+      impact: '• Guided add-and-pay flow: payee type, basic and address information, review, payment details, security PIN, confirmation\n• Scheduling step with eight frequencies, start and end dates, and a plain-language note on when the money goes out\n• Activity tabs (All, Transfer, Bill Pay, Zelle) plus a status filter, with the fitting action on each status\'s details screen\n• Delete, help text, and repeat bill payment added as design refinements'
     },
-    challenge: 'Users expressed dissatisfaction with the Bill Pay feature: complexity in managing and scheduling payments, limited flexibility in modifying delivery dates, confusing payment formats, and difficulty tracking payment history.',
-    process: 'Conducted app store feedback analysis, surveys, and in-depth user interviews. Designed solutions for two user groups (individual and business), then validated with two rounds of usability testing using returning participants and realistic task scenarios.',
-    team: [
-      'Product Designer (Researcher)',
-      'Lead Product Designer',
-      'UX Designers & Researchers (4)'
-    ],
-    timeline: '2022',
-    role: 'Product Designer & Researcher',
+    challenge: 'App-store reviews describe Bill Pay problems with scheduling, autopay editing, payment status clarity, and finding scheduled payments and history.',
+    process: 'Analyzed public app-store reviews, built two personas (an individual user and a business owner), and reviewed how other banking apps handle bill payments. Redesigned three flows and refined them with delete, help text, and repeat-payment additions.',
+    timeline: '2023',
+    role: 'Senior UI/UX Designer',
     keyFeatures: [
-      'Streamlined bill payment scheduling and management UI',
-      'Real-time notifications and intuitive prompts for scheduled payments',
-      'Searchable, filterable payment history',
-      'Delete button for managing scheduled payments',
-      'In-flow help text throughout the payment process',
-      'Repeat bill payment button for recurring payments'
+      'Guided add-and-pay flow for individuals and companies',
+      'Scheduling as its own step, with a plain-language note on when the payment is sent',
+      'Activity tabs by transaction type and a status filter',
+      'Status-specific actions: Pay now, Edit and Delete, Share receipt, Repeat bill payment, Try again',
+      'In-flow help text on scheduling fields',
+      'Repeat bill payment pre-fills a new payment from a previous one'
     ],
     status: 'Completed',
     isCaseStudy: true,
-    productType: 'Consumer Banking Mobile Application',
-    platforms: 'Bank of America Mobile App',
+    productType: 'Consumer Banking Mobile Application (Concept)',
+    platforms: 'Mobile (iOS)',
     responsibilities: [
-      'Conducted user feedback analysis, surveys, and interviews to identify Bill Pay pain points.',
-      'Designed solutions for two user groups: individual users and business owners.',
-      'Ran two rounds of usability testing with returning participants using realistic task scenarios.',
-      'Iterated the design based on usability findings — added a delete button, help text, and a repeat-payment button.'
+      'Analyzed public app-store reviews to identify Bill Pay pain points.',
+      'Built personas for an individual user and a business owner.',
+      'Designed the add-and-pay, scheduling, and payment history flows.',
+      'Refined the design with a delete action, help text, and repeat bill payment.'
     ],
     outcomes: [
-      'Streamlined UI for setting up and managing bill payments.',
-      'Enhanced scheduling flexibility with real-time notifications.',
-      'Upgraded, searchable payment history with filtering by date, recipient, and payment type.',
-      'Iterative refinements (delete button, help text, repeat payment) added directly from usability testing feedback.'
+      'Add-and-pay redesigned as short, guided steps.',
+      'Scheduling separated into its own step with clear timing notes.',
+      'Payment history organized by type and status, with an action for each status.'
     ]
   }
 ];

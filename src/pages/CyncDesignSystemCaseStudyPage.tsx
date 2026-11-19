@@ -21,10 +21,15 @@ const wideScreens = [
 const tallScreens = [
   { file: '02-colors.png', caption: 'Colors' },
   { file: '04-buttons.png', caption: 'Buttons' },
+  { file: '12-tables.png', caption: 'Tables: types, sizing, and interaction' },
+  { file: '13-form-elements.png', caption: 'Form elements: framed and frameless inputs, dropdowns, date picker' },
   { file: '05-grid.png', caption: 'Grid and breakpoints' },
   { file: '06-alerts-and-errors.png', caption: 'Alerts and errors, including the toast copy pattern' },
   { file: '07-progress-and-steppers.png', caption: 'Progress bars and steppers' },
   { file: '08-menus-and-submenus.png', caption: 'Menus and submenus' },
+  { file: '15-iconography.png', caption: 'Iconography: FontAwesome 5 icon sample' },
+  { file: '16-graphs.png', caption: 'Graphs: bar and pie' },
+  { file: '14-components.png', caption: 'Composite components: cards, leaderboards, tooltips, avatars, containers' },
 ];
 
 const appliedScreens = [
@@ -77,6 +82,16 @@ const keyDecisions = [
     body: 'Forms, buttons, tables, steppers, and toasts are defined once and composed into screens. This is the same principle that governs the collateral builder, where sub-types are assembled from reusable components. The design system and the product architecture reinforce each other.',
   },
   {
+    title: 'Two Input Styles for Two Jobs',
+    body: 'Text fields and dropdowns come in a framed primary style for forms and a frameless secondary style for entering data inside table cells. Tables carry their own interaction rules (hover row, active row, editable cell, header sorting) and two row heights (40px and 32px) so dense data can be edited in place without a form. A single input style would have forced either cramped forms or heavy tables.',
+    image: `${dir}/13-form-elements.png`,
+  },
+  {
+    title: 'Write Down When the System Speaks',
+    body: "Alerts and errors have timing rules, not only looks: errors show after the user leaves a field or submits, never while the user is still typing a valid value; destructive actions get an action toast with Undo; and an off-pattern error modal needs a technical writer's approval. Controlling when and how the system interrupts is part of the system.",
+    image: `${dir}/06-alerts-and-errors.png`,
+  },
+  {
     title: 'Prove the System on Real Modules',
     body: 'The file shows the system applied to Risk Rating, Loans, and Spreading, not just swatches and specimens. A style guide earns trust when its parts can be seen working together under real data density: a table with per-column search, a score card with overrides, a template picker in a modal.',
     image: `${dir}/10-risk-rating-concepts.png`,
@@ -117,45 +132,107 @@ const additionalSections = [
             favicon "minimal space" mark, an animated logo loader, and an icon set.
           </li>
         </ul>
+        <p className="text-sm text-portfolio-text-light leading-relaxed mb-8">
+          The color system has ten hue families, each with a 5%-to-100% tint scale and two darker
+          steps: Blue, Green, Red, Orange, Jade, Yellow, Violet, Fuchsia, Dark, plus the brand ramp.
+          The Colors page also carries an accessibility reference that points designers to contrast
+          checkers and the WCAG quick reference. Typography is Roboto (Bold, Medium, Regular, Light)
+          with a heading scale from XXXL down to L, and the Introduction states the system's rule for
+          exceptions.
+        </p>
 
         <p className="font-semibold text-portfolio-text-dark mb-2">Components</p>
         <ul className="space-y-2 text-sm text-portfolio-text-light leading-relaxed mb-8 list-disc pl-5">
           <li>
             <Strong>Buttons.</Strong> Medium, Small, X-Small, and XX-Small, each with and without an
-            icon, in Action, Hover, Selected, Error, and Disabled states.
+            icon, in Action, Hover, Selected, Error, and Disabled states. The page also defines split
+            buttons, button sets, action sets, a top button, and a load button.
           </li>
           <li>
-            <Strong>Form elements.</Strong> Text field, text area, dropdown and dropdown options,
-            date picker and calendar, checkbox, radio button, toggle, search, and tag input, each
-            with Filled, Focus, Error, and Success states, and a characters-remaining counter on long
-            text.
+            <Strong>Tables.</Strong> Four types: Primary Data Table, Expandable Table, Inline Edit
+            Table, and Table with Checkbox/Radio. Two sizes: Normal (40px rows) and Small (32px
+            rows), with a 48px title bar and a 48px pagination bar. The page documents hover and
+            active row states, editable cells in hover and active states, header sorting (sort
+            icons, "hide the sorting if it's in default order", with AG Grid cited as the
+            reference), row and header actions including a disabled action, and pagination with
+            rows-per-page and "1–10 of 45" counts.
           </li>
           <li>
-            <Strong>Navigation.</Strong> Menus and submenus, tabs, accordion, and a main navigation
-            bar across the platform's modules.
+            <Strong>Form elements.</Strong> Two input families: <Strong>framed</Strong> text fields
+            and dropdowns as the primary style, and <Strong>frameless</Strong> versions as the
+            secondary style for table data entry. Dropdowns come as single select, with group
+            headers, with a sub-menu, and as a multi-select with a sub-menu and Select All. The page
+            also has the date picker and calendar, checkbox, radio, switch, search, and tag input,
+            each with Normal, Focus, Filled, Error, Success, and Disabled states and a
+            characters-remaining counter on long text.
           </li>
           <li>
-            <Strong>Progress.</Strong> Progress bars and steppers, with a stepper menu for
-            multi-step flows.
+            <Strong>Navigation.</Strong> A main menu, primary, secondary and group tabs (with a note
+            that a group tab can jump to another page), breadcrumb and link bar, and sizing rules for
+            each (for example a minimum width of 140px). Accordions come in a plain form and one with
+            action items; the page specifies that Delete opens a confirmation dialog and Edit opens a
+            modal, and that the accordion keeps its state during both.
           </li>
           <li>
-            <Strong>Feedback.</Strong> Success, Error, Warning, and Information toasts, and error
-            messages with a documented copy pattern.
+            <Strong>Progress.</Strong> Progress bars with the message below or embedded, in Small,
+            Medium and Large, with Complete, Success and Error messages. Steppers come as horizontal
+            (label below or right) and vertical, plus two named patterns: a Progress Monitor Stepper
+            for a loan's stages (Prospecting, Proposal, Qualification, Underwriting, Review,
+            Approval, Booked) and a Template Setup Stepper for multi-step setup with optional steps.
           </li>
           <li>
-            <Strong>Data display.</Strong> Tables, graphs, avatars, and badges.
+            <Strong>Feedback.</Strong> Page-level alerts in two forms (message only, and message
+            with buttons for a decision). Toasts in four types plus an <Strong>action toast</Strong>{' '}
+            with Undo for destructive actions and a toast with a description. Rules for error timing:
+            alerts and errors appear only after the user leaves the field or tries to submit, and
+            field errors appear only once the user has entered an invalid value or left a required
+            field empty. The page also covers a modal-on-modal pattern and an error modal marked as
+            an exception that needs approval from a technical writer.
+          </li>
+          <li>
+            <Strong>Icons.</Strong> FontAwesome 5 Free (Regular and Solid) as vector icons, with
+            FontAwesome 4 still permitted. The guide says icons are not a substitute for branded
+            illustration or animation.
+          </li>
+          <li>
+            <Strong>Graphs.</Strong> Bar and pie graphs, described as flat and simple for decision
+            speed and performance, limited to the approved hues.
+          </li>
+          <li>
+            <Strong>Composite components.</Strong> The Components page (the longest on the page)
+            holds reusable pieces assembled from the primitives: <Strong>cards</Strong> (such as Est.
+            Approval Time, Total Active Loan Requests, Total Amount for all Active Loans),{' '}
+            <Strong>leaderboards</Strong> (large, small, and horizontal, showing total loan amount,
+            average time in stage, and historical average by stage), <Strong>tooltips</Strong>,{' '}
+            <Strong>avatars</Strong>, a <Strong>collapsible flyout container</Strong>,{' '}
+            <Strong>draggable containers</Strong>, and a <Strong>group selector</Strong>. The page
+            says these are meant as drag-and-drop elements to speed up high-fidelity mockups, and
+            that this section is the one expected to change most.
           </li>
         </ul>
 
         <p className="font-semibold text-portfolio-text-dark mb-2">Design concepts applied</p>
-        <p className="text-sm text-portfolio-text-light leading-relaxed">
+        <p className="text-sm text-portfolio-text-light leading-relaxed mb-8">
           The file includes the system applied to real modules as design concepts:{' '}
-          <Strong>Risk Rating</Strong> (score cards with Approve / Review / Decline states,
-          per-section overrides, and threaded notes), <Strong>Loans</Strong> (an overview table
-          with in-process, existing, incomplete, and withdrawn tabs, per-column search, and
-          pagination), and <Strong>Spreading</Strong> (a template-driven record creation modal over
-          a spreads table). There are also print layouts that carry Style Guide 2.0 into
-          documents.
+          <Strong>Risk Rating</Strong> (3 concept frames: score cards with Approve / Review /
+          Decline states, per-section overrides, and threaded notes), <Strong>Loans</Strong> (5
+          frames: an overview table with in-process, existing, incomplete, and withdrawn tabs,
+          per-column search, and pagination), a further <Strong>Design Concepts</Strong> set (3
+          frames), and <Strong>Spreading</Strong> (25 frames, a dedicated Spreading Design System
+          applied to a template-driven record creation modal over a spreads table; see the{' '}
+          <Link to="/work/financial-spreading" className="text-portfolio-accent underline hover:no-underline">
+            Spreading case study
+          </Link>
+          ). There are also seven print layouts that carry Style Guide 2.0 into documents, two
+          breakpoint frames (including a 1920×1080 one), and a grid-size-with-padding-and-margin
+          reference.
+        </p>
+
+        <p className="font-semibold text-portfolio-text-dark mb-2">Logos and loading</p>
+        <p className="text-sm text-portfolio-text-light leading-relaxed">
+          Two logo forms (the primary Cync logo and a favicon "minimal space" mark, with a rule
+          against altering either), and a six-step loading animation built from the favicon, with
+          the same rule.
         </p>
       </>
     ),

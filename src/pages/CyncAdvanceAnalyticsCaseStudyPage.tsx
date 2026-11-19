@@ -5,6 +5,7 @@ import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { SEOHead } from '@/components/SEOHead';
 import CaseStudyPageLayout from '@/components/CaseStudyPageLayout';
 import AdvanceAnalyticsDiagram from '@/components/motion/AdvanceAnalyticsDiagram';
+import ImagePlaceholder from '@/components/ImagePlaceholder';
 import { caseStudies } from '@/utils/data/caseStudies';
 
 const project = caseStudies.find((p) => p.id === 4)!;
@@ -95,6 +96,69 @@ const additionalSections = [
           — not a generic BI tool, but one built around a named regulatory dataset and
           domain-specific glossary content.
         </p>
+      </>
+    ),
+  },
+  {
+    title: 'What the Figma Page Adds Beyond the Product Screenshots',
+    content: (
+      <>
+        <p className="text-sm text-portfolio-text-light leading-relaxed mb-4">
+          The Advance Analytics page in the CYNC file holds 31 frames at 1366×768. Most match the
+          sections above; the designs add to them in these places:
+        </p>
+        <ul className="space-y-2 text-sm text-portfolio-text-light leading-relaxed mb-6 list-disc pl-5">
+          <li>
+            <span className="font-semibold text-portfolio-text-dark">Dashboard and report list controls.</span>{' '}
+            Both lists have an Add action, a search box, a Columns picker, and a sitemap/list view
+            toggle, with the category tabs on the left. The Reports list also adds a Custom category.
+          </li>
+          <li>
+            <span className="font-semibold text-portfolio-text-dark">Document &amp; Data states.</span>{' '}
+            Three states of the upload flow: empty, with an Upload File action, and with the Custom
+            &amp; Predefined Queries section reached from the same menu.
+          </li>
+          <li>
+            <span className="font-semibold text-portfolio-text-dark">Query views.</span> The Custom
+            &amp; Predefined Queries screen appears in two states, and a further state with a
+            Metadata tab.
+          </li>
+          <li>
+            <span className="font-semibold text-portfolio-text-dark">Administration in more detail.</span>{' '}
+            Profile Management shows Corporation Name, contact name, number and email, a map,
+            Headquarters Address fields, an Edit action, and{' '}
+            <span className="font-semibold text-portfolio-text-dark">Business Hours</span> for each
+            day (for example 09:00 AM to 06:00 PM). Report Permission and the glossary list appear as
+            separate variants. The navigation also includes Contact Support and a user menu showing
+            the Administrator role.
+          </li>
+        </ul>
+        <div className="space-y-6">
+          <div>
+            <ImagePlaceholder
+              filename="advance-analytics-screens/08-figma-dashboards-list-controls.png"
+              caption="Dashboards list: Add, search, sitemap/list toggle, Columns"
+              aspect="wide"
+            />
+            <p className="text-xs text-portfolio-text-light mt-2">Dashboards list: Add, search, sitemap/list toggle, and Columns</p>
+          </div>
+          <div>
+            <ImagePlaceholder
+              filename="advance-analytics-screens/09-figma-file-upload.png"
+              caption="File Upload with the Upload File action"
+              aspect="wide"
+            />
+            <p className="text-xs text-portfolio-text-light mt-2">Document &amp; Data: File Upload with the Upload File action</p>
+          </div>
+          <div>
+            <ImagePlaceholder
+              filename="advance-analytics-screens/10-figma-profile-business-hours.png"
+              caption="Profile Management with Headquarters Address, map, and Business Hours"
+              aspect="wide"
+            />
+            <p className="text-xs text-portfolio-text-light mt-2">Profile Management: Headquarters Address, map, and Business Hours</p>
+          </div>
+        </div>
       </>
     ),
   },
