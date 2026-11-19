@@ -523,6 +523,40 @@ export const caseStudies: Project[] = [
     ]
   },
   {
+    id: 22,
+    title: 'A Design System for a VA Operations Platform',
+    subtitle: 'One design language across three brands of a VA-facing operations platform: foundations anchored to VA and USWDS standards, tables built from parts, and workflow patterns that carry the business rules.',
+    description: 'A VA-facing platform for exam logistics, provider billing, and compliance reporting has dense screens: case queues, scheduling, document packets, provider availability, and billing. Authored a Figma design system covering foundations, form controls, navigation, tables built from cells, overlays, progress, and two composed workflow patterns.',
+    image: '/case-studies/infinite-screens/01-introduction.png',
+    category: ['Healthcare & Federal Systems', 'Design Systems', 'Data-Dense UI'],
+    tools: ['Figma'],
+    link: '/work/va-operations-design-system',
+    overview: {
+      challenge: 'Three brands and many data-heavy screens need consistency: a table, a date field, or an error state should look and behave the same in every one of them.',
+      solution: 'One Figma design system page: foundations derived from VA identity and USWDS, form controls with framed and frameless styles, an app shell, six table types built from cells with five composed recipes, overlays, progress, a packet-documents selector, and a provider availability calendar.',
+      impact: '• Color, type, and button rules anchored to a public standard\n• New tables start from a recipe built from shared parts\n• Business rules taught in empty states and disabled controls\n• Availability shown as seven slot states with the time zone stated'
+    },
+    challenge: 'Dense clinical and operational screens across three brands, where inconsistency in a table, date field, or error state slows users and review.',
+    process: 'Authored a single Figma design system page with local text styles, paint styles, color variables, and component variants — about 750 variants across foundations, components, recipes, and workflow patterns.',
+    isCaseStudy: true,
+    productType: 'VA-Facing Operations Platform',
+    platforms: 'Web (Enterprise)',
+    role: 'Staff UX Product Designer',
+    team: ['Product', 'Engineering'],
+    responsibilities: [
+      'Authored the design system in Figma: foundations, components, table recipes, workflow patterns, and documentation.',
+      'Defined color, typography, and button rules against VA identity guidelines and USWDS.',
+      'Built six table types from cell, header, row, pagination, and action-menu parts, with five composed recipes.',
+      'Designed the packet-documents dual selection and the provider availability calendar patterns.'
+    ],
+    outcomes: [
+      'One design language across three brands of the platform.',
+      'Tables assembled from parts and two axes: type and density.',
+      'Framed inputs for forms, frameless inputs for table cells.',
+      'Recipes documented with their source screens and caveats.'
+    ]
+  },
+  {
     id: 6,
     title: 'Commercial Real Estate Collateral',
     subtitle: 'One of 11 structurally distinct collateral categories in Cync\'s platform — the highest-integration category, assembling appraisal, comparable, flood, title, tax, environmental, insurance, and lien data into one auditable record, administered through a component-based record builder, and linked to loans that may spread exposure across more than one property.',
