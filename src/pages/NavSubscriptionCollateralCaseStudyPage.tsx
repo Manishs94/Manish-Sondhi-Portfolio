@@ -13,8 +13,9 @@ const project = caseStudies.find((p) => p.id === 13)!;
 // Local filenames under /case-studies/ — ImagePlaceholder shows an "Export Needed" box
 // with the expected filename until the Figma frame is exported to that path.
 const img = {
-  hero: 'nav-sub-lp-pool.png',
-  summaryStrip: 'nav-sub-summary-strip.png',
+  hero: 'nav-sub-portfolio-rollups.png',
+  summaryStrip: 'nav-sub-delete-guard.png',
+  addInvestment: 'nav-sub-add-portfolio-investment.png',
   concentration: 'nav-sub-portfolio-rollups.png',
   sideLetter: 'nav-sub-side-letter.png',
   navSnapshot: 'nav-sub-nav-snapshot.png',
@@ -67,7 +68,6 @@ const keyDecisions = [
   {
     title: 'Every Destructive Action Is Guarded and Confirmed',
     body: 'Add, edit, and delete each have a success confirmation; delete has a warning that names what will be removed. A pool table is edited constantly during diligence, and one mis-click removes a commitment from the borrowing base.',
-    image: img.deleteGuard,
   },
 ];
 
@@ -194,12 +194,11 @@ const additionalSections = [
 ];
 
 const images = [
-  { filename: img.summaryStrip, caption: 'Subscription & LP Pool — summary strip' },
-  { filename: img.hero, caption: 'LP Pool — one row per limited partner' },
-  { filename: img.sideLetter, caption: 'Side Letter Flag and impact' },
+  { filename: img.addInvestment, caption: 'Add Portfolio Investment — several in sequence' },
+  { filename: img.sideLetter, caption: 'Add Limited Partner — required Side Letter Flag and Impact' },
   { filename: img.navSnapshot, caption: 'NAV Snapshot — source, date, frequency, Net NAV' },
   { filename: img.concentration, caption: 'Portfolio Investment roll-ups with stated formulas' },
-  { filename: img.deleteGuard, caption: 'Delete guard' },
+  { filename: img.deleteGuard, caption: 'LP Pool delete guard over the summary strip (34 / 2 excl)' },
 ];
 
 const closingReflection = [

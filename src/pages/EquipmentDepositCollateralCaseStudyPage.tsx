@@ -17,7 +17,6 @@ const img = {
   serialCheck: 'eqd-serial-realtime-check.png',
   linked: 'eqd-collateral-linked.png',
   typeSelector: 'eqd-equipment-type.png',
-  location: 'eqd-equipment-location-map.png',
   adminBuilder: 'eqd-equipment-admin-builder.png',
   deposit: 'eqd-deposit-admin.png',
 };
@@ -78,7 +77,7 @@ const keyDecisions = [
   {
     title: 'Location Is Structured and Mapped',
     body: 'Equipment location is a full address with a map, because where a movable asset physically sits matters for repossession and for inspection.',
-    image: img.location,
+    image: img.hero,
   },
   {
     title: 'One Component Per Equipment Family',
@@ -219,10 +218,10 @@ const additionalSections = [
 ];
 
 const images = [
-  { filename: img.hero, caption: 'Equipment form on a loan' },
-  { filename: img.serialCheck, caption: 'Real-time serial check — ERROR! state' },
-  { filename: img.linked, caption: '"Collateral successfully linked"' },
-  { filename: img.location, caption: 'Equipment Location with map' },
+  { filename: img.hero, caption: 'Equipment form — real-time check, location, and map' },
+  { filename: img.serialCheck, caption: 'No serial match — ERROR! with manual-entry guidance' },
+  { filename: img.linked, caption: 'Serial matched — fields and photo filled from the collateral record' },
+  { filename: img.typeSelector, caption: 'Equipment Type selector' },
   { filename: img.adminBuilder, caption: 'Equipment admin builder — one component per family' },
   { filename: img.deposit, caption: 'Deposit administration — Deposit Details component' },
 ];

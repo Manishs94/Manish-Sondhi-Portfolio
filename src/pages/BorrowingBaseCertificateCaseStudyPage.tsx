@@ -15,9 +15,7 @@ const project = caseStudies.find((p) => p.id === 12)!;
 const img = {
   hero: 'bbc-summary.png',
   availability: 'bbc-ar-availability.png',
-  override: 'bbc-override-reason.png',
   ineligibles: 'bbc-add-ineligible.png',
-  history: 'bbc-history.png',
   tickler: 'bbc-assign-tickler.png',
   arRecord: 'bbc-ar-invoice-aging.png',
 };
@@ -79,7 +77,6 @@ const keyDecisions = [
   {
     title: 'Overrides Are Allowed, but Never Silent',
     body: 'Policy LTV % and Advance Rate % can be overridden per collateral, but each override carries an Override Reason field and the calculation keeps both the policy and the override value visible. Lenders do make exceptions; the design makes them reviewable instead of hidden in a cell.',
-    image: img.override,
   },
   {
     title: 'A Controlled Ineligible Vocabulary',
@@ -89,7 +86,6 @@ const keyDecisions = [
   {
     title: 'Calculation Is an Event With History',
     body: 'Calculate BBC creates a history record with as-of date, calculation timestamp, totals, submitter, and status (Draft, Calculated, Recalculated). A recalculation is visible as a recalculation, and any prior certificate can be retrieved. The BBC is a dated, attributable record, not a view that silently changes.',
-    image: img.history,
   },
   {
     title: 'The Certificate Drives the Calendar',
@@ -258,12 +254,11 @@ const additionalSections = [
 ];
 
 const images = [
-  { filename: img.hero, caption: 'BBC Summary — collateral selection and availability columns' },
-  { filename: img.availability, caption: 'Account Receivable Availability — gross to available' },
+  { filename: img.hero, caption: 'Select Collateral — choosing what feeds the certificate' },
+  { filename: img.availability, caption: 'BBC History print layout — Gross AR, Ineligible AR, Eligible AR' },
   { filename: img.ineligibles, caption: 'Add Ineligible Parameters' },
-  { filename: img.history, caption: 'BBC History — Draft, Calculated, Recalculated' },
   { filename: img.tickler, caption: 'Assign Tickler — Send as Task to Customer Portal' },
-  { filename: img.arRecord, caption: 'AR collateral — invoices, aging buckets, and eligibility' },
+  { filename: img.arRecord, caption: 'AR collateral — receivables by account and invoice, credits, Net Collateral Value' },
 ];
 
 const closingReflection = [

@@ -163,10 +163,11 @@ const additionalSections = [
 const images = [
   { filename: 'esm-stock-list.png', caption: 'Stock list with Policy LTV and audit fields' },
   { filename: 'esm-empty-state.png', caption: 'Empty state — "No stock has been created"' },
-  { filename: 'esm-create-stock.png', caption: 'Create New Stock form' },
+  { filename: 'esm-create-stock.png', caption: 'Edit Stock — Policy LTV set on the stock' },
   { filename: 'esm-bulk-upload-review.png', caption: 'Bulk upload with review step' },
-  { filename: 'esm-stock-history.png', caption: 'View Stock History' },
-  { filename: 'esm-deactivate-warning.png', caption: 'Delete blocked — deactivate offered instead' },
+  { filename: 'esm-stock-history.png', caption: 'Row actions — Edit Stock, View Stock History, Delete Stock' },
+  { filename: 'esm-deactivate-warning.png', caption: 'Deactivate warning — existing records unaffected' },
+  { filename: 'esm-duplicate-check.png', caption: 'Duplicate check — "Stock meeting the entered criteria already exists"' },
 ];
 
 const closingReflection = [

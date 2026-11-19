@@ -13,7 +13,7 @@ const project = caseStudies.find((p) => p.id === 6)!;
 // Figma exports once available; ImagePlaceholder will pick them up automatically once
 // local files exist at these paths.
 const img = {
-  hero: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&q=80&w=1600',
+  hero: 'appraisal-screens/08-appraisal-component-admin.png',
   componentLibrary: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=1600',
   multiProperty: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=1600',
   floodDetails: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600',

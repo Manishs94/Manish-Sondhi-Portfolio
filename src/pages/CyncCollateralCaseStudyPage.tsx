@@ -39,6 +39,7 @@ const screens = [
   },
   {
     filename: 'collateral-screens/04-header-metrics-variant.png',
+    exported: true,
     title: 'Header metrics variant',
     body: 'An alternate layout moves the same policy metrics into a persistent strip under the record title and gives the top of the overview a drag-and-drop file area beside the monitoring graph.',
   },
@@ -81,7 +82,6 @@ const keyDecisions = [
   {
     title: 'Value Changes Go Through One Controlled Path',
     body: 'The overview is editable, but the three fields that drive lending math (Collateral Value, Valuation Source, Valuation Date) are locked there and point the user to the Title Information modal, with the reason shown on the field. Anyone can correct a name or an owner; changing the value that feeds LTV and equity has to go through the place where its source is recorded.',
-    image: screens[2].filename,
   },
 ];
 
@@ -207,7 +207,9 @@ const additionalSections = [
         <div className="space-y-8">
           {screens.map((screen) => (
             <div key={screen.filename}>
-              <ImagePlaceholder filename={screen.filename} caption={screen.title} aspect="wide" />
+              {screen.exported && (
+                <ImagePlaceholder filename={screen.filename} caption={screen.title} aspect="wide" />
+              )}
               <p className="text-sm text-portfolio-text-light leading-relaxed mt-3">
                 <span className="font-semibold text-portfolio-text-dark">{screen.title}.</span>{' '}
                 {screen.body}
@@ -350,7 +352,7 @@ const CyncCollateralCaseStudyPage = () => {
           company="Cync Software (nCino)"
           timeline={project.timeline}
           status={project.status}
-          heroImage={gammaImages.hero}
+          heroImage="collateral-screens/04-header-metrics-variant.png"
           overviewText="Collateral and Loan are separate, independently operable modules in Cync's platform. Neither depends on the other to function. The design problem this project solved was the connective layer between them: how a single collateral record — spanning real property, equipment, financial assets (securities), and other business assets — gets pledged or linked to one or more loans, and how policy set once in Admin (advance rates, eligibility) flows through to what a loan officer sees, without re-entry."
           problemTitle="What This Is — and Isn't"
           problemText="This is not a claim about a unified platform replacing multiple systems. It's a description of the actual information architecture connecting two real modules."

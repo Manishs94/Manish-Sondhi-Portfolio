@@ -15,7 +15,6 @@ const project = caseStudies.find((p) => p.id === 11)!;
 const img = {
   hero: 'ag-admin-builder.png',
   subTypeComponent: 'ag-livestock-information.png',
-  picklist: 'ag-type-picklist.png',
   units: 'ag-commodity-crops-yield.png',
   sharedComponents: 'ag-shared-components.png',
   partyType: 'ag-party-type.png',
@@ -50,7 +49,6 @@ const keyDecisions = [
   {
     title: 'Controlled Vocabularies Instead of Free Text',
     body: 'Type fields are pick lists (Fruit Type, Vegetable Type, Timber Type, Livestock Type, Poultry Type, Grape Type, Fish Type), with an "Other" path where the list can\'t be complete. Lists give consistent data to report on and compare across the portfolio; "Other" keeps an unlisted crop from blocking a record. A note in the file reads "You can add more values to this dropdown if needed," so the list is extendable by the lender.',
-    image: img.picklist,
   },
   {
     title: 'Yield and Volume in the Unit the Industry Uses',
@@ -189,11 +187,11 @@ const additionalSections = [
 ];
 
 const images = [
-  { filename: img.hero, caption: 'Administration builder — Agriculture components and live preview' },
-  { filename: img.subTypeComponent, caption: 'Livestock information component' },
-  { filename: img.units, caption: 'Commodity Crops — yield with explicit unit of measurement' },
-  { filename: img.picklist, caption: 'Type picklist with "Other" path' },
-  { filename: img.partyType, caption: 'Entity and ownership — Party Type first' },
+  { filename: img.hero, caption: 'Administration — Select Agriculture Type, Available / Selected fields' },
+  { filename: img.subTypeComponent, caption: 'Livestock fields — Animal Purpose, Units, Breed, Buyer Information' },
+  { filename: img.units, caption: 'Commodity Crops fields — Total Yield, Yield per Acre, Unit of Measurement' },
+  { filename: img.partyType, caption: 'Party Type and its fields in Buyer Information' },
+  { filename: img.sharedComponents, caption: 'The same builder and component library, shown on Fleet' },
   { filename: 'ag-exit-guard.png', caption: 'Unsaved-changes exit guard' },
 ];
 

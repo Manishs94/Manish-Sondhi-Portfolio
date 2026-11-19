@@ -7,7 +7,7 @@ export const caseStudies: Project[] = [
     title: 'Investment Collateral — Securities as a Distinct Collateral Category',
     subtitle: 'One of 11 structurally distinct collateral categories in Cync\'s platform — securities-backed lending, with policy (advance rate, eligibility) set once at the admin level and inherited automatically wherever that security is pledged to a loan.',
     description: 'Securities behave differently as collateral than physical assets: value changes with the market, eligibility is a policy decision made at the security level, and one security can secure more than one loan. Designed Admin → Investments Management as the securities master, with advance rate and eligibility inherited automatically by every loan referencing that security.',
-    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=1080',
+    image: '/case-studies/ic-link-pledge-unlink.png',
     category: ['Enterprise Fintech', 'Information Architecture', 'Compliance UX'],
     metrics: [
       { icon: 'activity', value: '11', label: 'Structurally Distinct Collateral Categories' }
@@ -48,7 +48,7 @@ export const caseStudies: Project[] = [
     title: 'Equity Stock Management',
     subtitle: 'An administrator\'s master list of stocks that can be pledged as collateral, with a policy LTV per stock, bulk upload, real-time price support, history, and guarded delete versus deactivate.',
     description: 'Securities-backed lending needs a source of truth for which stocks the lender will accept and at what policy margin. Designed the admin surface where that decision is made and maintained — built around blast radius, because an edit here reaches every loan that uses the stock.',
-    image: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=1080',
+    image: '/case-studies/esm-stock-list.png',
     category: ['Enterprise Fintech', 'Admin UX', 'Compliance UX'],
     tools: ['Figma'],
     link: '/work/equity-stock-management',
@@ -82,7 +82,7 @@ export const caseStudies: Project[] = [
     title: 'Linking Collateral to Loans: Pledge, Link, and Unlink',
     subtitle: 'Designing the relationship between two independent modules, Collateral and Loans, so that policy lives with the asset and exposure is visible from both sides.',
     description: 'Collateral and loans are separate modules: one collateral record can secure many loans, and one loan can be secured by many collateral records. Designed the pledge as its own object — amount pledged, lien position, discount, assignment — reachable from the borrower relationship, the loan, or the collateral itself.',
-    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1080',
+    image: '/case-studies/cpl-pledge-collateral-flow.png',
     category: ['Enterprise Fintech', 'Information Architecture', 'Compliance UX'],
     tools: ['Figma'],
     link: '/work/collateral-pledge-link',
@@ -117,7 +117,7 @@ export const caseStudies: Project[] = [
     title: 'Fleet Financing — A Configurable Lending-Rules Engine',
     subtitle: 'Eligibility, advance, concentration, and curtailment rules defined once at the loan-product level, bundled into reusable packages, and applied (or deliberately overridden) on each loan.',
     description: 'Fleet financing (dealer floor-plan and vehicle inventory lending) is governed by rules applied to every vehicle. Designed the system that lets an administrator define four kinds of rules once, bundle them into packages, and have each loan inherit the right package — with permissioned, recorded overrides on a specific loan.',
-    image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1080',
+    image: '/case-studies/fleet-screens/01-advance-rules.png',
     category: ['Enterprise Fintech', 'Rules Engine UX', 'Compliance UX', 'AI-Assisted UX'],
     metrics: [
       { icon: 'activity', value: '4', label: 'Rule Types, One Shared Anatomy' }
@@ -154,7 +154,7 @@ export const caseStudies: Project[] = [
     title: 'Agriculture Collateral — Thirteen Sub-Types, Each With Its Own Information',
     subtitle: 'Modeling commodity crops, livestock, orchards, timber, fisheries, vineyards, and equine operations in one collateral category by giving each sub-type its own configured information component.',
     description: 'A cattle operation, a vineyard, a timber stand, and a commodity-crop farm are valued by different measures, carry different risks, and use different vocabulary. Designed Agriculture as one category with thirteen sub-types, each with its own information component, assembled in the same administration builder as the rest of the collateral system.',
-    image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1080',
+    image: '/case-studies/ag-admin-builder.png',
     category: ['Enterprise Fintech', 'Information Architecture', 'Form Design'],
     metrics: [
       { icon: 'activity', value: '13', label: 'Agriculture Sub-Types' }
@@ -191,7 +191,7 @@ export const caseStudies: Project[] = [
     title: 'Borrowing Base Certificate and Accounts Receivable Collateral',
     subtitle: 'Turning a periodic, spreadsheet-shaped lender certificate into a calculated, auditable workflow: select collateral, apply policy and eligibility, override with a recorded reason, calculate availability, keep history, and drive the next due date.',
     description: 'An asset-based loan is only as safe as its borrowing base. Designed the Borrowing Base Certificate as a workflow with arithmetic in the middle — every step from gross to available visible, every override reasoned, every calculation saved as a dated event — plus invoice-level Accounts Receivable collateral and the tickler that asks for the next certificate.',
-    image: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=80&w=1080',
+    image: '/case-studies/bbc-add-ineligible.png',
     category: ['Enterprise Fintech', 'Asset-Based Lending', 'Compliance UX'],
     tools: ['Figma'],
     link: '/work/borrowing-base-certificate',
@@ -225,7 +225,7 @@ export const caseStudies: Project[] = [
     title: 'NAV and Subscription Lending Collateral',
     subtitle: 'Modeling fund-based collateral, where the asset is not a thing but a pool of other people\'s commitments, in a way a credit officer can test line by line.',
     description: 'Subscription facilities are secured by limited partners\' uncalled commitments; NAV facilities by a fund\'s portfolio value. Designed both so the headline number (eligible uncalled, eligible NAV) sits above a fully auditable table, with side letters, LP status, and concentration captured as structured data.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1080',
+    image: '/case-studies/nav-sub-portfolio-rollups.png',
     category: ['Enterprise Fintech', 'Fund Finance', 'Compliance UX'],
     tools: ['Figma'],
     link: '/work/nav-subscription-collateral',
@@ -258,7 +258,7 @@ export const caseStudies: Project[] = [
     title: 'Roles and Permissions',
     subtitle: 'A two-layer access model for a lending platform: reusable Permission Sets composed into Roles, with license tiers, hierarchy, and safe role deletion.',
     description: 'Access for a regulated lending platform has to be precise, yet flexible enough that an administrator can add a new job function without engineering. Designed a two-layer model — reusable Permission Sets composed into Roles — with license tiers beside permissions, effective-permission views, and role deletion that cannot orphan users.',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1080',
+    image: '/case-studies/rp-roles-list.png',
     category: ['Enterprise Fintech', 'Admin UX', 'Access Control'],
     tools: ['Figma'],
     link: '/work/roles-and-permissions',
@@ -291,7 +291,7 @@ export const caseStudies: Project[] = [
     title: 'Equipment and Deposit Collateral',
     subtitle: 'Two categories at opposite ends of tangibility: serial-numbered equipment verified against the collateral record in real time, and deposit accounts configured from the same component builder as every other category.',
     description: 'Equipment is identified by type, year, make, model, and serial number; deposits by holder, account, balance, and as-of date. Designed both through the same patterns — identity as the key field checked as the user types, and each category assembled in the shared builder with its own details component instead of its own tooling.',
-    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1080',
+    image: '/case-studies/eqd-collateral-linked.png',
     category: ['Enterprise Fintech', 'Information Architecture', 'Form Design'],
     tools: ['Figma'],
     link: '/work/equipment-deposit-collateral',
@@ -358,7 +358,7 @@ export const caseStudies: Project[] = [
     title: 'Financial Spreading',
     subtitle: 'A spreadsheet-grade workspace inside a lending platform: template-driven spreads, period columns that aggregate, balance checks on every period, and industry benchmarks one click away.',
     description: 'Spreading is dense, numeric work analysts do for hours at a stretch. Designed it in three layers — Spreads Overview, administrator-defined Spreading Templates, and a spreadsheet-like workspace — with a balance check under every period, aggregate period columns, in-cell validation, and RMA benchmarks in a flyout beside the numbers.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1080',
+    image: '/case-studies/design-system-screens/09-spreading-system.png',
     category: ['Enterprise Fintech', 'Data-Dense UI', 'Credit Analysis'],
     tools: ['Figma'],
     link: '/work/financial-spreading',
@@ -392,7 +392,7 @@ export const caseStudies: Project[] = [
     title: 'Appraisal: Valuation, Review, and Evaluation',
     subtitle: 'Turning the most consequential number on a commercial real estate record into three separate, auditable workflows, with one explicit decision about which value the bank lends against.',
     description: 'The appraisal produces the number everything else on a CRE record is measured against. Designed valuation as three workflows — Appraisal, Review, and Evaluation — with the approaches considered kept separate from the Loan Determinant Value the bank relies on, a structured regulatory review checklist, and automated valuations recorded in the same structure as human ones.',
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1080',
+    image: '/case-studies/appraisal-screens/05-order-appraisal-certification-clearavm.png',
     category: ['Enterprise Fintech', 'Compliance UX', 'Commercial Real Estate'],
     tools: ['Figma'],
     link: '/work/appraisal',
@@ -422,11 +422,45 @@ export const caseStudies: Project[] = [
     ]
   },
   {
+    id: 19,
+    title: 'Due-Diligence Components: Insurance, Title, Environmental, Flood, Comparables, and UCC',
+    subtitle: 'Six compliance workflows that every collateral record needs, built once as shared components and shaped to the process each one actually follows.',
+    description: 'Before a bank lends against an asset it has to know the asset is insured, the title is clean, there is no environmental problem, it is not in an unmapped flood zone, comparables support the value, and the lien is filed and alive. Designed each as a shared component that drops into any collateral sub-type, with a shape that follows its real process: a stage trail, a register, a lifecycle.',
+    image: '/case-studies/due-diligence-screens/07-ucc-register.png',
+    category: ['Enterprise Fintech', 'Compliance UX', 'Design Systems'],
+    tools: ['Figma'],
+    link: '/work/due-diligence-components',
+    overview: {
+      challenge: 'Each due-diligence item is a separate process with its own vendors, dates, and exceptions, and each one blocks or delays the loan if it is missed. Building them per collateral category would multiply the screens and let them drift apart.',
+      solution: 'Each item is a component in the administration library, dropped into any sub-type, rendered in the same record frame, and shaped to its process: Environmental as a staged trail, Title as ordered / received / clear with lien and tax registers, Flood as determination plus order, UCC as a register with a lifecycle, Insurance as policies with minimum coverage and expiry.',
+      impact: '• The same components on real-estate, agricultural, and commodity-crops records\n• Registers where there are many, forms where there is one\n• Validation and expiry warnings at the field\n• One save, exit, and delete pattern across every component'
+    },
+    challenge: 'Every collateral category needs most of the same evidence, but each item follows a different real-world process.',
+    process: 'Designed about 230 frames in the CYNC Figma file across Insurance, Title Search & Insurance and its administration variants, Environmental, Flood, Comparable, and the UCC1, UCC3, Continuation, Termination, and UCC Search frames.',
+    isCaseStudy: true,
+    productType: 'Enterprise Collateral Management Platform',
+    platforms: 'Web (Enterprise SaaS)',
+    role: 'Senior Product Designer',
+    team: ['Product', 'Engineering', 'Risk', 'Compliance'],
+    responsibilities: [
+      'Designed the Insurance, Title Search & Insurance, Environmental, Flood, Comparables, and UCC components.',
+      'Designed the shared record frame, save confirmation, exit warning, and delete pattern for all components.',
+      'Designed the Title Search & Insurance administration with field selection and live preview.',
+      'Designed Order Flood, UCC Filing, and comparable search with radius and natural-language options.'
+    ],
+    outcomes: [
+      'Due-diligence components shared across collateral categories instead of rebuilt per category.',
+      'Each component shaped to its process, so the user sees the state of the process.',
+      'Rules such as minimum coverage and policy expiry surfaced where the mistake happens.',
+      'Administrators shape fields per sub-type without a new component.'
+    ]
+  },
+  {
     id: 6,
     title: 'Commercial Real Estate Collateral',
     subtitle: 'One of 11 structurally distinct collateral categories in Cync\'s platform — the highest-integration category, assembling appraisal, comparable, flood, title, tax, environmental, insurance, and lien data into one auditable record, administered through a component-based record builder, and linked to loans that may spread exposure across more than one property.',
     description: 'The collateral category with the most third-party integration surface and the most compliance-driven due diligence in the platform. Twelve property sub-types are assembled in Admin from a shared due-diligence component library rather than built as bespoke screens, with a many-to-many loan-to-property pledge/link mechanism for loans secured by more than one CRE property.',
-    image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&q=80&w=1080',
+    image: '/case-studies/appraisal-screens/08-appraisal-component-admin.png',
     category: ['Enterprise Fintech', 'Commercial Real Estate', 'Compliance UX'],
     metrics: [
       { icon: 'activity', value: '12', label: 'Property Sub-Types, One Component Library' },
@@ -467,7 +501,7 @@ export const caseStudies: Project[] = [
     title: 'Cync Collateral Platform',
     subtitle: 'Designing distinct information architecture across 11 structurally different collateral categories — spanning a real, in-production taxonomy of 1,798 collateral types and 2,344 sub-types — connected to loans through an explicit pledge/link relationship between two independent services.',
     description: 'Collateral and Loan are separate, independently operable modules. The design problem was the connective layer between them: how a single collateral record gets pledged or linked to one or more loans, and how policy set once in Admin (advance rates, eligibility) flows through to what a loan officer sees, without re-entry.',
-    image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    image: '/case-studies/collateral-screens/04-header-metrics-variant.png',
     category: ['Enterprise Fintech', 'Information Architecture', 'Design Systems', 'Compliance UX', 'Angular'],
     metrics: [
       { icon: 'activity', value: '11', label: 'Structurally Distinct Collateral Categories' },

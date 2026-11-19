@@ -17,7 +17,7 @@ const project = caseStudies.find((p) => p.id === 7)!;
 // local files exist at these paths (just replace the URL with the local filename, e.g.
 // 'ic-hero.png').
 const img = {
-  hero: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=1600',
+  hero: 'ic-link-pledge-unlink.png',
   securitiesMaster: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600',
   eligibleFlag: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600',
   advanceRate: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=1600',

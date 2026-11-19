@@ -5,21 +5,21 @@ import Footer from '@/components/Footer';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { SEOHead } from '@/components/SEOHead';
 import CaseStudyPageLayout from '@/components/CaseStudyPageLayout';
+import ImagePlaceholder from '@/components/ImagePlaceholder';
 import { caseStudies } from '@/utils/data/caseStudies';
 
 const project = caseStudies.find((p) => p.id === 18)!;
 
-// Local filenames under /case-studies/appraisal-screens/ — ImagePlaceholder shows an
-// "Export Needed" box with the expected filename until the file exists at that path.
+// Exports from the CYNC Figma file, under /case-studies/appraisal-screens/.
 const img = {
-  appraisalTab: 'appraisal-screens/01-appraisal-tab.png',
-  approaches: 'appraisal-screens/02-valuation-approaches.png',
-  ldvWarning: 'appraisal-screens/03-loan-determinant-warning.png',
+  emptyTab: 'appraisal-screens/01-appraisal-tab-empty.png',
+  finalValue: 'appraisal-screens/02-appraisal-tab-final-value.png',
+  ldvModal: 'appraisal-screens/03-loan-determinant-value-modal.png',
   review: 'appraisal-screens/04-review-checklist.png',
-  evaluation: 'appraisal-screens/05-evaluation-tab.png',
-  avm: 'appraisal-screens/06-avm-evaluation.png',
-  locked: 'appraisal-screens/07-overview-locked-value.png',
-  admin: 'appraisal-screens/08-appraisal-component-admin.png',
+  clearAvm: 'appraisal-screens/05-order-appraisal-certification-clearavm.png',
+  builder: 'appraisal-screens/06-admin-component-builder.png',
+  ldvWarning: 'appraisal-screens/03-loan-determinant-warning.png',
+  componentAdded: 'appraisal-screens/08-appraisal-component-admin.png',
 };
 
 const Strong: React.FC<{ children: React.ReactNode }> = ({ children }) => (
@@ -57,6 +57,13 @@ const UL: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   </ul>
 );
 
+const Shot: React.FC<{ file: string; caption: string }> = ({ file, caption }) => (
+  <div className="my-6">
+    <ImagePlaceholder filename={file} caption={caption} aspect="wide" />
+    <p className="text-xs text-portfolio-text-light mt-2">{caption}</p>
+  </div>
+);
+
 const approaches = [
   'Cost Approach', 'Sales Comparison', 'Income Capitalization', 'Direct Capitalization',
   'Bulk Wholesale Value', 'Gross Sellout Value', 'Development Approach Value', 'As-Is Market Value',
@@ -73,7 +80,6 @@ const keyDecisions = [
   {
     title: 'Separate "Approaches Considered" From "The Value We Rely On"',
     body: 'The Problem: an appraisal often produces several values (cost, sales comparison, income). Showing one number hides the others; showing all of them leaves the user unsure which one counts.\n\nThe Decision: the Valuation Approach table holds everything considered, and a separate Final Valuation Approach and Loan Determinant Value name the one that drives lending. The choice is visible, deliberate, and recorded, which is what an auditor asks for.',
-    image: img.approaches,
   },
   {
     title: 'Say What the Choice Will Do, and Warn If It Is Missing',
@@ -83,22 +89,19 @@ const keyDecisions = [
   {
     title: 'One Place to Edit the Value',
     body: "The collateral overview's value and valuation source are locked, with a pointer back to the appraisal component. A value that can be typed in two places will eventually disagree with itself. Locking it makes the appraisal the single source and turns the overview into a display.",
-    image: img.locked,
   },
   {
     title: 'A Checklist for Review, Because Review Is a Standard',
     body: 'The review is a list of yes/no criteria grouped by the stages of the appraisal (completeness, methodology, market, property, comparables, income, conclusion, compliance), ending in an overall acceptance. That turns "looks fine to me" into a record of what was checked, and lets FIRREA, USPAP, and approved-appraiser-list compliance each be answered separately.',
-    image: img.review,
   },
   {
     title: 'Automated and Human Valuations Share One Structure',
     body: 'An AVM result is recorded as an Evaluation of type Third-Party External, alongside human evaluations, and shows its confidence bands and order ID. The user can see how reliable the number is, and the same completion, review, and acceptance fields apply. A new valuation source is a new kind of evaluation, not a new screen.',
-    image: img.avm,
   },
   {
     title: 'Appraisal Is a Component, Configured Per Sub-Type',
     body: 'Every one of the twelve CRE sub-types needs an appraisal, so it is built once in the component library and each sub-type chooses which of its fields to show. Appraisal behaves identically across sub-types, and the administrator, not engineering, decides which optional fields (Value Estimation Method, Valuation Type) appear.',
-    image: img.admin,
+    image: img.componentAdded,
   },
 ];
 
@@ -116,13 +119,19 @@ const additionalSections = [
           On a collateral record, <Strong>Appraisal Details</Strong> is a section of the record with
           three sub-tabs: <Strong>Appraisal</Strong>, <Strong>Review</Strong>, and{' '}
           <Strong>Evaluation</Strong>. Beside it sit the other due-diligence sections (Environmental
-          Screening, Comparable, Insurance, Tax Assessed, Title Search, Flood).
+          Screening, Comparable, Insurance, Tax Assessed, Title Search, Flood). A header summary on
+          the record shows what the valuation drives: Current Collateral LTV, Proposed LTV, Policy
+          LTV (80% in the sample), Recovery Rate, Current Loan Commitments (and third-party
+          commitments), Total Current Loan Commitment, Available Equity, Available Equity to
+          Margin, Discounted Collateral Value, and Discounted Collateral Coverage.
         </P>
+        <Shot
+          file={img.emptyTab}
+          caption="Appraisal Details, empty state, with the record's due-diligence sections and header metrics"
+        />
         <P>
-          A header summary on the record shows what the valuation drives: Current Collateral LTV,
-          Proposed LTV, Policy LTV (80% in the sample), Recovery Rate, Current Loan Commitments (and
-          third-party commitments), Total Current Loan Commitment, Available Equity, Available
-          Equity to Margin, Discounted Collateral Value, and Discounted Collateral Coverage.
+          The record header also carries a <Strong>Connect to Spread</Strong> action, which links
+          the collateral to the Spreading workspace.
         </P>
       </>
     ),
@@ -134,10 +143,10 @@ const additionalSections = [
         <H>Appraisal tab</H>
         <UL>
           <li>
-            <Strong>Who and when:</Strong> Appraisal Company Name/Source, Appraiser's Name, Property
-            Stage (<Strong>Existing</Strong>, <Strong>To be Majorly Renovated</Strong>,{' '}
-            <Strong>To be Constructed/Developed</Strong>), Appraisal Date, and Appraisal Effective
-            Date.
+            <Strong>Who and when:</Strong> Appraisal Company Name/Source, the appraiser's name,
+            Property Type (the sample shows <Strong>To be Constructed/Developed</Strong>; the
+            options include Existing and To be Majorly Renovated), Appraisal Date, and Appraisal
+            Effective Date.
           </li>
           <li>
             <Strong>Valuation Approach table:</Strong> a repeatable table of the approaches
@@ -146,9 +155,13 @@ const additionalSections = [
             is shown below.
           </li>
           <li>
-            <Strong>Final Valuation Approach</Strong> selector, and{' '}
-            <Strong>Final Valuation Source</Strong> and <Strong>Loan Determinant Value</Strong>{' '}
-            fields. These pick which approach, and which resulting value, the bank relies on.
+            <Strong>Final Valuation Approach</Strong> (with an info icon explaining what it drives)
+            shows the approach and its value, area, and date, and a{' '}
+            <Strong>Loan Determinant Value</Strong> button in the section header opens a modal
+            where the user picks the <Strong>Final Valuation Source</Strong> (Appraisal in the
+            sample). Saving confirms <Quote>Loan Determinant successfully saved</Quote>, and a
+            summary banner appears above the tabs showing Final Valuation Source, Final Valuation
+            Approach, Final Value, Area, and Net Area.
           </li>
           <li>
             <Strong>Appraisal Completed</Strong> and <Strong>Appraisal Acceptable</Strong> flags,
@@ -158,6 +171,11 @@ const additionalSections = [
         <div className="mb-4">
           <Chips items={approaches} />
         </div>
+        <Shot
+          file={img.finalValue}
+          caption="Appraisal tab with a final value selected and the success confirmation"
+        />
+        <Shot file={img.ldvModal} caption="Loan Determinant Value modal" />
 
         <H>Review tab</H>
         <P>
@@ -178,6 +196,14 @@ const additionalSections = [
           also records Compliance Issues Noted, a Quality of the Appraisal rating (for example
           Excellent), Appraisal Review Company, Reviewer's Name, Review Completed Date, and an{' '}
           <Strong>Internal / External Third-Party</Strong> designation for who did the review.
+        </P>
+        <Shot
+          file={img.review}
+          caption="Review tab: Internal or External Third-Party, then yes/no criteria with a comment per group"
+        />
+        <P>
+          Each group has its own comment box with a 3,000-character counter, so the reviewer's
+          reasoning is recorded next to the criteria it explains.
         </P>
 
         <H>Evaluation tab</H>
@@ -205,6 +231,16 @@ const additionalSections = [
           Evaluation Type reads Third-Party External, so the automated result fits the same
           Evaluation structure as a human one.
         </P>
+        <P>
+          The <Strong>Order Appraisal Certification</Strong> modal has a section list down the left
+          (Appraisal, Flood, Environmental, Insurance, Tax Assessed, Comparable), so one order
+          result can populate several due-diligence sections. In the sample, the ClearAVM banner
+          shows the order ID and run date, with Market Value, the three confidence bands, FSD, and
+          a confidence rating, above the Appraisal table (valuation approach "Automated Valuation
+          Model (AVM)") and the Evaluation fields filled from the provider, with Evaluation
+          Reviewed By and Evaluation Accepted still empty.
+        </P>
+        <Shot file={img.clearAvm} caption="Order Appraisal Certification with a ClearAVM result" />
         <H>Valuation history and the overview</H>
         <UL>
           <li>
@@ -224,17 +260,32 @@ const additionalSections = [
   {
     title: 'Administration',
     content: (
-      <P>
-        In Administration &gt; Collateral Management, Appraisal is a <Strong>component</Strong> that
-        an administrator drags into a sub-type, not a hard-coded screen. The component is
-        configured with a <Strong>Select Appraisal Type</Strong> control and an Available /
-        Selected fields transfer list with search on both sides. The grouped fields (Appraisal,
-        Appraisal Completed, Appraisal Review, Evaluation, Evaluation Completed, Loan Determinant
-        Value) can each be included or omitted per sub-type, with Appraiser, Appraisal Firm, Amount,
-        Valuation Type, and Value Estimation Method available as optional fields. A live Preview
-        shows the section as it will appear on the record, and saving confirms{' '}
-        <Quote>Appraisal Component successfully added to Appraisal Details.</Quote>
-      </P>
+      <>
+        <P>
+          In Administration &gt; Collateral Management, Appraisal is a <Strong>component</Strong>{' '}
+          that an administrator drags into a sub-type, not a hard-coded screen. The component is
+          configured with a <Strong>Select Appraisal Type</Strong> control and an Available /
+          Selected fields transfer list with search on both sides. The grouped fields (Appraisal,
+          Appraisal Completed, Appraisal Review, Evaluation, Evaluation Completed, Loan Determinant
+          Value) can each be included or omitted per sub-type, with Appraiser, Appraisal Firm,
+          Amount, Valuation Type, and Value Estimation Method available as optional fields. A live
+          Preview shows the section as it will appear on the record, and saving confirms{' '}
+          <Quote>Appraisal Component successfully added to Appraisal Details.</Quote>
+        </P>
+        <P>
+          The builder screen below shows the pattern: a sub-type's sections down the left, each
+          with Preview and a menu, and a <Strong>Configure</Strong> panel on the right (
+          <Quote>Drag &amp; Drop Components, Fields</Quote>) with a searchable component library
+          (Flood, Insurance, Land, Liquid Assets, Residential For-Sale, Residential Owner-Occupied,
+          Tax Assessed, Title, Title Search). The frame is captured mid-drag of the Tax Assessed
+          component, and the sub-type's policy fields (Recovery Rate, Maximum Lien Limit, Policy
+          LTV, Collateral Code) sit above the sections.
+        </P>
+        <Shot
+          file={img.builder}
+          caption="Administration builder, mid-drag of a component into a CRE sub-type"
+        />
+      </>
     ),
   },
   {
@@ -249,6 +300,10 @@ const additionalSections = [
         <Link to="/work/cync-collateral-platform" className="text-portfolio-accent underline hover:no-underline">
           Cync Collateral Platform
         </Link>
+        , and Connect to Spread links the record to{' '}
+        <Link to="/work/financial-spreading" className="text-portfolio-accent underline hover:no-underline">
+          Financial Spreading
+        </Link>
         .
       </P>
     ),
@@ -257,15 +312,6 @@ const additionalSections = [
     title: 'Role',
     content: <P>Designer of the Appraisal record and administration flows shown in the CYNC Figma file.</P>,
   },
-];
-
-const images = [
-  { filename: img.appraisalTab, caption: 'Appraisal tab — who, when, and property stage' },
-  { filename: img.approaches, caption: 'Valuation Approach table and Loan Determinant Value' },
-  { filename: img.review, caption: 'Review checklist' },
-  { filename: img.evaluation, caption: 'Evaluation tab' },
-  { filename: img.avm, caption: 'AVM evaluation with confidence bands' },
-  { filename: img.admin, caption: 'Appraisal component in administration' },
 ];
 
 const closingReflection = [
@@ -293,16 +339,14 @@ const AppraisalCaseStudyPage = () => {
           subtitle={project.subtitle}
           role={project.role}
           company="Cync Software (nCino)"
-          heroImage={img.appraisalTab}
+          heroImage={img.finalValue}
           overviewText="On a commercial real estate record, the appraisal produces the number that everything else is measured against: loan-to-value, available equity, discounted coverage, and the lending decision. It is also not one thing. A raw appraisal can consider several valuation approaches. A second person has to review it against regulatory standards. And sometimes an evaluation, which is lighter than a full appraisal, or an automated valuation stands in for it."
           problemTitle="Not One Number"
           problemText={'A single "Appraisal" form with a value field would hide all of that. The design instead treats valuation as a small process with three parts, and makes the choice of the final lending value an explicit, labeled step.'}
-          hardDecisionImage={img.evaluation}
           hardDecisionIntro="Three Workflows, Not One Long Form."
           hardDecisionBody="The problem: a raw appraisal, the regulatory review of that appraisal, and an independent evaluation are different tasks, done by different people, with different regulatory weight. A single form can't show who did what, or whether the review has happened. The decision: three sub-tabs with their own fields and their own completion flags (Appraisal Completed, Evaluation Completed). A reviewer opening the Review tab sees only the review. A record can show a completed appraisal with no review, or an evaluation with no appraisal, and say so."
           keyDecisions={keyDecisions}
           additionalSections={additionalSections}
-          images={images}
           closingReflection={closingReflection}
         />
       </div>

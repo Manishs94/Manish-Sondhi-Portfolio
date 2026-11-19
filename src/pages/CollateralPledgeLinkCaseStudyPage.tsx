@@ -18,10 +18,8 @@ const img = {
   linkFlow: 'cpl-link-collateral-coverage.png',
   pledgedLoanTabs: 'cpl-pledged-loans-tabs.png',
   inProcessView: 'cpl-in-process-policy-metrics.png',
-  overrideReason: 'cpl-override-reason.png',
   bookedView: 'cpl-booked-loan-collateral.png',
   releaseApproval: 'cpl-release-approval.png',
-  unlink: 'cpl-security-unlink.png',
   externalLoan: 'cpl-external-loan-form.png',
 };
 
@@ -206,7 +204,6 @@ const keyDecisions = [
   {
     title: 'Unlink Without Deleting',
     body: 'Unlinking is a distinct action from deleting the collateral, because the asset remains on the borrower\'s record and may be pledged elsewhere.',
-    image: img.unlink,
   },
   {
     title: 'In-Process and Booked Are Different Views of the Same Pledge',
@@ -216,7 +213,6 @@ const keyDecisions = [
   {
     title: 'Every Exception Needs a Stated Reason',
     body: 'A discount override, a partial pledge amount, and a policy LTV override each require a reason before saving. Credit exceptions are normal in lending; what examiners ask is why. Capturing the reason at the moment of the exception makes the answer retrievable.',
-    image: img.overrideReason,
   },
   {
     title: 'Releasing Collateral Is Gated',
@@ -286,12 +282,12 @@ const additionalSections = [
 const images = [
   { filename: img.hero, caption: 'Relationship — Collateral view with affiliations' },
   { filename: img.pledgeFlow, caption: 'Pledge Collateral — per-loan pledge attributes and roll-ups' },
-  { filename: img.linkFlow, caption: 'Link Collateral — selection with Coverage Ratio' },
-  { filename: img.pledgedLoanTabs, caption: 'Pledged Loans — Internal, In Process, External' },
-  { filename: img.inProcessView, caption: 'In-process loan — Policy Metrics and Equity and Margins' },
+  { filename: img.linkFlow, caption: 'Loan Security tab — Link Collateral with Total Availability and Coverage Ratio' },
+  { filename: img.pledgedLoanTabs, caption: 'Pledged Loans — Add Internal Loan' },
+  { filename: img.inProcessView, caption: 'In-process loan — Collateral section with pledge roll-ups' },
   { filename: img.bookedView, caption: 'Booked loan — collateral monitoring view' },
-  { filename: img.releaseApproval, caption: 'Release Collateral — approval workflow' },
-  { filename: img.unlink, caption: 'Security – Unlink' },
+  { filename: img.releaseApproval, caption: 'Release Collateral — required Release Reason' },
+  { filename: img.externalLoan, caption: 'Add External Loan — lender details and loan structure' },
 ];
 
 const closingReflection = [

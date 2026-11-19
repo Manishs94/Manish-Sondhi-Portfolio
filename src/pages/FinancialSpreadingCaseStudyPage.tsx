@@ -413,7 +413,7 @@ const FinancialSpreadingCaseStudyPage = () => {
           subtitle={project.subtitle}
           role={project.role}
           company="Cync Software (nCino)"
-          heroImage={shot.balanceSheet}
+          heroImage="design-system-screens/09-spreading-system.png"
           overviewText="Spreading is the step where an analyst takes a borrower's financial documents (balance sheets, income statements, tax returns) and enters them into a standard structure so that ratios, cash flow, and debt service can be calculated and compared. It is dense, numeric, repetitive work that analysts do for hours at a stretch, so the usual rules for form design don't apply. The interface has to behave like a spreadsheet and still enforce the structure a bank needs."
           problemTitle="Three Layers"
           problemText="The design splits the problem into three layers: the Spreads Overview, a list of spread records filtered by borrower type, with a modal to create a new one from a template; Spreading Templates, an administrator-defined choice of which statements and which fields a spread contains, by borrower type; and the Spread workspace, the grid where the analyst works, one tab per statement and one column per period."
