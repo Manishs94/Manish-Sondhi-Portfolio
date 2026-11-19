@@ -85,7 +85,7 @@ const About = () => {
                   { label: 'Enterprise & regulated workflows:', text: 'Multi-role platforms for analysts, operators, underwriters, and compliance teams navigating high-stakes decisions' },
                   { label: 'AI-assisted decision interfaces:', text: 'Override-with-rationale patterns, AI-assisted rule entry, confidence-scored evidence, and audit-ready decision surfaces' },
                   { label: 'Complex operational systems:', text: 'Multi-module platforms with parent-child record architecture, role-based access, and compliance-driven workflow states' },
-                  { label: 'Scalable design systems:', text: '60+ component libraries across Angular and React platforms, cutting design-to-dev handoff cycles significantly' },
+                  { label: 'Scalable design systems:', text: 'a 60+ component Figma library used across Angular and React platforms' },
                   { label: 'Cross-functional alignment:', text: 'Translating regulatory, compliance, and business requirements into actionable product specifications across HIPAA, legal, and insurance contexts' },
                 ].map((item, idx) => (
                   <li

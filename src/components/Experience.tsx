@@ -120,8 +120,7 @@ const Experience = () => {
       impact: [
         { metric: '20% drop-off reduction at primary bill pay task step', icon: '📈' },
         { metric: '12+ usability testing participants across 3 core workflows', icon: '✓' },
-        { metric: 'WCAG 2.1 AA compliance across all redesigned flows', icon: '🧩' },
-        { metric: '68M+ active users impacted across redesigned mobile experiences', icon: '🤝' }
+        { metric: 'WCAG 2.1 AA compliance across all redesigned flows', icon: '🧩' }
       ],
       tools: [
         { label: 'Design Tools', items: ['Figma', 'FigJam', 'Adobe XD'] },

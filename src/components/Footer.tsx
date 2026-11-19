@@ -48,7 +48,6 @@ const Footer = () => {
                 <li><a href="#" className="inline-block text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-200">AI-Assisted Decision Interfaces</a></li>
                 <li><a href="#" className="inline-block text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-200">Enterprise Collateral & Lending Systems</a></li>
                 <li><a href="#" className="inline-block text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-200">Design Systems for Regulated Platforms</a></li>
-                <li><a href="#" className="inline-block text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-200">Consumer Banking at Scale (68M+ users)</a></li>
               </ul>
             </div>
           </div>

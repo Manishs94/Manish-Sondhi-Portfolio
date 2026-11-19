@@ -152,7 +152,7 @@ export const portfolioKnowledgeBase = {
       period: "02/2021 - 02/2022",
       responsibilities: {
         productStrategy: [
-          "Collaborated with product managers on feature prioritization for 68M+ users",
+          "Collaborated with product managers on feature prioritization for consumer banking flows",
           "Participated in quarterly roadmap planning and release coordination",
           "Advocated for user-centered design principles in stakeholder meetings",
           "Contributed to innovation initiatives and emerging tech exploration"
