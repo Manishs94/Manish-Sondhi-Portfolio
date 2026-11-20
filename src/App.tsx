@@ -36,6 +36,7 @@ import DueDiligenceComponentsCaseStudyPage from "./pages/DueDiligenceComponentsC
 import ResidentialForSaleCaseStudyPage from "./pages/ResidentialForSaleCaseStudyPage";
 import CollateralLifecycleCaseStudyPage from "./pages/CollateralLifecycleCaseStudyPage";
 import VaOperationsDesignSystemCaseStudyPage from "./pages/VaOperationsDesignSystemCaseStudyPage";
+import VeteranPortalCaseStudyPage from "./pages/VeteranPortalCaseStudyPage";
 import CreComparableCaseStudyPage from "./pages/CreComparableCaseStudyPage";
 import CyncCollateralCaseStudyPage from "./pages/CyncCollateralCaseStudyPage";
 import CyncAdvanceAnalyticsCaseStudyPage from "./pages/CyncAdvanceAnalyticsCaseStudyPage";
@@ -147,6 +148,7 @@ const App = () => {
                   <Route path="/work/residential-for-sale-collateral" element={<ResidentialForSaleCaseStudyPage />} />
                   <Route path="/work/collateral-lifecycle" element={<CollateralLifecycleCaseStudyPage />} />
                   <Route path="/work/va-operations-design-system" element={<VaOperationsDesignSystemCaseStudyPage />} />
+                  <Route path="/work/veteran-exam-scheduling-portal" element={<VeteranPortalCaseStudyPage />} />
                     <Route path="/work/commercial-real-estate-collateral" element={<CreComparableCaseStudyPage />} />
                     <Route path="/work/cync-collateral-platform" element={<CyncCollateralCaseStudyPage />} />
                     <Route path="/work/cync-advance-analytics" element={<CyncAdvanceAnalyticsCaseStudyPage />} />

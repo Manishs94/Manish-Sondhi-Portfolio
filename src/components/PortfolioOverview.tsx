@@ -9,6 +9,7 @@ import Reveal from '@/components/motion/Reveal';
 
 const PortfolioOverview = () => {
   const featuredCaseStudyTitles = [
+    'Redesigning a Veteran-Facing Exam Scheduling Portal',
     'Cync Collateral Platform',
     'Cync Advance Analytics',
     'Bank of America Bill Pay Redesign',
@@ -32,7 +33,7 @@ const PortfolioOverview = () => {
         </Reveal>
         
         {/* Featured Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12">
           {featuredProjects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}

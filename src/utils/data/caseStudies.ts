@@ -557,6 +557,40 @@ export const caseStudies: Project[] = [
     ]
   },
   {
+    id: 23,
+    title: 'Redesigning a Veteran-Facing Exam Scheduling Portal',
+    subtitle: 'Turning a status-driven legacy page into a question-driven portal for Veterans referred for VA Compensation and Pension exams: appointments, travel reimbursements, preferences, and a complete sign-in and recovery flow.',
+    description: 'Veterans referred for a C&P exam come to the portal to find out what is booked, what still needs scheduling, what is complete, and whether their travel has been reimbursed. Redesigned the portal around those questions, with in-portal preferences, a travel reimbursement tracker, notifications, and about 54 sign-in and recovery frames, in light and dark themes at desktop and mobile widths.',
+    image: '/case-studies/veteran-portal-screens/06-scheduled-appointments.png',
+    category: ['Healthcare & Federal Systems', 'Consumer Experience', 'Authentication & Recovery'],
+    tools: ['Figma'],
+    link: '/work/veteran-exam-scheduling-portal',
+    overview: {
+      challenge: 'The legacy portal showed plain-text status lines, cards whose fields were labels with no values, and asked Veterans to phone in to change their preferences.',
+      solution: 'A task-based home with Scheduled, Unscheduled, Past Appointments, and Travel Reimbursements; scannable appointment cards; preferences the Veteran can save in the portal; a reimbursement tracker; notifications and search; and full sign-in, error, and recovery states.',
+      impact: '• Home organized by the Veteran\'s question, not the system\'s status\n• Routine preference changes moved from a phone call into the portal\n• Required scheduling consent asked for up front\n• Failure states designed as carefully as the happy path'
+    },
+    challenge: 'An infrequent, often anxious user who needs to know where their appointment is and what they owe or get back, on a legacy page built around system statuses.',
+    process: 'Designed the redesign in Figma: about 146 screens (127 desktop, 19 mobile) covering appointments, travel reimbursements, account and preferences, notifications, search, help pages, and sign-in and recovery, in light and dark themes.',
+    isCaseStudy: true,
+    productType: 'Veteran-Facing Scheduling Portal',
+    platforms: 'Web (Desktop and Mobile)',
+    role: 'Staff Product UX Designer',
+    team: ['Product', 'Engineering'],
+    responsibilities: [
+      'Designed the whole portal redesign in Figma, from the appointments home to sign-in and recovery.',
+      'Restructured the home around four tabs: Scheduled, Unscheduled, Past Appointments, and Travel Reimbursements.',
+      'Designed in-portal scheduling preferences with plain-language consent and a required review step.',
+      'Designed the travel reimbursement tracker, notifications, search, and light, dark, and mobile layouts.'
+    ],
+    outcomes: [
+      'Travel reimbursement became its own destination instead of a field on a card.',
+      'Preference changes no longer require a phone call.',
+      'About 54 frames cover sign-in, errors, authentication, and recovery.',
+      'One appointment card pattern across light, dark, and 440px mobile.'
+    ]
+  },
+  {
     id: 6,
     title: 'Commercial Real Estate Collateral',
     subtitle: 'One of 11 structurally distinct collateral categories in Cync\'s platform — the highest-integration category, assembling appraisal, comparable, flood, title, tax, environmental, insurance, and lien data into one auditable record, administered through a component-based record builder, and linked to loans that may spread exposure across more than one property.',
