@@ -1,32 +1,51 @@
 
-
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Download, Github, Linkedin } from 'lucide-react';
 import { SEOHead } from './SEOHead';
-import { SocialShare } from './SocialShare';
-import { LazyImage } from './LazyImage';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { trackDownloadCV } from './Analytics';
 
-const Hero = () => {
-  const { ref: heroRef, isVisible } = useScrollAnimation({ threshold: 0.3 });
+const LENDING_SCREEN = {
+  src: '/case-studies/collateral-screens/04-header-metrics-variant.png',
+  alt: 'Cync Collateral Platform record overview with header metrics and valuation chart',
+  width: 1344,
+  height: 769,
+  label: 'Enterprise lending',
+  href: '/work/cync-collateral-platform',
+};
 
+const HEALTH_SCREEN = {
+  src: '/case-studies/veteran-portal-screens/06-scheduled-appointments.png',
+  alt: 'Redesigned Veteran exam scheduling portal showing scheduled appointment cards',
+  width: 1440,
+  height: 917,
+  label: 'Federal health',
+  href: '/work/veteran-exam-scheduling-portal',
+};
+
+const ScreenLabel = ({ children, className }: { children: React.ReactNode; className: string }) => (
+  <span
+    className={`absolute ${className} inline-flex items-center gap-1 rounded-full bg-white/95 dark:bg-gray-900/95 border border-gray-200 dark:border-gray-700 px-3 py-1 text-xs font-medium text-portfolio-text-dark dark:text-white shadow-sm`}
+  >
+    {children}
+    <ArrowRight size={12} className="transition-transform group-hover:translate-x-0.5" />
+  </span>
+);
+
+const Hero = () => {
   const handleDownloadCV = () => {
     trackDownloadCV();
-    
+
     // Convert Google Drive view link to direct download link
     const driveFileId = '1mh8jWf6acspgD7GOF8PW2OixRcL59zD5';
     const downloadUrl = `https://drive.google.com/uc?export=download&id=${driveFileId}`;
-    
-    // Create a temporary link element and trigger download
+
     const link = document.createElement('a');
     link.href = downloadUrl;
     link.download = 'Manish_Sondhi_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    
-    console.log('Downloading CV from Google Drive...');
   };
 
   return (
@@ -36,92 +55,86 @@ const Hero = () => {
         description="Staff UX Product Designer with 9+ years owning design strategy across complex, regulated enterprise platforms — financial services, lending, and government health systems."
         keywords="Staff UX Product Designer Portfolio, Human-in-the-Loop Decision Systems, Override-with-Rationale Patterns, AI-Assisted Workflow Design, Enterprise Fintech UX, Government Health Systems UX, Collateral Management Design, Regulated Industry Design, Design Systems"
       />
-      
-      <section id="home" className="pt-14 pb-12 md:pt-44 md:pb-32 relative overflow-hidden">
-        {/* Background Animation */}
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-100 dark:bg-blue-900/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-          <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-purple-100 dark:bg-purple-900/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-          <div className="absolute bottom-1/4 left-1/3 w-64 h-64 bg-pink-100 dark:bg-pink-900/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-        </div>
 
-        <div className="section-container" ref={heroRef}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1">
-              <div className={`mb-4 transition-all duration-1000 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-portfolio-accent rounded-full font-medium mb-4">
-                  Staff UX Product Designer · Human-in-the-Loop Decision Systems · Complex, Regulated Platforms
-                </span>
-              </div>
+      <section id="home" className="pt-28 pb-16 md:pt-40 md:pb-24">
+        <div className="section-container">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-center">
+            <div className="animate-fade-in opacity-0">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-portfolio-accent mb-5">
+                Staff UX Product Designer
+              </p>
 
-              <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-portfolio-text-dark dark:text-white mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                <span className="block text-portfolio-accent bg-gradient-to-r from-portfolio-accent to-blue-600 bg-clip-text text-transparent">Designing Systems People Trust Enough to Act On</span>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] text-portfolio-text-dark dark:text-white mb-6">
+                Designing systems people trust enough to act on
               </h1>
 
-              <p className={`text-lg text-portfolio-text-light dark:text-gray-300 mb-8 max-w-xl transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                Product designer with 9+ years owning design strategy across complex, regulated enterprise platforms — financial services, lending, and government health systems. Human-in-the-Loop specialist: override-with-rationale patterns, AI-assisted rule entry, and audit-ready decision surfaces, working at the intersection of design, product, and engineering.
+              <p className="text-lg text-portfolio-text-light dark:text-gray-300 mb-8 max-w-xl leading-relaxed">
+                9+ years owning design strategy for complex, regulated enterprise platforms in financial services, lending, and government health systems. I design human-in-the-loop decision surfaces: override-with-rationale patterns, AI-assisted rule entry, and audit-ready workflows.
               </p>
 
-              <p className={`text-sm font-medium text-portfolio-text-dark dark:text-gray-100 mb-8 max-w-xl transition-all duration-1000 delay-500 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                Actively targeting senior product design and design lead roles at enterprise software companies, regulated-industry platforms, and mission-critical SaaS products.
-              </p>
-              
-              <div className={`flex flex-wrap gap-4 mb-8 transition-all duration-1000 delay-600 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                <a href="#portfolio" className="group portfolio-button-primary flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+              <div className="flex flex-wrap items-center gap-4">
+                <a href="#portfolio" className="group portfolio-button-primary flex items-center gap-2">
                   View Case Studies <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
                 </a>
-                <button 
-                  onClick={handleDownloadCV}
-                  className="group portfolio-button-outline flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                >
-                  Download Resume <Download size={18} className="transition-transform duration-300 group-hover:translate-y-0.5" />
+                <button onClick={handleDownloadCV} className="portfolio-button-outline flex items-center gap-2">
+                  Download Resume <Download size={18} />
                 </button>
-              </div>
-
-              <div className={`grid grid-cols-1 sm:grid-cols-3 gap-4 transition-all duration-1000 delay-700 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                <div className="rounded-xl bg-white/80 dark:bg-gray-900/70 border border-blue-100 dark:border-gray-800 p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-portfolio-accent/40">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-portfolio-accent mb-2">Domains</p>
-                  <p className="text-sm text-portfolio-text-light dark:text-gray-300">AI-enabled products, workflow platforms, decision-support tools, and data-rich applications across SaaS, fintech, and enterprise software</p>
-                </div>
-                <div className="rounded-xl bg-white/80 dark:bg-gray-900/70 border border-blue-100 dark:border-gray-800 p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-portfolio-accent/40">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-portfolio-accent mb-2">Systems</p>
-                  <p className="text-sm text-portfolio-text-light dark:text-gray-300">Multi-user products that combine data, automation, and explainable guidance across complex operational workflows</p>
-                </div>
-                <div className="rounded-xl bg-white/80 dark:bg-gray-900/70 border border-blue-100 dark:border-gray-800 p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-portfolio-accent/40">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-portfolio-accent mb-2">Outcomes</p>
-                  <p className="text-sm text-portfolio-text-light dark:text-gray-300">More clarity, faster decisions, and greater trust in complex product experiences</p>
-                </div>
-              </div>
-              
-              <div className={`flex flex-col sm:flex-row items-start sm:items-center gap-4 transition-all duration-1000 delay-800 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-                <div className="flex items-center gap-6">
-                  <a href="https://github.com/Manishs94" target="_blank" rel="noopener noreferrer" className="text-portfolio-text-dark dark:text-white hover:text-portfolio-accent transition-all duration-300 transform hover:scale-110">
-                    <Github size={24} />
+                <div className="flex items-center gap-1 sm:ml-2">
+                  <a
+                    href="https://www.linkedin.com/in/manish-sondhi-2b3bb2217/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    className="p-2 text-portfolio-text-light dark:text-gray-300 hover:text-portfolio-accent transition-colors"
+                  >
+                    <Linkedin size={22} />
                   </a>
-                  <a href="https://www.linkedin.com/in/manish-sondhi-2b3bb2217/" target="_blank" rel="noopener noreferrer" className="text-portfolio-text-dark dark:text-white hover:text-portfolio-accent transition-all duration-300 transform hover:scale-110">
-                    <Linkedin size={24} />
+                  <a
+                    href="https://github.com/Manishs94"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                    className="p-2 text-portfolio-text-light dark:text-gray-300 hover:text-portfolio-accent transition-colors"
+                  >
+                    <Github size={22} />
                   </a>
                 </div>
-                
-                <SocialShare 
-                  title="Check out Manish Sondhi's UX Portfolio"
-                  description="Senior product design across AI-enabled systems, product UX, complex platforms, and decision-support experiences"
-                />
               </div>
             </div>
-            
-            <div className={`order-1 md:order-2 transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0 translate-y-8'}`}>
-              <div className="relative max-w-md mx-auto animate-float-slow">
-                <div className="absolute -top-4 -left-4 w-20 h-20 bg-blue-100 dark:bg-blue-900/30 rounded-full z-0 animate-pulse"></div>
-                <div className="absolute -bottom-4 -right-4 w-28 h-28 bg-portfolio-accent opacity-10 dark:opacity-20 rounded-full z-0 animate-pulse animation-delay-1000"></div>
-                <div className="relative z-10 overflow-hidden rounded-xl transform transition-all duration-700 hover:scale-[1.02] hover:shadow-xl">
-                  <LazyImage 
-                    alt="Manish Sondhi - Product & UX Designer" 
-                    className="w-full h-auto rounded-xl object-cover transition-transform duration-700 hover:scale-105" 
-                    src="/lovable-uploads/3999e1de-e3d3-4f49-8d34-fccee8f17e09.jpg" 
-                  />
-                </div>
-              </div>
+
+            {/* Two industries, one composition: lending screen behind, federal health screen in front.
+                Padding-bottom is a % of width, so the overlap scales with the column at every breakpoint. */}
+            <div
+              className="relative pb-[26%] animate-fade-in opacity-0"
+              style={{ animationDelay: '0.15s' }}
+            >
+              <Link
+                to={LENDING_SCREEN.href}
+                className="group relative block w-[82%] ml-auto rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-lg"
+              >
+                <img
+                  src={LENDING_SCREEN.src}
+                  alt={LENDING_SCREEN.alt}
+                  width={LENDING_SCREEN.width}
+                  height={LENDING_SCREEN.height}
+                  className="w-full h-auto"
+                />
+                <ScreenLabel className="top-3 right-3">{LENDING_SCREEN.label}</ScreenLabel>
+              </Link>
+
+              <Link
+                to={HEALTH_SCREEN.href}
+                className="group absolute left-0 bottom-0 block w-[72%] rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-2xl"
+              >
+                <img
+                  src={HEALTH_SCREEN.src}
+                  alt={HEALTH_SCREEN.alt}
+                  width={HEALTH_SCREEN.width}
+                  height={HEALTH_SCREEN.height}
+                  className="w-full h-auto"
+                />
+                <ScreenLabel className="bottom-3 left-3">{HEALTH_SCREEN.label}</ScreenLabel>
+              </Link>
             </div>
           </div>
         </div>

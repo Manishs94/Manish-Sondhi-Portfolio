@@ -328,7 +328,7 @@ export const ContactForm: React.FC = () => {
             type="submit"
             disabled={isSubmitting}
             className={`w-full flex items-center justify-center gap-2 relative overflow-hidden transition-all duration-300 ${
-              isSubmitting ? 'opacity-80 cursor-not-allowed' : 'hover:scale-[1.02] hover:shadow-md'
+              isSubmitting ? 'opacity-80 cursor-not-allowed' : 'hover:shadow-md'
             }`}
           >
             {isSubmitting && (

@@ -71,7 +71,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-14 sm:h-14 lg:h-16">
           <div className="flex items-center">
             <Link to="/" className="text-xl font-bold text-portfolio-text-dark dark:text-white hover:text-portfolio-accent transition-colors">
-              Manish Sondhi's Portfolio
+              Manish Sondhi
             </Link>
           </div>
 

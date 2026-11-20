@@ -28,7 +28,7 @@ export const portfolioKnowledgeBase = {
       summary: "UX/UI Designer and Business Analyst for MDE4Vets, a federal back-office platform managing VA disability (C&P) exam logistics, provider billing, and compliance reporting — covering case-queue distribution, CPT billing configuration, invoice and travel/mileage reimbursement reporting, and provider training compliance, alongside a junior designer.",
       achievements: [
         "Conducted an end-to-end IA and UX audit across the platform's full surface, operating as a business analyst alongside design work to document patterns, redundancies, and gaps across a complex multi-persona system",
-        "Identified a recurring sensitive-data exposure pattern — veteran SSNs displayed unmasked in report data grids — a concrete compliance and security finding surfaced through systematic audit",
+        "Identified a recurring sensitive-data exposure pattern — unmasked sensitive identifiers in report data grids — a concrete compliance and security finding surfaced through systematic audit",
         "Designing across the full MDE4Vets and Veteran Design System: UI/UX Principles, Banner Config, Announcements Config, Appointment Scheduling, Admin Roles, Clusters, and Availability Calendar — each story designed to system standards with no new patterns introduced",
         "Work spans Case Management, Provider, and Admin personas across a government-regulated platform where UX decisions have direct operational and compliance consequences for veterans"
       ]

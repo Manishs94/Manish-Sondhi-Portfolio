@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowRight, BookOpen } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { allProjects } from '@/utils/projectData';
@@ -23,12 +23,12 @@ const PortfolioOverview = () => {
     <section id="portfolio" className="py-24 bg-portfolio-bg-light">
       <div className="section-container">
         <Reveal className="text-center max-w-2xl mx-auto mb-16">
-          <span className="inline-block px-4 py-2 bg-blue-100 text-portfolio-accent rounded-full font-medium mb-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-portfolio-accent mb-4">
             Selected Work
-          </span>
-          <h2 className="section-heading">Case Studies in Product Strategy, Systems Thinking, and Decision Support</h2>
+          </p>
+          <h2 className="section-heading">Product strategy, systems thinking, and decision support</h2>
           <p className="section-subheading mx-auto">
-            A selection of case studies showing how I approach product strategy, system design, and workflow design across complex platforms. The work highlights how I simplify high-stakes operations, shape scalable product foundations, and design decision-support experiences where clarity and trust are critical.
+            How I simplify high-stakes operations, shape scalable product foundations, and design decision-support experiences where clarity and trust are critical.
           </p>
         </Reveal>
         
@@ -39,14 +39,13 @@ const PortfolioOverview = () => {
           ))}
         </div>
         
-        <Reveal variant="scale" className="text-center">
-          <Link to="/portfolio">
-            <Button className="group portfolio-button-primary transition-transform hover:scale-105 duration-300 flex items-center gap-2">
-              <BookOpen className="w-4 h-4" />
+        <Reveal className="flex justify-center">
+          <Button asChild className="group portfolio-button-primary flex items-center gap-2">
+            <Link to="/portfolio">
               View Full Portfolio
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </Reveal>
       </div>
     </section>

@@ -29,14 +29,14 @@ const About = () => {
             ref={imageRef}
             className={`relative transition-all duration-700 ${imageVisible ? 'opacity-100 translate-x-0 animate-fade-in-left' : 'opacity-0 -translate-x-8'}`}
           >
-            <div className="relative z-10 rounded-xl overflow-hidden transition-transform duration-700 hover:scale-[1.02] hover:shadow-xl">
+            <div className="relative z-10 rounded-xl overflow-hidden transition-transform duration-700 hover:shadow-xl">
               <img
                 alt="Manish Sondhi - Senior Product Designer"
                 className="w-full h-auto rounded-xl"
                 src="/lovable-uploads/6f0b8c00-1540-45e5-95d0-c41efc358c2a.jpg"
               />
             </div>
-            <div className="absolute -top-6 -right-6 w-full h-full border-2 border-portfolio-accent rounded-xl z-0 animate-border-pulse"></div>
+            <div className="absolute -top-6 -right-6 w-full h-full border-2 border-portfolio-accent rounded-xl z-0"></div>
           </div>
 
           {/* Content column — slides in from right */}
@@ -70,7 +70,7 @@ const About = () => {
                   className={`flex items-center gap-4 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm transition-all duration-500 hover:shadow-md hover:-translate-y-1 hover:border-l-4 hover:border-portfolio-accent ${contentVisible ? 'opacity-100 scale-100 animate-scale-in' : 'opacity-0 scale-90'}`}
                   style={{ animationDelay: `${300 + index * 100}ms`, animationFillMode: 'both' }}
                 >
-                  <div className="transition-transform duration-300 hover:scale-110">
+                  <div className="transition-transform duration-300">
                     {skill.icon}
                   </div>
                   <h3 className="font-semibold text-portfolio-text-dark dark:text-white">{skill.name}</h3>

@@ -64,7 +64,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/manish-sondhi-2b3bb2217/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-gray-800 rounded-full hover:bg-portfolio-accent transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-portfolio-accent/30"
+              className="p-2 bg-gray-800 rounded-full hover:bg-portfolio-accent transition-all duration-300 hover:shadow-lg hover:shadow-portfolio-accent/30"
               aria-label="LinkedIn"
             >
               <Linkedin size={18} />
@@ -73,14 +73,14 @@ const Footer = () => {
               href="https://github.com/Manishs94"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-gray-800 rounded-full hover:bg-portfolio-accent transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-portfolio-accent/30"
+              className="p-2 bg-gray-800 rounded-full hover:bg-portfolio-accent transition-all duration-300 hover:shadow-lg hover:shadow-portfolio-accent/30"
               aria-label="GitHub"
             >
               <Github size={18} />
             </a>
             <a
               href="mailto:Manishsondhi94@gmail.com"
-              className="p-2 bg-gray-800 rounded-full hover:bg-portfolio-accent transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-portfolio-accent/30"
+              className="p-2 bg-gray-800 rounded-full hover:bg-portfolio-accent transition-all duration-300 hover:shadow-lg hover:shadow-portfolio-accent/30"
               aria-label="Email"
             >
               <Mail size={18} />
@@ -89,7 +89,7 @@ const Footer = () => {
 
           <button
             onClick={scrollToTop}
-            className="group p-3 bg-gray-800 rounded-full hover:bg-portfolio-accent transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-portfolio-accent/30"
+            className="group p-3 bg-gray-800 rounded-full hover:bg-portfolio-accent transition-all duration-300 hover:shadow-lg hover:shadow-portfolio-accent/30"
             aria-label="Scroll to top"
           >
             <ArrowUp size={20} className="transition-transform duration-300 group-hover:-translate-y-0.5" />

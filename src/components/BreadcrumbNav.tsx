@@ -33,7 +33,7 @@ const BreadcrumbNav = ({ projectTitle }: BreadcrumbNavProps) => {
               <BreadcrumbLink asChild>
                 <Link 
                   to="/" 
-                  className="flex items-center gap-1 hover:text-portfolio-accent transition-all duration-200 hover:scale-105"
+                  className="flex items-center gap-1 hover:text-portfolio-accent transition-all duration-200"
                 >
                   <Home className="w-4 h-4" />
                   <span className="hidden sm:inline">Home</span>
@@ -63,7 +63,7 @@ const BreadcrumbNav = ({ projectTitle }: BreadcrumbNavProps) => {
             <BreadcrumbLink asChild>
               <Link 
                 to="/" 
-                className="flex items-center gap-1 hover:text-portfolio-accent transition-all duration-200 hover:scale-105"
+                className="flex items-center gap-1 hover:text-portfolio-accent transition-all duration-200"
                 aria-label="Home"
               >
                 <Home className="w-4 h-4" />
@@ -92,7 +92,7 @@ const BreadcrumbNav = ({ projectTitle }: BreadcrumbNavProps) => {
                     <BreadcrumbLink asChild>
                       <Link 
                         to={href} 
-                        className="hover:text-portfolio-accent transition-all duration-200 hover:scale-105"
+                        className="hover:text-portfolio-accent transition-all duration-200"
                         aria-label={label}
                       >
                         {label}

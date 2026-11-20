@@ -1,299 +1,118 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { BookOpen, Palette, Grid3X3 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { allProjects, getAllCategories, getCaseStudies } from '@/utils/projectData';
+
+import React, { useState } from 'react';
+import { allProjects, type Project } from '@/utils/projectData';
 import { SEOHead } from '@/components/SEOHead';
 import QuickViewModal from '@/components/QuickViewModal';
-import { toast } from '@/hooks/use-toast';
-import PortfolioFilters from '@/components/PortfolioFilters';
-import ProjectGrid from '@/components/ProjectGrid';
-import PortfolioPagination from '@/components/PortfolioPagination';
+import ProjectCard from '@/components/ProjectCard';
+import Reveal from '@/components/motion/Reveal';
 
-type SortOption = 'newest' | 'alphabetical';
+interface ProjectGroup {
+  id: string;
+  title: string;
+  description: string;
+  projects: Project[];
+}
 
-const PROJECTS_PER_PAGE = 6; // Show 6 projects per page
+const isVa = (p: Project) => /veteran|va-operations/.test(p.link);
+const isBoa = (p: Project) => p.link.includes('bank-of-america');
 
-const Portfolio = () => {
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [sortOption, setSortOption] = useState<SortOption>('newest');
-  const [filteredProjects, setFilteredProjects] = useState(allProjects);
-  const [isFiltering, setIsFiltering] = useState(false);
-  const [activeTab, setActiveTab] = useState<'case-studies' | 'design' | 'all'>('case-studies');
-  const [currentPage, setCurrentPage] = useState(1);
-  const [previewProject, setPreviewProject] = useState<(typeof allProjects)[0] | null>(null);
-  const [showQuickView, setShowQuickView] = useState(false);
+// Platform-level case studies lead the Cync group; the module deep-dives follow in data order.
+const CYNC_LEADS = ['/work/cync-collateral-platform', '/work/cync-advance-analytics', '/work/cync-design-system'];
 
-  const categories = getAllCategories();
-  const caseStudies = getCaseStudies();
-  const designProjects = allProjects.filter(project =>
-    !project.isCaseStudy && (
-      (Array.isArray(project.category) && project.category.some(cat =>
-        cat.toLowerCase().includes('design') || cat.toLowerCase().includes('ui/ux')
-      )) ||
-      (typeof project.category === 'string' &&
-        (project.category.toLowerCase().includes('design') || project.category.toLowerCase().includes('ui/ux'))
-      )
-    )
-  );
-
-  useEffect(() => {
-    setIsFiltering(true);
-
-    const filterTimer = setTimeout(() => {
-      let result: typeof allProjects = [];
-      if (activeTab === 'case-studies') {
-        result = [...caseStudies];
-      } else if (activeTab === 'design') {
-        result = [...designProjects];
-      } else {
-        result = [...allProjects];
-      }
-
-      if (selectedCategory !== 'all') {
-        result = result.filter(project => {
-          if (Array.isArray(project.category)) {
-            return project.category.some(cat =>
-              cat.toLowerCase().replace(/\s+/g, '-') === selectedCategory
-            );
-          }
-          return typeof project.category === 'string' &&
-            project.category.toLowerCase().replace(/\s+/g, '-') === selectedCategory;
-        });
-      }
-
-      if (searchQuery) {
-        const query = searchQuery.toLowerCase();
-        result = result.filter(project =>
-          project.title.toLowerCase().includes(query) ||
-          project.description.toLowerCase().includes(query) ||
-          (project.subtitle && project.subtitle.toLowerCase().includes(query)) ||
-          (Array.isArray(project.category) && project.category.some(cat => cat.toLowerCase().includes(query))) ||
-          (typeof project.category === 'string' && project.category.toLowerCase().includes(query)) ||
-          (project.tools && project.tools.some(tool => tool.toLowerCase().includes(query)))
-        );
-      }
-
-      if (sortOption === 'alphabetical') {
-        result.sort((a, b) => a.title.localeCompare(b.title));
-      } else {
-        result.sort((a, b) => b.id - a.id);
-      }
-
-      setFilteredProjects(result);
-      setIsFiltering(false);
-    }, 300);
-
-    return () => clearTimeout(filterTimer);
-  }, [selectedCategory, searchQuery, sortOption, activeTab, caseStudies, designProjects]);
-
-  const totalPages = Math.ceil(filteredProjects.length / PROJECTS_PER_PAGE);
-  const startIndex = (currentPage - 1) * PROJECTS_PER_PAGE;
-  const endIndex = startIndex + PROJECTS_PER_PAGE;
-  const currentProjects = filteredProjects.slice(startIndex, endIndex);
-
-  const handleResetFilters = useCallback(() => {
-    setSelectedCategory('all');
-    setSearchQuery('');
-    setSortOption('newest');
-    setCurrentPage(1);
-
-    toast({
-      title: 'Filters reset',
-      description: 'Showing all projects',
+const buildGroups = (): ProjectGroup[] => {
+  const caseStudies = allProjects.filter((p) => p.isCaseStudy);
+  const cync = caseStudies
+    .filter((p) => !isVa(p) && !isBoa(p))
+    .sort((a, b) => {
+      const ai = CYNC_LEADS.indexOf(a.link);
+      const bi = CYNC_LEADS.indexOf(b.link);
+      return (ai === -1 ? Infinity : ai) - (bi === -1 ? Infinity : bi);
     });
 
-    const portfolioSection = document.getElementById('portfolio');
-    if (portfolioSection) {
-      portfolioSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, []);
+  return [
+    {
+      id: 'va',
+      title: 'Healthcare & Federal Systems',
+      description: 'A Veteran-facing exam scheduling portal and the design system behind a VA operations platform.',
+      projects: caseStudies.filter(isVa),
+    },
+    {
+      id: 'cync',
+      title: 'Cync Lending Platform',
+      description: 'Collateral, loan, analytics, and design system work across an enterprise commercial lending platform.',
+      projects: cync,
+    },
+    {
+      id: 'boa',
+      title: 'Concept Work',
+      description: 'A concept redesign of Bill Pay flows in the Bank of America mobile app.',
+      projects: caseStudies.filter(isBoa),
+    },
+    {
+      id: 'side-projects',
+      title: 'Side Projects',
+      description: 'Smaller front-end builds and experiments.',
+      projects: allProjects.filter((p) => !p.isCaseStudy),
+    },
+  ].filter((group) => group.projects.length > 0);
+};
 
-  const handlePageChange = useCallback((page: number) => {
-    if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
-    }
-  }, [totalPages]);
-
-  const handleTabChange = (value: string) => {
-    setActiveTab(value as 'case-studies' | 'design' | 'all');
-    setCurrentPage(1);
-    handleResetFilters();
-  };
-
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [selectedCategory, searchQuery, sortOption, activeTab]);
+const Portfolio = () => {
+  const [previewProject, setPreviewProject] = useState<Project | null>(null);
+  const groups = buildGroups();
 
   return (
-    <section id="portfolio" className="py-24 bg-portfolio-bg-light">
+    <section id="portfolio" className="py-20 sm:py-24 bg-portfolio-bg-light">
       <SEOHead
         title="Staff UX Product Designer Portfolio | Human-in-the-Loop Decision Systems"
         description="Staff UX Product Designer with 9+ years owning design strategy across complex, regulated enterprise platforms — financial services, lending, and government health systems."
         keywords="Staff UX Product Designer Portfolio, Human-in-the-Loop Decision Systems, AI-Assisted Workflow Design, Enterprise UX, Regulated Industry UX, Fintech UX, Government Health Systems UX, Design Systems, Collateral Management Design"
       />
       <div className="section-container">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="section-heading animate-fade-in opacity-0" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>Featured Projects</h2>
-          <p className="section-subheading mx-auto animate-fade-in opacity-0" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
-            A curated selection of product design case studies across AI-enabled systems, enterprise platforms, and data-driven decision tools. These projects show how complex operational challenges were translated into scalable product experiences that help teams interpret information, evaluate risk, and make confident decisions.
+        <Reveal className="max-w-2xl mb-12">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-portfolio-accent mb-4">Portfolio</p>
+          <h1 className="section-heading">All work</h1>
+          <p className="section-subheading">
+            Case studies grouped by product, from government health systems to enterprise lending.
           </p>
+          <nav aria-label="Jump to section" className="mt-6 flex flex-wrap gap-2">
+            {groups.map((group) => (
+              <a
+                key={group.id}
+                href={`#${group.id}`}
+                className="px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-700 text-sm text-portfolio-text-dark dark:text-gray-200 hover:border-portfolio-accent hover:text-portfolio-accent transition-colors"
+              >
+                {group.title} <span className="text-portfolio-text-light">({group.projects.length})</span>
+              </a>
+            ))}
+          </nav>
+        </Reveal>
+
+        <div className="space-y-20">
+          {groups.map((group) => (
+            <div key={group.id} id={group.id} className="scroll-mt-24">
+              <div className="mb-8 pb-4 border-b border-gray-200 dark:border-gray-800">
+                <h2 className="text-2xl sm:text-3xl font-bold font-display text-portfolio-text-dark dark:text-white mb-2">
+                  {group.title}
+                </h2>
+                <p className="text-portfolio-text-light dark:text-gray-400">{group.description}</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {group.projects.map((project, index) => (
+                  <ProjectCard
+                    key={project.id}
+                    project={project}
+                    index={index}
+                    onQuickView={() => setPreviewProject(project)}
+                  />
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
 
-        <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
-          <div className="flex justify-center mb-8 animate-fade-in opacity-0" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
-            <TabsList className="grid w-full max-w-md grid-cols-3 bg-white shadow-sm">
-              <TabsTrigger value="case-studies" className="flex items-center gap-2 data-[state=active]:bg-portfolio-accent data-[state=active]:text-white">
-                <BookOpen className="w-4 h-4" />
-                Case Studies
-              </TabsTrigger>
-              <TabsTrigger value="design" className="flex items-center gap-2 data-[state=active]:bg-portfolio-accent data-[state=active]:text-white">
-                <Palette className="w-4 h-4" />
-                Design Work
-              </TabsTrigger>
-              <TabsTrigger value="all" className="flex items-center gap-2 data-[state=active]:bg-portfolio-accent data-[state=active]:text-white">
-                <Grid3X3 className="w-4 h-4" />
-                All Work
-              </TabsTrigger>
-            </TabsList>
-          </div>
-
-          <TabsContent value="case-studies" className="mt-0">
-            <PortfolioFilters
-              selectedCategory={selectedCategory}
-              setSelectedCategory={setSelectedCategory}
-              searchQuery={searchQuery}
-              setSearchQuery={setSearchQuery}
-              sortOption={sortOption}
-              setSortOption={setSortOption}
-              activeTab={activeTab}
-              setActiveTab={setActiveTab}
-              categories={categories}
-              onResetFilters={handleResetFilters}
-              filteredProjects={filteredProjects}
-              currentPage={currentPage}
-              projectsPerPage={PROJECTS_PER_PAGE}
-            />
-
-            {currentProjects.length > 0 ? (
-              <>
-                <ProjectGrid
-                  projects={currentProjects}
-                  isFiltering={isFiltering}
-                  onQuickView={(project) => {
-                    setPreviewProject(project);
-                    setShowQuickView(true);
-                  }}
-                />
-
-                <PortfolioPagination
-                  currentPage={currentPage}
-                  totalPages={totalPages}
-                  onPageChange={handlePageChange}
-                />
-              </>
-            ) : (
-              <div className="text-center py-12 bg-white rounded-lg shadow-sm">
-                <p className="text-lg text-portfolio-text-light">No case studies found</p>
-                <Button onClick={handleResetFilters} className="mt-4">Reset Filters</Button>
-              </div>
-            )}
-          </TabsContent>
-
-          <TabsContent value="design" className="mt-0">
-            <PortfolioFilters
-              selectedCategory={selectedCategory}
-              setSelectedCategory={setSelectedCategory}
-              searchQuery={searchQuery}
-              setSearchQuery={setSearchQuery}
-              sortOption={sortOption}
-              setSortOption={setSortOption}
-              activeTab={activeTab}
-              setActiveTab={setActiveTab}
-              categories={categories}
-              onResetFilters={handleResetFilters}
-              filteredProjects={filteredProjects}
-              currentPage={currentPage}
-              projectsPerPage={PROJECTS_PER_PAGE}
-            />
-
-            {currentProjects.length > 0 ? (
-              <>
-                <ProjectGrid
-                  projects={currentProjects}
-                  isFiltering={isFiltering}
-                  onQuickView={(project) => {
-                    setPreviewProject(project);
-                    setShowQuickView(true);
-                  }}
-                />
-
-                <PortfolioPagination
-                  currentPage={currentPage}
-                  totalPages={totalPages}
-                  onPageChange={handlePageChange}
-                />
-              </>
-            ) : (
-              <div className="text-center py-12 bg-white rounded-lg shadow-sm">
-                <p className="text-lg text-portfolio-text-light">No design projects found</p>
-                <Button onClick={handleResetFilters} className="mt-4">Reset Filters</Button>
-              </div>
-            )}
-          </TabsContent>
-
-          <TabsContent value="all" className="mt-0">
-            <PortfolioFilters
-              selectedCategory={selectedCategory}
-              setSelectedCategory={setSelectedCategory}
-              searchQuery={searchQuery}
-              setSearchQuery={setSearchQuery}
-              sortOption={sortOption}
-              setSortOption={setSortOption}
-              activeTab={activeTab}
-              setActiveTab={setActiveTab}
-              categories={categories}
-              onResetFilters={handleResetFilters}
-              filteredProjects={filteredProjects}
-              currentPage={currentPage}
-              projectsPerPage={PROJECTS_PER_PAGE}
-            />
-
-            {currentProjects.length > 0 ? (
-              <>
-                <ProjectGrid
-                  projects={currentProjects}
-                  isFiltering={isFiltering}
-                  onQuickView={(project) => {
-                    setPreviewProject(project);
-                    setShowQuickView(true);
-                  }}
-                />
-
-                <PortfolioPagination
-                  currentPage={currentPage}
-                  totalPages={totalPages}
-                  onPageChange={handlePageChange}
-                />
-              </>
-            ) : (
-              <div className="text-center py-12 bg-white rounded-lg shadow-sm">
-                <p className="text-lg text-portfolio-text-light">No projects found</p>
-                <Button onClick={handleResetFilters} className="mt-4">Reset Filters</Button>
-              </div>
-            )}
-          </TabsContent>
-        </Tabs>
-
-        {showQuickView && previewProject && (
-          <QuickViewModal
-            project={previewProject}
-            onClose={() => {
-              setShowQuickView(false);
-              setPreviewProject(null);
-            }}
-          />
+        {previewProject && (
+          <QuickViewModal project={previewProject} onClose={() => setPreviewProject(null)} />
         )}
       </div>
     </section>

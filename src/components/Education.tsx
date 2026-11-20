@@ -25,20 +25,58 @@ const Education = () => {
     type: 'certification'
   },
   {
-    title: 'Anthropic Courses',
+    title: 'Introduction to Claude Cowork',
     issuer: 'Anthropic',
-    description: 'Introduction to Claude Cowork · Claude Platform 101 · Claude Code 101 · Claude 101 · AI Fluency Framework & Foundations.',
+    issued: 'Jul 2026',
+    credentialId: 'xikeyg3zxtza',
+    link: 'https://verify.skilljar.com/c/xikeyg3zxtza',
+    type: 'certification'
+  },
+  {
+    title: 'Claude Platform 101',
+    issuer: 'Anthropic',
+    issued: 'Jul 2026',
+    credentialId: '3ngki3hviuar',
+    link: 'https://verify.skilljar.com/c/3ngki3hviuar',
+    type: 'certification'
+  },
+  {
+    title: 'Claude Code 101',
+    issuer: 'Anthropic',
+    issued: 'Jul 2026',
+    credentialId: 'w86dcjcunc5m',
+    link: 'https://verify.skilljar.com/c/w86dcjcunc5m',
+    type: 'certification'
+  },
+  {
+    title: 'Claude 101',
+    issuer: 'Anthropic',
+    issued: 'Jul 2026',
+    credentialId: 'yrp29sunnufd',
+    link: 'https://verify.skilljar.com/c/yrp29sunnufd',
+    type: 'certification'
+  },
+  {
+    title: 'AI Fluency Framework & Foundations',
+    issuer: 'Anthropic',
+    issued: 'Mar 2026',
+    credentialId: 'icstrxtf8mg5',
+    link: 'https://verify.skilljar.com/c/icstrxtf8mg5',
     type: 'certification'
   },
   {
     title: 'Fundamentals of UI/UX Design',
-    issuer: 'Microsoft',
+    issuer: 'Microsoft · Coursera',
+    issued: 'Apr 2025',
     description: 'Microsoft course covering the fundamentals of UI/UX design.',
+    credentialId: 'TEVZ3KW4DW64',
+    link: 'https://www.coursera.org/account/accomplishments/records/TEVZ3KW4DW64',
     type: 'certification'
   }] as {
     title: string;
     issuer: string;
-    description: string;
+    description?: string;
+    issued?: string;
     credentialId?: string;
     link?: string;
     image?: string;
@@ -108,10 +146,17 @@ const Education = () => {
                         </h4>
                         <p className="text-portfolio-accent font-semibold text-lg mb-3">
                           {cert.issuer}
+                          {cert.issued && (
+                            <span className="ml-2 text-sm font-normal text-portfolio-text-light dark:text-gray-400">
+                              · Issued {cert.issued}
+                            </span>
+                          )}
                         </p>
-                        <p className="text-portfolio-text-light dark:text-gray-300 mb-4">
-                          {cert.description}
-                        </p>
+                        {cert.description && (
+                          <p className="text-portfolio-text-light dark:text-gray-300 mb-4">
+                            {cert.description}
+                          </p>
+                        )}
                         
                         {cert.credentialId && <div className="text-sm text-portfolio-text-light dark:text-gray-400 mb-4">
                             <span className="font-medium">Credential ID:</span> {cert.credentialId}

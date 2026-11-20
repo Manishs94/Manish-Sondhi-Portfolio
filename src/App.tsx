@@ -94,16 +94,6 @@ const App = () => {
     skipLink.textContent = 'Skip to main content';
     document.body.insertBefore(skipLink, document.body.firstChild);
     
-    // Preload critical resources
-    const preloadCritical = () => {
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap';
-      link.as = 'style';
-      document.head.appendChild(link);
-    };
-    
-    preloadCritical();
     
     return () => {
       // Cleanup performance observers when app unmounts

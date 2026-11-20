@@ -43,7 +43,7 @@ const QuickViewModal: React.FC<QuickViewModalProps> = ({ project, onClose }) => 
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-64 object-cover rounded-lg mb-4 transition-transform duration-300 hover:scale-105"
+              className="w-full h-64 object-cover rounded-lg mb-4 transition-transform duration-300"
             />
             <p className="text-portfolio-text-light dark:text-gray-300">{project.description}</p>
             
@@ -75,7 +75,7 @@ const QuickViewModal: React.FC<QuickViewModalProps> = ({ project, onClose }) => 
                   {project.tools.map((tool, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-portfolio-text-light dark:text-gray-300 rounded-full text-sm font-medium transition-all duration-300 hover:bg-portfolio-accent hover:text-white transform hover:scale-105"
+                      className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-portfolio-text-light dark:text-gray-300 rounded-full text-sm font-medium transition-all duration-300 hover:bg-portfolio-accent hover:text-white transform"
                     >
                       {tool}
                     </span>

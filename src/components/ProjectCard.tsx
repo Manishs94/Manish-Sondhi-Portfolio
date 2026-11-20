@@ -1,10 +1,8 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ExternalLink, BookOpen } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { renderIcon } from '@/utils/iconMappings';
 import CaseStudyModal from '@/components/CaseStudyModal';
 import Reveal from '@/components/motion/Reveal';
 
@@ -76,132 +74,61 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index = 0, onQuickVi
     }
   };
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    e.currentTarget.style.setProperty('--mx', `${e.clientX - rect.left}px`);
-    e.currentTarget.style.setProperty('--my', `${e.clientY - rect.top}px`);
-  };
+
+  const tags: string[] = Array.isArray(project.category)
+    ? project.category.slice(0, 2)
+    : project.category
+      ? [project.category]
+      : [];
 
   return (
     <>
-      <Reveal delay={(index % 3) * 100}>
-        <div 
-          className="group/card transition-transform duration-300 hover:-translate-y-1 cursor-pointer"
+      <Reveal delay={(index % 3) * 100} className="h-full">
+        <div
+          role="link"
+          tabIndex={0}
+          aria-label={getProjectTitle(project)}
+          className="group/card h-full cursor-pointer rounded-xl focus-visible:ring-2 focus-visible:ring-portfolio-accent focus-visible:ring-offset-2"
           onClick={handleCardClick}
-          onMouseMove={handleMouseMove}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              handleCardClick();
+            }
+          }}
         >
-          <Card 
-            className={`relative bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl ${
-              project.isCaseStudy ? 'border-2 border-portfolio-accent' : ''
-            }`}
-          >
-            <div className="card-spotlight pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
-            <div className="overflow-hidden h-60 sm:h-64 relative group/img">
+          <Card className="h-full flex flex-col bg-white dark:bg-gray-900 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-sm transition-shadow duration-300 group-hover/card:shadow-lg">
+            <div className="aspect-[16/10] overflow-hidden bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-800">
               <img
                 src={getProjectImage(project)}
                 alt={getProjectTitle(project)}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
+                loading="lazy"
+                className="w-full h-full object-cover object-top"
               />
-              {/* Gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-portfolio-accent/40 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-              {/* Case study badge */}
-              {project.isCaseStudy && (
-                <div className="absolute top-3 left-3 px-3 py-1 bg-portfolio-accent text-white rounded-full text-sm flex items-center gap-1">
-                  <BookOpen className="w-3 h-3" />
-                  Case Study
-                </div>
-              )}
-            
-              {/* Parent project indicator */}
-              {project.parentProjectId && (
-                <div className="absolute top-3 right-3 px-2 py-1 bg-blue-100 text-portfolio-accent rounded-full text-xs">
-                  Module
-                </div>
-              )}
-            
-              {/* Sub-projects indicator */}
-              {project.subProjects && project.subProjects.length > 0 && (
-                <div className="absolute bottom-3 left-3 px-2 py-1 bg-white/90 text-portfolio-accent rounded-full text-xs font-medium">
-                  {project.subProjects.length} Modules
-                </div>
-              )}
-            
-              {/* Status badge if available */}
-              {project.status && (
-                <Badge className="absolute top-3 right-3" variant={
-                  project.status === 'Completed' ? 'default' :
-                  project.status === 'In Progress' ? 'secondary' : 'outline'
-                }>
-                  {project.status}
-                </Badge>
-              )}
             </div>
-            <CardHeader className="p-4 sm:p-6 pb-0">
-              <div className="flex flex-wrap gap-2 mb-3">
-                {Array.isArray(project.category) ? (
-                  <>
-                    {project.category.slice(0, 3).map((cat, idx) => (
-                      <span key={idx} className="px-3 py-1 bg-blue-50 text-portfolio-accent rounded-full text-xs font-medium">
-                        {cat}
-                      </span>
-                    ))}
-                    {project.category.length > 3 && (
-                      <span className="px-3 py-1 bg-blue-50 text-portfolio-accent rounded-full text-xs font-medium">
-                        +{project.category.length - 3} more
-                      </span>
-                    )}
-                  </>
-                ) : (
-                  project.category && (
-                    <span className="px-3 py-1 bg-blue-50 text-portfolio-accent rounded-full text-xs font-medium">
-                      {project.category}
-                    </span>
-                  )
-                )}
-              </div>
-              <h3 className="text-lg font-bold text-portfolio-text-dark mb-2">{getProjectTitle(project)}</h3>
-              {project.subtitle && <p className="text-portfolio-text-light text-sm mb-4">{project.subtitle}</p>}
-            </CardHeader>
-            <CardContent className="p-4 sm:p-6 pt-0">
-              <div className="space-y-3 mb-5">
-                {project.overview?.challenge && (
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-portfolio-accent mb-1">Problem</p>
-                    <p className="text-sm text-portfolio-text-light whitespace-pre-line">{project.overview.challenge}</p>
-                  </div>
-                )}
-                {project.overview?.solution && (
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-portfolio-accent mb-1">Solution</p>
-                    <p className="text-sm text-portfolio-text-light whitespace-pre-line">{project.overview.solution}</p>
-                  </div>
-                )}
-                {project.overview?.impact && (
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-portfolio-accent mb-1">Impact</p>
-                    <p className="text-sm text-portfolio-text-light whitespace-pre-line">{project.overview.impact}</p>
-                  </div>
-                )}
-              </div>
-
-              {project.metrics && project.metrics.length > 0 && (
-                <div className="mb-4 flex flex-wrap gap-2">
-                  {project.metrics.slice(0, 2).map((metric, idx) => (
-                    <span key={idx} className="rounded-full bg-slate-50 px-3 py-1 text-xs font-medium text-portfolio-text-light">
-                      {metric.label}: {metric.value}
-                    </span>
-                  ))}
-                </div>
+            <CardHeader className="px-5 pt-5 pb-0 sm:px-6 sm:pt-6 space-y-0">
+              {tags.length > 0 && (
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-portfolio-accent mb-2">
+                  {tags.join(' · ')}
+                </p>
               )}
-            
-              <div 
-                className="flex items-center gap-2 text-portfolio-accent hover:underline font-medium group cursor-pointer"
+              <h3 className="text-lg font-semibold leading-snug text-portfolio-text-dark dark:text-white mb-2">
+                {getProjectTitle(project)}
+              </h3>
+            </CardHeader>
+            <CardContent className="px-5 pb-5 pt-0 sm:px-6 sm:pb-6 flex flex-col flex-1">
+              {(project.subtitle || project.description) && (
+                <p className="text-sm text-portfolio-text-light dark:text-gray-400 leading-relaxed line-clamp-2 mb-4">
+                  {project.subtitle || project.description}
+                </p>
+              )}
+              <span
+                className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-portfolio-accent"
                 onClick={handleViewProject}
               >
-                View Case Study
-                <ExternalLink size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-              </div>
+                {project.isCaseStudy ? 'Read case study' : 'View project'}
+                <ArrowRight size={16} className="transition-transform duration-300 group-hover/card:translate-x-1" />
+              </span>
             </CardContent>
           </Card>
         </div>

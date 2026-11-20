@@ -135,13 +135,14 @@ const CaseStudyPageLayout: React.FC<CaseStudyPageLayoutProps> = ({
       <ScrollProgress />
 
       {/* Hero */}
-      <section className="py-24 bg-portfolio-bg-light">
+      <section className="pt-24 pb-12 sm:pb-16 bg-portfolio-bg-light">
         <div className="section-container">
           {heroImage && (
-            <div className="mb-10 animate-scale-in opacity-0">
+            <div className="mb-12 animate-scale-in opacity-0">
               <ImagePlaceholder filename={heroImage} caption={title} aspect="wide" />
             </div>
           )}
+          <div className="max-w-3xl mx-auto">
           {eyebrow && (
             <div className="animate-fade-in opacity-0" style={{ animationDelay: '0.15s' }}>
               <SectionEyebrow>{eyebrow}</SectionEyebrow>
@@ -189,6 +190,7 @@ const CaseStudyPageLayout: React.FC<CaseStudyPageLayoutProps> = ({
               <p className="text-sm font-medium text-portfolio-text-dark">{status}</p>
             </div>
           </div>
+          </div>
         </div>
       </section>
 
@@ -235,8 +237,8 @@ const CaseStudyPageLayout: React.FC<CaseStudyPageLayoutProps> = ({
         </section>
       ) : null}
 
-      {/* Overview */}
-      <section className="py-24 bg-portfolio-bg-light">
+      {/* Overview: shares the hero's background, so drop the top padding unless My Role sits between them */}
+      <section className={`${roleOwned?.length || roleContext?.length ? 'pt-24' : 'pt-4'} pb-24 bg-portfolio-bg-light`}>
         <div className="section-container">
           <div
             ref={overview.ref}
