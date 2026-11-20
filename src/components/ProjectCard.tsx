@@ -3,77 +3,32 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import CaseStudyModal from '@/components/CaseStudyModal';
+import DesignOverviewModal from '@/components/DesignOverviewModal';
+import type { Project } from '@/utils/projectData';
 import Reveal from '@/components/motion/Reveal';
 
 interface ProjectCardProps {
-  project: any;
+  project: Project;
   index?: number;
-  onQuickView?: () => void;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, index = 0, onQuickView }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, index = 0 }) => {
+  const [isOverviewOpen, setIsOverviewOpen] = useState(false);
   const navigate = useNavigate();
 
-  const isInternalLink = (link: string) => link.startsWith('/');
+  const getProjectTitle = (p: Project) =>
+    p.title === 'UI/UX Design Process Case study' || p.title === 'UI/UX Design Process'
+      ? 'UI/UX Case Study: Innovative Design Studio'
+      : p.title;
 
-  // Function to get the appropriate image for each project
-  const getProjectImage = (project: any) => {
-    if (project.title === "AI Chatbot Application" || project.title.toLowerCase().includes("ai chatbot")) {
-      return "/lovable-uploads/25012106-d649-4a4f-b9d0-7eb1b4890a63.png";
-    }
-    return project.image;
-  };
-
-  // Function to get the display title for each project
-  const getProjectTitle = (project: any) => {
-    if (project.title === "UI/UX Design Process Case study" || project.title === "UI/UX Design Process") {
-      return "UI/UX Case Study: Innovative Design Studio";
-    }
-    return project.title;
-  };
-
-  // Check if project is a design project
-  const isDesignProject = () => {
-    if (Array.isArray(project.category)) {
-      return project.category.some(cat => 
-        cat.toLowerCase().includes('design') || 
-        cat.toLowerCase().includes('ui/ux')
-      );
-    }
-    return project.category?.toLowerCase().includes('design') || 
-           project.category?.toLowerCase().includes('ui/ux');
-  };
-
-  const shouldOpenModal = project.isCaseStudy || isDesignProject();
-
+  // Case studies are pages on this site; everything else opens a case-study-style overview.
   const handleCardClick = () => {
-    if (project.isCaseStudy && isInternalLink(project.link)) {
+    if (project.isCaseStudy && project.link.startsWith('/')) {
       navigate(project.link);
-      return;
-    }
-    if (shouldOpenModal) {
-      setIsModalOpen(true);
-    } else if (typeof onQuickView === 'function') {
-      onQuickView();
+    } else {
+      setIsOverviewOpen(true);
     }
   };
-
-  const handleViewProject = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (project.isCaseStudy && isInternalLink(project.link)) {
-      navigate(project.link);
-      return;
-    }
-    if (shouldOpenModal) {
-      setIsModalOpen(true);
-    } else if (typeof onQuickView === 'function') {
-      onQuickView();
-    }
-  };
-
 
   const tags: string[] = Array.isArray(project.category)
     ? project.category.slice(0, 2)
@@ -100,7 +55,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index = 0, onQuickVi
           <Card className="h-full flex flex-col bg-white dark:bg-gray-900 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-sm transition-shadow duration-300 group-hover/card:shadow-lg">
             <div className="aspect-[16/10] overflow-hidden bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-800">
               <img
-                src={getProjectImage(project)}
+                src={project.image}
                 alt={getProjectTitle(project)}
                 loading="lazy"
                 className="w-full h-full object-cover object-top"
@@ -122,11 +77,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index = 0, onQuickVi
                   {project.subtitle || project.description}
                 </p>
               )}
-              <span
-                className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-portfolio-accent"
-                onClick={handleViewProject}
-              >
-                {project.isCaseStudy ? 'Read case study' : 'View project'}
+              <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-portfolio-accent">
+                {project.isCaseStudy ? 'Read case study' : 'View overview'}
                 <ArrowRight size={16} className="transition-transform duration-300 group-hover/card:translate-x-1" />
               </span>
             </CardContent>
@@ -134,11 +86,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index = 0, onQuickVi
         </div>
       </Reveal>
 
-      <CaseStudyModal
-        project={project}
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
+      {!project.isCaseStudy && (
+        <DesignOverviewModal
+          project={project}
+          isOpen={isOverviewOpen}
+          onClose={() => setIsOverviewOpen(false)}
+        />
+      )}
     </>
   );
 };

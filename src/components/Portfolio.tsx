@@ -1,8 +1,7 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { allProjects, type Project } from '@/utils/projectData';
 import { SEOHead } from '@/components/SEOHead';
-import QuickViewModal from '@/components/QuickViewModal';
 import ProjectCard from '@/components/ProjectCard';
 import Reveal from '@/components/motion/Reveal';
 
@@ -58,7 +57,6 @@ const buildGroups = (): ProjectGroup[] => {
 };
 
 const Portfolio = () => {
-  const [previewProject, setPreviewProject] = useState<Project | null>(null);
   const groups = buildGroups();
 
   return (
@@ -99,21 +97,12 @@ const Portfolio = () => {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {group.projects.map((project, index) => (
-                  <ProjectCard
-                    key={project.id}
-                    project={project}
-                    index={index}
-                    onQuickView={() => setPreviewProject(project)}
-                  />
+                  <ProjectCard key={project.id} project={project} index={index} />
                 ))}
               </div>
             </div>
           ))}
         </div>
-
-        {previewProject && (
-          <QuickViewModal project={previewProject} onClose={() => setPreviewProject(null)} />
-        )}
       </div>
     </section>
   );
